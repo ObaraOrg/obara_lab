@@ -1,4 +1,4 @@
-variable = "saffe"
+variable = "safgggfe"
 for i in range(100):
     print("alex")
 
