@@ -1,11 +1,44 @@
 from distutils import core
+from tkinter import Y
 import matplotlib.pyplot as plt
 from typing import Tuple, List
 from pathlib import Path
 import math
+from dataclasses import dataclass
+from textwrap import dedent
+from time import perf_counter
+from typing import Any
+
+@dataclass
+class TermColors:
+    HEADER = "\033[95m"
+    OKBLUE = "\033[94m"
+    OKCYAN = "\033[96m"
+    OKGREEN = "\033[92m"
+    WARNING = "\033[93m"
+    FAIL = "\033[91m"
+    ENDC = "\033[0m"
+    BOLD = "\033[1m"
+    UNDERLINE = "\033[4m"
+
+
+class ExecutionTimer:
+
+    def _init_(self, func_name: str) -> None:
+        print(f"{TermColors.HEADER}{TermColors.BOLD}{func_name}{TermColors.ENDC}")
+        self.func_name = func_name
+
+    def __enter__(self) -> Any:
+        self.time = perf_counter()
+        return self
+
+    def __exit__(self, type: Any, value: Any, traceback: Any) -> None:
+        self.time = perf_counter() - self.time
+        self.readout = f"Time: {self.time:.3f} seconds \n"
+        print(self.readout)
+
 
 TEST_PATH = Path("matrix.txt")
-
 
 def shift(coordinate: Tuple[int, int], shift_move: Tuple[int, int]) -> Tuple[int, int]:
     return coordinate[0] + shift_move[0], coordinate[1] + shift_move[1]
@@ -43,6 +76,7 @@ def rotation_of_coordinates(
 
 
 def main() -> None:
+
     buffer = []
     with (open(TEST_PATH)) as file:
         for line in file:
@@ -65,12 +99,16 @@ def main() -> None:
             (y_size - 1) // 2,
         ),
     )
+
     rotated_indexes = rotation_of_coordinates(centralized_indexes, math.radians(90))
-    y_axis_distances = [abs(el[1]) for el in rotated_indexes]
+    y_axis_distances = [round(abs(el[1])) for el in rotated_indexes]
+    # breakpoint()
+
+    max_el = len(y_axis_distances)
 
     coord_shifts_1 = [(-el, 0) for el in y_axis_distances]
-    # coord_shifts_2 = [(0, -(max_el - el)) for el in y_axis_distances[::-1]]
-    # breakpoint()
+    coord_shifts_2 = [(0, (max_el - el)) for el in y_axis_distances[::-1]]
+    breakpoint()
 
     shifted_parts_1 = shift_of_coordinates_with_transf(rotated_indexes, coord_shifts_1)
     shifted_parts_2 = shift_of_coordinates_with_transf(rotated_indexes, coord_shifts_2)
@@ -81,7 +119,7 @@ def main() -> None:
     plt.axhline(y=0, color="k")
     plt.axvline(x=0, color="k")
     # plt.scatter([el[0] for el in rotated_indexes], [el[1] for el in rotated_indexes])
-    plt.scatter([el[0] for el in shifted_parts_1], [el[1] for el in shifted_parts_1])
+    # plt.scatter([el[0] for el in shifted_parts_1], [el[1] for el in shifted_parts_1])
     plt.scatter([el[0] for el in shifted_parts_2], [el[1] for el in shifted_parts_2])
     plt.show()
 
@@ -101,6 +139,6 @@ def main() -> None:
     # breakpoint()
     # pass
 
-
-if __name__ == "__main__":
-    main()
+if __name__ == "__main__": 
+    with ExecutionTimer() as t:
+        main()
