@@ -4,41 +4,12 @@ import matplotlib.pyplot as plt
 from typing import Tuple, List
 from pathlib import Path
 import math
-from dataclasses import dataclass
-from textwrap import dedent
-from time import perf_counter
+
 from typing import Any
-
-@dataclass
-class TermColors:
-    HEADER = "\033[95m"
-    OKBLUE = "\033[94m"
-    OKCYAN = "\033[96m"
-    OKGREEN = "\033[92m"
-    WARNING = "\033[93m"
-    FAIL = "\033[91m"
-    ENDC = "\033[0m"
-    BOLD = "\033[1m"
-    UNDERLINE = "\033[4m"
-
-
-class ExecutionTimer:
-
-    def _init_(self, func_name: str) -> None:
-        print(f"{TermColors.HEADER}{TermColors.BOLD}{func_name}{TermColors.ENDC}")
-        self.func_name = func_name
-
-    def __enter__(self) -> Any:
-        self.time = perf_counter()
-        return self
-
-    def __exit__(self, type: Any, value: Any, traceback: Any) -> None:
-        self.time = perf_counter() - self.time
-        self.readout = f"Time: {self.time:.3f} seconds \n"
-        print(self.readout)
-
+from context_manager.context_manager import ExecutionTimer
 
 TEST_PATH = Path("matrix.txt")
+
 
 def shift(coordinate: Tuple[int, int], shift_move: Tuple[int, int]) -> Tuple[int, int]:
     return coordinate[0] + shift_move[0], coordinate[1] + shift_move[1]
@@ -84,11 +55,12 @@ def main() -> None:
             buffer.append(strip.split("\t"))
 
     core_indexes: List[Tuple[int, int]] = []
-    for i, line in enumerate(buffer):
-        for j, element in enumerate(line):
-            if element == "COOL":
-                continue
-            core_indexes.append((j, -i))
+    with ExecutionTimer("Evolution of Phase Oscillator"):
+        for i, line in enumerate(buffer):
+            for j, element in enumerate(line):
+                if element == "COOL":
+                    continue
+                core_indexes.append((j, -i))
 
     y_size = len(buffer)
     x_size = len(buffer[0])
@@ -139,6 +111,6 @@ def main() -> None:
     # breakpoint()
     # pass
 
-if __name__ == "__main__": 
-    with ExecutionTimer() as t:
-        main()
+
+if __name__ == "__main__":
+    main()
