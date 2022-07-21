@@ -1,4 +1,6 @@
+from calendar import weekday
 from distutils import core
+import genericpath
 from tkinter import Y
 import matplotlib.pyplot as plt
 from typing import Tuple, List
@@ -6,9 +8,11 @@ from pathlib import Path
 import math
 
 from typing import Any
+
+from matplotlib.transforms import BboxBase
 from context_manager.context_manager import ExecutionTimer
 
-TEST_PATH = Path("matrix.txt")
+TEST_PATH = Path("matrix_small.txt")
 
 
 def shift(coordinate: Tuple[int, int], shift_move: Tuple[int, int]) -> Tuple[int, int]:
@@ -55,7 +59,7 @@ def main() -> None:
             buffer.append(strip.split("\t"))
 
     core_indexes: List[Tuple[int, int]] = []
-    with ExecutionTimer("Evolution of Phase Oscillator"):
+    with ExecutionTimer("Example enumeration"):
         for i, line in enumerate(buffer):
             for j, element in enumerate(line):
                 if element == "COOL":
@@ -79,11 +83,15 @@ def main() -> None:
     max_el = len(y_axis_distances)
 
     coord_shifts_1 = [(-el, 0) for el in y_axis_distances]
-    coord_shifts_2 = [(0, (max_el - el)) for el in y_axis_distances[::-1]]
+    coord_shifts_2 = [(0, -(max_el - el)) for el in y_axis_distances[::-1]]
+
+
     breakpoint()
 
     shifted_parts_1 = shift_of_coordinates_with_transf(rotated_indexes, coord_shifts_1)
     shifted_parts_2 = shift_of_coordinates_with_transf(rotated_indexes, coord_shifts_2)
+
+
     plt.scatter(
         [el[0] for el in centralized_indexes], [el[1] for el in centralized_indexes]
     )
@@ -91,8 +99,9 @@ def main() -> None:
     plt.axhline(y=0, color="k")
     plt.axvline(x=0, color="k")
     # plt.scatter([el[0] for el in rotated_indexes], [el[1] for el in rotated_indexes])
-    # plt.scatter([el[0] for el in shifted_parts_1], [el[1] for el in shifted_parts_1])
-    plt.scatter([el[0] for el in shifted_parts_2], [el[1] for el in shifted_parts_2])
+    plt.scatter([el[0] for el in shifted_parts_1], [el[1] for el in shifted_parts_1])
+
+    # plt.scatter([el[0] for el in shifted_parts_2], [el[1] for el in shifted_parts_2])
     plt.show()
 
     # new_indexes = shift_of_coordinates(
@@ -110,6 +119,10 @@ def main() -> None:
 
     # breakpoint()
     # pass
+
+    # // plot a heat map graph of the matrix  
+    plt.imshow([el[0] for el in shifted_parts_1], [el[1] for el in shifted_parts_1], cmap="hot", interpolation="nearest")
+    plt.show()
 
 
 if __name__ == "__main__":
