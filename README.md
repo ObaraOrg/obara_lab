@@ -41,3 +41,8 @@ export PYTHONPATH=$PWD
 # Run scripts from root of repo such as
 python __script_name__.py
 ```
+
+###############
+
+# intiate the direnv virtual env
+# use make file, see instructions there
