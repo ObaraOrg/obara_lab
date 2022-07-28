@@ -3,6 +3,7 @@ from textwrap import dedent
 from time import perf_counter
 from typing import Any
 
+
 @dataclass
 class TermColors:
     HEADER = "\033[95m"
@@ -14,6 +15,7 @@ class TermColors:
     ENDC = "\033[0m"
     BOLD = "\033[1m"
     UNDERLINE = "\033[4m"
+
 
 class ExecutionTimer:
     def __init__(self, func_name: str) -> None:
@@ -28,4 +30,3 @@ class ExecutionTimer:
         self.time = perf_counter() - self.time
         self.readout = f"Time: {self.time:.3f} seconds \n"
         print(self.readout)
-

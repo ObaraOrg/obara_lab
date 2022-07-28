@@ -1,7 +1,3 @@
-from calendar import weekday
-from distutils import core
-import genericpath
-from tkinter import Y
 import matplotlib.pyplot as plt
 from typing import Tuple, List
 from pathlib import Path
@@ -9,10 +5,9 @@ import math
 
 from typing import Any
 
-from matplotlib.transforms import BboxBase
 from context_manager.context_manager import ExecutionTimer
 
-TEST_PATH = Path("matrix_small.txt")
+TEST_PATH = Path("matrix.txt")
 
 
 def shift(coordinate: Tuple[int, int], shift_move: Tuple[int, int]) -> Tuple[int, int]:
@@ -51,23 +46,24 @@ def rotation_of_coordinates(
 
 
 def main() -> None:
-
     buffer = []
+
     with (open(TEST_PATH)) as file:
         for line in file:
             strip = line.strip()
             buffer.append(strip.split("\t"))
 
     core_indexes: List[Tuple[int, int]] = []
-    with ExecutionTimer("Example enumeration"):
-        for i, line in enumerate(buffer):
-            for j, element in enumerate(line):
-                if element == "COOL":
-                    continue
-                core_indexes.append((j, -i))
+    for i, line in enumerate(buffer):
+        for j, element in enumerate(line):
+            if element == "COOL":
+                continue
+            core_indexes.append((j, -i))
 
     y_size = len(buffer)
     x_size = len(buffer[0])
+
+    # Top right elements
     centralized_indexes = shift_of_coordinates(
         core_indexes,
         (
@@ -77,51 +73,48 @@ def main() -> None:
     )
 
     rotated_indexes = rotation_of_coordinates(centralized_indexes, math.radians(90))
+
+    # Left shifts
     y_axis_distances = [round(abs(el[1])) for el in rotated_indexes]
-    # breakpoint()
+    left_coord_shifts = [(-el, 0) for el in y_axis_distances]
+    shifted_parts_left = shift_of_coordinates_with_transf(
+        rotated_indexes, left_coord_shifts
+    )
 
-    max_el = len(y_axis_distances)
+    # Down shifts
+    x_axis_distances = [round(abs(el[0])) for el in rotated_indexes]
+    down_coord_shifts = [(0, -el) for el in x_axis_distances]
+    shifted_parts_down = shift_of_coordinates_with_transf(
+        rotated_indexes, down_coord_shifts
+    )
 
-    coord_shifts_1 = [(-el, 0) for el in y_axis_distances]
-    coord_shifts_2 = [(0, -(max_el - el)) for el in y_axis_distances[::-1]]
-
-
-    breakpoint()
-
-    shifted_parts_1 = shift_of_coordinates_with_transf(rotated_indexes, coord_shifts_1)
-    shifted_parts_2 = shift_of_coordinates_with_transf(rotated_indexes, coord_shifts_2)
-
-
+    plt.figure()
+    plt.scatter(
+        [el[0] for el in shifted_parts_left], [el[1] for el in shifted_parts_left]
+    )
+    plt.scatter(
+        [el[0] for el in shifted_parts_down], [el[1] for el in shifted_parts_down]
+    )
     plt.scatter(
         [el[0] for el in centralized_indexes], [el[1] for el in centralized_indexes]
     )
     plt.grid()
     plt.axhline(y=0, color="k")
     plt.axvline(x=0, color="k")
-    # plt.scatter([el[0] for el in rotated_indexes], [el[1] for el in rotated_indexes])
-    plt.scatter([el[0] for el in shifted_parts_1], [el[1] for el in shifted_parts_1])
 
-    # plt.scatter([el[0] for el in shifted_parts_2], [el[1] for el in shifted_parts_2])
+    plt.figure()
+    plt.scatter([el[0] for el in rotated_indexes], [el[1] for el in rotated_indexes])
+    plt.grid()
+    plt.axhline(y=0, color="k")
+    plt.axvline(x=0, color="k")
     plt.show()
-
-    # new_indexes = shift_of_coordinates(
-    #     rotated_indexes, (((x_size - 1) // 2), -(y_size - 1) // 2)
-    # )
-
-    # breakpoint()
-    # for old_idxs, new_idxs in zip(
-    #     core_indexes,
-    #     new_indexes,
-    # ):
-    #     breakpoint()
-    #     buffer[new_idxs[0]][new_idxs[1]] = buffer[old_idxs[0]][old_idxs[1]]
-    #     buffer[old_idxs[0]][old_idxs[1]] = "COOL"
-
-    # breakpoint()
-    # pass
-
-    # // plot a heat map graph of the matrix  
-    plt.imshow([el[0] for el in shifted_parts_1], [el[1] for el in shifted_parts_1], cmap="hot", interpolation="nearest")
+    breakpoint()
+    joined_array = [*shifted_parts_left, *shifted_parts_down, *centralized_indexes]
+    joined_array = [(round(el[0]), round(el[1])) for el in joined_array]
+    right_hand_side = rotation_of_coordinates(joined_array, math.pi)
+    plt.scatter([el[0] for el in right_hand_side], [el[1] for el in right_hand_side])
+    plt.scatter([el[0] for el in joined_array], [el[1] for el in joined_array])
+    plt.grid()
     plt.show()
 
 
