@@ -82,8 +82,7 @@ def main() -> None:
                 continue
             point_list.append((j, -i))
     centralized_indexes = point_list.centralize()
-    rotated_indexes = (centralized_indexes, math.radians(90))
-
+    rotated_indexes = centralized_indexes.rotate(math.radians(90))
     breakpoint()
 
 

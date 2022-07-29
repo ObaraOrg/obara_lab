@@ -10,22 +10,27 @@ from context_manager.context_manager import ExecutionTimer
 TEST_PATH = Path("matrix.txt")
 
 
-def shift(coordinate: Tuple[int, int], shift_move: Tuple[int, int]) -> Tuple[int, int]:
-    return coordinate[0] + shift_move[0], coordinate[1] + shift_move[1]
+def shift(
+    coordinate: Tuple[int, int, str], shift_move: Tuple[int, int]
+) -> Tuple[int, int, str]:
+
+    x, y, id = coordinate
+    return x + shift_move[0], y + shift_move[1], id
 
 
-def rotation(coordinate: Tuple[int, int], angle: float) -> Tuple[int, int]:
+def rotation(coordinate: Tuple[int, int, str], angle: float) -> Tuple[int, int, str]:
     assert 0 <= angle <= 2 * math.pi
-    x, y = coordinate
+    x, y, id = coordinate
     return (
         x * math.cos(angle) - y * math.sin(angle),
         x * math.sin(angle) + y * math.cos(angle),
+        id,
     )
 
 
 def shift_of_coordinates_with_transf(
-    coordinate_list: List[Tuple[int, int]], shift_moves: Tuple[int, int]
-) -> List[Tuple[int, int]]:
+    coordinate_list: List[Tuple[int, int, str]], shift_moves: Tuple[int, int]
+) -> List[Tuple[int, int, str]]:
     assert len(coordinate_list) == len(shift_moves)
     return [
         shift(coord, shift_move)
@@ -34,13 +39,13 @@ def shift_of_coordinates_with_transf(
 
 
 def shift_of_coordinates(
-    coordinate_list: List[Tuple[int, int]], shift_move: Tuple[int, int]
-) -> List[Tuple[int, int]]:
+    coordinate_list: List[Tuple[int, int, str]], shift_move: Tuple[int, int]
+) -> List[Tuple[int, int, str]]:
     return [shift(coord, shift_move) for coord in coordinate_list]
 
 
 def rotation_of_coordinates(
-    coordinate_list: List[Tuple[int, int]], angle: float
+    coordinate_list: List[Tuple[int, int, str]], angle: float
 ) -> List[Tuple[int, int]]:
     return [rotation(coord, angle) for coord in coordinate_list]
 
@@ -58,8 +63,7 @@ def main() -> None:
         for j, element in enumerate(line):
             if element == "COOL":
                 continue
-            core_indexes.append((j, -i))
-
+            core_indexes.append((j, -i, element))
     y_size = len(buffer)
     x_size = len(buffer[0])
 
@@ -88,33 +92,17 @@ def main() -> None:
         rotated_indexes, down_coord_shifts
     )
 
-    plt.figure()
-    plt.scatter(
-        [el[0] for el in shifted_parts_left], [el[1] for el in shifted_parts_left]
-    )
-    plt.scatter(
-        [el[0] for el in shifted_parts_down], [el[1] for el in shifted_parts_down]
-    )
-    plt.scatter(
-        [el[0] for el in centralized_indexes], [el[1] for el in centralized_indexes]
-    )
-    plt.grid()
-    plt.axhline(y=0, color="k")
-    plt.axvline(x=0, color="k")
+    left_hand_side = [*shifted_parts_left, *shifted_parts_down, *centralized_indexes]
+    left_hand_side = [(round(el[0]), round(el[1]), el[2]) for el in left_hand_side]
+    right_hand_side = rotation_of_coordinates(left_hand_side, math.pi)
 
-    plt.figure()
-    plt.scatter([el[0] for el in rotated_indexes], [el[1] for el in rotated_indexes])
-    plt.grid()
-    plt.axhline(y=0, color="k")
-    plt.axvline(x=0, color="k")
-    plt.show()
-    breakpoint()
-    joined_array = [*shifted_parts_left, *shifted_parts_down, *centralized_indexes]
-    joined_array = [(round(el[0]), round(el[1])) for el in joined_array]
-    right_hand_side = rotation_of_coordinates(joined_array, math.pi)
-    plt.scatter([el[0] for el in right_hand_side], [el[1] for el in right_hand_side])
-    plt.scatter([el[0] for el in joined_array], [el[1] for el in joined_array])
-    plt.grid()
+    full_core = [*left_hand_side, *right_hand_side]
+    _, ax = plt.subplots()
+    ax.scatter([el[0] for el in full_core], [el[1] for el in full_core])
+    for i, coord_label in enumerate(full_core):
+        x, y, label = coord_label
+        ax.annotate(label, (x, y))
+    ax.grid()
     plt.show()
 
 
