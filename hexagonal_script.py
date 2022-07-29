@@ -3,11 +3,19 @@ from typing import Tuple, List
 from pathlib import Path
 import math
 
-from typing import Any
 
-from context_manager.context_manager import ExecutionTimer
+TEST_PATH = Path("new_matrix.txt")
+SAVE_PATH = Path("matrix_dump.txt")
 
-TEST_PATH = Path("matrix.txt")
+
+def construct_empty_matrix(
+    size_x: int, size_y: int, empty_element: str = ""
+) -> List[List[str]]:
+    matrix: List[List[str]] = []
+    for _ in range(size_y):
+        row = [empty_element] * size_x
+        matrix.append(row)
+    return matrix
 
 
 def shift(
@@ -50,6 +58,12 @@ def rotation_of_coordinates(
     return [rotation(coord, angle) for coord in coordinate_list]
 
 
+def round_list(
+    coordinate_list: List[Tuple[int, int, str]]
+) -> List[Tuple[int, int, str]]:
+    return [(round(x), round(y), id) for (x, y, id) in coordinate_list]
+
+
 def main() -> None:
     buffer = []
 
@@ -79,31 +93,51 @@ def main() -> None:
     rotated_indexes = rotation_of_coordinates(centralized_indexes, math.radians(90))
 
     # Left shifts
-    y_axis_distances = [round(abs(el[1])) for el in rotated_indexes]
+    y_axis_distances = [abs(el[1]) for el in round_list(rotated_indexes)]
     left_coord_shifts = [(-el, 0) for el in y_axis_distances]
     shifted_parts_left = shift_of_coordinates_with_transf(
         rotated_indexes, left_coord_shifts
     )
 
     # Down shifts
-    x_axis_distances = [round(abs(el[0])) for el in rotated_indexes]
+    x_axis_distances = [abs(el[0]) for el in round_list(rotated_indexes)]
     down_coord_shifts = [(0, -el) for el in x_axis_distances]
     shifted_parts_down = shift_of_coordinates_with_transf(
         rotated_indexes, down_coord_shifts
     )
 
-    left_hand_side = [*shifted_parts_left, *shifted_parts_down, *centralized_indexes]
-    left_hand_side = [(round(el[0]), round(el[1]), el[2]) for el in left_hand_side]
+    left_hand_side = round_list(
+        [*shifted_parts_left, *shifted_parts_down, *centralized_indexes]
+    )
     right_hand_side = rotation_of_coordinates(left_hand_side, math.pi)
 
-    full_core = [*left_hand_side, *right_hand_side]
+    full_core = round_list([*left_hand_side, *right_hand_side])
+    reshifted_coords = shift_of_coordinates(
+        full_core,
+        (
+            (x_size - 1) // 2,
+            (y_size - 1) // 2,
+        ),
+    )
+
     _, ax = plt.subplots()
-    ax.scatter([el[0] for el in full_core], [el[1] for el in full_core])
-    for i, coord_label in enumerate(full_core):
+    ax.scatter([el[0] for el in reshifted_coords], [el[1] for el in reshifted_coords])
+    for i, coord_label in enumerate(reshifted_coords):
         x, y, label = coord_label
         ax.annotate(label, (x, y))
     ax.grid()
     plt.show()
+    matrix = construct_empty_matrix(x_size, y_size, "COOL")
+
+    for coordinate in reshifted_coords:
+        x, y, label = coordinate
+        matrix[y][x] = label
+
+    matrix = matrix[::-1]
+    with (open(SAVE_PATH, "w")) as file:
+        for row in matrix:
+            line_string = " ".join(row)
+            file.write(f"{line_string}\n")
 
 
 if __name__ == "__main__":
