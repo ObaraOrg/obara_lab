@@ -62,7 +62,7 @@ def round_list(
     coordinate_list: List[Tuple[int, int, str]]
 ) -> List[Tuple[int, int, str]]:
     return [(round(x), round(y), id) for (x, y, id) in coordinate_list]
-
+    
 
 def main() -> None:
     buffer = []
