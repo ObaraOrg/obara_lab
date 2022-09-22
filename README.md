@@ -18,10 +18,10 @@ python3.9 -m venv .venv
 source .venv/bin/activate
 
 pip install --upgrade setuptools wheel pip-tools
-pip-sync requirements/requirements_dev.txt
+pip-sync requirements/requirements.txt
 
-# If using windows god may help you only,
-# but try doing
+# If using windows only god may help you (^_^),
+# but try doing it anyway
 
 pip install --upgrade setuptools wheel pip-tools
 pip-sync requirements/requirements_dev.txt
@@ -40,9 +40,7 @@ export PYTHONPATH=$PWD
 
 # Run scripts from root of repo such as
 python __script_name__.py
+
+# Intiate the direnv virtual env
+# Use make file, see instructions there
 ```
-
-###############
-
-# intiate the direnv virtual env
-# use make file, see instructions there
