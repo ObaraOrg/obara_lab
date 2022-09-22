@@ -1,5 +1,11 @@
 # Folders
 test/
+
+# Files
+new_matrix.txt
+matrix_small.txt
+matrix_dump.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
