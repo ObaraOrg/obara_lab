@@ -1,0 +1,61 @@
+#!/bin/csh
+#$-cwd
+#$ -V
+#$ -N timer_test
+#$ -o job.out
+#$ -e job.out
+#$ -q all.q@olds04.candle.nr.titech.ac.jp.
+#$ -q all.q@olds05.candle.nr.titech.ac.jp.
+#$ -q all.q@olds06.candle.nr.titech.ac.jp.
+
+set NNODEs=3			# Number of Nodes for OMPI
+set NCPUs=24			# Number of CPUs for Serpent OMP
+echo Serpent 2 has started: >> calc_time.out
+set RunStart=`date` && set RS=`date -d "$RunStart" +%s`
+#===============================================================================================
+set WKDR = $PWD			# set working dir
+set sINP = wh_lfr		# main serpent input file	
+set noBUsteps = 3		# last burnup step output file
+set step = 0			# first suffle step
+set stepx = 2			# last suffle step
+#===============================================================================================
+
+# - Backup, just in case
+if (! -e original_files}) then
+	mkdir original_files
+    cp * original_files
+endif
+
+# - Start run and shuffle fuel.inp
+while ( $step <= $stepx ) 
+	@ var = $step
+    set CyStart=`date` && set CS=`date -d "$CyStart" +%s`
+
+# - Run Serpent
+    (cd ${WKDR}; mpirun -hostfile hosts_olds -loadbalance -npernode 1 \
+	-n ${NNODEs} sss2 -omp ${NCPUs} ${sINP} >> sss2.out ) & wait
+
+# - Make burnup cycle folder and copy all 
+    if (! -e ${sINP}suffleNo${var}) then
+		mkdir ${sINP}suffleNo${var}
+	endif
+
+	(cd ${WKDR}; cp ${sINP}* ${sINP}suffleNo${var} ) & wait
+    (cd ${WKDR}; mv sss2.out ${sINP}suffleNo${var} ) & wait
+
+# - Copy new fuel data and to fuel.inp and shuffle
+	(cd ${WKDR}; cp ${sINP}.bumat${noBUsteps} fuel.inp ) & wait
+	(cd ${WKDR}; python Shuffling.py ) & wait
+    
+# - Note the time for each cycle to file
+	set CyEnd=`date` && set CE=`date -d "$CyEnd" +%s` && set DCy=`expr \( $CE - $CS \)`
+	printf "Cycle ${var} in: %sh:%02dmin:%02ds\n" `expr $DCy / 3600` `expr $DCy / 60` \
+	`expr $DCy % 60` >> calc_time.out 
+	
+	@ step++
+end
+#===============================================================================================
+set set RunEND=`date` && set RE=`date -d "$RunEND" +%s` && set DRun=`expr \( $RE - $RS \)`
+printf "Run done in %sh:%02dmin:%02ds\n" `expr $DRun / 3600 ` `expr $DRun / 60 % 60` `expr $DRun % 60` >> calc_time.out 
+#===============================================================================================
+# NOTE: The script has been made for csh shell, be aware ^-^
