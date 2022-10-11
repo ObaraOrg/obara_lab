@@ -1,4 +1,4 @@
-# Testing Repo
+# Production repo (obara_lab)
 ## Setup
 
 ```sh
