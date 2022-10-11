@@ -1,4 +1,16 @@
 # Production repo (obara_lab)
+## SSH Key
+
+Use the following [GitHub Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/enterprise-server@3.6/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+``` sh
+# Work also for the lab's ancient CentOS 6.7 
+ssh-keygen -t ecdsa -b 256 -C "xxx@gmail.com"
+# put password, so it accepts it when you add it
+ssh-add .ssh/key_name
+# next go to git and add it 
+```
+
+
 ## Setup
 
 ```sh
