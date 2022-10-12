@@ -5,11 +5,12 @@ Use the following [GitHub Generating a new SSH key and adding it to the ssh-agen
 ``` sh
 # Work also for the lab's ancient CentOS 6.7 
 ssh-keygen -t ecdsa -b 256 -C "xxx@gmail.com"
+# For more modern platforms
+ssh-keygen -t ed25519-sk -C "xxx@gmail.com"
 # put password, so it accepts it when you add it
 ssh-add .ssh/key_name
 # next go to git and add it 
 ```
-
 
 ## Setup
 

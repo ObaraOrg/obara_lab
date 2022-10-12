@@ -12,7 +12,7 @@ matrix_dump.txt
 __pycache__/
 *.py[cod]
 *$py.class
-.direnv/
+.direnv
 test/
 
 # C extensions
