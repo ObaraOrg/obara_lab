@@ -42,6 +42,7 @@ while ( $step <= $stepx )
 
 	(cd ${WKDR}; cp ${sINP}* ${sINP}suffleNo${var} ) & wait
     (cd ${WKDR}; mv sss2.out ${sINP}suffleNo${var} ) & wait
+	(cd ${WKDR}; cp fuel.inp ${sINP}suffleNo${var} ) & wait
 
 # - Copy new fuel data and to fuel.inp and shuffle
 	(cd ${WKDR}; cp ${sINP}.bumat${noBUsteps} fuel.inp ) & wait
