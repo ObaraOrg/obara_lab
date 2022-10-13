@@ -7,12 +7,13 @@ Use the following [GitHub Generating a new SSH key and adding it to the ssh-agen
 ssh-keygen -t ecdsa -b 256 -C "xxx@gmail.com"
 # For more modern platforms
 ssh-keygen -t ed25519-sk -C "xxx@gmail.com"
-# also please start the agent, it might not work else 
+# start the ssh-agent in the background
 eval "$(ssh-agent -s)"
 # put password, so it accepts it when you add it
 ssh-add .ssh/key_name
 # next go to git and add it 
 
+#NOTE: The Tsubame needs to load the key everytime it starts
 
 ```
 
