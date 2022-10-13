@@ -1,0 +1,402 @@
+
+  _                   .-=-.           .-=-.          .-==-.       
+ { }      __        .' O o '.       .' O o '.       /  -<' )--<   
+ { }    .' O'.     / o .-. O \     / o .-. O \     /  .---`       
+ { }   / .-. o\   /O  /   \  o\   /O  /   \  o\   /O /            
+  \ `-` /   \ O`-'o  /     \  O`-'o  /     \  O`-`o /             
+   `-.-`     '.____.'       `._____.'       `.____.'              
+
+Serpent 2 beta
+
+A Continuous-energy Monte Carlo Reactor Physics Burnup Calculation Code
+
+ - Version 2.1.33 (February 24, 2021) -- Contact: serpent@vtt.fi
+
+ - Reference: J. Leppanen, et al. "The Serpent Monte Carlo code: Status,
+              development and applications in 2013." Ann. Nucl. Energy,
+              82 (2015) 142-150.
+
+ - Compiled May 17 2022 22:52:38
+
+ - MPI Parallel calculation mode available
+
+ - OpenMP Parallel calculation mode available
+
+ - Geometry and mesh plotting available
+
+ - Default data path set to: "/home/stalex/serpent/xsdata"
+
+ - Full command used to run Serpent:
+
+   sss2 -omp 22 -checkvolumes 50000000 wh_lfr
+
+Begin calculation on Thu Oct 13 16:27:53 2022 at olds01.candle.nr.titech.ac.jp
+
+Reading input file "wh_lfr"...
+Reading input file "input/materials.inp"...
+Reading input file "fuel.inp"...
+Reading input file "input/stuctural_mat.inp"...
+Reading input file "input/pins.inp"...
+Reading input file "input/fa.inp"...
+Reading input file "input/core.inp"...
+
+NOTE: The "set printm" feature is outdated and not recommended to be
+      used anymore. For restart calculations use the binary restart
+      files ("set rfw") and ("set rfr"):
+
+      http://serpent.vtt.fi/mediawiki/index.php/Input_syntax_manual#set_rfw
+
+      Isotopic data is best obtained from the _dep.m output.
+
+
+Checking duplicate input definitions...
+OK.
+
+Dividing burnable materials...
+OK.
+
+Creating geometry...
+OK.
+
+Counting geometry zones...
+
+The geometry consists of 5 levels:
+
+Level 0 size: max 11 zones
+Level 1 size: max 729 zones
+Level 2 size: max 4 zones
+Level 3 size: max 225 zones
+Level 4 size: max 3 zones
+
+Processing cells...
+OK.
+
+Linking materials to geometry...
+OK.
+
+Processing detector definitions...
+OK.
+
+Counting cells...
+OK.
+
+Processing data for group constant generation:
+
+ - 70 energy groups in micro-group structure
+ - 2 energy groups in macro-group structure
+ - B1 fundamental mode calculation is not run
+ - Group constants generated in 1 universes
+ - Discontinuity factors are not calculated
+ - Pin-power distributions are not calculated
+ - Albedos are not calculated
+ - Poison cross sections are not calculated
+
+Calculating material volumes by sampling points...
+
+x-dimensions : -2.15000E+02 2.15000E+02 cm
+y-dimensions : -2.15000E+02 2.15000E+02 cm
+z-dimensions : 0.00000E+00 4.05000E+02 cm
+
+Estimated calculation time: 0:00:06
+Realized calculation time:  0:00:01
+
+Volumes (in cm3) :
+
+Material lead              :        N/A 3.4261E+07 (0.00016) :      N/A * 
+Material ods               : 1.3569E+05 1.2663E+07 (0.00031) :    > 1.0 * 
+Material ssteel            : 0.0000E+00 2.7051E+06 (0.00063) :      N/A * 
+Material borsteel          : 7.1875E+04 3.2096E+06 (0.00064) :    > 1.0 * 
+Material zirc              : 6.5885E+04 2.9382E+06 (0.00065) :    > 1.0 * 
+Material fuelP1Z1          : 1.0542E+04 1.0631E+04 (0.01114) :  0.00839   
+Material fuelP2Z1          : 1.0542E+04 1.0649E+04 (0.01342) :  0.01010   
+Material fuelP3Z1          : 1.0542E+04 1.0455E+04 (0.01310) : -0.00823   
+Material fuelP4Z1          : 1.0542E+04 1.0545E+04 (0.01278) :  0.00029   
+Material fuelP5Z1          : 1.0542E+04 1.0547E+04 (0.01231) :  0.00044   
+Material fuelP6Z1          : 1.0542E+04 1.0571E+04 (0.01223) :  0.00271   
+Material fuelP7Z1          : 1.0542E+04 1.0496E+04 (0.01158) : -0.00439   
+Material fuelP8Z1          : 1.0542E+04 1.0589E+04 (0.00964) :  0.00441   
+Material fuelP9Z1          : 1.0542E+04 1.0421E+04 (0.01132) : -0.01150   
+Material fuelP10Z1         : 1.0542E+04 1.0355E+04 (0.01141) : -0.01775   
+Material fuelP11Z1         : 1.0542E+04 1.0682E+04 (0.01241) :  0.01322   
+Material fuelP12Z1         : 1.0542E+04 1.0533E+04 (0.01244) : -0.00084   
+Material fuelP13Z1         : 1.0542E+04 1.0431E+04 (0.01311) : -0.01050   
+Material fuelP14Z1         : 1.0542E+04 1.0619E+04 (0.01151) :  0.00726   
+Material fuelP15Z1         : 1.0542E+04 1.0548E+04 (0.01161) :  0.00058   
+Material fuelP16Z1         : 1.0542E+04 1.0535E+04 (0.01263) : -0.00070   
+Material fuelP17Z1         : 1.0542E+04 1.0593E+04 (0.01210) :  0.00484   
+Material fuelP18Z1         : 1.0542E+04 1.0661E+04 (0.01088) :  0.01123   
+Material fuelP19Z1         : 1.0542E+04 1.0517E+04 (0.01135) : -0.00241   
+Material fuelP20Z1         : 1.0542E+04 1.0520E+04 (0.01268) : -0.00212   
+Material fuelP21Z1         : 1.0542E+04 1.0547E+04 (0.01140) :  0.00044   
+Material fuelP22Z1         : 1.0542E+04 1.0616E+04 (0.01329) :  0.00697   
+Material fuelP23Z1         : 1.0542E+04 1.0553E+04 (0.01235) :  0.00100   
+Material fuelP24Z1         : 1.0542E+04 1.0518E+04 (0.01137) : -0.00226   
+Material fuelP25Z1         : 1.0542E+04 1.0545E+04 (0.01231) :  0.00029   
+Material fuelP26Z1         : 1.0542E+04 1.0517E+04 (0.01138) : -0.00241   
+Material fuelP27Z1         : 1.0542E+04 1.0503E+04 (0.01100) : -0.00368   
+Material fuelP28Z1         : 1.0542E+04 1.0699E+04 (0.01318) :  0.01493   
+Material fuelP29Z1         : 1.0542E+04 1.0568E+04 (0.01126) :  0.00242   
+Material fuelP30Z1         : 1.0542E+04 1.0398E+04 (0.01387) : -0.01363   
+Material fuelP31Z1         : 1.0542E+04 1.0409E+04 (0.01207) : -0.01263   
+Material fuelP32Z1         : 1.0542E+04 1.0668E+04 (0.01326) :  0.01194   
+Material fuelP33Z1         : 1.0542E+04 1.0401E+04 (0.01181) : -0.01334   
+Material fuelP34Z1         : 1.0542E+04 1.0589E+04 (0.01277) :  0.00441   
+Material fuelP35Z1         : 1.0542E+04 1.0613E+04 (0.01192) :  0.00669   
+Material fuelP36Z1         : 1.0542E+04 1.0816E+04 (0.01093) :  0.02601 * 
+Material fuelP37Z1         : 1.0542E+04 1.0662E+04 (0.01053) :  0.01138   
+Material fuelP38Z1         : 1.0542E+04 1.0569E+04 (0.01245) :  0.00257   
+Material fuelP39Z1         : 1.0542E+04 1.0478E+04 (0.01222) : -0.00610   
+Material fuelP40Z1         : 1.0542E+04 1.0595E+04 (0.01078) :  0.00498   
+Material fuelP41Z1         : 1.0542E+04 1.0496E+04 (0.01152) : -0.00439   
+Material fuelP42Z1         : 1.0542E+04 1.0509E+04 (0.01127) : -0.00312   
+Material fuelP43Z1         : 1.0542E+04 1.0563E+04 (0.01188) :  0.00200   
+Material fuelP44Z1         : 1.0542E+04 1.0818E+04 (0.01198) :  0.02615 * 
+Material fuelP45Z1         : 1.0542E+04 1.0518E+04 (0.01132) : -0.00226   
+Material fuelP46Z1         : 1.0542E+04 1.0395E+04 (0.01311) : -0.01391   
+Material fuelP47Z1         : 1.0542E+04 1.0605E+04 (0.01115) :  0.00598   
+Material fuelP48Z1         : 1.0542E+04 1.0647E+04 (0.01181) :  0.00995   
+Material fuelP1Z2          : 1.0542E+04 1.0527E+04 (0.01124) : -0.00141   
+Material fuelP2Z2          : 1.0542E+04 1.0491E+04 (0.01276) : -0.00482   
+Material fuelP3Z2          : 1.0542E+04 1.0512E+04 (0.01152) : -0.00283   
+Material fuelP4Z2          : 1.0542E+04 1.0500E+04 (0.01323) : -0.00397   
+Material fuelP5Z2          : 1.0542E+04 1.0286E+04 (0.01258) : -0.02428   
+Material fuelP6Z2          : 1.0542E+04 1.0454E+04 (0.01087) : -0.00837   
+Material fuelP7Z2          : 1.0542E+04 1.0339E+04 (0.01281) : -0.01931   
+Material fuelP8Z2          : 1.0542E+04 1.0571E+04 (0.01101) :  0.00271   
+Material fuelP9Z2          : 1.0542E+04 1.0661E+04 (0.01012) :  0.01123   
+Material fuelP10Z2         : 1.0542E+04 1.0749E+04 (0.01267) :  0.01962   
+Material fuelP11Z2         : 1.0542E+04 1.0749E+04 (0.01213) :  0.01962   
+Material fuelP12Z2         : 1.0542E+04 1.0401E+04 (0.01180) : -0.01334   
+Material fuelP13Z2         : 1.0542E+04 1.0499E+04 (0.01106) : -0.00411   
+Material fuelP14Z2         : 1.0542E+04 1.0524E+04 (0.01113) : -0.00169   
+Material fuelP15Z2         : 1.0542E+04 1.0599E+04 (0.01185) :  0.00541   
+Material fuelP16Z2         : 1.0542E+04 1.0361E+04 (0.01201) : -0.01718   
+Material fuelP17Z2         : 1.0542E+04 1.0380E+04 (0.01173) : -0.01533   
+Material fuelP18Z2         : 1.0542E+04 1.0466E+04 (0.01310) : -0.00724   
+Material fuelP19Z2         : 1.0542E+04 1.0836E+04 (0.01184) :  0.02785 * 
+Material fuelP20Z2         : 1.0542E+04 1.0691E+04 (0.01052) :  0.01407   
+Material fuelP21Z2         : 1.0542E+04 1.0449E+04 (0.01168) : -0.00880   
+Material fuelP22Z2         : 1.0542E+04 1.0391E+04 (0.01256) : -0.01434   
+Material fuelP23Z2         : 1.0542E+04 1.0613E+04 (0.01206) :  0.00669   
+Material fuelP24Z2         : 1.0542E+04 1.0372E+04 (0.01283) : -0.01619   
+Material fuelP25Z2         : 1.0542E+04 1.0833E+04 (0.01072) :  0.02757 * 
+Material fuelP26Z2         : 1.0542E+04 1.0670E+04 (0.01244) :  0.01209   
+Material fuelP27Z2         : 1.0542E+04 1.0601E+04 (0.01183) :  0.00555   
+Material fuelP28Z2         : 1.0542E+04 1.0699E+04 (0.01155) :  0.01493   
+Material fuelP29Z2         : 1.0542E+04 1.0774E+04 (0.01399) :  0.02203   
+Material fuelP30Z2         : 1.0542E+04 1.0583E+04 (0.01016) :  0.00385   
+Material fuelP31Z2         : 1.0542E+04 1.0421E+04 (0.01228) : -0.01150   
+Material fuelP32Z2         : 1.0542E+04 1.0345E+04 (0.01133) : -0.01874   
+Material fuelP33Z2         : 1.0542E+04 1.0765E+04 (0.01008) :  0.02118 * 
+Material fuelP34Z2         : 1.0542E+04 1.0481E+04 (0.01147) : -0.00581   
+Material fuelP35Z2         : 1.0542E+04 1.0571E+04 (0.01236) :  0.00271   
+Material fuelP36Z2         : 1.0542E+04 1.0541E+04 (0.01272) : -0.00013   
+Material fuelP37Z2         : 1.0542E+04 1.0424E+04 (0.01231) : -0.01121   
+Material fuelP38Z2         : 1.0542E+04 1.0562E+04 (0.01117) :  0.00186   
+Material fuelP39Z2         : 1.0542E+04 1.0686E+04 (0.01148) :  0.01365   
+Material fuelP40Z2         : 1.0542E+04 1.0737E+04 (0.01107) :  0.01848   
+Material fuelP41Z2         : 1.0542E+04 1.0653E+04 (0.01202) :  0.01052   
+Material fuelP42Z2         : 1.0542E+04 1.0493E+04 (0.01166) : -0.00468   
+Material fuelP43Z2         : 1.0542E+04 1.0421E+04 (0.01331) : -0.01150   
+Material fuelP44Z2         : 1.0542E+04 1.0565E+04 (0.01216) :  0.00214   
+Material fuelP45Z2         : 1.0542E+04 1.0578E+04 (0.01200) :  0.00342   
+Material fuelP46Z2         : 1.0542E+04 1.0676E+04 (0.01276) :  0.01265   
+Material fuelP47Z2         : 1.0542E+04 1.0363E+04 (0.01155) : -0.01704   
+Material fuelP48Z2         : 1.0542E+04 1.0476E+04 (0.01002) : -0.00624   
+Material fuelP1Z3          : 1.0542E+04 1.0589E+04 (0.01281) :  0.00441   
+Material fuelP2Z3          : 1.0542E+04 1.0685E+04 (0.01280) :  0.01351   
+Material fuelP3Z3          : 1.0542E+04 1.0527E+04 (0.01059) : -0.00141   
+Material fuelP4Z3          : 1.0542E+04 1.0641E+04 (0.01086) :  0.00939   
+Material fuelP5Z3          : 1.0542E+04 1.0572E+04 (0.01225) :  0.00285   
+Material fuelP6Z3          : 1.0542E+04 1.0557E+04 (0.01230) :  0.00143   
+Material fuelP7Z3          : 1.0542E+04 1.0607E+04 (0.01137) :  0.00612   
+Material fuelP8Z3          : 1.0542E+04 1.0436E+04 (0.01212) : -0.01008   
+Material fuelP9Z3          : 1.0542E+04 1.0539E+04 (0.01271) : -0.00027   
+Material fuelP10Z3         : 1.0542E+04 1.0647E+04 (0.01205) :  0.00995   
+Material fuelP11Z3         : 1.0542E+04 1.0279E+04 (0.01218) : -0.02499 * 
+Material fuelP12Z3         : 1.0542E+04 1.0527E+04 (0.01229) : -0.00141   
+Material fuelP13Z3         : 1.0542E+04 1.0475E+04 (0.01281) : -0.00638   
+Material fuelP14Z3         : 1.0542E+04 1.0716E+04 (0.01301) :  0.01649   
+Material fuelP15Z3         : 1.0542E+04 1.0511E+04 (0.01287) : -0.00297   
+Material fuelP16Z3         : 1.0542E+04 1.0526E+04 (0.01225) : -0.00155   
+Material fuelP17Z3         : 1.0542E+04 1.0361E+04 (0.01308) : -0.01718   
+Material fuelP18Z3         : 1.0542E+04 1.0515E+04 (0.01235) : -0.00255   
+Material fuelP19Z3         : 1.0542E+04 1.0490E+04 (0.01160) : -0.00496   
+Material fuelP20Z3         : 1.0542E+04 1.0560E+04 (0.01039) :  0.00171   
+Material fuelP21Z3         : 1.0542E+04 1.0548E+04 (0.01272) :  0.00058   
+Material fuelP22Z3         : 1.0542E+04 1.0601E+04 (0.01141) :  0.00555   
+Material fuelP23Z3         : 1.0542E+04 1.0619E+04 (0.01298) :  0.00726   
+Material fuelP24Z3         : 1.0542E+04 1.0445E+04 (0.01249) : -0.00922   
+Material fuelP25Z3         : 1.0542E+04 1.0404E+04 (0.01133) : -0.01306   
+Material fuelP26Z3         : 1.0542E+04 1.0442E+04 (0.01480) : -0.00951   
+Material fuelP27Z3         : 1.0542E+04 1.0449E+04 (0.01147) : -0.00880   
+Material fuelP28Z3         : 1.0542E+04 1.0707E+04 (0.01281) :  0.01564   
+Material fuelP29Z3         : 1.0542E+04 1.0497E+04 (0.01206) : -0.00425   
+Material fuelP30Z3         : 1.0542E+04 1.0562E+04 (0.01080) :  0.00186   
+Material fuelP31Z3         : 1.0542E+04 1.0333E+04 (0.01146) : -0.01988   
+Material fuelP32Z3         : 1.0542E+04 1.0479E+04 (0.01142) : -0.00596   
+Material fuelP33Z3         : 1.0542E+04 1.0674E+04 (0.01082) :  0.01251   
+Material fuelP34Z3         : 1.0542E+04 1.0686E+04 (0.01211) :  0.01365   
+Material fuelP35Z3         : 1.0542E+04 1.0598E+04 (0.01151) :  0.00527   
+Material fuelP36Z3         : 1.0542E+04 1.0494E+04 (0.01167) : -0.00454   
+Material fuelP37Z3         : 1.0542E+04 1.0634E+04 (0.01305) :  0.00868   
+Material fuelP38Z3         : 1.0542E+04 1.0644E+04 (0.01226) :  0.00967   
+Material fuelP39Z3         : 1.0542E+04 1.0665E+04 (0.01204) :  0.01166   
+Material fuelP40Z3         : 1.0542E+04 1.0980E+04 (0.01204) :  0.04149 * 
+Material fuelP41Z3         : 1.0542E+04 1.0593E+04 (0.01097) :  0.00484   
+Material fuelP42Z3         : 1.0542E+04 1.0596E+04 (0.01213) :  0.00512   
+Material fuelP43Z3         : 1.0542E+04 1.0626E+04 (0.01268) :  0.00797   
+Material fuelP44Z3         : 1.0542E+04 1.0514E+04 (0.01018) : -0.00269   
+Material fuelP45Z3         : 1.0542E+04 1.0466E+04 (0.01282) : -0.00724   
+Material fuelP46Z3         : 1.0542E+04 1.0574E+04 (0.01237) :  0.00299   
+Material fuelP47Z3         : 1.0542E+04 1.0587E+04 (0.01181) :  0.00427   
+Material fuelP48Z3         : 1.0542E+04 1.0466E+04 (0.01162) : -0.00724   
+Material fuelP1Z4          : 1.0542E+04 1.0644E+04 (0.01141) :  0.00967   
+Material fuelP2Z4          : 1.0542E+04 1.0560E+04 (0.01183) :  0.00171   
+Material fuelP3Z4          : 1.0542E+04 1.0470E+04 (0.01277) : -0.00681   
+Material fuelP4Z4          : 1.0542E+04 1.0397E+04 (0.01143) : -0.01377   
+Material fuelP5Z4          : 1.0542E+04 1.0536E+04 (0.01136) : -0.00056   
+Material fuelP6Z4          : 1.0542E+04 1.0493E+04 (0.01379) : -0.00468   
+Material fuelP7Z4          : 1.0542E+04 1.0482E+04 (0.01207) : -0.00567   
+Material fuelP8Z4          : 1.0542E+04 1.0526E+04 (0.01209) : -0.00155   
+Material fuelP9Z4          : 1.0542E+04 1.0364E+04 (0.01143) : -0.01690   
+Material fuelP10Z4         : 1.0542E+04 1.0620E+04 (0.01026) :  0.00740   
+Material fuelP11Z4         : 1.0542E+04 1.0596E+04 (0.01194) :  0.00512   
+Material fuelP12Z4         : 1.0542E+04 1.0578E+04 (0.01258) :  0.00342   
+Material fuelP13Z4         : 1.0542E+04 1.0644E+04 (0.01185) :  0.00967   
+Material fuelP14Z4         : 1.0542E+04 1.0535E+04 (0.01268) : -0.00070   
+Material fuelP15Z4         : 1.0542E+04 1.0467E+04 (0.01212) : -0.00709   
+Material fuelP16Z4         : 1.0542E+04 1.0406E+04 (0.01019) : -0.01292   
+Material fuelP17Z4         : 1.0542E+04 1.0529E+04 (0.01214) : -0.00127   
+Material fuelP18Z4         : 1.0542E+04 1.0436E+04 (0.01290) : -0.01008   
+Material fuelP19Z4         : 1.0542E+04 1.0457E+04 (0.01012) : -0.00809   
+Material fuelP20Z4         : 1.0542E+04 1.0761E+04 (0.01187) :  0.02075   
+Material fuelP21Z4         : 1.0542E+04 1.0747E+04 (0.01268) :  0.01947   
+Material fuelP22Z4         : 1.0542E+04 1.0473E+04 (0.01220) : -0.00653   
+Material fuelP23Z4         : 1.0542E+04 1.0479E+04 (0.01173) : -0.00596   
+Material fuelP24Z4         : 1.0542E+04 1.0658E+04 (0.01169) :  0.01095   
+Material fuelP25Z4         : 1.0542E+04 1.0698E+04 (0.01034) :  0.01478   
+Material fuelP26Z4         : 1.0542E+04 1.0521E+04 (0.01202) : -0.00198   
+Material fuelP27Z4         : 1.0542E+04 1.0538E+04 (0.01104) : -0.00042   
+Material fuelP28Z4         : 1.0542E+04 1.0602E+04 (0.01084) :  0.00569   
+Material fuelP29Z4         : 1.0542E+04 1.0557E+04 (0.01221) :  0.00143   
+Material fuelP30Z4         : 1.0542E+04 1.0416E+04 (0.01159) : -0.01192   
+Material fuelP31Z4         : 1.0542E+04 1.0523E+04 (0.01143) : -0.00184   
+Material fuelP32Z4         : 1.0542E+04 1.0530E+04 (0.01135) : -0.00113   
+Material fuelP33Z4         : 1.0542E+04 1.0445E+04 (0.01210) : -0.00922   
+Material fuelP34Z4         : 1.0542E+04 1.0397E+04 (0.01221) : -0.01377   
+Material fuelP35Z4         : 1.0542E+04 1.0319E+04 (0.01123) : -0.02116   
+Material fuelP36Z4         : 1.0542E+04 1.0449E+04 (0.01073) : -0.00880   
+Material fuelP37Z4         : 1.0542E+04 1.0542E+04 (0.01250) :  0.00001   
+Material fuelP38Z4         : 1.0542E+04 1.0583E+04 (0.01221) :  0.00385   
+Material fuelP39Z4         : 1.0542E+04 1.0478E+04 (0.01277) : -0.00610   
+Material fuelP40Z4         : 1.0542E+04 1.0388E+04 (0.01308) : -0.01462   
+Material fuelP41Z4         : 1.0542E+04 1.0398E+04 (0.01052) : -0.01363   
+Material fuelP42Z4         : 1.0542E+04 1.0354E+04 (0.01431) : -0.01789   
+Material fuelP43Z4         : 1.0542E+04 1.0249E+04 (0.01334) : -0.02784 * 
+Material fuelP44Z4         : 1.0542E+04 1.0623E+04 (0.01080) :  0.00768   
+Material fuelP45Z4         : 1.0542E+04 1.0488E+04 (0.01192) : -0.00510   
+Material fuelP46Z4         : 1.0542E+04 1.0328E+04 (0.01184) : -0.02031   
+Material fuelP47Z4         : 1.0542E+04 1.0503E+04 (0.01242) : -0.00368   
+Material fuelP48Z4         : 1.0542E+04 1.0512E+04 (0.01009) : -0.00283   
+Material fuelP1Z5          : 1.0542E+04 1.0631E+04 (0.01091) :  0.00839   
+Material fuelP2Z5          : 1.0542E+04 1.0527E+04 (0.01212) : -0.00141   
+Material fuelP3Z5          : 1.0542E+04 1.0372E+04 (0.01394) : -0.01619   
+Material fuelP4Z5          : 1.0542E+04 1.0562E+04 (0.01231) :  0.00186   
+Material fuelP5Z5          : 1.0542E+04 1.0578E+04 (0.01164) :  0.00342   
+Material fuelP6Z5          : 1.0542E+04 1.0667E+04 (0.01249) :  0.01180   
+Material fuelP7Z5          : 1.0542E+04 1.0572E+04 (0.01187) :  0.00285   
+Material fuelP8Z5          : 1.0542E+04 1.0442E+04 (0.01093) : -0.00951   
+Material fuelP9Z5          : 1.0542E+04 1.0602E+04 (0.01234) :  0.00569   
+Material fuelP10Z5         : 1.0542E+04 1.0674E+04 (0.01158) :  0.01251   
+Material fuelP11Z5         : 1.0542E+04 1.0430E+04 (0.01186) : -0.01065   
+Material fuelP12Z5         : 1.0542E+04 1.0574E+04 (0.01328) :  0.00299   
+Material fuelP13Z5         : 1.0542E+04 1.0544E+04 (0.01104) :  0.00015   
+Material fuelP14Z5         : 1.0542E+04 1.0599E+04 (0.00998) :  0.00541   
+Material fuelP15Z5         : 1.0542E+04 1.0499E+04 (0.01143) : -0.00411   
+Material fuelP16Z5         : 1.0542E+04 1.0740E+04 (0.01136) :  0.01876   
+Material fuelP17Z5         : 1.0542E+04 1.0497E+04 (0.01314) : -0.00425   
+Material fuelP18Z5         : 1.0542E+04 1.0574E+04 (0.01129) :  0.00299   
+Material fuelP19Z5         : 1.0542E+04 1.0774E+04 (0.01312) :  0.02203   
+Material fuelP20Z5         : 1.0542E+04 1.0505E+04 (0.01169) : -0.00354   
+Material fuelP21Z5         : 1.0542E+04 1.0572E+04 (0.01155) :  0.00285   
+Material fuelP22Z5         : 1.0542E+04 1.0683E+04 (0.01152) :  0.01336   
+Material fuelP23Z5         : 1.0542E+04 1.0737E+04 (0.01275) :  0.01848   
+Material fuelP24Z5         : 1.0542E+04 1.0538E+04 (0.01212) : -0.00042   
+Material fuelP25Z5         : 1.0542E+04 1.0572E+04 (0.01202) :  0.00285   
+Material fuelP26Z5         : 1.0542E+04 1.0556E+04 (0.01284) :  0.00129   
+Material fuelP27Z5         : 1.0542E+04 1.0747E+04 (0.01166) :  0.01947   
+Material fuelP28Z5         : 1.0542E+04 1.0620E+04 (0.01216) :  0.00740   
+Material fuelP29Z5         : 1.0542E+04 1.0578E+04 (0.01224) :  0.00342   
+Material fuelP30Z5         : 1.0542E+04 1.0321E+04 (0.01232) : -0.02102   
+Material fuelP31Z5         : 1.0542E+04 1.0493E+04 (0.01173) : -0.00468   
+Material fuelP32Z5         : 1.0542E+04 1.0759E+04 (0.01208) :  0.02061   
+Material fuelP33Z5         : 1.0542E+04 1.0485E+04 (0.01207) : -0.00539   
+Material fuelP34Z5         : 1.0542E+04 1.0575E+04 (0.01125) :  0.00314   
+Material fuelP35Z5         : 1.0542E+04 1.0482E+04 (0.01220) : -0.00567   
+Material fuelP36Z5         : 1.0542E+04 1.0596E+04 (0.01149) :  0.00512   
+Material fuelP37Z5         : 1.0542E+04 1.0698E+04 (0.01066) :  0.01478   
+Material fuelP38Z5         : 1.0542E+04 1.0649E+04 (0.01130) :  0.01010   
+Material fuelP39Z5         : 1.0542E+04 1.0527E+04 (0.01212) : -0.00141   
+Material fuelP40Z5         : 1.0542E+04 1.0425E+04 (0.01190) : -0.01107   
+Material fuelP41Z5         : 1.0542E+04 1.0544E+04 (0.01336) :  0.00015   
+Material fuelP42Z5         : 1.0542E+04 1.0342E+04 (0.01117) : -0.01903   
+Material fuelP43Z5         : 1.0542E+04 1.0629E+04 (0.01134) :  0.00825   
+Material fuelP44Z5         : 1.0542E+04 1.0652E+04 (0.01240) :  0.01038   
+Material fuelP45Z5         : 1.0542E+04 1.0415E+04 (0.01145) : -0.01207   
+Material fuelP46Z5         : 1.0542E+04 1.0325E+04 (0.01127) : -0.02059   
+Material fuelP47Z5         : 1.0542E+04 1.0554E+04 (0.01215) :  0.00115   
+Material fuelP48Z5         : 1.0542E+04 1.0632E+04 (0.01342) :  0.00853   
+Material fuelP1Z6          : 1.0542E+04 1.0667E+04 (0.01089) :  0.01180   
+Material fuelP2Z6          : 1.0542E+04 1.0478E+04 (0.01212) : -0.00610   
+Material fuelP3Z6          : 1.0542E+04 1.0640E+04 (0.01129) :  0.00924   
+Material fuelP4Z6          : 1.0542E+04 1.0569E+04 (0.01135) :  0.00257   
+Material fuelP5Z6          : 1.0542E+04 1.0517E+04 (0.01190) : -0.00241   
+Material fuelP6Z6          : 1.0542E+04 1.0328E+04 (0.01206) : -0.02031   
+Material fuelP7Z6          : 1.0542E+04 1.0493E+04 (0.01102) : -0.00468   
+Material fuelP8Z6          : 1.0542E+04 1.0491E+04 (0.01099) : -0.00482   
+Material fuelP9Z6          : 1.0542E+04 1.0779E+04 (0.01139) :  0.02246 * 
+Material fuelP10Z6         : 1.0542E+04 1.0596E+04 (0.01285) :  0.00512   
+Material fuelP11Z6         : 1.0542E+04 1.0535E+04 (0.01224) : -0.00070   
+Material fuelP12Z6         : 1.0542E+04 1.0457E+04 (0.01138) : -0.00809   
+Material fuelP13Z6         : 1.0542E+04 1.0256E+04 (0.01209) : -0.02712 * 
+Material fuelP14Z6         : 1.0542E+04 1.0313E+04 (0.01183) : -0.02173   
+Material fuelP15Z6         : 1.0542E+04 1.0599E+04 (0.01189) :  0.00541   
+Material fuelP16Z6         : 1.0542E+04 1.0563E+04 (0.01281) :  0.00200   
+Material fuelP17Z6         : 1.0542E+04 1.0620E+04 (0.01147) :  0.00740   
+Material fuelP18Z6         : 1.0542E+04 1.0598E+04 (0.01089) :  0.00527   
+Material fuelP19Z6         : 1.0542E+04 1.0491E+04 (0.01259) : -0.00482   
+Material fuelP20Z6         : 1.0542E+04 1.0580E+04 (0.01057) :  0.00356   
+Material fuelP21Z6         : 1.0542E+04 1.0623E+04 (0.01342) :  0.00768   
+Material fuelP22Z6         : 1.0542E+04 1.0593E+04 (0.01153) :  0.00484   
+Material fuelP23Z6         : 1.0542E+04 1.0562E+04 (0.01256) :  0.00186   
+Material fuelP24Z6         : 1.0542E+04 1.0446E+04 (0.01207) : -0.00908   
+Material fuelP25Z6         : 1.0542E+04 1.0556E+04 (0.01246) :  0.00129   
+Material fuelP26Z6         : 1.0542E+04 1.0542E+04 (0.01120) :  0.00001   
+Material fuelP27Z6         : 1.0542E+04 1.0482E+04 (0.01133) : -0.00567   
+Material fuelP28Z6         : 1.0542E+04 1.0530E+04 (0.01229) : -0.00113   
+Material fuelP29Z6         : 1.0542E+04 1.0620E+04 (0.01263) :  0.00740   
+Material fuelP30Z6         : 1.0542E+04 1.0379E+04 (0.01101) : -0.01548   
+Material fuelP31Z6         : 1.0542E+04 1.0464E+04 (0.01112) : -0.00738   
+Material fuelP32Z6         : 1.0542E+04 1.0485E+04 (0.01317) : -0.00539   
+Material fuelP33Z6         : 1.0542E+04 1.0461E+04 (0.01163) : -0.00766   
+Material fuelP34Z6         : 1.0542E+04 1.0446E+04 (0.01190) : -0.00908   
+Material fuelP35Z6         : 1.0542E+04 1.0686E+04 (0.01167) :  0.01365   
+Material fuelP36Z6         : 1.0542E+04 1.0370E+04 (0.01186) : -0.01633   
+Material fuelP37Z6         : 1.0542E+04 1.0493E+04 (0.01235) : -0.00468   
+Material fuelP38Z6         : 1.0542E+04 1.0467E+04 (0.01203) : -0.00709   
+Material fuelP39Z6         : 1.0542E+04 1.0673E+04 (0.01132) :  0.01237   
+Material fuelP40Z6         : 1.0542E+04 1.0404E+04 (0.01257) : -0.01306   
+Material fuelP41Z6         : 1.0542E+04 1.0714E+04 (0.01271) :  0.01635   
+Material fuelP42Z6         : 1.0542E+04 1.0523E+04 (0.01102) : -0.00184   
+Material fuelP43Z6         : 1.0542E+04 1.0410E+04 (0.01244) : -0.01249   
+Material fuelP44Z6         : 1.0542E+04 1.0575E+04 (0.01130) :  0.00314   
+Material fuelP45Z6         : 1.0542E+04 1.0659E+04 (0.01257) :  0.01109   
+Material fuelP46Z6         : 1.0542E+04 1.0595E+04 (0.01162) :  0.00498   
+Material fuelP47Z6         : 1.0542E+04 1.0535E+04 (0.01156) : -0.00070   
+Material fuelP48Z6         : 1.0542E+04 1.0673E+04 (0.01252) :  0.01237   
+
+Volumes written in file "wh_lfr.mvol"
+
+OK.
+
