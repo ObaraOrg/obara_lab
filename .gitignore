@@ -10,6 +10,15 @@ matrix_dump.txt
 
 # Memory files
 .nfs*
+core.*
+
+# Serpent related
+*.bumat*
+*.dep
+*.seed
+*.m
+*.
+*.
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
