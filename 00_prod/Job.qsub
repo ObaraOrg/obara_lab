@@ -15,9 +15,9 @@ set RunStart=`date` && set RS=`date -d "$RunStart" +%s`
 #===============================================================================================
 set WKDR = $PWD			# set working dir
 set sINP = wh_lfr		# main serpent input file	
-set noBUsteps = 3		# last burnup step output file
+set noBUsteps = 1		# last burnup step output file
 set step = 0			# first suffle step
-set stepx = 2			# last suffle step
+set stepx = 100			# last suffle step
 #===============================================================================================
 
 # - Backup, just in case

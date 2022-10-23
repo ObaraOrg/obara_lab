@@ -5,3 +5,5 @@ rm -rf wh_lfrsuffleNo*
 rm job.out
 rm sss2.out*
 rm calc_time.out
+rm core.*
+
