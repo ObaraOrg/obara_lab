@@ -12,7 +12,7 @@ include "input/stuctural_mat.inp"
 include "input/pins.inp"
 include "input/fa.inp"
 include "input/core.inp"
-%include "input/appendix.inp"
+include "input/appendix.inp"
 
 % --- Cross section libraries
 set acelib "sss_endfb7u.xsdata"
@@ -37,8 +37,9 @@ set opti    4 			% - Opt.mode, 2 - good for high no.depl.zones 4 - Max.perf (def
 % --- Criticality cycles  -----------------------------------------------------
 %     Neutron pop.gen/ actv.cy/ inactv.cy/ k0/  
 
-set pop   40000 200 50
-%set pop    2000 100 50 
+set pop		40000 200 50
+%set pop	2000 100 50 
+set gpop	200 40000
 
 % --- Calculation options  ----------------------------------------------------
 
@@ -51,7 +52,7 @@ set fpcut   1.0E-06		% - Fis.prod.yield cut-off, discrd.all cumul.yld.below 0.00
 %set egrid     5.0E-05 1.0E-09 2.0E+01		% - Red.unionized E grid size to save mem. - original OFF
 											%   Grid thinning with 5e-5 reconstruction  
 											%   tolerance between 0.0001 eV - 20 MeV.
-set egrid     5.0E-05 1.0E-09 2.5E+01									   
+set egrid     5.0E-05 1.0E-09 1.0E+01									   
 
 
 
@@ -74,7 +75,7 @@ set bumode  2			% - BU mode, 1 - TTA, 2 - CRAM
 set pcc     1			% - Predictor-corrector calculation on
 
 %dep daytot		1 2 5 10 20 30 45 75 100 200 300 400 500 600 900 1200 1500
-dep daytot		100 300 650
+dep daytot	 	90	
 
 % --- Inventory
 
@@ -97,21 +98,6 @@ set inventory
 	942420
 	952410
 	952430
-	420990
-	430990
-	441010
-	451030
-	471090
-	551330
-	621470
-	621490
-	621500
-	621510
-	621520
-	601430
-	601450
-	631530
-	641550	
 
 % - Use predictor corrector method for the depletion solution
 %   leli: Linear extrapolation on predictor
