@@ -52,7 +52,7 @@ set fpcut   1.0E-06		% - Fis.prod.yield cut-off, discrd.all cumul.yld.below 0.00
 %set egrid     5.0E-05 1.0E-09 2.0E+01		% - Red.unionized E grid size to save mem. - original OFF
 											%   Grid thinning with 5e-5 reconstruction  
 											%   tolerance between 0.0001 eV - 20 MeV.
-set egrid     5.0E-05 1.0E-09 1.0E+01									   
+set egrid     5.0E-05 1.0E-06 1.0E+01		%   tolerance between      1 eV - 10 MeV.							   
 
 
 

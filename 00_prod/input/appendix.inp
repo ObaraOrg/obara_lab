@@ -101,13 +101,13 @@ mesh 10 1 2500 2500
 									   
 									   
 % Neutron spectrum per lethargy: 3 = equal lethargy-width bins & -3 = division by lethargy width
-ene My_ene1   3  107 1.0E-09 1.5E+01
+ene My_ene1   3  70 1.0E-06 1.0E+01
 det My_det1   de My_ene1  dt -3  dm fuelP1Z6  dv 1.0542136E+04
 det My_det2   de My_ene1  dt -3  dm fuelP48Z6  dv 1.0542136E+04
 
 
 % Total neutron pectrum per lethargy: 3 = equal lethargy-width bins & -3 = division by lethargy width
-ene My_ene2   3  1   1.0E-09 2.5E+01
+ene My_ene2   3  1   1.0E-06 1.0E+01
 
 
 % --- AXIAL ZONE 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
