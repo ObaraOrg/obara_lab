@@ -1,6 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ---      Westinghouse Lead Fast Reactor 950MW  -  full core input       --- %
 %                        made for Serpent ver. 2.1.33				 		  %
+%          		   Created by : Stafie Alexandru 26/Oct/2022		 		  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 set title "WH_LFR950"
