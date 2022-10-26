@@ -38,9 +38,9 @@ set opti    4 			% - Opt.mode, 2 - good for high no.depl.zones 4 - Max.perf (def
 % --- Criticality cycles  -----------------------------------------------------
 %     Neutron pop.gen/ actv.cy/ inactv.cy/ k0/  
 
-set pop		40000 200 50
-%set pop	2000 100 50 
-set gpop	200 40000
+%set pop		40000 200 50
+set pop	1000 100 50 
+%set gpop	200 40000
 
 % --- Calculation options  ----------------------------------------------------
 
@@ -52,10 +52,9 @@ set fpcut   1.0E-06		% - Fis.prod.yield cut-off, discrd.all cumul.yld.below 0.00
 
 %set egrid     5.0E-05 1.0E-09 2.0E+01		% - Red.unionized E grid size to save mem. - original OFF
 											%   Grid thinning with 5e-5 reconstruction  
-											%   tolerance between 0.0001 eV - 20 MeV.
-set egrid     5.0E-05 1.0E-06 1.0E+01		%   tolerance between      1 eV - 10 MeV.							   
-
-
+											%   tolerance between 0.0001 eV - 20 MeV. - old
+											
+set egrid     5.0E-05 1.0E-06 1.0E+01		%   tolerance between      1 eV - 10 MeV.
 
 % ----- Group constant generation ---------------------------------------------
 
@@ -79,12 +78,6 @@ set pcc     1			% - Predictor-corrector calculation on
 dep daytot	 	90	
 
 % --- Inventory
-
-%set inventory 
-%	922350 
-%	922380 
-%	942390 
-%	942410
 	
 set inventory
 	922340
