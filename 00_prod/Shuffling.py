@@ -36,12 +36,10 @@ def main() -> None:
             data = "mat fuelP" + str(k) + "Z" + str(j) + " -11.8773 tmp 923.0  burn 1  vol " + str(fuelVol)
             fin.write(data)
             fin.write("\n")
-            fin.write("92234.09c  -0.00025200 \n")
-            fin.write("92235.09c  -0.11535297 % 12.4 enrichment \n")
-            fin.write("92236.09c  -0.00013000 \n")
-            fin.write("92238.09c  -0.82518849 \n")
-            fin.write("7014.09c   -0.00055422 \n")
-            fin.write("7015.09c	  -0.05877432 \n")
+            fin.write("92235.06c	1.86849E-04 \n")
+            fin.write("92238.06c	2.54390E-02 % natural U\n")
+            fin.write("7014.06c     2.56406E-04 \n")
+            fin.write("7015.06c	    2.36969E-02 % 99N-15\n")
             fin.close()
 
 if __name__ == "__main__":
