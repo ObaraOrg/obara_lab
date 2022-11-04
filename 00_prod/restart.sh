@@ -7,4 +7,4 @@ rm sss2.out*
 rm calc_time.out
 rm vol_chk
 rm core.*
-
+rm .nfs*
