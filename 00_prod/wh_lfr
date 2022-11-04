@@ -53,9 +53,9 @@ set fpcut   1.0E-06		% - Fis.prod.yield cut-off, discrd.all cumul.yld.below 0.00
 						%   NOT USED, because opti mode
 
 set egrid     5.0E-05 1.0E-07 1.0E+01		% - Red.unionized E grid size to save mem. - original OFF
-											%   Grid thinning with 5e-5 reconstruction  
+%set egrid     5.0E-05 1.0E-09 2.0E+01		%   Grid thinning with 5e-5 reconstruction  
 											%   tolerance between    0.1 eV - 10 MeV.									
-%set egrid     5.0E-05 1.0E-09 2.0E+01		%   tolerance between 0.0001 eV - 20 MeV. - old   
+											%   tolerance between 0.0001 eV - 20 MeV. - old   
 
 % ----- Group constant generation ---------------------------------------------
 
@@ -98,6 +98,7 @@ Am-241 Am-242 Am-243 Am-244
 Cm-240 Cm-241 Cm-242 Cm-243 Cm-244 Cm-245 Cm-246 Cm-247 Cm-248 Cm-249 Cm-250
 
 U Np Pu Am Cm			% - total list
+
 
 % - SMALL list (not used)
 %U-234 U-235 U-236 U-238 
