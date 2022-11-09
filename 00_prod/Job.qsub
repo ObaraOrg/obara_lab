@@ -8,7 +8,7 @@
 #$ -q all.q@olds08.candle.nr.titech.ac.jp.
 #$ -q all.q@olds09.candle.nr.titech.ac.jp.
 
-set NNODEs=4			# Number of Nodes for OMPI
+set NNODEs=3			# Number of Nodes for OMPI
 set NCPUs=24			# Number of CPUs for Serpent OMP
 echo Serpent 2 has started: >> calc_time.out
 set RunStart=`date` && set RS=`date -d "$RunStart" +%s`

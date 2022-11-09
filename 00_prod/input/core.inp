@@ -2,6 +2,8 @@
 % ---   Core Geometry definition   --- %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% --- Suffling pattern : SF1_bis_1
+
 % --- Assembly lattice
 lat LatC_Z1 2 0.0 0.0 27 27 16.3
 COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL
@@ -236,10 +238,10 @@ surf sRPV2  cylz 0.0 0.0 215 0 405
 surf sINF   inf
 
 % Coolant cell for the ext of the core lattice
-cell  cLEAD uCOOL lead -sINF
+cell cLEAD uCOOL lead -sINF
 
 % Alocated cells reactor RPV
-cell  cCORE  0 fill    uCOOL   -sRPV1      
+cell cCORE  0 fill    uCOOL   -sRPV1      
 										SdwPLUG
 										HCoreZ1
 										HCoreZ2
@@ -248,7 +250,7 @@ cell  cCORE  0 fill    uCOOL   -sRPV1
                                         HCoreZ5
                                         HCoreZ6
 										SupPLUG
-cell  cRPV	 0 ssteel		   sRPV1     -sRPV2
-cell  cOUT	 0 outside		   sRPV2      
+cell cRPV	0 ssteel		   sRPV1     -sRPV2
+cell cOUT	0 outside		   sRPV2      
 
 
