@@ -18,7 +18,7 @@ core.*
 *.dep
 *.seed
 *.m
-*.
+*.wrk
 *.
 
 # Byte-compiled / optimized / DLL files
