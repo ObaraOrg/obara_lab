@@ -1,16 +1,31 @@
 # Folders
-source_data_for_testing/
+01_simulations
+02_learning_serpent
+03_lab_examples
+wh_lfrsuffleNo*
 
 # Files
 new_matrix.txt
 matrix_small.txt
 matrix_dump.txt
 
+# Memory files
+.nfs*
+core.*
+
+# Serpent related
+*.bumat*
+*.dep
+*.seed
+*.m
+*.
+*.
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
-.direnv/
+.direnv
 test/
 
 # C extensions

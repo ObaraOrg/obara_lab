@@ -1,0 +1,112 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ---      Westinghouse Lead Fast Reactor 950MW  -  full core input       --- %
+%                        made for Serpent ver. 2.1.33				 		  %
+%          		   Created by : Stafie Alexandru 26/Oct/2022		 		  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+set title "WH_LFR950"
+
+% --- Read block, material data:
+include "input/materials.inp"
+include "fuel.inp"
+include "input/stuctural_mat.inp"
+include "input/pins.inp"
+include "input/fa.inp"
+include "input/core.inp"
+%include "input/appendix.inp"
+
+% --- Cross section libraries
+set acelib "sss_endfb7u.xsdata"
+set declib "sss_endfb7.dec"
+set nfylib "sss_endfb7.nfy"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ---          Run options         --- %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+% --- Other options  ----------------------------------------------------------
+
+set printm  1			% - Print material compositions to [input].bumat[bu] file
+%set his     1			% - Batch hist.record; Fiss.src.calc.(Shannon)entropy - original OFF
+%set rfw		1  		% - Writes mat.comp.in BU calc. into a binary restart file - normal OFF
+%set rfr		1		% - NOT MASTERED YET
+
+% --- Perfomance related  -----------------------------------------------------
+
+set bala 0				% - OpenMP load balancing on or off (maybe goes faster)
+%set shbuf   1 1		% - Score buffering (0 = private, 1 = shared) 
+set opti    4 			% - Opt.mode, 2 - good for high no.depl.zones 4 - Max.perf (def)
+					   
+% --- Criticality cycles  -----------------------------------------------------
+%     Neutron pop.gen/ actv.cy/ inactv.cy/ k0/  
+
+%set pop		40000 200 50
+set pop		10000 100 50 
+%set gpop	200 40000
+
+% --- Calculation options  ----------------------------------------------------
+
+set bc      1			% - boundary type (1=vacuum, 2=reflective, 3=periodic)
+%set ures    1			% - Unresolved resonance probability table sampling - original OFF
+set fpcut   1.0E-06		% - Fis.prod.yield cut-off, discrd.all cumul.yld.below 0.0001%
+%set xscalc  2			% - Transmutation xs calc.mode(1=dir.tallies, 2=spec-collap)
+						%   NOT USED, because opti mode
+
+set egrid     5.0E-05 1.0E-07 1.0E+01		% - Red.unionized E grid size to save mem. - original OFF
+%set egrid     5.0E-05 1.0E-09 2.0E+01		%   Grid thinning with 5e-5 reconstruction  
+											%   tolerance between    0.1 eV - 10 MeV.									
+											%   tolerance between 0.0001 eV - 20 MeV. - old   
+
+% ----- Group constant generation ---------------------------------------------
+
+%set gcu -1				% - Universe for group constant generation (-1 to turn off) - original OFF
+%set nfg 2 0.625E-6		% - Few-group structure: (2g, boundary at 0.625 eV) - OFF
+
+% ----- Burnup calculation ----------------------------------------------------
+
+%set mcvol 10000000		% - Calculate material volumes before simulation by  - original OFF
+						%   sampling 10 million random points in the geometry.
+						%   Specifying the mat. volumes is crucial in BU calc.
+
+set power  9.5E+08		% - Sets normalization to total fission power (in W)
+%set powdens 24.2E-03	% - Sets normalization to power density (kW/g)  - original OFF
+						%   double for me bcs.smaller core from 220cm->120cm	
+
+set bumode  2			% - BU mode, 1 - TTA, 2 - CRAM
+set bunorm  1			% - BU norm.mode (1=mat.all,2=burn.mat,3=non-burn.mat) - default 1
+
+%dep daytot		1 2 5 10 20 30 45 75 100 200 300 400 500 600 900 1200 1500
+dep daytot	 	50	100
+
+% - Use predictor corrector method for the depletion solution
+%   leli: Linear extrapolation on predictor
+%         Linear interpolation on corrector
+%   10 10: 10 substeps on predictor, 10 substeps on corrector
+
+set pcc     1
+%set pcc LELI - original OFF
+%set pcc 10 10 - original OFF
+
+% ----- Print options ----------------------------------------------------------
+
+set inventory			% - Sets inventory for dep.m file 
+
+U-232  U-233  U-234  U-235  U-236  U-237  U-238  U-239  U-240  U-241 
+Np-235 Np-236 Np-237 Np-238 Np-239
+Pu-236 Pu-237 Pu-238 Pu-239 Pu-240 Pu-241 Pu-242 Pu-243 Pu-244
+Am-241 Am-242 Am-243 Am-244 
+Cm-240 Cm-241 Cm-242 Cm-243 Cm-244 Cm-245 Cm-246 Cm-247 Cm-248 Cm-249 Cm-250
+
+U Np Pu Am Cm			% - total list
+
+
+% - SMALL list (not used)
+%U-234 U-235 U-236 U-238 
+%Np-237 
+%Pu-238 Pu-239 Pu-240 Pu-241 Pu-242 Am-241 Am-243
+
+
+% -	Sets analog reaction rate calculation on or off (normal OFF)
+%   Val are normalized micro reac.rate integr.over all mat.and energ.
+%   0 = no reac., 1 = only reac.that affect n.balance 2 = all reac.
+%set arr 1
