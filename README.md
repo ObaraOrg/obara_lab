@@ -62,5 +62,3 @@ python __script_name__.py
 # Intiate the direnv virtual env
 # Use make file, see instructions there
 ```
-
-
