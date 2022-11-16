@@ -1,8 +1,8 @@
-import matplotlib.pyplot as plt
-from typing import Tuple, List
-from pathlib import Path
 import math
+from pathlib import Path
+from typing import List, Tuple
 
+import matplotlib.pyplot as plt
 
 TEST_PATH = Path("qtr_core_matrix.txt")
 SAVE_PATH = Path("full_core_matrix.txt")
@@ -62,7 +62,7 @@ def round_list(
     coordinate_list: List[Tuple[int, int, str]]
 ) -> List[Tuple[int, int, str]]:
     return [(round(x), round(y), id) for (x, y, id) in coordinate_list]
-    
+
 
 def main() -> None:
     buffer = []
