@@ -65,14 +65,15 @@ while ( $step <= $stepx )
     
 # - Note the time for each cycle to file
 	set CyEnd=`date` && set CE=`date -d "$CyEnd" +%s` && set DCy=`expr \( $CE - $CS \)`
-	printf "Cycle ${var} in: %sh:%02dmin:%02ds\n" `expr $DCy / 3600` `expr $DCy / 60` \
+	printf "Cycle ${var} in: %sh:%02dmin:%02ds\n" `expr $DCy / 3600` `expr $DCy / 60 % 60` \
 	`expr $DCy % 60` >> calc_time.out 
 	
 	@ step++
 end
 #===============================================================================================
 set set RunEND=`date` && set RE=`date -d "$RunEND" +%s` && set DRun=`expr \( $RE - $RS \)`
-printf "Run done in %sh:%02dmin:%02ds\n" `expr $DRun / 3600 ` `expr $DRun / 60 % 60` `expr $DRun % 60` >> calc_time.out 
+printf "Run done in %sh:%02dmin:%02ds\n" `expr $DRun / 3600 ` `expr $DRun / 60 % 60` \
+`expr $DRun % 60` >> calc_time.out 
 #===============================================================================================
 # NOTE: The script has been made for csh shell, be aware ^-^
 
