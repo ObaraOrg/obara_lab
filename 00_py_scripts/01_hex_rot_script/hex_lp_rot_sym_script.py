@@ -64,7 +64,7 @@ def round_list(
     return [(round(x), round(y), id) for (x, y, id) in coordinate_list]
 
 
-def main() -> None:
+def hex_rot() -> None:
     buffer = []
 
     with (open(TEST_PATH)) as file:
@@ -141,4 +141,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    hex_rot()
