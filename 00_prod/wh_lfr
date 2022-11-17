@@ -1,18 +1,21 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ---     		 Westinghouse Lead Fast Reactor 950MW  -  full core input       		--- %
 %                		        made for Serpent ver. 2.1.33				 				%
-%          		 		  Created by : Stafie Alexandru 09/Nov/2022		 				    %
+%          		 		  Created by : Stafie Alexandru 17/Nov/2022		 				    %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 set title "WH_LFR950"
 
-% --- Read block, material data:
+% --- Read block, material and geometry definitions 
 include "input/materials.inp"
 include "fuel.inp"
 include "input/stuctural_mat.inp"
 include "input/pins.inp"
 include "input/fa.inp"
-include "input/core.inp"
+include "input/core_lp.inp"		% - Made for the .py script
+include "input/core_3d.inp"		% - Idem	
+
+% --- Read block, detectors and plots
 %include "input/appendix.inp"
 
 % --- Cross section libraries
