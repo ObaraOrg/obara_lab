@@ -48,8 +48,8 @@ set bala 	1			% - OpenMP load balancing on or off (maybe goes faster)
 % --- Criticality cycles  -------------------------------------------------------------------
 %     N.pop.generated/ active.cycles/ inactive.cycles/ guess for k0/  
 
-%set pop		40000 200 50
-set pop		10000 100 50 
+set pop		40000 200 50
+%set pop		10000 100 50 
 set gpop	200 40000
 
 
@@ -83,7 +83,7 @@ set egrid	5.0E-05 1.0E-07 1.5E+01		% - Red.unionized E grid size,save mem. - DEF
 
 % --- Group constant generation -------------------------------------------------------------
 
-%set gcu -1				% - Universe for grp.cons.gen. (-1 off for -time) - DEFAULT ON
+set gcu -1				% - Universe for grp.cons.gen. (-1 off for -time) - DEFAULT ON
 %set nfg 2 0.625E-6		% - Few-group structure: (2g, boundary at 0.625 eV) - OFF
 
 
@@ -96,7 +96,7 @@ set power  9.5E+08		% - Sets normalization to total fiss. power [in W]
 set bumode  2			% - BU mode, 1 - TTA, 2 - CRAM (DEFAULT)
 set bunorm  1			% - BU norm.mode (1=mat.all,2=burn.mat,3=non-burn.mat) - DEFAULT 1
 
-dep daytot	 	100		
+dep daytot	 	10 110 220		
 
 set pcc LELI 5 5		% - Use predictor corrector method for the depletion solution
 						%   LELI: Linear extrapolation on predictor, 5 substeps
