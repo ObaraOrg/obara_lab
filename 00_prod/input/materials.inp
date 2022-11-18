@@ -27,7 +27,7 @@ mat bond_he -1.66000E-04 tmp 923.0
 	2004.09c -9.99999E-01
 
 % --- MA965 ODS (cladding and shroud tube)
-%	  [Composition from  ]
+%	  [Composition from xxx ]
 %     [Same temp as coolant]
 %	  [ why rho = 7.8 previously ? ]
 mat ods	-7.25  tmp 923.0 rgb 176 255 237
@@ -195,4 +195,3 @@ mat zirc  -6.55 tmp 823.0 rgb 100 100 100
 %	18036.03c  -3.88624E-05
 %	18038.03c  -7.70386E-06
 %	18040.03c  -1.27804E-02
-
