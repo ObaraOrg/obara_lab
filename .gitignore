@@ -19,7 +19,7 @@ core.*
 *.seed
 *.m
 *.wrk
-
+*.out
 
 # Swap files
 *.swp

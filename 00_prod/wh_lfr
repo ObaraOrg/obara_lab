@@ -42,14 +42,14 @@ set printm  1			% - Print material compositions to [input].bumat[bu] file
 set bala 	1			% - OpenMP load balancing on or off (maybe goes faster)
 %set shbuf	1	1		% - Score buffering (0 = private, 1 = shared) 
 %set opti	4 			% - Opt.mode, 2 - good for high no.depl.zones 4 - Max.perf (DEFAULT)
-%set nbuf	8			% - Sets the size of n buffer (DEF off, use only when sym fails)
+set nbuf	8.0			% - Sets the size of n buffer (DEF off, use only when sym fails)
 		
 		
 % --- Criticality cycles  -------------------------------------------------------------------
 %     N.pop.generated/ active.cycles/ inactive.cycles/ guess for k0/  
 
-set pop		40000 200 50
-%set pop		10000 100 50 
+%set pop		40000 200 50
+set pop		10000 100 50 
 set gpop	200 40000
 
 
@@ -96,7 +96,7 @@ set power  9.5E+08		% - Sets normalization to total fiss. power [in W]
 set bumode  2			% - BU mode, 1 - TTA, 2 - CRAM (DEFAULT)
 set bunorm  1			% - BU norm.mode (1=mat.all,2=burn.mat,3=non-burn.mat) - DEFAULT 1
 
-dep daytot	 	10 110 220		
+dep daytot	 	10 		
 
 set pcc LELI 5 5		% - Use predictor corrector method for the depletion solution
 						%   LELI: Linear extrapolation on predictor, 5 substeps
@@ -111,7 +111,7 @@ set inventory			% - Sets inventory for dep.m file
 U-232  U-233  U-234  U-235  U-236  U-237  U-238  U-239  U-240  U-241 
 Np-235 Np-236 Np-237 Np-238 Np-239
 Pu-236 Pu-237 Pu-238 Pu-239 Pu-240 Pu-241 Pu-242 Pu-243 Pu-244
-Am-241 Am-242 Am-243 Am-244 
+Am-241 Am-242 Am-242m Am-243 Am-244 Am-244m 
 Cm-240 Cm-241 Cm-242 Cm-243 Cm-244 Cm-245 Cm-246 Cm-247 Cm-248 Cm-249 Cm-250
 
 U Np Pu Am Cm			% - total list
