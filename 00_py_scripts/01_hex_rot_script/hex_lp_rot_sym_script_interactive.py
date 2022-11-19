@@ -5,8 +5,6 @@ from typing import List, Tuple, Union
 import click
 import matplotlib.pyplot as plt
 
-INPUT_PATH = Path("qtr_core_matrix.txt")
-SAVE_PATH = Path("full_core_matrix.txt")
 
 def construct_empty_matrix(
     size_x: int, size_y: int, empty_element: str = ""
@@ -67,10 +65,19 @@ def round_list(
     return [(round(x), round(y), id) for (x, y, id) in coordinate_list]
 
 
-def hex_rot() -> None:
+@click.command()
+@click.option(
+    "--input_path", prompt="Input input file path", help="Input input file path."
+)
+@click.option(
+    "--save_path", prompt="Input output file path", help="input output file path."
+)
+def hex_rot(input_path: Union[Path, str], save_path: Union[Path, str]) -> None:
+    input_path = Path(input_path)
+    save_path = Path(save_path)
     buffer = []
 
-    with (open(INPUT_PATH)) as file:
+    with (open(input_path)) as file:
         for line in file:
             strip = line.strip()
             buffer.append(strip.split("\t"))
@@ -139,7 +146,7 @@ def hex_rot() -> None:
         matrix[y][x] = label
 
     matrix = matrix[::-1]
-    with (open(SAVE_PATH, "w")) as file:
+    with (open(save_path, "w")) as file:
         for row in matrix:
             line_string = " ".join(row)
             file.write(f"{line_string}\n")

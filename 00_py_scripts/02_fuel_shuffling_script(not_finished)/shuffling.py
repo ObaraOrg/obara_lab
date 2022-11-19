@@ -1,25 +1,41 @@
+# Dev note:
+# the fuel volume replancement is constant, if you're core has
+# incosistent fuel material volumes, the script will mess up the 
+# each subsequent calculation of serpent2.
+# SOLUTION: remove the vol insersion code lines and use the 
+# mvol option for sss2 to calculate the volumes automatically by MC
+
+
 import re
 from pathlib import Path
 from typing import List
 
-# no axial slices ji to je
-JI = 1
-JE = 6
-# No fuel assemblies ki to ke
-ki = 1
-ke = 48
-
-
+# Name of the sss2 fuel file, in the same dir
 INPUT = Path("fuel.inp")
-#
-MATCH_FUEL_NO = r"P\d\d?"
-extra_data = "tmp 923.0  burn 1"
-FUEL_VOL = "1.0542136E+04"
-NUMERIC_DATA = """92235.06c	1.86849E-04
-92238.06c	2.54390E-02
-7014.06c     2.56406E-04
-7015.06c	2.36969E-02
+
+# no axial slices Z_start to z_end
+Z_start = 1
+z_end = 6
+# No fuel assemblies FA_start to FA_end
+FA_start = 1
+FA_end = 48
+
+# Reload mat data, natU+99rN-15
+FRESH_MAT_DATA = """92235.09c  2.06136E-04
+92238.09c  2.80617E-02 % natural U
+92234.09c  1.63881E-06 
+ 7014.09c  2.82694E-04 
+ 7015.09c  2.79867E-02 % 99N-15
 """
+
+# add temp and burn option to he mat card
+MAT_EXTRA_OPTIONS = "tmp 923.0  burn 1"
+
+# remember to input this via manual calculation
+FUEL_VOL = "1.0542136E+04"
+
+MATCH_FUEL_NO = r"P\d\d?"
+
 
 
 def trim_numbers_from_string(exp: str):
@@ -53,7 +69,7 @@ def modify_material_header(header: str, extra_data: str) -> str:
     return total
 
 
-def main() -> None:
+def shuffle() -> None:
     list_of_lines = []
     with (open(INPUT, "rt")) as file:
         for line in file:
@@ -68,13 +84,13 @@ def main() -> None:
 
     for idx in idxs_of_non_numeric:
         material_line = list_of_lines[idx]
-        modified_header = modify_material_header(material_line, extra_data)
+        modified_header = modify_material_header(material_line, MAT_EXTRA_OPTIONS)
         list_of_lines[idx] = modified_header
     modified_data = "\n".join(list_of_lines)
 
     additional_data = []
-    for i in range(JI, JE):
-        additional_string = f"mat fuelP{1}Z{i} -11.8773 tmp 923.0  burn 1  vol {FUEL_VOL}\n{NUMERIC_DATA}"
+    for i in range(Z_start, z_end):
+        additional_string = f"mat fuelP{1}Z{i} -11.8773 tmp 923.0  burn 1  vol {FUEL_VOL}\n{FRESH_MAT_DATA}"
         additional_data.append(additional_string)
     joined_additional_data = "".join(additional_data)
     total = f"{modified_data}\n{joined_additional_data}"
@@ -84,4 +100,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    shuffle()
