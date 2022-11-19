@@ -1,26 +1,38 @@
-
 import re
+from pathlib import Path
+from typing import List
 
-# No axial slices ji to je
-ji = 1
-je = 6
+# no axial slices ji to je
+JI = 1
+JE = 6
 # No fuel assemblies ki to ke
 ki = 1
 ke = 48
 
 
-FUEL_VOL = r"1.0542136e04"
+INPUT = Path("fuel.inp")
 #
-MAT_LINE_REGEX = r"mat  fuelP\d\d?Z\d\d?pP\d\d?Z\d\d?r1"
-MAT_LINE_REGEX_FOR_NUMBERS = r"fuelP\d\d?Z\d\d?pP\d\d?Z\d\d?"
 MATCH_FUEL_NO = r"P\d\d?"
-MATCH_VOL = r"vol .*"
-MATCH_END_LINE = r"pP[^\s]*"
-MATCH_Z = r"Z\d\d?"
+extra_data = "tmp 923.0  burn 1"
+FUEL_VOL = "1.0542136E+04"
+NUMERIC_DATA = """92235.06c	1.86849E-04
+92238.06c	2.54390E-02
+7014.06c     2.56406E-04
+7015.06c	2.36969E-02
+"""
 
 
 def trim_numbers_from_string(exp: str):
     return int("".join(c for c in exp if c.isdigit()))
+
+
+def remove_empty_spaces_from_list(str_list: List[str]) -> List:
+    new_list = []
+    for el in str_list:
+        if el == "" or el == " ":
+            continue
+        new_list.append(el)
+    return new_list
 
 
 def increment_expression(exp):
@@ -29,74 +41,46 @@ def increment_expression(exp):
     return f"P{number_to_increment + 1}"
 
 
+def modify_material_header(header: str, extra_data: str) -> str:
+    parts = header.split("p")
+    first_part = parts[0]
+    result = re.sub(MATCH_FUEL_NO, increment_expression, first_part)
+
+    second_parts = remove_empty_spaces_from_list(parts[1].split(" ")[1:])
+    second_parts.insert(1, extra_data)
+    second_part = " ".join(second_parts)
+    total = f"{result} {second_part}"
+    return total
+
+
 def main() -> None:
-    file = open("fuel.inp", "rt")
-    file_txt = file.read()
-    list_of_lines = file_txt.strip().split("\n")
+    list_of_lines = []
+    with (open(INPUT, "rt")) as file:
+        for line in file:
+            trimmed_str = line.strip().replace("\n", "")
+            if len(trimmed_str) > 0:
+                list_of_lines.append(trimmed_str)
 
-    material_lines_idxs = []
-    for line_index, line in enumerate(list_of_lines):
-        result = re.match(MAT_LINE_REGEX, line)
-        if result is not None:
-            material_lines_idxs.append(line_index)
+    idxs_of_non_numeric = []
+    for idx, line in enumerate(list_of_lines):
+        if line[:3] == "mat":
+            idxs_of_non_numeric.append(idx)
 
-    max_z = max(
-        [
-            trim_numbers_from_string(re.findall(MATCH_Z, list_of_lines[idx])[0])
-            for idx in material_lines_idxs
-        ]
-    )
-    
-    # fuel cell remembering
-    first_fuel = list_of_lines[material_lines_idxs[0]]
-    for index in material_lines_idxs:
-        mat_line = list_of_lines[index]
-        result = re.sub(MATCH_FUEL_NO, increment_expression, mat_line)
-        result = re.sub(MATCH_END_LINE, "", result)
-        list_of_lines[index] = result
+    for idx in idxs_of_non_numeric:
+        material_line = list_of_lines[idx]
+        modified_header = modify_material_header(material_line, extra_data)
+        list_of_lines[idx] = modified_header
+    modified_data = "\n".join(list_of_lines)
 
-    # last_cell_replacement = re.sub(
-    #     MATCH_VOL_REMINDER,
-    #     f"tmp 923.0 burn 1 vol {FUEL_VOL}",
-    #     re.sub(MATCH_REMINDER, "", first_fuel),
-    # )
-    fuels_without_last_fuel = list_of_lines[: material_lines_idxs[-max_z]]
+    additional_data = []
+    for i in range(JI, JE):
+        additional_string = f"mat fuelP{1}Z{i} -11.8773 tmp 923.0  burn 1  vol {FUEL_VOL}\n{NUMERIC_DATA}"
+        additional_data.append(additional_string)
+    joined_additional_data = "".join(additional_data)
+    total = f"{modified_data}\n{joined_additional_data}"
 
-    breakpoint()
-    # list_of_lines[material_lines_idxs[-1]] = last_cell_replacement
-    # list_of_lines = list_of_lines[: material_lines_idxs[-1] + 1]
-    breakpoint()
-
-    # for j in range(ji, je + 1):
-    #     for k in range(ki, ke + 1):
-    #         search = f"fuelP{k}Z{j}pP{k}Z{j}r1"
-    #         replace = f"fuelP{k + 1}Z{j}pP{k+1}Z{j}r1"
-    #         file_txt = file_txt.replace(search, replace)
-
-    # search = "vol"
-    # replace = "tmp 923.0 burn 1 vol"
-    # file_txt = file_txt.replace(search, replace)
-    # breakpoint()
-
-    # for j in range(ji, je + 1):
-    #     for k in range(ki, ki + 1):
-    #         fin = open("fuel.inp", "a+")
-    #         data = (
-    #             "mat fuelP"
-    #             + str(k)
-    #             + "Z"
-    #             + str(j)
-    #             + " -11.8773 tmp 923.0  burn 1  vol "
-    #             + str(fuelVol)
-    #         )
-    #         fin.write(data)
-    #         fin.write("\n")
-    #         fin.write("92235.06c	1.86849E-04 \n")
-    #         fin.write("92238.06c	2.54390E-02 \n")
-    #         fin.write("7014.06c     2.56406E-04 \n")
-    #         fin.write("7015.06c	2.36969E-02 \n")
-    #         fin.close()
-    #         fin.close()
+    with (open(INPUT, "w")) as file:
+        file.write(total)
 
 
 if __name__ == "__main__":

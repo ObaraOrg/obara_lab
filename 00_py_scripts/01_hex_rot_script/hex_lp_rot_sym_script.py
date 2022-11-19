@@ -24,7 +24,10 @@ def shift(
     return x + shift_move[0], y + shift_move[1], id
 
 
-def rotation(coordinate: Tuple[int, int, str], angle: float) -> Tuple[int, int, str]:
+def rotation(
+    coordinate: Tuple[float, float, float],
+    angle: float,
+) -> Tuple[float, float, str]:
     assert 0 <= angle <= 2 * math.pi
     x, y, id = coordinate
     return (
