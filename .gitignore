@@ -5,7 +5,7 @@
 wh_lfrsuffleNo*
 
 # Exceptions from the rules
-!00_py_scripts/*
+!00_py_scripts/
 
 # Files
 new_matrix.txt
