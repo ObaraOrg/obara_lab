@@ -4,6 +4,9 @@
 03_lab_examples
 wh_lfrsuffleNo*
 
+# Folders that dont apply to
+!00_pyscripts/*
+
 # Files
 new_matrix.txt
 matrix_small.txt
