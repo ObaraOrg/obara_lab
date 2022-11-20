@@ -1,8 +1,8 @@
 # Dev note:
 # the fuel volume replancement is constant, if you're core has
-# incosistent fuel material volumes, the script will mess up the 
+# incosistent fuel material volumes, the script will mess up the
 # each subsequent calculation of serpent2.
-# SOLUTION: remove the vol insersion code lines and use the 
+# SOLUTION: remove the vol insersion code lines and use the
 # mvol option for sss2 to calculate the volumes automatically by MC
 
 
@@ -35,7 +35,6 @@ MAT_EXTRA_OPTIONS = "tmp 923.0  burn 1"
 FUEL_VOL = "1.0542136E+04"
 
 MATCH_FUEL_NO = r"P\d\d?"
-
 
 
 def trim_numbers_from_string(exp: str):

@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 INPUT_PATH = Path("qtr_core_matrix.txt")
 SAVE_PATH = Path("full_core_matrix.txt")
 
+
 def construct_empty_matrix(
     size_x: int, size_y: int, empty_element: str = ""
 ) -> List[List[str]]:

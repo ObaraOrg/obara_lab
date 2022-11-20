@@ -18,8 +18,8 @@ STATIC_HEADER = """%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 def HEADER_PATTERN(idx: int) -> str:
-    """ This is the header above every core pattern 
-    be carefull not to delete the idx in the return 
+    """This is the header above every core pattern
+    be carefull not to delete the idx in the return
     nor the brackets surrounding the indx variable
 
     Args:
@@ -64,5 +64,5 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    hex_lp_rot_sym_script.hex_rot() 	
+    hex_lp_rot_sym_script.hex_rot()
     main()

@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-
 class AddSomething:
     def _init_(self, parameter: float) -> None:
         self.parameter = parameter
@@ -18,7 +17,6 @@ add_three = AddSomething(5.0)
 print(add_three(4))
 print(add_three(1))
 print(add_three(10))
-
 
 
 class HalfLifeDecay:
