@@ -64,8 +64,9 @@ importlib-metadata==4.2.0
     #   nbconvert
 importlib-resources==5.9.0
     # via jsonschema
-ipykernel==6.15.3
+ipykernel==6.16.2
     # via
+    #   -r requirements/requirements.in
     #   nbclassic
     #   notebook
 ipython==7.34.0
