@@ -108,13 +108,15 @@ set pcc LELI 5 5		% - Use predictor corrector method for the depletion solution
 
 set inventory			% - Sets inventory for dep.m file 
 
+Th-227 Th-228 Th-229 Th-230 Th-231 Th-232 Th-233 Th-234
+Pa-231 Pa-232 Pa-233
 U-232  U-233  U-234  U-235  U-236  U-237  U-238  U-239  U-240  U-241 
 Np-235 Np-236 Np-237 Np-238 Np-239
 Pu-236 Pu-237 Pu-238 Pu-239 Pu-240 Pu-241 Pu-242 Pu-243 Pu-244
 Am-241 Am-242 Am-242m Am-243 Am-244 Am-244m 
 Cm-240 Cm-241 Cm-242 Cm-243 Cm-244 Cm-245 Cm-246 Cm-247 Cm-248 Cm-249 Cm-250
 
-U Np Pu Am Cm			% - total list
+Th Pa U Np Pu Am Cm			% - total list
 
 % - SMALL list (not used)
 %U-234 U-235 U-236 U-238 
