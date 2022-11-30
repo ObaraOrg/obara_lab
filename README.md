@@ -1,20 +1,25 @@
-# Production repo (obara_lab)
-## SSH Key
+# Obara_lab repo
+## Connecting to the repo SSH Key
 
 Use the following [GitHub Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/enterprise-server@3.6/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 ``` sh
-# Work also for the lab's ancient CentOS 6.7 
-ssh-keygen -t ecdsa -b 256 -C "xxx@gmail.com"
-# For more modern platforms
-ssh-keygen -t ed25519-sk -C "xxx@gmail.com"
+# Use this for the lab's ancient CentOS 6.7 
+ssh-keygen -t ecdsa -b 256 -C "your@mail.com"
+# For more modern platforms (Tsubame, wsl)
+ssh-keygen -t ed25519-sk -C "your@mail.com"
 # start the ssh-agent in the background
 eval "$(ssh-agent -s)"
-# put password, so it accepts it when you add it
+# Use a password protected key, so it accepts it when you add it
 ssh-add .ssh/key_name
 # next go to git and add it 
+```
 
-#NOTE: The Tsubame needs to load the key everytime it starts
-
+### NOTE: 
+The Tsubame and Local Cluster need to load the key everytime it starts a new terminal instance.
+Use the scripts sh made to make the key loading go faster
+``` sh
+# The script must be run with source as to run on the local terminal shell 
+source git_key_oba.sh
 ```
 
 ## Setup
