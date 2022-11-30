@@ -1,5 +1,4 @@
 # Folders
-.ssh
 01_simulations
 02_learning_serpent
 03_lab_examples
@@ -27,6 +26,17 @@ core.*
 
 # Swap files
 *.swp
+
+
+
+
+# SSH
+.shh
+
+# VScode
+.vscode
+
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
