@@ -4,23 +4,29 @@ Made for Serpent 2.1.32
 
 ### Regarding the scripts functionality and capabilities:
 - This script build is made to enable **OMPI** and **OMP** for SERPENT on an **INTEL CPU**
-(modifies the Makefile automatically to compile with the ICC and MPICC, not the GCC)
-- To change flags in the Makefile, please uncomment/comment them inside in the `install_script_` file
+(modifies the `Makefile` automatically to compile with the **ICC** and **MPICC**, not the **GCC**)
+- To change flags in the `Makefile`, please uncomment/comment them inside in the `install_script_` file
 (still working to make it interactive)
 - this version unzips the ENFB7 and JEFF31 libraries to the `/xsdata` folder
 - default datapath is set to `~"user_home"/serpent/xsdata` via the `~/.bashrc`
 
-For more info on installation and compilation FLAGS check the attached SERPENT_install_doc and the scripts 
+For more info on installation and compilation FLAGS check the latter section of the document
 ________________________________________
 ## Table of contents
 * **[Installation of Serpent](#installation-of-serpent)**
   * [Required files](#required-files)
-  * [Upload data to server](#)
-  * [Unzip the required files](#)
-  * [Compile Serpent](#)
-  * [](#)
-  * [](#)
-* **[On compiltion flags](#installation-of-serpent)**
+  * [Download data from the server](#download-data-from-the-server)
+  * [Unzip the required files](#unzip-the-required-files)
+  * [Compile Serpent](#compile-serpent)
+  * [Preparation of cross-sectional area file](#preparation-of-cross-sectional-area-file)
+  * [Setting environment variables](#setting-environment-variables)
+  * [Perform benchmark calculation](#perform-benchmark-calculation)
+  * [Perform tutorial calculation](#perform-tutorial-calculation)
+* **[On compilation flags](#on-compilation-flags)**
+  * [GNU Compiler](#gnu-compiler)
+  * [Intel Compiler](#intel-compiler)
+  * [Enable Parallel process calculation using MPI](#enable-parallel-process-calculation-using-mpi)
+  * [Notes](#notes)
 ________________________________________
 # Installation of Serpent
 ##### [Serpent wiki, installation and tutorial guides.](https://serpent.vtt.fi/mediawiki/index.php/Main_Page)
@@ -32,9 +38,9 @@ ________________________________________
 
 ### Required files
 There are two versions of the data folder
-| NAS Adress |  user  |  pass  |
+| NAS Address |  user  |  pass  |
 | ------ | ------ | ------ |
-|[192.168.11.3](ftp://192.168.11.3/obaralab/Serpent) | obaralab | ask for it :P|
+| [192.168.11.3](ftp://192.168.11.3/obaralab/Serpent) | obaralab | ask for it :P|
 
 All the files for installing serpent avalabile on the lab NAS:
 - Source code
@@ -46,7 +52,7 @@ All the files for installing serpent avalabile on the lab NAS:
 - TSUBAME qsub file example
 ________________________________________
 
-### Upload data to server
+### Download data from the server
 
 Transfer the files as is DIRECTLY in your user home directory (sepent folder + scripts), paths are references to the main directory as for the script to find the apropiate files.
 
@@ -128,7 +134,8 @@ perl ../../util/xsdirconvert.pl sss_endfb7u.xsdir> sss_endfb7u.xsdata
 ```
 ________________________________________
 
-### Setting environment variables (use whatever editor you please)
+### Setting environment variables 
+(use whatever editor you please)
 Add the following (`usename` is your own account name)
 Add these environment variables by executing the below lines to ~/.bashrc or ~/.bash_profiles (or use the vim to add them manually).
 **NOTE:** B shell needs also the "export" part, compared to other shells
@@ -161,12 +168,13 @@ cp sss_endfb7.nfy $SERPENT_DATA/
 ```
 ________________________________________
 
-### [Perform benchmark calculation](http://serpent.vtt.fi/mediawiki/index.php/Validation_and_verification) (recomended, see if you compiled the code well)
-Use the examples in the `/examples` folder and run one of the benchmarks 
+### [Perform benchmark calculation](http://serpent.vtt.fi/mediawiki/index.php/Validation_and_verification) 
+Recomended, see if you compiled the code well.
+Use the examples in the `/examples` folder and run one of the benchmarks.
 ________________________________________
 
 ### [Perform tutorial calculation](https://serpent.vtt.fi/mediawiki/index.php/Tutorial)
-The compiled files are to found in the `/tutorial_serpent_wiki` folder
+The compiled files are to found in the `/tutorial_serpent_wiki` folder.
 ________________________________________
 
 # On compilation flags
@@ -176,7 +184,7 @@ ________________________________________
 EXAMPLES:
 - `CC = GCC (or ICC)` - specifies the compiler to be used
 - `CFLAGS` - enables the addition of switches for the C compiler
-- `CXXFLAGS` - are meant to be used when invoking a C++ compiler.
+- `CXXFLAGS` - are meant to be used when invoking a C++ compiler
 - `LDFLAGS` - flags added when invoking the linker (C, C++, or Fortran)
 
 ___
