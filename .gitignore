@@ -31,7 +31,7 @@ core.*
 
 
 # SSH
-.shh
+.ssh
 
 # VScode
 .vscode
