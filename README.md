@@ -1,6 +1,7 @@
 # Obara_lab repo
 [Productivity scripts](https://github.com/ObaraOrg/obara_lab/blob/main/05_productivity_scripts/scripts.md)
-[Installing Serpent2 scripts and docs]()
+
+[Serpent2 instalations scripts and docs]()
 
 ## Table of Contents
 * **[Connecting to the repo SSH Key](#connecting-to-the-repo-ssh-key)**
