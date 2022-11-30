@@ -1,14 +1,14 @@
 #!/bin/csh
-#$-cwd
-#$ -V
-#$ -N prod_test
-#$ -o job.out
-#$ -e job.out
-#$ -q all.q@olds07.candle.nr.titech.ac.jp.
-#$ -q all.q@olds08.candle.nr.titech.ac.jp.
-#$ -q all.q@olds09.candle.nr.titech.ac.jp.
+#$-cwd				## Work in current directory
+#$ -V 				## Use environment variables
+#$ -N prod_run		## Name of the run
+#$ -o job.out		## Print job output to job.out
+#$ -e job.out 		## Print job errors to job.out
+#$ -q all.q@olds02.candle.nr.titech.ac.jp.		# Use node x
 
-set NNODEs=3			# Number of Nodes for OMPI
+# Dev note: The -q host list must concide with the reserved host list of the host_list file
+
+set NNODEs=1			# Number of Nodes for OMPI
 set NCPUs=24			# Number of CPUs for Serpent OMP
 echo Serpent 2 has started: >> calc_time.out
 set RunStart=`date` && set RS=`date -d "$RunStart" +%s`
@@ -17,7 +17,7 @@ set WKDR = $PWD			# set working dir
 set sINP = wh_lfr		# main serpent input file	
 set noBUsteps = 1		# last burnup step output file
 set step = 0			# first suffle step
-set stepx = 96			# last suffle step
+set stepx = 3 			# last suffle step
 #===============================================================================================
 
 # - Backup, just in case
@@ -34,6 +34,11 @@ while ( $step <= $stepx )
 # - Run Serpent
     (cd ${WKDR}; mpirun -hostfile hosts_olds -loadbalance -npernode 1 \
 	-n ${NNODEs} sss2 -omp ${NCPUs} ${sINP} >> sss2.out ) & wait
+
+# - Note the time for the burnup
+	set CyEnd=`date` && set CE=`date -d "$CyEnd" +%s` && set DCy=`expr \( $CE - $CS \)`
+	printf "S2 run in: %sh:%02dmin:%02ds\n" `expr $DCy / 3600` `expr $DCy / 60 % 60` \
+	`expr $DCy % 60` >> calc_time.out 	
 
 # - Make burnup cycle folder  
     if (! -e ${sINP}suffleNo${var}) then
@@ -52,12 +57,13 @@ while ( $step <= $stepx )
     
 # - Note the time for each cycle to file
 	set CyEnd=`date` && set CE=`date -d "$CyEnd" +%s` && set DCy=`expr \( $CE - $CS \)`
-	printf "Cycle ${var} in: %sh:%02dmin:%02ds\n" `expr $DCy / 3600` `expr $DCy / 60 % 60` \
-	`expr $DCy % 60` >> calc_time.out 
+	printf "Cycle ${var} (+.py script) in: %sh:%02dmin:%02ds\n" `expr $DCy / 3600` \
+	`expr $DCy / 60 % 60` `expr $DCy % 60` >> calc_time.out 
 	
 	@ step++
 end
 #===============================================================================================
+# - Note the end time of the run
 set set RunEND=`date` && set RE=`date -d "$RunEND" +%s` && set DRun=`expr \( $RE - $RS \)`
 printf "Run done in %sh:%02dmin:%02ds\n" `expr $DRun / 3600 ` `expr $DRun / 60 % 60` \
 `expr $DRun % 60` >> calc_time.out 
