@@ -1,4 +1,6 @@
 # Obara_lab repo
+[Productivity scripts](https://github.com/ObaraOrg/obara_lab/blob/main/05_productivity_scripts/scripts.md)
+[Installing Serpent2 scripts and docs]()
 
 ## Table of Contents
 * **[Connecting to the repo SSH Key](#connecting-to-the-repo-ssh-key)**
@@ -171,3 +173,4 @@ python __script_name__.py
 # Intiate the direnv virtual env
 # Use make file, see instructions there
 ```
+
