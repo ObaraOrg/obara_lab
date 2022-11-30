@@ -7,6 +7,7 @@
   * [pyenv](#pyenv)
   * [direnv](#direnv)
   * [Debuging](#debuging)
+* **[Running the scripts](#running-the-scripts)**
    
 ----
 
