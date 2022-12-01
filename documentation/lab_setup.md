@@ -12,8 +12,8 @@
 
 ## Remote tools
 
-- Windows remote desktop connection via IP and credentials (xrdp on to CentOS, local cluster only)
-- MobaXterm terminal via the
+- **Windows remote desktop** (`mstsc`) connection via IP and credentials (**xrdp** on to CentOS, **local cluster only**)
+- **MobaXterm** terminal via the IP and credentials
 
 ## File transfer software:
 
