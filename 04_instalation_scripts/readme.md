@@ -1,7 +1,6 @@
 # Getting started with Serpent 2 
 Made for Serpent 2.1.32
 
-
 ### Regarding the scripts functionality and capabilities:
 - This script build is made to enable **OMPI** and **OMP** for SERPENT on an **INTEL CPU**
 (modifies the `Makefile` automatically to compile with the **ICC** and **MPICC**, not the **GCC**)

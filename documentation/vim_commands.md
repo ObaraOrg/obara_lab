@@ -1,10 +1,18 @@
 # Getting started with Vi-Vim text editor
 
+<!-- TOC -->
+
+- [Getting started with Vi-Vim text editor](#getting-started-with-vi-vim-text-editor)
+  - [Resources](#resources)
+  - [Vim has two modes of function:](#vim-has-two-modes-of-function)
+
+<!-- /TOC -->
+
 ## Resources
 
-### Interactive Vim tutorial: [Open Vim](https://openvim.com/)
-### Text Vim [Cheat Sheet](https://vim.rtorr.com/lang/en_us)
-### Graphical vi-vim [Cheat Sheet](http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html)
+Interactive Vim tutorial: [Open Vim](https://openvim.com/)
+Text Vim [Cheat Sheet](https://vim.rtorr.com/lang/en_us)
+Graphical vi-vim [Cheat Sheet](http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html)
 
 ---
 

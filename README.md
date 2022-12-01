@@ -1,27 +1,38 @@
-# Obara_lab repo
+# Obara lab repository
 
+<!-- TOC -->
 
-# Table of Contents
-* **[Connecting to the repo SSH Key](#connecting-to-the-repo-ssh-key)**
-* **[Easy connection](#easy-connection)**
-* **[Setup the environment](#setup-the-environment)**
-  * [pyenv](#pyenv)
-  * [direnv](#direnv)
-  * [Debuging](#debuging)
-* **[Running the scripts](#running-the-scripts)**
-   
+- [Obara lab repository](#obara-lab-repository)
+  - [Documentation](#documentation)
+  - [Connecting to the repo SSH Key](#connecting-to-the-repo-ssh-key)
+    - [Easy connection](#easy-connection)
+  - [Setup the environment](#setup-the-environment)
+    - [pyenv](#pyenv)
+      - [Check out Pyenv where you want it installed.](#check-out-pyenv-where-you-want-it-installed)
+      - [Set up your shell environment for Pyenv](#set-up-your-shell-environment-for-pyenv)
+    - [direnv](#direnv)
+      - [After installation add these lines to the `~/.bashrc`](#after-installation-add-these-lines-to-the-bashrc)
+      - [Set up your direnv envirorment](#set-up-your-direnv-envirorment)
+    - [Using the make file](#using-the-make-file)
+    - [Debuging](#debuging)
+  - [Running the scripts](#running-the-scripts)
 
-<br>
+<!-- /TOC -->
 
-## give a name
+## Documentation
 
+[Lab Setup]()
+[Linux commands]()
+[Vim tutorial]()
+[Installing Serpent 2]()
+[Learning Serpent 2]()
+[Parallel calculation with Serpent 2]()
+[Helpful cluster commands]()
 [Productivity scripts](https://github.com/ObaraOrg/obara_lab/blob/main/05_productivity_scripts/scripts.md)
 
-[Serpent2 instalations scripts and docs]()
+---
 
 ## Connecting to the repo SSH Key
-
-----
 
 Use the following [GitHub Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/enterprise-server@3.6/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 ``` sh
@@ -43,9 +54,7 @@ Use the scripts sh made to make the key loading go faster
 source git_key_oba.sh
 ```
 
-<br>
-
-## Easy connection
+### Easy connection
 I find a putty teminal to be the most usefull at the start, here's some [scripts](https://github.com/ObaraOrg/obara_lab/tree/main/05_productivity_scripts/02_putty_terminal_script) to make life a bit easier
 
 ----
@@ -54,8 +63,6 @@ I find a putty teminal to be the most usefull at the start, here's some [scripts
 This setup should work for any platform you may use (cluster, windows, mac...)
 - pyenv - Lets you change the global Python version on a per-user basis.
 - direnv - Extension for your shell. It augments existing shells with a new feature that can load and unload environment variables depending on the current directory.
-
-<br>
 
 ### pyenv
 [Official docs](https://github.com/pyenv/pyenv)
@@ -91,8 +98,6 @@ It's mostly for creating a virtual envirorment for python, it's the most useful 
     echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
     echo 'eval "$(pyenv init -)"' >> ~/.bashrc
     ~~~
-
-<br>
 
 ### direnv
 [Official docs](https://github.com/direnv/direnv)
@@ -159,15 +164,13 @@ source .venv/bin/activate
 
 **requirements.in** - Brings up personalised requirements up to a certain version
 
-<br>
-
 ### Debuging
 ```sh
 # Error: Could not find an activated virtualenv (required)
 Just delete the .direnv, exit the dir, enter it and let it rebuild
 ```
 
-<br>
+---
 
 ## Running the scripts
 
