@@ -1,9 +1,7 @@
 # Obara_lab repo
-[Productivity scripts](https://github.com/ObaraOrg/obara_lab/blob/main/05_productivity_scripts/scripts.md)
 
-[Serpent2 instalations scripts and docs]()
 
-## Table of Contents
+# Table of Contents
 * **[Connecting to the repo SSH Key](#connecting-to-the-repo-ssh-key)**
 * **[Easy connection](#easy-connection)**
 * **[Setup the environment](#setup-the-environment)**
@@ -12,9 +10,18 @@
   * [Debuging](#debuging)
 * **[Running the scripts](#running-the-scripts)**
    
-----
+
+<br>
+
+## give a name
+
+[Productivity scripts](https://github.com/ObaraOrg/obara_lab/blob/main/05_productivity_scripts/scripts.md)
+
+[Serpent2 instalations scripts and docs]()
 
 ## Connecting to the repo SSH Key
+
+----
 
 Use the following [GitHub Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/enterprise-server@3.6/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 ``` sh
@@ -36,7 +43,7 @@ Use the scripts sh made to make the key loading go faster
 source git_key_oba.sh
 ```
 
-----
+<br>
 
 ## Easy connection
 I find a putty teminal to be the most usefull at the start, here's some [scripts](https://github.com/ObaraOrg/obara_lab/tree/main/05_productivity_scripts/02_putty_terminal_script) to make life a bit easier
@@ -48,6 +55,7 @@ This setup should work for any platform you may use (cluster, windows, mac...)
 - pyenv - Lets you change the global Python version on a per-user basis.
 - direnv - Extension for your shell. It augments existing shells with a new feature that can load and unload environment variables depending on the current directory.
 
+<br>
 
 ### pyenv
 [Official docs](https://github.com/pyenv/pyenv)
@@ -83,6 +91,8 @@ It's mostly for creating a virtual envirorment for python, it's the most useful 
     echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
     echo 'eval "$(pyenv init -)"' >> ~/.bashrc
     ~~~
+
+<br>
 
 ### direnv
 [Official docs](https://github.com/direnv/direnv)
@@ -132,7 +142,8 @@ source .venv/bin/activate
 # but try doing it anyway
 ```
 
-#### Using the make file
+### Using the make file
+
 [PetarMirceski](https://github.com/PetarMirceski) make this nice **Makefile** to fastly construct the py env. for any occasion. Modify the `requirements.in` with any specific requirements you need for your project
 
 ```sh
@@ -148,13 +159,17 @@ source .venv/bin/activate
 
 **requirements.in** - Brings up personalised requirements up to a certain version
 
+<br>
+
 ### Debuging
 ```sh
 # Error: Could not find an activated virtualenv (required)
 Just delete the .direnv, exit the dir, enter it and let it rebuild
 ```
 
-# Running the scripts
+<br>
+
+## Running the scripts
 
 ``` sh
 # Activate venv if needed
