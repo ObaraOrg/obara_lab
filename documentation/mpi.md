@@ -1,6 +1,22 @@
 # MPI parallel calculation
 
+<!-- TOC -->
+
+- [MPI parallel calculation](#mpi-parallel-calculation)
+    - [Running Serpent in hybrid mode](#running-serpent-in-hybrid-mode)
+    - [Caution - MPI parallelization without MPI mode :](#caution---mpi-parallelization-without-mpi-mode-)
+    - [Important notes on parallel calculation :](#important-notes-on-parallel-calculation-)
+    - [Scheduler](#scheduler)
+    - [TSUBAME tips](#tsubame-tips)
+    - [Q&A for previous issues encountered](#qa-for-previous-issues-encountered)
+
+<!-- /TOC -->
+
+<br>
+
 ## Running Serpent in hybrid mode
+
+---
 
 If you compiled Serpent with **OpenMP libraries** for parallel computing, you could run the input with multiple **OpenMP threads** to use more than one processor:
 ```sh
@@ -21,16 +37,21 @@ The second option is to use the built-in MPI runner and define the number of tas
 
 **NOTE:** Check the script made for MPI/OMP hybrid script made for the TSUBAME inside the serpent install folder.
 
----
 
-## Caution: MPI parallelization without MPI mode
+
+<br>
+
+## Caution - MPI parallelization without MPI mode :
+
+---
 
 MPI scripts such as mpirun allow running Serpent even if the source code was not compiled in MPI mode. Instead of starting a single parallel simulation, the result is multiple independent simulations that read and write the same input and output files. If two or more writing operations happen to overlap, identical sections are repeated in the output files. If the tasks are sufficiently off-sync, the writing operations do not overlap, and it may actually seem like everything is OK - the correct number of CPU's are working, and the results look reasonable. The only thing that seems to be wrong is that the running time does not reflect the speed-up expected from the parallelization.
 
 When MPI parallelization is executed correctly, the run-time output shows the number of mpi tasks, for example (MPI=10). The number of tasks is also printed in variable MPI\_TASKS in the main output file ([input]\_res.m). Whether the source code was compiled in MPI mode or not can be checked with sss2 -version.
+<br>
 
-## Important notes on parallel calculation (taken from the 2015 manual) :
-
+## Important notes on parallel calculation :
+taken from the 2015 manual
 1. When multiple tasks are sharing the same memory space, the size of allocated memory is also multiplied. This should be considered when setting the memory size in the compilation.
 
 **SEE ALSO :**
@@ -38,9 +59,11 @@ When MPI parallelization is executed correctly, the run-time output shows the nu
 1. [The MPI standard:](http://www-unix.mcs.anl.gov/mpi/) 
 2. [The mpirun script:](http://www-unix.mcs.anl.gov/mpi/www/www1/mpirun.html)
 
----
+<br>
 
 ## Scheduler
+
+---
 
 `qhost` - see the hosts avalabile for use (cluster)
 
@@ -60,11 +83,11 @@ When MPI parallelization is executed correctly, the run-time output shows the nu
 
 Put examples
 
-
----
-
+<br>
 
 ## TSUBAME tips
+
+---
 
 The evironment on the Tsubame work by loading modules, here's an example of the ones needed to work serpent in MPI, OMPI mode 
 
@@ -80,8 +103,12 @@ module load openmpi
 module load python/3.6.5
 ```
 
----
+
+
+<br>
 
 ## Q&A for previous issues encountered
+
+---
 
 '_Unexpected end of file_' and 'error '_importing function definition_' error running shell script using qsub - [Solution](https://stackoverflow.com/questions/10496758/unexpected-end-of-file-and-error-importing-function-definition-error-running)
