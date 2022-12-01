@@ -8,13 +8,13 @@
 
 [Ganglia Resource monitor](http://192.168.11.206/ganglia/?c=olds)
 
-top
+`top`
 
-ps
+`ps`
 
-iostat
+`iostat`
 
-vmstat
+`vmstat`
 
 ### Changing loggin
 
