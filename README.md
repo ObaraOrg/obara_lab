@@ -3,23 +3,24 @@
 <!-- TOC -->
 
 - [Obara lab repository](#obara-lab-repository)
-  - [Documentation](#documentation)
-  - [Connecting to the repo SSH Key](#connecting-to-the-repo-ssh-key)
+  - [Documentation and available materials](#documentation-and-available-materials)
+  - [Connecting to the repo - SSH Key](#connecting-to-the-repo---ssh-key)
     - [Easy connection](#easy-connection)
   - [Setup the environment](#setup-the-environment)
     - [pyenv](#pyenv)
-      - [Check out Pyenv where you want it installed.](#check-out-pyenv-where-you-want-it-installed)
+      - [Installing pyenv](#installing-pyenv)
       - [Set up your shell environment for Pyenv](#set-up-your-shell-environment-for-pyenv)
     - [direnv](#direnv)
-      - [After installation add these lines to the `~/.bashrc`](#after-installation-add-these-lines-to-the-bashrc)
-      - [Set up your direnv envirorment](#set-up-your-direnv-envirorment)
-    - [Using the make file](#using-the-make-file)
+      - [Installing direnv](#installing-direnv)
+      - [Hook to the shell](#hook-to-the-shell)
+      - [Set up your direnv environment](#set-up-your-direnv-environment)
+    - [Using the Makefile](#using-the-makefile)
     - [Debuging](#debuging)
   - [Running the scripts](#running-the-scripts)
 
 <!-- /TOC -->
 
-## Documentation
+## Documentation and available materials
 
 [Lab Setup]()
 [Linux commands]()
@@ -32,7 +33,7 @@
 
 ---
 
-## Connecting to the repo SSH Key
+## Connecting to the repo - SSH Key
 
 Use the following [GitHub Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/enterprise-server@3.6/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 ``` sh
@@ -67,22 +68,22 @@ This setup should work for any platform you may use (cluster, windows, mac...)
 ### pyenv
 [Official docs](https://github.com/pyenv/pyenv)
 
-It's mostly for creating a virtual envirorment for python, it's the most useful on the remote environments you might work
+It's mostly for creating a virtual environment for python, it's the most useful on the remote environments you might work
 
-#### Check out Pyenv where you want it installed.
+#### Installing pyenv 
    A good place to choose is `$HOME/.pyenv` (but you can install it somewhere else):
     ```
     git clone https://github.com/pyenv/pyenv.git ~/.pyenv
     ```
 *  Optionally, try to compile a dynamic Bash extension to speed up Pyenv. Don't
-   worry if it fails; Pyenv will still work normally:
+   worry if it fails; pyenv will still work normally:
     ```
     cd ~/.pyenv && src/configure && make -C src
     ```
 
 #### Set up your shell environment for Pyenv
 * Define environment variable `PYENV_ROOT` to point to the path where
-  Pyenv will store its data. `$HOME/.pyenv` is the default.
+  pyenv will store its data. `$HOME/.pyenv` is the default.
   If you installed Pyenv via Git checkout, we recommend
   to set it to the same location as where you cloned it.
 * Add the `pyenv` executable to your `PATH` if it's not already there
@@ -102,7 +103,14 @@ It's mostly for creating a virtual envirorment for python, it's the most useful 
 ### direnv
 [Official docs](https://github.com/direnv/direnv)
 
-#### After installation add these lines to the `~/.bashrc` 
+It's perfect for creating a virtual environment iside a dir, useful tool to use on the remote environments you might work and for future platform deployments.
+
+#### Installing direnv 
+
+It should be already installed on the cluster, you just need to hook it to your shell; else follow the documentation avalabile on the [git](https://github.com/direnv/direnv)
+
+#### Hook to the shell
+After installation add these lines to the `~/.bashrc` 
 ```sh
 for script in $SCRIPTDIR/$COMPILER/*.sh $SCRIPTDIR/$COMPILER/$MPI/*.sh $SCRIPTDIR/*.sh
 do
@@ -114,7 +122,7 @@ eval "$(direnv hook bash)"
 ```
 **NOTE:** The cluster already had direnv on it, you just need to hook it to you shell
 
-#### Set up your direnv envirorment
+#### Set up your direnv environment
 To create the direnv environment you need the following files: **.envrc Makefile** and **requirements folder**
 
 ```shell
@@ -147,9 +155,9 @@ source .venv/bin/activate
 # but try doing it anyway
 ```
 
-### Using the make file
+### Using the Makefile 
 
-[PetarMirceski](https://github.com/PetarMirceski) make this nice **Makefile** to fastly construct the py env. for any occasion. Modify the `requirements.in` with any specific requirements you need for your project
+[PetarMirceski](https://github.com/PetarMirceski) make this nice **Makefile** to fastly construct the py environment for any occasion. Modify the `requirements.in` with any specific requirements you need for your project
 
 ```sh
 # make setup_pip_tools (upgrades pip, adds pip-tools) 
@@ -166,8 +174,10 @@ source .venv/bin/activate
 
 ### Debuging
 ```sh
-# Error: Could not find an activated virtualenv (required)
-Just delete the .direnv, exit the dir, enter it and let it rebuild
+Error: Could not find an activated virtualenv (required)
+# Just delete the .direnv, exit the dir, enter it and let it rebuild
+# Might be the pyenv installation went bad
+# Might be the direnv is not hooked to shell
 ```
 
 ---
