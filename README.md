@@ -154,9 +154,6 @@ source .venv/bin/activate
 Just delete the .direnv, exit the dir, enter it and let it rebuild
 ```
 
-
-----
-
 # Running the scripts
 
 ``` sh
@@ -174,4 +171,3 @@ python __script_name__.py
 # Intiate the direnv virtual env
 # Use make file, see instructions there
 ```
-
