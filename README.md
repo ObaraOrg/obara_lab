@@ -133,7 +133,7 @@ source .venv/bin/activate
 ```
 
 #### Using the make file
-[PetarMirceski](https://github.com/PetarMirceski) make this nice **Makefile** to fastly construct the py env. for any ocasion. Modify the `requirements.in` with any specific requirements you need for your project
+[PetarMirceski](https://github.com/PetarMirceski) make this nice **Makefile** to fastly construct the py env. for any occasion. Modify the `requirements.in` with any specific requirements you need for your project
 
 ```sh
 # make setup_pip_tools (upgrades pip, adds pip-tools) 
