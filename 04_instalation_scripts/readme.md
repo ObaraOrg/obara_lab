@@ -27,12 +27,12 @@ ________________________________________
   * [Enable Parallel process calculation using MPI](#enable-parallel-process-calculation-using-mpi)
   * [Notes](#notes)
 ________________________________________
-# Installation of Serpent
+# Installing Serpent 2
 ##### [Serpent wiki, installation and tutorial guides.](https://serpent.vtt.fi/mediawiki/index.php/Main_Page)
+* There are two ways of installing Serpent 2, follow the manual installation steps bellow.	
+* Use the [scripts](https://github.com/ObaraOrg/obara_lab/tree/main/04_instalation_scripts) to install Serpent 2 automatically with the sh command.
+
 **NOTE:** In case you're not familiar with the linux environment or are a bit rusty, use the TSUBAME Intro to [linux tutorial](https://www.t3.gsic.titech.ac.jp/sites/upload/T3_seminar_Linux_2019_fall_en.pdf), Japanese version [here](https://www.t3.gsic.titech.ac.jp/sites/upload/T3_seminar_Linux.pdf).
-These instructions are to be found also in a homemade script for easy use, found also in the same folder .
-There are two ways of installing Serpent2, follow the manual installation steps bellow.	
-Use the script to install Serpet2 automatically with the sh command
 ________________________________________
 
 ### Required files
