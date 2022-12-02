@@ -22,14 +22,14 @@
 
 ## Documentation and available materials
 
-[Lab Setup]()
-[Linux commands]()
-[Vim tutorial]()
-[Installing Serpent 2]()
-[Learning Serpent 2]()
-[Parallel calculation with Serpent 2]()
-[Helpful cluster commands]()
-[Productivity scripts](https://github.com/ObaraOrg/obara_lab/blob/main/05_productivity_scripts/scripts.md)
+* [**Lab Setup**](documentation/lab_setup.md)
+* [**Linux commands**](documentation/linux_commands.md)
+* [**Vim tutorial**](documentation/vim_commands.md)
+* [**Installing Serpent 2**](04_instalation_scripts)
+* [**Learning Serpent 2**](documentation/learning_sss2.md)
+* [**Parallel calculation with Serpent 2**](documentation/)
+* [**Helpful cluster commands**](documentation/cluster_commands.md)
+* [**Productivity scripts**](05_productivity_scripts)
 
 ---
 
@@ -61,9 +61,10 @@ I find a putty teminal to be the most usefull at the start, here's some [scripts
 ----
 
 ## Setup the environment
-This setup should work for any platform you may use (cluster, windows, mac...)
-- pyenv - Lets you change the global Python version on a per-user basis.
-- direnv - Extension for your shell. It augments existing shells with a new feature that can load and unload environment variables depending on the current directory.
+This setup should work for any platform you may use (cluster, windows, mac...), it's not required to as to do work but it will save you time and help you manage work in the lab environment.
+- `pyenv` - Lets you change the global python version on a per-user basis.
+- `direnv` - Extension for your shell. It augments existing shells with a new feature that can load and unload environment variables depending on the current directory.
+- `jupiter-notebook` - once setting up the `pyenv` and `direnv`, a [jupiter server](https://github.com/ObaraOrg/obara_lab/tree/main/05_productivity_scripts) can be started on your own platform or on the cluster 
 
 ### pyenv
 [Official docs](https://github.com/pyenv/pyenv)
@@ -123,7 +124,7 @@ eval "$(direnv hook bash)"
 **NOTE:** The cluster already had direnv on it, you just need to hook it to you shell
 
 #### Set up your direnv environment
-To create the direnv environment you need the following files: **.envrc Makefile** and **requirements folder**
+To create the direnv environment you need the following files: **.envrc, Makefile** and **requirements folder**, found in the main repo folder, they are allready configured for python 3.7.13 with several pack's to be install, including **numpy**, **pandas**, **mathplotlib**, **serpentTools** and **jupiter-notebook**
 
 ```shell
 # The security mechanism didn't allow to load the .envrc. Since we trust it,
