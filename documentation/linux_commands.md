@@ -1,5 +1,7 @@
 # Helpful Linux Bash commands for file and string manipulation
 
+**[Back to main page](https://github.com/ObaraOrg/obara_lab)**
+
 ### **Extracting** 
 Great work with fields and columns, alternative `sep` and `grep`)
 ```sh

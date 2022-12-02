@@ -1,5 +1,7 @@
 # Getting started with Vi-Vim text editor
 
+**[Back to main page](https://github.com/ObaraOrg/obara_lab)**
+
 <!-- TOC -->
 
 - [Getting started with Vi-Vim text editor](#getting-started-with-vi-vim-text-editor)

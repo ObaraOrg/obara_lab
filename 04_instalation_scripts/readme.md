@@ -1,6 +1,8 @@
 # Getting started with Serpent 2 
 Made for Serpent 2.1.32
 
+**[Back to main page](https://github.com/ObaraOrg/obara_lab)**
+
 ### Regarding the scripts functionality and capabilities:
 - This script build is made to enable **OMPI** and **OMP** for SERPENT on an **INTEL CPU**
 (modifies the `Makefile` automatically to compile with the **ICC** and **MPICC**, not the **GCC**)
@@ -16,6 +18,7 @@ ________________________________________
 
 - [Getting started with Serpent 2](#getting-started-with-serpent-2)
         - [Regarding the scripts functionality and capabilities:](#regarding-the-scripts-functionality-and-capabilities)
+    - [Table of contents](#table-of-contents)
 - [Installing Serpent 2](#installing-serpent-2)
         - [Required files](#required-files)
         - [Download data from the server](#download-data-from-the-server)

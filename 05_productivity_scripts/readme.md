@@ -1,5 +1,7 @@
 # Some productivity scripts
 
+**[Back to main page](https://github.com/ObaraOrg/obara_lab)**
+
 ### jupiter_notebook.sh
 Please change the port no to a random number as to not conflict with someone's else's notebook.
 ### tmux_layout.sh
