@@ -29,14 +29,15 @@ ________________________________________
 ________________________________________
 # Installation of Serpent
 ##### [Serpent wiki, installation and tutorial guides.](https://serpent.vtt.fi/mediawiki/index.php/Main_Page)
-**NOTE:** In case you're not familiar with the linux environment or are a bit rusty, use the TSUBAME Intro to [linux tutorial](https://www.t3.gsic.titech.ac.jp/sites/upload/T3_seminar_Linux_2019_fall_en.pdf) PDF found in the folder.
+**NOTE:** In case you're not familiar with the linux environment or are a bit rusty, use the TSUBAME Intro to [linux tutorial](https://www.t3.gsic.titech.ac.jp/sites/upload/T3_seminar_Linux_2019_fall_en.pdf), Japanese version [here](https://www.t3.gsic.titech.ac.jp/sites/upload/T3_seminar_Linux.pdf).
 These instructions are to be found also in a homemade script for easy use, found also in the same folder .
-There are two ways of installing Serpent2, follow xxxx2.	
+There are two ways of installing Serpent2, follow the manual installation steps bellow.	
 Use the script to install Serpet2 automatically with the sh command
 ________________________________________
 
 ### Required files
-There are two versions of the data folder
+There are two versions of serpent in this folder, use the one with the install script
+
 | NAS Address |  user  |  pass  |
 | ------ | ------ | ------ |
 | [192.168.11.3](ftp://192.168.11.3/obaralab/Serpent) | obaralab | ask for it :P|
@@ -53,14 +54,16 @@ ________________________________________
 
 ### Download data from the server
 
-Transfer the files as is DIRECTLY in your user home directory (sepent folder + scripts), paths are references to the main directory as for the script to find the apropiate files.
+Transfer the contents of the folder DIRECTLY in your user home directory (sepent folder + install scripts), paths are references to the main directory `~/serpent/` as for the script to find the apropiate files.
 
 ```sh
 #Create serpent directory in your home directory
 mkdir serpent
-#Upload only the files ( to serpent directory with ftp app)
+#Upload only the files (to serpent directory with ftp app)
 ```
 ________________________________________
+
+## Manual installation steps
 
 ### Unzip the required files
 
