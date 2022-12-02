@@ -35,7 +35,7 @@ Welcome, this is the lab repository, made to make life easier while working in t
 * [**Vim tutorial**](documentation/vim_commands.md)
 * [**Installing Serpent 2**](04_instalation_scripts)
 * [**Learning Serpent 2**](documentation/learning_sss2.md)
-* [**Parallel calculation with Serpent 2**](documentation/)
+* [**Parallel calculation with Serpent 2**](documentation/mpi_commands.md)
 * [**Helpful cluster commands**](documentation/cluster_commands.md)
 * [**Productivity scripts**](05_productivity_scripts)
 
