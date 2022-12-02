@@ -1,2 +1,2 @@
 eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/oba_lab_cluster
+ssh-add ~/.ssh/oba_cluster_key
