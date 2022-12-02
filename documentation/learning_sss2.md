@@ -12,7 +12,7 @@
     - [OpenMP load balancing](#openmp-load-balancing)
     - [Growing neutron population](#growing-neutron-population)
     - [Universe group constant generation](#universe-group-constant-generation)
-  - [Predictor-corrector method](#predictor-corrector-method)
+    - [Predictor-corrector method](#predictor-corrector-method)
   - [More things to try](#more-things-to-try)
 
 <!-- /TOC -->
@@ -52,7 +52,7 @@ I recommend going through these preferably in this order
 * [serpentTools](https://serpent-tools.readthedocs.io/en/master/) – great for analysing and compiling the output files, I recommend using them after some familiarisation with the code itself, tutorial examples, manual output read and such, ([introduction article](https://www.tandfonline.com/doi/full/10.1080/00295639.2020.1723992))
 * [PyNE](https://pyne.io/index.html)- The Nuclear Engineering Toolkit – great tool also but more generalist with many features, it's a suite of tools to aid in computational nuclear science & engineering. PyNE seeks to provide native implementations of common nuclear algorithms, as well as Python bindings and I/O support for other industry standard nuclear codes.
 
-<br>
+---
 
 ## Improving calculation times
 
@@ -80,7 +80,7 @@ Disable calculation of group constants if not needed.
 set gcu -1  % - Universe for group constant generation - DEFAULT ON
 ```
 
-## Predictor-corrector method
+### Predictor-corrector method
 For BU calc is useful to get familiar with the predictor-corrector method in serpent:
 ```sh
 set pcc MODE [SSP SSC]

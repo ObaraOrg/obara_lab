@@ -1,12 +1,21 @@
 # Obara lab repository
 
+Welcome, this is the lab repository, made to make life easier while working in the lab. Anyone is welcome to contribute on it via the git. 
+
 <!-- TOC -->
 
 - [Obara lab repository](#obara-lab-repository)
   - [Documentation and available materials](#documentation-and-available-materials)
-  - [Connecting to the repo - SSH Key](#connecting-to-the-repo---ssh-key)
+  - [Creating the work environment](#creating-the-work-environment)
+  - [Remote tools](#remote-tools)
+  - [File transfer software:](#file-transfer-software)
+  - [SSH command line interface:](#ssh-command-line-interface)
+  - [Helpful editing tools:](#helpful-editing-tools)
+  - [Other](#other)
+  - [Connecting to the Github repo - SSH Key](#connecting-to-the-github-repo---ssh-key)
+    - [Cloning the repository](#cloning-the-repository)
     - [Easy connection](#easy-connection)
-  - [Setup the environment](#setup-the-environment)
+  - [Setup the remote environment](#setup-the-remote-environment)
     - [pyenv](#pyenv)
       - [Installing pyenv](#installing-pyenv)
       - [Set up your shell environment for Pyenv](#set-up-your-shell-environment-for-pyenv)
@@ -22,7 +31,6 @@
 
 ## Documentation and available materials
 
-* [**Lab Setup**](documentation/lab_setup.md)
 * [**Linux commands**](documentation/linux_commands.md)
 * [**Vim tutorial**](documentation/vim_commands.md)
 * [**Installing Serpent 2**](04_instalation_scripts)
@@ -33,9 +41,75 @@
 
 ---
 
-## Connecting to the repo - SSH Key
+## Creating the work environment
 
-Use the following [GitHub Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/enterprise-server@3.6/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+|      | Address |  Notes  |  user  | 
+| ------ | ------ | ------ | ------ |
+|  | Wifi |    | obaralab | 
+| File Server | [192.168.11.3](ftp://192.168.11.3) |  (can be mapped with FTP)<br>Documentation and serpent files are to be found here  | obaralab |
+| Local User | 192.168.11.206:22 | The local work cluster, **olds** |  _student user_ | 
+|  [Tsubame Login](https://helpdesk.t3.gsic.titech.ac.jp/manuals/handbook.en/start/) | `student_ID`@login.t3.gsic.titech.ac.jp | Login node, home dir space is less than 17Gb so I recommend you use the **group disk** |  `student_ID` | 
+| TSUBAME group DISK | /gs/hs0/tga-oba2 | Create a symbolic link (`ln -s` command) | | 
+
+---
+
+## Remote tools
+
+- **Windows remote desktop** (`mstsc`) connection via IP and credentials (**xrdp** on to CentOS, **local cluster only**)
+- **MobaXterm** terminal via the IP and credentials
+
+## File transfer software:
+
+- **FileZilla**
+- **WinSCP** (but I would recommend it with the Notepad++ as to make life easier)
+- **Windows** [file explorer integration](https://github.com/winfsp/sshfs-win) for sftp connections ([tutorial](https://sftptogo.com/blog/how-to-map-sftp-as-a-windows-10-drive/))
+- **NOTE:** for the *TSUBAME group disk* use windows explorer to map the folder ([tutorial](https://helpdesk.t3.gsic.titech.ac.jp/manuals/handbook.en/storage/#highspeed)), else this should be mapped with a symbolic link towards you homedir on the TSUBAME.
+
+## SSH command line interface:
+
+- Putty
+- Putty script for a quick terminal, make a bat file for windows and paste these commands:
+
+```sh
+# For the Local Cluster
+@echo off
+start putty.exe _ **YOUR\_USER** _@192.168.11.206 -pw _ **YOUR\_PASS** _ 22 -t
+```
+
+```sh
+# For the TSUBAME (+pageant)
+@echo off
+start pageant.exe
+TIMEOUT 1
+pageant.exe "C:\.\ **YOUR\_KEY.ppk**" -c putty.exe _ **YOUR\_USER** _ @login.t3.gsic.titech.ac.jp -pw _ **YOUR\_PASS** _ 22 -t
+```
+
+---
+
+## Helpful editing tools:
+
+- **Vim** editor inside the command line view (vim command)
+- **EMACS** with Vim key-bindings ([doomemacs](https://github.com/doomemacs/doomemacs) plugin) inside the command line view
+- **Notepad++** (with the FTP add-on, no need for FileZilla when working on files, at least for the cluster)
+- **Visual Studio Code** (crowd favorite, but stil you cant connect remotely to the cluster :P)
+- **PyCharm Professional** ([free for students](https://www.jetbrains.com/community/education/#students), full development environment, no need for the tools above)
+
+---
+
+## Other
+
+- For `python` version control, there is `pyenv` that can be pulled from  `git`, see the [tutorial](https://github.com/pyenv/pyenv#installation)), you can use it for version management of python (up to **3.7.13**, **CentOS 6.x** is deprecated and it misses a lot of package support)
+- Same goes for the TSUBAME, you can install `pyenv` to manage your python and install packages more easily :P
+- Also `direnv` can be also used for even more facile version control of the Linux environment, not only for python version control (much more recommended)
+<br>
+
+---
+
+
+## Connecting to the Github repo - SSH Key
+
+Use the following [GitHub Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/enterprise-server@3.6/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
+**NOTE:** The cluster is a bit old so use the bellow instructions
 ``` sh
 # Use this for the lab's ancient CentOS 6.7 
 ssh-keygen -t ecdsa -b 256 -C "your@mail.com"
@@ -48,23 +122,30 @@ ssh-add .ssh/key_name
 # next go to git and add it 
 ```
 
-**NOTE:** The Tsubame and Local Cluster need to load the key everytime it starts a new terminal instance.
-Use the scripts sh made to make the key loading go faster
+**NOTE:** The Tsubame and Local Cluster need to load the key everytime it starts a new terminal instance (starting and loading the ssh key).
+Use the [sh scripts](/git_key_oba.sh)  made to make the key loading go faster
 ``` sh
 # The script must be run with source as to run on the local terminal shell 
 source git_key_oba.sh
 ```
 
+### Cloning the repository
+
+[Official docs](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+
 ### Easy connection
 I find a putty teminal to be the most usefull at the start, here's some [scripts](https://github.com/ObaraOrg/obara_lab/tree/main/05_productivity_scripts/02_putty_terminal_script) to make life a bit easier
+<br>
+
 
 ----
 
-## Setup the environment
-This setup should work for any platform you may use (cluster, windows, mac...), it's not required to as to do work but it will save you time and help you manage work in the lab environment.
+## Setup the remote environment
+This setup should work for any platform you may use (cluster, windows, mac...), **it's not required to for research** but it will save you time, manage work and generally make you more productive in the lab environment.
 - `pyenv` - Lets you change the global python version on a per-user basis.
 - `direnv` - Extension for your shell. It augments existing shells with a new feature that can load and unload environment variables depending on the current directory.
-- `jupiter-notebook` - once setting up the `pyenv` and `direnv`, a [jupiter server](https://github.com/ObaraOrg/obara_lab/tree/main/05_productivity_scripts) can be started on your own platform or on the cluster 
+- `jupiter-notebook` - once setting up the `pyenv` and `direnv`, a [jupiter server](https://github.com/ObaraOrg/obara_lab/tree/main/05_productivity_scripts) can be started on your own platform or on the cluster **via the browser**, with the python envirorment made inside the `direnv` directory, withouth installing a separate instance on you PC.
+- `tmux` - A terminal multiplexer. It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal. (**ver.1.6** is present on the cluster, latest **ver.3.2** can be found on the TSUBAME by entering `module load tmux`)
 
 ### pyenv
 [Official docs](https://github.com/pyenv/pyenv)

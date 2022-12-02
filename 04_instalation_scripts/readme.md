@@ -12,23 +12,30 @@ Made for Serpent 2.1.32
 For more info on installation and compilation FLAGS check the latter section of the document
 ________________________________________
 ## Table of contents
-* **[Installation of Serpent](#installation-of-serpent)**
-  * [Required files](#required-files)
-  * [Download data from the server](#download-data-from-the-server)
-  * [Unzip the required files](#unzip-the-required-files)
-  * [Compile Serpent](#compile-serpent)
-  * [Preparation of cross-sectional area file](#preparation-of-cross-sectional-area-file)
-  * [Setting environment variables](#setting-environment-variables)
-  * [Perform benchmark calculation](#perform-benchmark-calculation)
-  * [Perform tutorial calculation](#perform-tutorial-calculation)
-* **[On compilation flags](#on-compilation-flags)**
-  * [GNU Compiler](#gnu-compiler)
-  * [Intel Compiler](#intel-compiler)
-  * [Enable Parallel process calculation using MPI](#enable-parallel-process-calculation-using-mpi)
-  * [Notes](#notes)
+<!-- TOC -->
+
+- [Getting started with Serpent 2](#getting-started-with-serpent-2)
+        - [Regarding the scripts functionality and capabilities:](#regarding-the-scripts-functionality-and-capabilities)
+- [Installing Serpent 2](#installing-serpent-2)
+        - [Required files](#required-files)
+        - [Download data from the server](#download-data-from-the-server)
+    - [Manual installation steps](#manual-installation-steps)
+        - [Unzip the required files](#unzip-the-required-files)
+        - [Compile Serpent](#compile-serpent)
+        - [Preparation of cross-sectional area file](#preparation-of-cross-sectional-area-file)
+        - [Setting environment variables](#setting-environment-variables)
+        - [Perform benchmark calculation](#perform-benchmark-calculation)
+        - [Perform tutorial calculation](#perform-tutorial-calculation)
+- [On compilation flags](#on-compilation-flags)
+        - [GNU Compiler:](#gnu-compiler)
+        - [Intel Compiler:](#intel-compiler)
+        - [Enable Parallel process calculation using MPI:](#enable-parallel-process-calculation-using-mpi)
+        - [Notes:](#notes)
+
+<!-- /TOC -->
 ________________________________________
 # Installing Serpent 2
-##### [Serpent wiki, installation and tutorial guides.](https://serpent.vtt.fi/mediawiki/index.php/Main_Page)
+**[Serpent wiki, installation and tutorial guides.](https://serpent.vtt.fi/mediawiki/index.php/Main_Page)**
 * There are two ways of installing Serpent 2, follow the manual installation steps bellow.	
 * Use the [scripts](https://github.com/ObaraOrg/obara_lab/tree/main/04_instalation_scripts) to install Serpent 2 automatically with the sh command.
 
@@ -180,7 +187,8 @@ The compiled files are to found in the `/tutorial_serpent_wiki` folder.
 ________________________________________
 
 # On compilation flags
-##### This part is to explain why and how we change flags in a make file
+**This part is to explain why and how we change flags in a make file**
+
 `CFLAGS` and `CXXFLAGS` are either the name of environment variables or of `Makefile` variables that can be set to specify additional switches to be passed to a compiler in the process of building computer software.
 
 EXAMPLES:
@@ -196,13 +204,17 @@ See more here: <https://wiki.gentoo.org/wiki/GCC_optimization/en>
 - `CC  = gcc`  - compiler selection flag
 - `CFLAGS   = -Wall -ansi -ffast-math -O3 -Wunused`  - optimization flag
 - `LDFLAGS  = -lm`  - linking flag
-##### Parallel calculation using Open MP 
+- 
+**Parallel calculation using Open MP** 
+
 This one is for linux based OS, GNU (gcc, g++, gfortran)):
 Enables parallelizer to gen. multi-threaded code based on OpenMP directives
 - `CFLAGS  += -DOPEN_MP` - user flag, if defined
 - `CFLAGS  += -fopenmp` 
 - `LDFLAGS += -fopenmp`  - linking flag
-##### Alternative 
+- 
+**Alternative**
+
 Does the same thing as the CF and LD flag above,but it works on the TSUBAME because the diferent arhitechture
 
 - `CFLAGS += -qopenmp`
@@ -212,12 +224,18 @@ ___
 
 ### Intel Compiler:
 - `CC = icc`
-##### Optimization for Intel CPU's:
+  
+**Optimization for Intel CPU's:**
+
 - `CFLAGS = -Wall -ansi -pedantic -xHost -ipo -DINTELCC`
-##### Alternative:
+  
+**Alternative:**
+
 - `CFLAGS = -Wall -ansi -pedantic -O3 -DINTELCC #03 level of optimization`
 - `LDFLAGS = -lm`
-##### Parallel calculation using Open MP (this one is for Intel (icc ifort)):
+  
+**Parallel calculation using Open MP (this one is for Intel (icc ifort)):**
+
 - `CFLAGS += -DOPEN_MP`
 - `CFLAGS += -openmp`
 - `LDFLAGS += -openmp`
