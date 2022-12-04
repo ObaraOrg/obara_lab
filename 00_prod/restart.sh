@@ -1,5 +1,5 @@
 cp input/fuel.inp fuel.inp
-rm -rf original_files 
+#rm -rf original_files 
 rm -rf wh_lfrsuffleNo*
 rm wh_lfr.* wh_lfr_*
 rm sss2.out*

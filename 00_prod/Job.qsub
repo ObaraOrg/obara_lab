@@ -21,10 +21,10 @@ set stepx = 0 			# last suffle step
 #===============================================================================================
 
 # - Backup, just in case
-if (! -e original_files}) then
-	mkdir original_files
-    cp * original_files
-endif
+#if (! -e original_files}) then
+#	mkdir original_files
+#    cp * original_files
+#endif
 
 # - Start run and shuffle fuel.inp
 while ( $step <= $stepx ) 
