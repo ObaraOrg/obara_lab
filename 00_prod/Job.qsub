@@ -4,11 +4,11 @@
 #$ -N prod_run		## Name of the run
 #$ -o job.out		## Print job output to job.out
 #$ -e job.out 		## Print job errors to job.out
-#$ -q all.q@olds02.candle.nr.titech.ac.jp.		# Use node x
+#$ -q all.q
 
 # Dev note: The -q host list must concide with the reserved host list of the host_list file
 
-set NNODEs=1			# Number of Nodes for OMPI
+set NNODEs=3			# Number of Nodes for OMPI
 set NCPUs=24			# Number of CPUs for Serpent OMP
 echo Serpent 2 has started: >> calc_time.out
 set RunStart=`date` && set RS=`date -d "$RunStart" +%s`
@@ -17,7 +17,7 @@ set WKDR = $PWD			# set working dir
 set sINP = wh_lfr		# main serpent input file	
 set noBUsteps = 1		# last burnup step output file
 set step = 0			# first suffle step
-set stepx = 3 			# last suffle step
+set stepx = 0 			# last suffle step
 #===============================================================================================
 
 # - Backup, just in case

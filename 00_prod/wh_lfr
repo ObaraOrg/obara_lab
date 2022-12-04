@@ -49,7 +49,7 @@ set nbuf	8.0			% - Sets the size of n buffer (DEF off, use only when sym fails)
 %     N.pop.generated/ active.cycles/ inactive.cycles/ guess for k0/  
 
 %set pop		40000 200 50
-set pop		10000 100 50 
+set pop		5000 100 50 
 set gpop	200 40000
 
 

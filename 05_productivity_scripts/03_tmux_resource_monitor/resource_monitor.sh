@@ -45,7 +45,7 @@ tmux send-keys \
 | olds03 | olds07 |\n \
 | olds04 | olds08 |\n \
 | olds05 | olds09 |\n \
-Type 'tmux kill-window' to close " ' Enter 
+Type tmux kill-window to close " ' Enter 
 
 for (( i = 2; i < 10 ; i++ )); do
 	tmux select-pane -t $i
@@ -53,3 +53,4 @@ for (( i = 2; i < 10 ; i++ )); do
 done
 
 tmux select-pane -t 1
+tmux send-keys 'tmux kill-window' 
