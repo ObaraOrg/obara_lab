@@ -2,6 +2,8 @@
 
 **[Back to main page](https://github.com/ObaraOrg/obara_lab)**
 
+_Old doc of mine, may need more stuff to make it useful_
+
 ### **Extracting** 
 Great work with fields and columns, alternative `sep` and `grep`)
 ```sh
