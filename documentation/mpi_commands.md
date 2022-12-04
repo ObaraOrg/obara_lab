@@ -18,8 +18,6 @@
 
 ## Running Serpent in hybrid mode
 
-
-
 If you compiled Serpent with **OpenMP libraries** for parallel computing, you could run the input with multiple **OpenMP threads** to use more than one processor:
 ```sh
 sss2 -omp N input
@@ -54,8 +52,8 @@ taken from the 2015 manual
 
 **SEE ALSO :**
 
-1. [The MPI standard:](http://www-unix.mcs.anl.gov/mpi/) 
-2. [The mpirun script:](http://www-unix.mcs.anl.gov/mpi/www/www1/mpirun.html)
+1. [The MPI standard](http://www-unix.mcs.anl.gov/mpi/) 
+2. [The mpirun script](http://www-unix.mcs.anl.gov/mpi/www/www1/mpirun.html)
 
 ---
 
@@ -81,8 +79,26 @@ Version present is 2011.11 - these here are the most popular commands avalabile,
 
 **SEE ALSO :**
 1. [Grind Engine at Sourceforge](https://gridscheduler.sourceforge.net/)
+2. [Link to my qsub local cluster script](https://github.com/ObaraOrg/obara_lab/blob/main/00_prod/Job.qsub)
+3. [Link to my qsub tsubame script](https://github.com/ObaraOrg/obara_lab/blob/main/00_prod/JobTSU.qsub)
 
 _Put examples maybe_
+
+---
+
+## Resource usage tips
+
+* The **Local Cluster** does not have any limit on resource usage but check with others on how you plan to use them as not to run jobs in parallel and skew others results.
+* The **Tsubame** has limits, check them [here](https://www.t3.gsic.titech.ac.jp/en/resource-limit)
+
+When running several programs/languages via a script, try to time each part of the script individually, some components may be slower that others and may help you find how to same time. Using **one process per node** with mutiple **OMP threads** makes for the best results.
+
+```sh
+# Cluster mpirun example:
+# -n 9 => 9 nodes | -npernode 1 => 1 proc.per.node | -omp 23 => 23 omp threads in use
+ mpirun -npernode 1 -n 9 sss2 -omp 23 sss_input
+```
+_Add benchmark table here_
 
 ---
 
