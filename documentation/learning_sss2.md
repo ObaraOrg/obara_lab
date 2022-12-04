@@ -45,9 +45,11 @@ I recommend going through these preferably in this order
 
 ### Less obvious things in Serpent :
 
-* Serpent2 can handle [STL geometry files](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4024163)
-* Serpent2 outputs an OCTAVE/MATLAB style syntax output file for easy processing, but to make your like even easier in data analysis, learn to use the [serpent-tools](https://serpent-tools.readthedocs.io/en/master/) for plots and graphics.
-* Serpent2 can be [coupled with CDF software](https://serpent.vtt.fi/mediawiki/index.php/Minimal_Serpent_Coupling_Script) (ex: OPENFoam) and has a [multiphysics interface.](https://serpent.vtt.fi/mediawiki/index.php/Multi-physics_interface)
+* Serpent 2 outputs an OCTAVE/MATLAB style syntax output file for easy processing as seen with the tutorial, but to make your like even easier in data analysis, learn to use the [serpent-tools](https://serpent-tools.readthedocs.io/en/master/) for data extraction, plots and graphics.
+* Serpent 2 can handle [STL geometry files](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4024163)
+* Serpent 2 can be [coupled with CDF software](https://serpent.vtt.fi/mediawiki/index.php/Minimal_Serpent_Coupling_Script) (ex: OPENFoam) and has a [multiphysics interface.](https://serpent.vtt.fi/mediawiki/index.php/Multi-physics_interface)
+
+*To do: Add relevant files and examples*
 
 ### Useful tools for serpent analysis :
 

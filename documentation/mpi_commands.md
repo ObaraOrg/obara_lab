@@ -8,7 +8,8 @@
   - [Running Serpent in hybrid mode](#running-serpent-in-hybrid-mode)
   - [Caution - MPI parallelization without MPI mode :](#caution---mpi-parallelization-without-mpi-mode-)
   - [Important notes on parallel calculation :](#important-notes-on-parallel-calculation-)
-  - [Scheduler](#scheduler)
+  - [Scheduler - Open Grid Scheduler/Grid Engine](#scheduler---open-grid-schedulergrid-engine)
+  - [Resource usage tips](#resource-usage-tips)
   - [TSUBAME tips](#tsubame-tips)
   - [Q\&A for previous issues encountered](#qa-for-previous-issues-encountered)
 
