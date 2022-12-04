@@ -14,11 +14,11 @@
 
 <!-- /TOC -->
 
-<br>
+---
 
 ## Running Serpent in hybrid mode
 
----
+
 
 If you compiled Serpent with **OpenMP libraries** for parallel computing, you could run the input with multiple **OpenMP threads** to use more than one processor:
 ```sh
@@ -39,13 +39,9 @@ The second option is to use the built-in MPI runner and define the number of tas
 
 **NOTE:** Check the script made for MPI/OMP hybrid script made for the TSUBAME inside the serpent install folder.
 
-
-
-<br>
+---
 
 ## Caution - MPI parallelization without MPI mode :
-
----
 
 MPI scripts such as mpirun allow running Serpent even if the source code was not compiled in MPI mode. Instead of starting a single parallel simulation, the result is multiple independent simulations that read and write the same input and output files. If two or more writing operations happen to overlap, identical sections are repeated in the output files. If the tasks are sufficiently off-sync, the writing operations do not overlap, and it may actually seem like everything is OK - the correct number of CPU's are working, and the results look reasonable. The only thing that seems to be wrong is that the running time does not reflect the speed-up expected from the parallelization.
 
@@ -61,11 +57,11 @@ taken from the 2015 manual
 1. [The MPI standard:](http://www-unix.mcs.anl.gov/mpi/) 
 2. [The mpirun script:](http://www-unix.mcs.anl.gov/mpi/www/www1/mpirun.html)
 
-<br>
-
-## Scheduler
-
 ---
+
+## Scheduler - Open Grid Scheduler/Grid Engine
+
+Version present is 2011.11 - these here are the most popular commands avalabile, for more check the manual on the web
 
 `qhost` - see the hosts avalabile for use (cluster)
 
@@ -83,13 +79,14 @@ taken from the 2015 manual
 
 `qmon` - Tool to operate GridEngine with her GUI of X-Window. (avalabile only via remote xrdp on the cluster)
 
-Put examples
+**SEE ALSO :**
+1. [Grind Engine at Sourceforge](https://gridscheduler.sourceforge.net/)
 
-<br>
-
-## TSUBAME tips
+_Put examples maybe_
 
 ---
+
+## TSUBAME tips
 
 The evironment on the Tsubame work by loading modules, here's an example of the ones needed to work serpent in MPI, OMPI mode 
 
@@ -105,12 +102,8 @@ module load openmpi
 module load python/3.6.5
 ```
 
-
-
-<br>
+---
 
 ## Q&A for previous issues encountered
-
----
 
 '_Unexpected end of file_' and 'error '_importing function definition_' error running shell script using qsub - [Solution](https://stackoverflow.com/questions/10496758/unexpected-end-of-file-and-error-importing-function-definition-error-running)
