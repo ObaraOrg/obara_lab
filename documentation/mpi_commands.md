@@ -62,7 +62,7 @@ taken from the 2015 manual
 
 Version present is 2011.11 - these here are the most popular commands avalabile, for more check the manual on the web
 
-`qhost` - see the hosts avalabile for use (cluster)
+`qhost` - see the hosts avalabile for use (cluster, useful for writing the `hostfile` for `mpirun`)
 
 `qsub` - use it for submitting scheduled jobs to the local cluster or the TSUBAME
 
