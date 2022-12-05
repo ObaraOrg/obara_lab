@@ -1,13 +1,12 @@
 #!/bin/csh
-#$-cwd
-#$ -V
-#$ -N TSU_prod
-#$ -o job.out
-#$ -e job.out 
-## Resource type F: qty 4
-#$ -l f_node=4
-#$ -l h_rt=24:00:00
-#$ -p -5
+#$-cwd				## Work in current directory
+#$ -V 				## Use environment variables
+#$ -N TSU_prod		## Name of the run
+#$ -o job.out		## Print job output to job.out
+#$ -e job.out 		## Print job errors to job.out
+#$ -l f_node=4		## Resource type F: qty 4 
+#$ -l h_rt=24:00:00	## Reserve the run for x hours
+#$ -p -5 			## Priority: -5(standard), -4(mid) and -3 (top)
 
 ## 28 threads per node (export for sh, setenv for csh)
 ## seems not to be needed because serpent can handle it
@@ -34,10 +33,10 @@ set stepx = 96			# last suffle step
 #===============================================================================================
 
 # - Backup, just in case
-if (! -e original_files}) then
-	mkdir original_files
-    cp * original_files
-endif
+#if (! -e original_files}) then
+#	mkdir original_files
+#    cp * original_files
+#endif
 
 # - Start run and shuffle fuel.inp
 while ( $step <= $stepx ) 
@@ -47,6 +46,11 @@ while ( $step <= $stepx )
 # - Run Serpent
     (cd ${WKDR}; mpirun -np 1 -n ${NNODEs} -x LD_LIBRARY_PATH \
 	sss2 -omp ${NCPUs} ${sINP} >> sss2.out ) & wait
+	
+# - Note the time for the burnup
+	set CyEnd=`date` && set CE=`date -d "$CyEnd" +%s` && set DCy=`expr \( $CE - $CS \)`
+	printf "S2 run in: %sh:%02dmin:%02ds\n" `expr $DCy / 3600` `expr $DCy / 60 % 60` \
+	`expr $DCy % 60` >> calc_time.out 	
 
 # - Make burnup cycle folder and copy all 
     if (! -e ${sINP}suffleNo${var}) then
@@ -65,12 +69,13 @@ while ( $step <= $stepx )
     
 # - Note the time for each cycle to file
 	set CyEnd=`date` && set CE=`date -d "$CyEnd" +%s` && set DCy=`expr \( $CE - $CS \)`
-	printf "Cycle ${var} in: %sh:%02dmin:%02ds\n" `expr $DCy / 3600` `expr $DCy / 60 % 60` \
-	`expr $DCy % 60` >> calc_time.out 
+	printf "Cycle ${var} (+.py script) in: %sh:%02dmin:%02ds\n" `expr $DCy / 3600` \
+	`expr $DCy / 60 % 60` `expr $DCy % 60` >> calc_time.out 
 	
 	@ step++
 end
 #===============================================================================================
+# - Note the end time of the run
 set set RunEND=`date` && set RE=`date -d "$RunEND" +%s` && set DRun=`expr \( $RE - $RS \)`
 printf "Run done in %sh:%02dmin:%02ds\n" `expr $DRun / 3600 ` `expr $DRun / 60 % 60` \
 `expr $DRun % 60` >> calc_time.out 

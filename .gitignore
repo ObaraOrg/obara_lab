@@ -27,6 +27,17 @@ core.*
 # Swap files
 *.swp
 
+
+
+
+# SSH
+.ssh
+
+# VScode
+.vscode
+
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
