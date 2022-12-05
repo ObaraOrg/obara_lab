@@ -14,6 +14,7 @@
     - [OpenMP load balancing](#openmp-load-balancing)
     - [Growing neutron population](#growing-neutron-population)
     - [Universe group constant generation](#universe-group-constant-generation)
+  - [Improving accuracy](#improving-accuracy)
     - [Predictor-corrector method](#predictor-corrector-method)
   - [More things to try](#more-things-to-try)
 
@@ -84,6 +85,10 @@ Disable calculation of group constants if not needed.
 set gcu -1  % - Universe for group constant generation - DEFAULT ON
 ```
 
+---
+
+## Improving accuracy 
+
 ### Predictor-corrector method
 For BU calc is useful to get familiar with the predictor-corrector method in serpent:
 ```sh
@@ -113,9 +118,12 @@ The possible settings for mode are:
 | 5       | Constant or linear extrapolation | Linear or quadratic interpolation |
 | 6, CECE | Constant extrapolation | Constant backwards extrapolation |
 
-Recommended :
+Recommended:
+(still to be tested and to put some results)
 ```sh
-set pcc LELI 5 5
+# See reference 1* for more details on why
+
+set pcc LELI 
 ```
 
 Explicit materials on the different methods used for approximation:
