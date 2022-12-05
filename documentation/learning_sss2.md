@@ -65,13 +65,16 @@ I recommend going through these preferably in this order
 
 ### OpenMP load balancing 
 ```sh
-set bala 	1			% - OpenMP load balancing on or off (may go faster)
+set bala 1      % - OpenMP load balancing on or off (may go faster)
 ```
 
 ### Growing neutron population
+
+[Serpent wiki - gpop](http://serpent.vtt.fi/mediawiki/index.php/Input_syntax_manual#set_gpop)
+
 ```sh
-set pop	    40000 200 50
-set gpop	200 40000   	% Sets the on-the-fly neutron growing population size algorithm. 
+set pop  40000 200 50
+set gpop 200 40000      % Sets the on-the-fly neutron growing population size algorithm. 
 ```
 
 **NOTE:** Tune the ratio of neutrons per generation and number of cycles or number of batches. Running many cycles with relatively small populations is generally slower than running fewer cycles with greater populations. However, this may also change the accumulation of statistics, equilibrium xenon iteration etc.
@@ -82,7 +85,7 @@ The growing algorithm methodology is described in related paper:
 ### Universe group constant generation
 Disable calculation of group constants if not needed.
 ```sh
-set gcu -1  % - Universe for group constant generation - DEFAULT ON
+set gcu -1      % - Universe for group constant generation - DEFAULT ON
 ```
 
 ---
@@ -90,7 +93,7 @@ set gcu -1  % - Universe for group constant generation - DEFAULT ON
 ## Improving accuracy 
 
 ### Predictor-corrector method
-For BU calc is useful to get familiar with the predictor-corrector method in serpent:
+For BU calc is useful to get familiar with the[ predictor-corrector method in serpent](http://serpent.vtt.fi/mediawiki/index.php/Input_syntax_manual#set_pcc):
 ```sh
 set pcc MODE [SSP SSC]
 
