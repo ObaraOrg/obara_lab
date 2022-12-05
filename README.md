@@ -46,7 +46,7 @@ Welcome, this is the lab repository, made to make life easier while working in t
 |      | Address |  Notes  |  user  | 
 | ------ | ------ | ------ | ------ |
 |  | Wifi |    | obaralab | 
-| File Server | [192.168.11.3](ftp://192.168.11.3) |  (can be mapped with FTP)<br>Documentation and serpent files are to be found here  | obaralab |
+| File Server | [192.168.11.3](ftp://192.168.11.3) |  (can be mapped with FTP)<br>Documentation and serpent files are to be found here  | - |
 | Local User | 192.168.11.206:22 | The local work cluster, **olds** |  _student user_ | 
 |  [Tsubame Login](https://helpdesk.t3.gsic.titech.ac.jp/manuals/handbook.en/start/) | `student_ID`@login.t3.gsic.titech.ac.jp | Login node, home dir space is less than 17Gb so I recommend you use the **group disk** |  `student_ID` | 
 | TSUBAME group DISK | /gs/hs0/tga-oba2 | Create a symbolic link (`ln -s` command) | | 
