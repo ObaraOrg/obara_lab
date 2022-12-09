@@ -1,0 +1,33 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ---     Old data     --- %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% - U000 pin (no smear)
+%pin U000
+%	fuelFUEL 	0.427500
+%	bond        0.469242
+%	ods         0.559242
+%	lead
+
+% - U000 pin (smear of 92%)
+%pin U000
+%	fuelFUEL 	0.42750
+%	bond        0.44500
+%	ods         0.53500
+%	lead
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% --- Pin definitions  --- %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% --- Coolant pin %%%%%%%%%%
+
+pin _co_
+	lead
+
+% --- U000 pins (smear 82%)%
+
+pin U000
+	fuel	 	0.469242  
+	ods         0.559242   
+	lead

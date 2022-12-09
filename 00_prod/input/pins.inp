@@ -2,11 +2,18 @@
 % ---     Old data     --- %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% - Fuel pin (smear of 82% not included)
+% - P1Z1 pin (no smear)
 %pin P1Z1
-%	fuelP1Z1 	0.427500
-%	bond        0.469242   % Old smear of 92% 0.44500
-%	ods         0.559242   % Old smear of 92% 0.53500
+%	fuelFUEL 	0.427500
+%	bond        0.469242
+%	ods         0.559242
+%	lead
+
+% - P1Z1 pin (smear of 92%)
+%pin P1Z1
+%	fuelFUEL 	0.42750
+%	bond        0.44500
+%	ods         0.53500
 %	lead
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
