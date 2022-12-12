@@ -48,7 +48,7 @@ When MPI parallelization is executed correctly, the run-time output shows the nu
 <br>
 
 ## Important notes on parallel calculation :
-taken from the 2015 manual
+Taken from the 2015 Serpent manual
 1. When multiple tasks are sharing the same memory space, the size of allocated memory is also multiplied. This should be considered when setting the memory size in the compilation.
 
 **SEE ALSO :**
@@ -80,8 +80,9 @@ Version present is 2011.11 - these here are the most popular commands avalabile,
 
 **SEE ALSO :**
 1. [Grind Engine at Sourceforge](https://gridscheduler.sourceforge.net/)
-2. [Link to my qsub local cluster script](https://github.com/ObaraOrg/obara_lab/blob/main/00_prod/Job.qsub)
-3. [Link to my qsub tsubame script](https://github.com/ObaraOrg/obara_lab/blob/main/00_prod/JobTSU.qsub)
+2. [Oracle Sun Grid documentation](https://docs.oracle.com/cd/E19923-01/820-6793-10/ExecutingBatchPrograms.html)
+3. [Link to my qsub local cluster script](https://github.com/ObaraOrg/obara_lab/blob/main/00_prod/Job.qsub)
+4. [Link to my qsub tsubame script](https://github.com/ObaraOrg/obara_lab/blob/main/00_prod/JobTSU.qsub)
 
 _Put examples maybe_
 
@@ -92,12 +93,19 @@ _Put examples maybe_
 * The **Local Cluster** does not have any limit on resource usage but check with others on how you plan to use them as not to run jobs in parallel and skew others results.
 * The **Tsubame** has limits, check them [here](https://www.t3.gsic.titech.ac.jp/en/resource-limit)
 
+**NOTE:**
+The `mpirun` OpenMPI version on the **Cluster is 1.6.5**, check the acording [manual](https://www.open-mpi.org/doc/v1.6/man1/mpirun.1.php)
+The `mpirun` OpenMPI version on the **Tsubame is 3.1.4**, check the acording [manual](https://www.open-mpi.org/doc/v3.1/man1/mpirun.1.php)
+
 When running several programs/languages via a script, try to time each part of the script individually, some components may be slower that others and may help you find how to same time. Using **one process per node** with mutiple **OMP threads** makes for the best results.
 
 ```sh
-# Cluster mpirun example:
-# -n 9 => 9 nodes | -npernode 1 => 1 proc.per.node | -omp 23 => 23 omp threads in use
- mpirun -npernode 1 -n 9 sss2 -omp 23 sss_input
+# Cluster OpenMPI example:
+# -n 2 => 2 nodes | -pernode 1 => 1 proc.per.node | -omp 23 => 23 omp threads in use
+ mpirun -pernode 1 -n 2 sss2 -omp 23 sss_input
+ # -hostfile host_olds => general finel with the names of host (nodes) to use, see `qhost` for list
+ # -pernode 1 => 1 proc.per.node | -omp 24 => 24 omp threads in use
+ mpirun -pernode 1 -hostfile host_olds sss2 -omp 24 sss_input
 ```
 _Add benchmark table here_
 
