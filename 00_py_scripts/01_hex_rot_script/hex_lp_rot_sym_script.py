@@ -1,8 +1,7 @@
 import math
 from pathlib import Path
-from typing import List, Tuple, Union
+from typing import List, Tuple
 
-import click
 import matplotlib.pyplot as plt
 
 INPUT_PATH = Path("qtr_core_matrix.txt")
