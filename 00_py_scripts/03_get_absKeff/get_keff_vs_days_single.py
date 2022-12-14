@@ -1,26 +1,19 @@
-import copy
-import re
 import os
+import re
 from pathlib import Path
-from typing import List
 
 import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
 import serpentTools
-from serpentTools.parsers.results import ResultsReader
 
 serpentTools.settings.rc["serpentVersion"] = "2.1.32"
 
 BASE_PATH = Path.cwd()
 
-
 def pathconstructor(index):
     return BASE_PATH / f"03_220d_5_step_no_opti_tsu/wh_lfrsuffleNo{index}/wh_lfr_res.m"
-    # return BASE_PATH/f"wh_lfr_res.m"
 
 def main() -> None:
-
     list_of_files = sorted(Path().rglob("wh_lfr_res.m"))
     # Probable ISSUE, it may pick up any left over res.m file in the simulation folder
     files_str = [str(file) for file in list_of_files]
