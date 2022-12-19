@@ -16,7 +16,7 @@ include "input/core_lp.inp"		% - Made for the .py script
 include "input/core_3d.inp"		% - Idem	
 
 % --- Read block, detectors and plots
-%include "input/appendix.inp"
+include "input/appendix.inp"
 
 % --- Cross section libraries
 set acelib "sss_endfb7u.xsdata"
