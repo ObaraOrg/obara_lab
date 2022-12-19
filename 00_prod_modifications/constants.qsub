@@ -1,0 +1,7 @@
+#===== Setup Constants
+set NNODEs=3			# Number of Nodes for OMPI
+set NCPUs=24			# Number of CPUs for Serpent OMP
+#===== Simulation Constants
+set noBUsteps = 1		# last burnup step output file
+set step = 0			# first suffle step
+set stepx = 0 			# last suffle step
