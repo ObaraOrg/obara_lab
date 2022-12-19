@@ -6,6 +6,7 @@
 # mvol option for sss2 to calculate the volumes automatically by MC
 
 
+import os
 import re
 from pathlib import Path
 from typing import List
@@ -14,28 +15,31 @@ from typing import List
 INPUT = Path("fuel.inp")
 
 # no axial slices Z_start to z_end
-Z_start = 1
-z_end = 6
+Z_start = int(os.getenv("Z_START", 0))
+z_end = int(os.getenv("Z_END", 1))
 # No fuel assemblies FA_start to FA_end
-FA_start = 1
-FA_end = 48
+FA_start = int(os.getenv("FA_START", 1))
+FA_end = int(os.getenv("FA_END",48))
 
 # Reload mat data, natU+99rN-15
-FRESH_MAT_DATA = """92235.09c  2.06136E-04
+FRESH_MAT_DATA_DEF = """92235.09c  2.06136E-04
 92238.09c  2.80617E-02 % natural U
 92234.09c  1.63881E-06 
  7014.09c  2.82694E-04 
  7015.09c  2.79867E-02 % 99N-15
 """
 
+FRESH_MAT_DATA = os.getenv("FRESH_MAT_DATA", FRESH_MAT_DATA_DEF)
+
 # add temp and burn option to he mat card
-MAT_EXTRA_OPTIONS = "tmp 923.0  burn 1"
+MAT_EXTRA_OPTIONS = os.getenv("MAT_EXTRA_OPTIONS", "tmp 923.0  burn 1")
 
 # remember to input this via manual calculation
-FUEL_VOL = "1.0542136E+04"
+FUEL_VOL = float(os.getenv("FUEL_VOL", 1.0542136E+04))
 
 MATCH_FUEL_NO = r"P\d\d?"
 
+breakpoint()
 
 def trim_numbers_from_string(exp: str):
     return int("".join(c for c in exp if c.isdigit()))
