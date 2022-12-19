@@ -9,9 +9,15 @@
 # Dev note: The -q host list must concide with the reserved host list of the host_list file
 
 #===============================================================================================
-source ./constants.qsub
+source constants.qsub
 set WKDR = $PWD			# set working dir
 echo Serpent 2 has started: >> calc_time.out
+echo $NNODEs
+echo $NCPUs
+echo $noBUsteps
+echo $step 
+echo $stepx 
+
 set RunStart=`date` && set RS=`date -d "$RunStart" +%s`
 
 # - Backup, just in case
