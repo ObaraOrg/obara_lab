@@ -7,3 +7,19 @@ set noBUsteps = 1		# last burnup step output file
 set step = 0			# first suffle step
 set stepx = 1 			# last suffle step
 set sINP = wh_lfr
+#=== Python Constants
+set INPUT = fuel.inp
+set Z_START = 1
+set Z_END = 6
+set FA_START = 1
+set FA_END = 48
+
+set FRESH_MAT_DATA = "92235.09c  2.06136E-04\n\
+92238.09c  2.80617E-02 % natural U\n\
+92234.09c  1.63881E-06\n\
+7014.09c  2.82694E-04\n\
+7015.09c  2.79867E-02 % 99N-15\n"
+
+set MAT_EXTRA_OPTIONS = "tmp 923.0  burn 1"
+set FUEL_VOL = 1.0542136E+04
+
