@@ -14,12 +14,12 @@ from typing import List
 # Name of the sss2 fuel file, in the same dir
 INPUT = Path("fuel.inp")
 
-# no axial slices Z_start to z_end
-Z_start = int(os.getenv("Z_START", 0))
-z_end = int(os.getenv("Z_END", 1))
-# No fuel assemblies FA_start to FA_end
-FA_start = int(os.getenv("FA_START", 1))
-FA_end = int(os.getenv("FA_END",48))
+# no axial slices Z_START to Z_END
+Z_START = int(os.getenv("Z_START", 0))
+Z_END = int(os.getenv("Z_END", 1))
+# No fuel assemblies FA_START to FA_END
+FA_START = int(os.getenv("FA_START", 1))
+FA_END = int(os.getenv("FA_END", 48))
 
 # Reload mat data, natU+99rN-15
 FRESH_MAT_DATA_DEF = """92235.09c  2.06136E-04
@@ -35,11 +35,10 @@ FRESH_MAT_DATA = os.getenv("FRESH_MAT_DATA", FRESH_MAT_DATA_DEF)
 MAT_EXTRA_OPTIONS = os.getenv("MAT_EXTRA_OPTIONS", "tmp 923.0  burn 1")
 
 # remember to input this via manual calculation
-FUEL_VOL = float(os.getenv("FUEL_VOL", 1.0542136E+04))
+FUEL_VOL = float(os.getenv("FUEL_VOL", "1.0542136E+04"))
 
 MATCH_FUEL_NO = r"P\d\d?"
 
-breakpoint()
 
 def trim_numbers_from_string(exp: str):
     return int("".join(c for c in exp if c.isdigit()))
@@ -92,7 +91,7 @@ def shuffle() -> None:
     modified_data = "\n".join(list_of_lines)
 
     additional_data = []
-    for i in range(Z_start, z_end +1):
+    for i in range(Z_START, Z_END + 1):
         additional_string = f"mat fuelP{1}Z{i} -11.8773 tmp 923.0  burn 1  vol {FUEL_VOL}\n{FRESH_MAT_DATA}"
         additional_data.append(additional_string)
     joined_additional_data = "".join(additional_data)
