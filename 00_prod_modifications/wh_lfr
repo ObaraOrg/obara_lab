@@ -16,7 +16,7 @@ include "input/core_lp.inp"		% - Made for the .py script
 include "input/core_3d.inp"		% - Idem	
 
 % --- Read block, detectors and plots
-include "input/appendix.inp"
+%include "input/appendix.inp"
 
 % --- Cross section libraries
 set acelib "sss_endfb7u.xsdata"
@@ -50,7 +50,7 @@ set nbuf	8.0			% - Sets the size of n buffer (DEF off, use only when sym fails)
 
 %set pop		40000 200 50
 set pop		5000 100 50 
-set gpop	200 40000
+%set gpop	200 40000
 
 
 % --- Calculation options  ------------------------------------------------------------------
@@ -96,7 +96,6 @@ set power  9.5E+08		% - Sets normalization to total fiss. power [in W]
 set bumode  2			% - BU mode, 1 - TTA, 2 - CRAM (DEFAULT)
 set bunorm  1			% - BU norm.mode (1=mat.all,2=burn.mat,3=non-burn.mat) - DEFAULT 1
 
-dep daytot	 	10 		
 
 set pcc LELI 5 5		% - Use predictor corrector method for the depletion solution
 						%   LELI: Linear extrapolation on predictor, 5 substeps
