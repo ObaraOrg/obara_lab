@@ -1,4 +1,5 @@
 from pathlib import Path
+
 import hex_lp_rot_sym_script
 
 TEST_PATH = Path("full_core_matrix.txt")

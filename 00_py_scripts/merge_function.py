@@ -1,8 +1,8 @@
 import copy
 from typing import List
 
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 import serpentTools
 from serpentTools.parsers.results import ResultsReader
 

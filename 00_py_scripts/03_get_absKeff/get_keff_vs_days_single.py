@@ -10,8 +10,10 @@ serpentTools.settings.rc["serpentVersion"] = "2.1.32"
 
 BASE_PATH = Path.cwd()
 
+
 def pathconstructor(index):
     return BASE_PATH / f"03_220d_5_step_no_opti_tsu/wh_lfrsuffleNo{index}/wh_lfr_res.m"
+
 
 def main() -> None:
     list_of_files = sorted(Path().rglob("wh_lfr_res.m"))
@@ -45,7 +47,7 @@ def main() -> None:
     # plt.show()
 
     keffs = np.concatenate([reader.resdata["absKeff"][:, 0] for reader in files_read])
-    base_time_scale = files_read[0].resdata["burnDays"][0:,0]
+    base_time_scale = files_read[0].resdata["burnDays"][0:, 0]
     one_period = np.max(files_read[0].resdata["burnDays"])
     time_array = base_time_scale
 

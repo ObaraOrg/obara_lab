@@ -241,7 +241,7 @@ source .venv/bin/activate
 
 ### Using the Makefile 
 
-[PetarMirceski](https://github.com/PetarMirceski) make this nice **Makefile** to fastly construct the py environment for any occasion. Modify the `requirements.in` with any specific requirements you need for your project
+[PetarMirceski](https://github.com/PetarMirceski) make this nice **Makefile** to fastly construct the py environment for any occasion. Modify the `requirements.in` with any specific requirements you need for your project. The following uses [`pip-tools`](https://github.com/jazzband/pip-tools) to make sure that your builds are predictable and deterministic. 
 
 ```sh
 # make setup_pip_tools (upgrades pip, adds pip-tools) 

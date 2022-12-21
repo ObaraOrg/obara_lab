@@ -1,10 +1,10 @@
 import copy
-from typing import List
 from pathlib import Path
+from typing import List
 
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
 import serpentTools
 from serpentTools.parsers.results import ResultsReader
 

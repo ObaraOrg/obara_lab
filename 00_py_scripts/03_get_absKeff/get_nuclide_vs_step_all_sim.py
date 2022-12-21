@@ -27,10 +27,15 @@ def plot_iso(num_of_keffs_to_cut: int = 0) -> None:
             files_read = [serpentTools.read(file_loc) for file_loc in files_str]
 
         breakpoint()
-        
-        iso = ['plutonium']
+
+        iso = ["plutonium"]
         iso_array = np.concatenate(
-            [reader.materials["total"].getValues('days', 'mass', files_read[0].days, iso) for reader in files_read]
+            [
+                reader.materials["total"].getValues(
+                    "days", "mass", files_read[0].days, iso
+                )
+                for reader in files_read
+            ]
         )
         time_array = files_read[0].days.copy
 

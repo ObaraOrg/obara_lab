@@ -88,7 +88,7 @@ def shuffle() -> None:
     modified_data = "\n".join(list_of_lines)
 
     additional_data = []
-    for i in range(Z_start, z_end +1):
+    for i in range(Z_start, z_end + 1):
         additional_string = f"mat fuelP{1}Z{i} -11.8773 tmp 923.0  burn 1  vol {FUEL_VOL}\n{FRESH_MAT_DATA}"
         additional_data.append(additional_string)
     joined_additional_data = "".join(additional_data)
