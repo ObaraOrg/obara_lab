@@ -92,6 +92,8 @@ pageant.exe "C:\.\ **YOUR\_KEY.ppk**" -c putty.exe _ **YOUR\_USER** _ @login.t3.
 - **EMACS** with Vim key-bindings ([doomemacs](https://github.com/doomemacs/doomemacs) plugin) inside the command line view
 - **Notepad++** (with the FTP add-on, no need for FileZilla when working on files, at least for the cluster)
 - **Visual Studio Code** (crowd favorite, but stil you cant connect remotely to the cluster :P)
+  - Note 1 : Working on a wsl on a jupiter notebook via the VSCode may not load the correct py libraries if the corrent compiler is not chosen in VSCode,
+  - Note 2 : If your using the `direnv` environment, you should run the VSCode from the main directory to have access to the right compiler
 - **PyCharm Professional** ([free for students](https://www.jetbrains.com/community/education/#students), full development environment, no need for the tools above)
 
 ---

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Obara lab repository</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension ms-toolsai.jupyter */
+/* These classnames are inherited from bootstrap, but are present in most notebook renderers */
+
+.alert {
+    width: auto;
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.alert > *:last-child {
+    margin-bottom: 0;
+}
+#preview > .alert:last-child {
+    /* Prevent this being set to zero by the default notebook stylesheet */
+    padding-bottom: 1em;
+}
+
+.alert-success {
+    /* Note there is no suitable color available, so we just copy "info" */
+    background-color: var(--theme-info-background);
+    color: var(--theme-info-foreground);
+}
+.alert-info {
+    background-color: var(--theme-info-background);
+    color: var(--theme-info-foreground);
+}
+.alert-warning {
+    background-color: var(--theme-warning-background);
+    color: var(--theme-warning-foreground);
+}
+.alert-danger {
+    background-color: var(--theme-error-background);
+    color: var(--theme-error-foreground);
+}
+
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="obara-lab-repository">Obara lab repository</h1>
+<p>Welcome, this is the lab repository, made to make life easier while working in the lab. Anyone is welcome to contribute on it via the git.</p>
+<!-- TOC -->
+<ul>
+<li><a href="#obara-lab-repository">Obara lab repository</a>
+<ul>
+<li><a href="#documentation-and-available-materials">Documentation and available materials</a></li>
+<li><a href="#creating-the-work-environment">Creating the work environment</a></li>
+<li><a href="#remote-tools">Remote tools</a></li>
+<li><a href="#file-transfer-software">File transfer software:</a></li>
+<li><a href="#ssh-command-line-interface">SSH command line interface:</a></li>
+<li><a href="#helpful-editing-tools">Helpful editing tools:</a></li>
+<li><a href="#other">Other</a></li>
+<li><a href="#connecting-to-the-github-repo---ssh-key">Connecting to the Github repo - SSH Key</a>
+<ul>
+<li><a href="#cloning-the-repository">Cloning the repository</a></li>
+<li><a href="#easy-connection">Easy connection</a></li>
+</ul>
+</li>
+<li><a href="#setup-the-remote-environment">Setup the remote environment</a>
+<ul>
+<li><a href="#pyenv">pyenv</a>
+<ul>
+<li><a href="#installing-pyenv">Installing pyenv</a></li>
+<li><a href="#set-up-your-shell-environment-for-pyenv">Set up your shell environment for Pyenv</a></li>
+</ul>
+</li>
+<li><a href="#direnv">direnv</a>
+<ul>
+<li><a href="#installing-direnv">Installing direnv</a></li>
+<li><a href="#hook-to-the-shell">Hook to the shell</a></li>
+<li><a href="#set-up-your-direnv-environment">Set up your direnv environment</a></li>
+</ul>
+</li>
+<li><a href="#using-the-makefile">Using the Makefile</a></li>
+<li><a href="#debuging">Debuging</a></li>
+</ul>
+</li>
+<li><a href="#running-the-scripts">Running the scripts</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<h2 id="documentation-and-available-materials">Documentation and available materials</h2>
+<ul>
+<li><a href="documentation/linux_commands.html"><strong>Linux commands</strong></a></li>
+<li><a href="documentation/vim_commands.html"><strong>Vim tutorial</strong></a></li>
+<li><a href="04_instalation_scripts"><strong>Installing Serpent 2</strong></a></li>
+<li><a href="documentation/learning_sss2.html"><strong>Learning Serpent 2</strong></a></li>
+<li><a href="documentation/mpi_commands.html"><strong>Parallel calculation with Serpent 2</strong></a></li>
+<li><a href="documentation/cluster_commands.html"><strong>Helpful cluster commands</strong></a></li>
+<li><a href="05_productivity_scripts"><strong>Productivity scripts</strong></a></li>
+</ul>
+<hr>
+<h2 id="creating-the-work-environment">Creating the work environment</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Address</th>
+<th>Notes</th>
+<th>user</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Wifi</td>
+<td></td>
+<td>obaralab</td>
+</tr>
+<tr>
+<td>File Server</td>
+<td><a href="ftp://192.168.11.3">192.168.11.3</a></td>
+<td>(can be mapped with FTP)<br>Documentation and serpent files are to be found here</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Local User</td>
+<td>192.168.11.206:22</td>
+<td>The local work cluster, <strong>olds</strong></td>
+<td><em>student user</em></td>
+</tr>
+<tr>
+<td><a href="https://helpdesk.t3.gsic.titech.ac.jp/manuals/handbook.en/start/">Tsubame Login</a></td>
+<td><code>student_ID</code>@login.t3.gsic.titech.ac.jp</td>
+<td>Login node, home dir space is less than 17Gb so I recommend you use the <strong>group disk</strong></td>
+<td><code>student_ID</code></td>
+</tr>
+<tr>
+<td>TSUBAME group DISK</td>
+<td>/gs/hs0/tga-oba2</td>
+<td>Create a symbolic link (<code>ln -s</code> command)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="remote-tools">Remote tools</h2>
+<ul>
+<li><strong>Windows remote desktop</strong> (<code>mstsc</code>) connection via IP and credentials (<strong>xrdp</strong> on to CentOS, <strong>local cluster only</strong>)</li>
+<li><strong>MobaXterm</strong> terminal via the IP and credentials</li>
+</ul>
+<h2 id="file-transfer-software">File transfer software:</h2>
+<ul>
+<li><strong>FileZilla</strong></li>
+<li><strong>WinSCP</strong> (but I would recommend it with the Notepad++ as to make life easier)</li>
+<li><strong>Windows</strong> <a href="https://github.com/winfsp/sshfs-win">file explorer integration</a> for sftp connections (<a href="https://sftptogo.com/blog/how-to-map-sftp-as-a-windows-10-drive/">tutorial</a>)</li>
+<li><strong>NOTE:</strong> for the <em>TSUBAME group disk</em> use windows explorer to map the folder (<a href="https://helpdesk.t3.gsic.titech.ac.jp/manuals/handbook.en/storage/#highspeed">tutorial</a>), else this should be mapped with a symbolic link towards you homedir on the TSUBAME.</li>
+</ul>
+<h2 id="ssh-command-line-interface">SSH command line interface:</h2>
+<ul>
+<li>Putty</li>
+<li>Putty script for a quick terminal, make a bat file for windows and paste these commands:</li>
+</ul>
+<pre><code class="language-sh"><span class="hljs-comment"># For the Local Cluster</span>
+@<span class="hljs-built_in">echo</span> off
+start putty.exe _ **YOUR\_USER** _@192.168.11.206 -pw _ **YOUR\_PASS** _ 22 -t
+</code></pre>
+<pre><code class="language-sh"><span class="hljs-comment"># For the TSUBAME (+pageant)</span>
+@<span class="hljs-built_in">echo</span> off
+start pageant.exe
+TIMEOUT 1
+pageant.exe <span class="hljs-string">&quot;C:\.\ **YOUR\_KEY.ppk**&quot;</span> -c putty.exe _ **YOUR\_USER** _ @login.t3.gsic.titech.ac.jp -pw _ **YOUR\_PASS** _ 22 -t
+</code></pre>
+<hr>
+<h2 id="helpful-editing-tools">Helpful editing tools:</h2>
+<ul>
+<li><strong>Vim</strong> editor inside the command line view (vim command)</li>
+<li><strong>EMACS</strong> with Vim key-bindings (<a href="https://github.com/doomemacs/doomemacs">doomemacs</a> plugin) inside the command line view</li>
+<li><strong>Notepad++</strong> (with the FTP add-on, no need for FileZilla when working on files, at least for the cluster)</li>
+<li><strong>Visual Studio Code</strong> (crowd favorite, but stil you cant connect remotely to the cluster :P)
+<ul>
+<li>Note 1 : Working on a wsl on a jupiter notebook via the VSCode may not load the correct py libraries if the corrent compiler is not chosen in VSCode,</li>
+<li>Note 2 : If your using the <code>direnv</code> environment, you should run the VSCode from the main directory to have access to the right compiler</li>
+</ul>
+</li>
+<li><strong>PyCharm Professional</strong> (<a href="https://www.jetbrains.com/community/education/#students">free for students</a>, full development environment, no need for the tools above)</li>
+</ul>
+<hr>
+<h2 id="other">Other</h2>
+<ul>
+<li>For <code>python</code> version control, there is <code>pyenv</code> that can be pulled from  <code>git</code>, see the <a href="https://github.com/pyenv/pyenv#installation">tutorial</a>), you can use it for version management of python (up to <strong>3.7.13</strong>, <strong>CentOS 6.x</strong> is deprecated and it misses a lot of package support)</li>
+<li>Same goes for the TSUBAME, you can install <code>pyenv</code> to manage your python and install packages more easily :P</li>
+<li>Also <code>direnv</code> can be also used for even more facile version control of the Linux environment, not only for python version control (much more recommended)
+<br></li>
+</ul>
+<hr>
+<h2 id="connecting-to-the-github-repo---ssh-key">Connecting to the Github repo - SSH Key</h2>
+<p>Use the following <a href="https://docs.github.com/en/enterprise-server@3.6/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">GitHub Generating a new SSH key and adding it to the ssh-agent</a>.
+<strong>NOTE:</strong> The cluster is a bit old so use the bellow instructions</p>
+<pre><code class="language-sh"><span class="hljs-comment"># Use this for the lab&#x27;s ancient CentOS 6.7 </span>
+ssh-keygen -t ecdsa -b 256 -C <span class="hljs-string">&quot;your@mail.com&quot;</span>
+<span class="hljs-comment"># For more modern platforms (Tsubame, wsl)</span>
+ssh-keygen -t ed25519-sk -C <span class="hljs-string">&quot;your@mail.com&quot;</span>
+<span class="hljs-comment"># start the ssh-agent in the background</span>
+<span class="hljs-built_in">eval</span> <span class="hljs-string">&quot;<span class="hljs-subst">$(ssh-agent -s)</span>&quot;</span>
+<span class="hljs-comment"># Use a password protected key, so it accepts it when you add it</span>
+ssh-add .ssh/key_name
+<span class="hljs-comment"># next go to git and add it </span>
+</code></pre>
+<p><strong>NOTE:</strong> The Tsubame and Local Cluster need to load the key everytime it starts a new terminal instance (starting and loading the ssh key).
+Use the <a href="/git_key_oba.sh">sh scripts</a>  made to make the key loading go faster</p>
+<pre><code class="language-sh"><span class="hljs-comment"># The script must be run with source as to run on the local terminal shell </span>
+<span class="hljs-built_in">source</span> git_key_oba.sh
+</code></pre>
+<h3 id="cloning-the-repository">Cloning the repository</h3>
+<p><a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository">Official docs</a></p>
+<h3 id="easy-connection">Easy connection</h3>
+<p>I find a putty teminal to be the most usefull at the start, here's some <a href="https://github.com/ObaraOrg/obara_lab/tree/main/05_productivity_scripts/02_putty_terminal_script">scripts</a> to make life a bit easier
+<br></p>
+<hr>
+<h2 id="setup-the-remote-environment">Setup the remote environment</h2>
+<p>This setup should work for any platform you may use (cluster, windows, mac...), <strong>it's not required to for research</strong> but it will save you time, manage work and generally make you more productive in the lab environment.</p>
+<ul>
+<li><code>pyenv</code> - Lets you change the global python version on a per-user basis.</li>
+<li><code>direnv</code> - Extension for your shell. It augments existing shells with a new feature that can load and unload environment variables depending on the current directory.</li>
+<li><code>jupiter-notebook</code> - once setting up the <code>pyenv</code> and <code>direnv</code>, a <a href="https://github.com/ObaraOrg/obara_lab/tree/main/05_productivity_scripts">jupiter server</a> can be started on your own platform or on the cluster <strong>via the browser</strong>, with the python envirorment made inside the <code>direnv</code> directory, withouth installing a separate instance on you PC.</li>
+<li><code>tmux</code> - A terminal multiplexer. It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal. (<strong>ver.1.6</strong> is present on the cluster, latest <strong>ver.3.2</strong> can be found on the TSUBAME by entering <code>module load tmux</code>)</li>
+</ul>
+<h3 id="pyenv">pyenv</h3>
+<p><a href="https://github.com/pyenv/pyenv">Official docs</a></p>
+<p>It's mostly for creating a virtual environment for python, it's the most useful on the remote environments you might work</p>
+<h4 id="installing-pyenv">Installing pyenv</h4>
+<p>A good place to choose is <code>$HOME/.pyenv</code> (but you can install it somewhere else):
+<code>    git clone https://github.com/pyenv/pyenv.git ~/.pyenv    </code></p>
+<ul>
+<li>Optionally, try to compile a dynamic Bash extension to speed up Pyenv. Don't
+worry if it fails; pyenv will still work normally:<pre><code>cd ~/.pyenv &amp;&amp; src/configure &amp;&amp; make -C src
+</code></pre>
+</li>
+</ul>
+<h4 id="set-up-your-shell-environment-for-pyenv">Set up your shell environment for Pyenv</h4>
+<ul>
+<li>
+<p>Define environment variable <code>PYENV_ROOT</code> to point to the path where
+pyenv will store its data. <code>$HOME/.pyenv</code> is the default.
+If you installed Pyenv via Git checkout, we recommend
+to set it to the same location as where you cloned it.</p>
+</li>
+<li>
+<p>Add the <code>pyenv</code> executable to your <code>PATH</code> if it's not already there</p>
+</li>
+<li>
+<p>run <code>eval &quot;$(pyenv init -)&quot;</code> to install <code>pyenv</code> into your shell as a shell function, enable shims and autocompletion</p>
+<ul>
+<li>You may run <code>eval &quot;$(pyenv init --path)&quot;</code> instead to just enable shims, without shell integration</li>
+</ul>
+<ul>
+<li>
+<p>For <strong>bash</strong>:</p>
+<p>First, add the commands to <code>~/.bashrc</code> by running the following in your terminal:</p>
+<pre><code class="language-bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;export PYENV_ROOT=&quot;$HOME/.pyenv&quot;&#x27;</span> &gt;&gt; ~/.bashrc
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;command -v pyenv &gt;/dev/null || export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;eval &quot;$(pyenv init -)&quot;&#x27;</span> &gt;&gt; ~/.bashrc
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="direnv">direnv</h3>
+<p><a href="https://github.com/direnv/direnv">Official docs</a></p>
+<p>It's perfect for creating a virtual environment iside a dir, useful tool to use on the remote environments you might work and for future platform deployments.</p>
+<h4 id="installing-direnv">Installing direnv</h4>
+<p>It should be already installed on the cluster, you just need to hook it to your shell; else follow the documentation avalabile on the <a href="https://github.com/direnv/direnv">git</a></p>
+<h4 id="hook-to-the-shell">Hook to the shell</h4>
+<p>After installation add these lines to the <code>~/.bashrc</code></p>
+<pre><code class="language-sh"><span class="hljs-keyword">for</span> script <span class="hljs-keyword">in</span> <span class="hljs-variable">$SCRIPTDIR</span>/<span class="hljs-variable">$COMPILER</span>/*.sh <span class="hljs-variable">$SCRIPTDIR</span>/<span class="hljs-variable">$COMPILER</span>/<span class="hljs-variable">$MPI</span>/*.sh <span class="hljs-variable">$SCRIPTDIR</span>/*.sh
+<span class="hljs-keyword">do</span>
+	<span class="hljs-keyword">if</span> [ -r <span class="hljs-variable">$script</span> ]; <span class="hljs-keyword">then</span>
+		. <span class="hljs-variable">$script</span>
+	<span class="hljs-keyword">fi</span>
+<span class="hljs-keyword">done</span>
+<span class="hljs-built_in">eval</span> <span class="hljs-string">&quot;<span class="hljs-subst">$(direnv hook bash)</span>&quot;</span>
+</code></pre>
+<p><strong>NOTE:</strong> The cluster already had direnv on it, you just need to hook it to you shell</p>
+<h4 id="set-up-your-direnv-environment">Set up your direnv environment</h4>
+<p>To create the direnv environment you need the following files: <strong>.envrc, Makefile</strong> and <strong>requirements folder</strong>, found in the main repo folder, they are allready configured for python 3.7.13 with several pack's to be install, including <strong>numpy</strong>, <strong>pandas</strong>, <strong>mathplotlib</strong>, <strong>serpentTools</strong> and <strong>jupiter-notebook</strong></p>
+<pre><code class="language-shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">The security mechanism didn<span class="hljs-string">&#x27;t allow to load the .envrc. Since we trust it,</span></span>
+<span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">let&#x27;</span>s allow its execution.</span>
+<span class="hljs-meta prompt_">$ </span><span class="language-bash">direnv allow .</span>
+direnv: reloading
+direnv: loading .envrc
+direnv export: +FOO
+</code></pre>
+<p>The direnv env is dependent on the <strong>.envrc</strong> file, change the <code>layout pyenv 3.x.xx</code> to the ver. you fancy</p>
+<pre><code class="language-sh"><span class="hljs-comment"># If using system python on ubuntu 20.04</span>
+sudo apt install python3 python3-venv
+
+<span class="hljs-comment"># If using Anaconda use an env with python 3.8</span>
+<span class="hljs-comment"># and activate it before creating a new venv</span>
+conda create -n env_name python=3.8
+conda activate env_name
+<span class="hljs-comment"># If not </span>
+python3.9 -m venv .venv
+
+<span class="hljs-comment"># Activate venv</span>
+<span class="hljs-comment"># For fish shell</span>
+<span class="hljs-comment"># source .venv/bin/activate.fish</span>
+<span class="hljs-built_in">source</span> .venv/bin/activate
+
+<span class="hljs-comment"># If using windows only god may help you (^_^),</span>
+<span class="hljs-comment"># but try doing it anyway</span>
+</code></pre>
+<h3 id="using-the-makefile">Using the Makefile</h3>
+<p><a href="https://github.com/PetarMirceski">PetarMirceski</a> make this nice <strong>Makefile</strong> to fastly construct the py environment for any occasion. Modify the <code>requirements.in</code> with any specific requirements you need for your project</p>
+<pre><code class="language-sh"><span class="hljs-comment"># make setup_pip_tools (upgrades pip, adds pip-tools) </span>
+  pip install --upgrade pip -v
+  pip install --upgrade pip-tools -v
+<span class="hljs-comment"># make sync_deps (syncs major dependecies)</span>
+  pip-sync requirements/requirements.txt -v
+<span class="hljs-comment"># make compile_deps</span>
+  pip-compile requirements/requirements.in --verbose
+</code></pre>
+<p><strong>requirements.txt</strong> - Autogenerated by pip-compile with python 3.7</p>
+<p><strong><a href="http://requirements.in">requirements.in</a></strong> - Brings up personalised requirements up to a certain version</p>
+<h3 id="debuging">Debuging</h3>
+<pre><code class="language-sh">Error: Could not find an activated virtualenv (required)
+<span class="hljs-comment"># Just delete the .direnv, exit the dir, enter it and let it rebuild</span>
+<span class="hljs-comment"># Might be the pyenv installation went bad</span>
+<span class="hljs-comment"># Might be the direnv is not hooked to shell</span>
+</code></pre>
+<hr>
+<h2 id="running-the-scripts">Running the scripts</h2>
+<pre><code class="language-sh"><span class="hljs-comment"># Activate venv if needed</span>
+<span class="hljs-built_in">source</span> ./.venv/bin/activate
+
+<span class="hljs-comment"># We modify PYTHONPATH to include root of repo</span>
+<span class="hljs-comment"># So we can keep scripts in subdirectories</span>
+<span class="hljs-comment"># If you are currently in repo root folder you can do</span>
+<span class="hljs-built_in">export</span> PYTHONPATH=<span class="hljs-variable">$PWD</span>
+
+<span class="hljs-comment"># Run scripts from root of repo such as</span>
+python __script_name__.py
+
+<span class="hljs-comment"># Intiate the direnv virtual env</span>
+<span class="hljs-comment"># Use make file, see instructions there</span>
+</code></pre>
+
+        <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </body>
+    </html>
