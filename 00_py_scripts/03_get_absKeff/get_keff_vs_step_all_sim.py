@@ -1,12 +1,11 @@
-import os
 import re
 from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np
-import serpentTools
+import serpentTools as sp
 
-serpentTools.settings.rc["serpentVersion"] = "2.1.32"
+sp.settings.rc["serpentVersion"] = "2.1.32"
 
 BASE_PATH = Path.cwd()
 
@@ -19,12 +18,12 @@ def plot_keff(num_of_keffs_to_cut: int = 0) -> None:
     for simulation_name in folders:
         print("Processing : ", simulation_name)
         list_of_files = sorted(Path(simulation_name).rglob("wh_lfr_res.m"))
-        # Probable ISSUE, it may pick up any left over res.m file in the simulation folder
+        # Probable ISSUE, may pick up any left over dep.m in the sim dir
         files_str = [str(file) for file in list_of_files]
         files_str.sort(key=lambda f: int(re.sub(r"\D", "", f)))
-        with serpentTools.settings.rc:
-            serpentTools.settings.rc["verbosity"] = "error"
-            files_read = [serpentTools.read(file_loc) for file_loc in files_str]
+        with sp.settings.rc:
+            sp.settings.rc["verbosity"] = "error"
+            files_read = [sp.read(file_loc) for file_loc in files_str]
 
         keffs = np.concatenate(
             [reader.resdata["absKeff"][:, 0] for reader in files_read]
