@@ -21,18 +21,18 @@ FA_start = 1
 FA_end = 48
 
 # Reload mat data, natU+99rN-15
-FRESH_MAT_DATA = """92235.09c  2.06136E-04
-92238.09c  2.80617E-02 % natural U
-92234.09c  1.63881E-06 
- 7014.09c  2.82694E-04 
- 7015.09c  2.79867E-02 % 99N-15
+FRESH_MAT_DATA = """92235.09c  2.1125067E-04                                        
+92238.09c  2.8757928E-02                                        
+92234.09c  1.6794750E-06                                        
+ 7014.09c  2.8970823E-04                                        
+ 7015.09c  2.8681115E-02
 """
 
 # add temp and burn option to he mat card
 MAT_EXTRA_OPTIONS = "tmp 923.0  burn 1"
 
 # remember to input this via manual calculation
-FUEL_VOL = "1.0542136E+04"
+# FUEL_VOL = "1.0542136E+04"
 
 MATCH_FUEL_NO = r"P\d\d?"
 
@@ -88,8 +88,13 @@ def shuffle() -> None:
     modified_data = "\n".join(list_of_lines)
 
     additional_data = []
+<<<<<<< Updated upstream
     for i in range(Z_start, z_end + 1):
         additional_string = f"mat fuelP{1}Z{i} -11.8773 tmp 923.0  burn 1  vol {FUEL_VOL}\n{FRESH_MAT_DATA}"
+=======
+    for i in range(Z_start, z_end +1):
+        additional_string = f"mat fuelP{1}Z{i} -11.8773 tmp 923.0  burn 1"
+>>>>>>> Stashed changes
         additional_data.append(additional_string)
     joined_additional_data = "".join(additional_data)
     total = f"{modified_data}\n{joined_additional_data}"

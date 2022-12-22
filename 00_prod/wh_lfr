@@ -9,6 +9,7 @@ set title "WH_LFR950"
 % --- Read block, material and geometry definitions 
 include "input/materials.inp"
 include "fuel.inp"
+include "input/mvol.inp"
 include "input/stuctural_mat.inp"
 include "input/pins.inp"
 include "input/fa.inp"
@@ -48,9 +49,9 @@ set nbuf	8.0			% - Sets the size of n buffer (DEF off, use only when sym fails)
 % --- Criticality cycles  -------------------------------------------------------------------
 %     N.pop.generated/ active.cycles/ inactive.cycles/ guess for k0/  
 
-%set pop		40000 200 50
-set pop		5000 100 50 
-set gpop	200 40000
+set pop		40000 200 50
+%set pop		5000 100 50 
+%set gpop	200 40000
 
 
 % --- Calculation options  ------------------------------------------------------------------
