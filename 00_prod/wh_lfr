@@ -9,15 +9,19 @@ set title "WH_LFR950"
 % --- Read block, material and geometry definitions 
 include "input/materials.inp"
 include "fuel.inp"
-include "input/mvol.inp"
 include "input/stuctural_mat.inp"
 include "input/pins.inp"
 include "input/fa.inp"
-include "input/core_lp.inp"		% - Made for the .py script
-include "input/core_3d.inp"		% - Idem	
 
-% --- Read block, detectors and plots
-include "input/appendix.inp"
+% --- Core size 
+include "input/120cm/core_3d.inp"		
+include "input/120cm/mvol.inp"			% - Volumes file
+
+% --- Loading pattern
+include "input/lp/core_lp_SF3.inp"		% - Made for the lp generator .py script
+
+% --- Detectors and plots
+%include "input/appendix.inp"
 
 % --- Cross section libraries
 set acelib "sss_endfb7u.xsdata"
@@ -30,11 +34,11 @@ set nfylib "sss_endfb7.nfy"
 
 % --- Miscellaneous options  ----------------------------------------------------------------
 
-set printm  1			% - Print material compositions to [input].bumat[bu] file
+set printm  	1		% - Print material compositions to [input].bumat[bu] file
 %set his		1		% - Batch hist.record; Fiss.src.calc.(Shannon)entrp - DEFAULT OFF
 %set rfw		1  		% - Writes mat.comp.in BU calc. in binary res. file - DEFAULT OFF
 %set rfr		1		% - NOT MASTERED YET
-%set mcvol 	1E10		% - Calculate material vol. before sim. by  - DEFAULT OFF
+%set mcvol 		1E10	% - Calculate material vol. before sim. by  - DEFAULT OFF
 						%   sampling 10 million random points in the geometry.
 						%   Specifying the mat. volumes is crucial in BU calc.		
 
@@ -47,11 +51,14 @@ set nbuf	8.0			% - Sets the size of n buffer (DEF off, use only when sym fails)
 		
 		
 % --- Criticality cycles  -------------------------------------------------------------------
-%     N.pop.generated/ active.cycles/ inactive.cycles/ guess for k0/  
+%     N.pop.per gen/ active.cycles/ inactive.cycles/ guess for k0/ 
+ 
+set pop			40000 200 50
+%set pop		5000 100 50
 
-set pop		40000 200 50
-%set pop		5000 100 50 
-%set gpop	200 40000
+%     On-the-fly n growing pop - max active.cycles/ max pop.generated/ 
+ 
+%set gpop		x 	40000
 
 
 % --- Calculation options  ------------------------------------------------------------------
@@ -97,7 +104,7 @@ set power  9.5E+08		% - Sets normalization to total fiss. power [in W]
 set bumode  2			% - BU mode, 1 - TTA, 2 - CRAM (DEFAULT)
 set bunorm  1			% - BU norm.mode (1=mat.all,2=burn.mat,3=non-burn.mat) - DEFAULT 1
 
-dep daytot	 	10 		
+dep daytot	 10 50 100 200 400 800	
 
 set pcc LELI 5 5		% - Use predictor corrector method for the depletion solution
 						%   LELI: Linear extrapolation on predictor, 5 substeps

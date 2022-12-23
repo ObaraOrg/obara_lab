@@ -1,3 +1,5 @@
+# The volume is for the 120cm core
+
 set mvol
 fuelP1Z1        1 9.48101561E+03
 fuelP2Z1        1 9.48101561E+03
