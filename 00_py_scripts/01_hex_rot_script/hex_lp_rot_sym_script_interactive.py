@@ -67,10 +67,16 @@ def round_list(
 
 @click.command()
 @click.option(
-    "--input_path", prompt="Input input file path", help="Input input file path."
+    "--input_path",
+    prompt="Input input file path",
+    help="Input input file path.",
+    default="qtr_core_matrix.txt",
 )
 @click.option(
-    "--save_path", prompt="Input output file path", help="input output file path."
+    "--save_path",
+    prompt="Input output file path",
+    help="input output file path.",
+    default="full_core_matrix.txt",
 )
 def hex_rot(input_path: Union[Path, str], save_path: Union[Path, str]) -> None:
     input_path = Path(input_path)

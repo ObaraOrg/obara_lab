@@ -1,7 +1,9 @@
 import re
+from gc import callbacks
 from pathlib import Path
 from typing import List, Tuple
 
+import click
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
@@ -16,15 +18,6 @@ mpl.style.use("classic")
 sp.settings.rc["serpentVersion"] = "2.1.32"
 
 BASE_PATH = Path.cwd()
-ISO_LIST = [
-    "U235",
-    "Pu239",
-    "Pu240",
-    "Pu241",
-    "Pu242",
-    "Np239",
-]
-# ISO_LIST = ["U238", "Pu241"]
 
 
 def read_file(file_loc: str) -> DepletionReader:
@@ -51,6 +44,7 @@ def read_files(
 
 def isotopes_per_simulation_and_timescales(
     runs: List[List[DepletionReader]],
+    iso_list: List[str],
     step_cut: int = 0,
 ) -> Tuple[List[np.ndarray], List[np.ndarray]]:
     isos_per_simulation = []
@@ -60,7 +54,7 @@ def isotopes_per_simulation_and_timescales(
 
         iso_lists = np.hstack(
             [
-                file.materials["total"].getValues("days", "mass", file.days, ISO_LIST)
+                file.materials["total"].getValues("days", "mass", file.days, iso_list)
                 for file in files_read
             ]
         )
@@ -88,6 +82,7 @@ def plot_iso_per_sim(
     isos_per_sim: List[np.ndarray],
     time_scales_per_sim: List[np.ndarray],
     simulation_names: List[str],
+    iso_list: List[str],
     is_cut: bool,
 ) -> None:
     # NOTE: zips the i-th elments of each array
@@ -99,7 +94,7 @@ def plot_iso_per_sim(
         plt.plot(time, isos.T)
         plt.title(name)
         plt.grid()
-        plt.legend(ISO_LIST, loc="best")
+        plt.legend(iso_list, loc="best")
         plt.xlabel("Shuffling step [-]", fontsize=12)
         plt.ylabel("Isotope mass [$kg$]", fontsize=12)
 
@@ -112,10 +107,11 @@ def plot_iso_comparison(
     isos_per_sim: List[np.ndarray],
     time_scales_per_sim: List[np.ndarray],
     simulation_names: List[str],
+    iso_list: List[str],
     is_cut: bool,
 ) -> None:
 
-    for idx, iso in enumerate(ISO_LIST):
+    for idx, iso in enumerate(iso_list):
         plt.figure()
         for run, time_array in zip(isos_per_sim, time_scales_per_sim):
             plt.plot(time_array, run[idx], linestyle="-")
@@ -130,7 +126,24 @@ def plot_iso_comparison(
         plt.savefig(f"{iso}{zoom}.png")
 
 
-if __name__ == "__main__":
+def validate_isos_exist(ctx, param, isotopes: Tuple[str]):
+    assert len(isotopes) > 0, "You must pass arguments for the isotopes"
+    return list(isotopes)
+
+
+def validate_isotope_sets(input_list: List[str], name_list: List[str]) -> bool:
+    inp_set = set(input_list)
+    name_set = set(name_list)
+    return inp_set.issubset(name_set)
+
+
+@click.group()
+def cli():
+    pass
+
+
+@cli.command(help="Get the names of all the isotopes")
+def get_isotope_list() -> None:
     folders = [x for x in Path(".").iterdir() if x.is_dir()]
     folders = [x for x in folders if "__" not in str(x)]
     folders_with_files = []
@@ -141,11 +154,43 @@ if __name__ == "__main__":
             files_read = read_files(files_in_folder)
         folders_with_files.append(files_read)
 
+    assert len(folders_with_files) > 0
+    print(folders_with_files[0][0].names)
+
+
+@cli.command(help="Plot for the mentioned isotopes")
+@click.option(
+    "--isotopes",
+    help="Input The isotop names in the format of"
+    "python get_nuclide_vs_step_all_sim.py --isotopes Pu239 --isotopes Pu240 ...",
+    multiple=True,
+    callback=validate_isos_exist,
+)
+def plot_results(isotopes: List[str]) -> None:
+    folders = [x for x in Path(".").iterdir() if x.is_dir()]
+    folders = [x for x in folders if "__" not in str(x)]
+    folders_with_files = []
+    for folder in folders:
+        files_in_folder = [str(file) for file in sorted(folder.rglob("wh_lfr_dep.m"))]
+        files_in_folder.sort(key=lambda f: int(re.sub(r"\D", "", f)))
+        with ExecutionTimer("File Reading benchmarking"):
+            files_read = read_files(files_in_folder)
+        folders_with_files.append(files_read)
+
+    assert len(folders_with_files) > 0
+    assert validate_isotope_sets(
+        isotopes, folders_with_files[0][0].names
+    ), "Some isotopes are not in the simulations"
+
     isos_per_sim, time_scales_per_sim = isotopes_per_simulation_and_timescales(
-        folders_with_files
+        folders_with_files, isotopes
     )
     with ExecutionTimer("Per sim plotting benchmark"):
-        plot_iso_per_sim(isos_per_sim, time_scales_per_sim, folders, False)
+        plot_iso_per_sim(isos_per_sim, time_scales_per_sim, folders, isotopes, False)
 
     with ExecutionTimer("Per iso plotting benchmark"):
-        plot_iso_comparison(isos_per_sim, time_scales_per_sim, folders, False)
+        plot_iso_comparison(isos_per_sim, time_scales_per_sim, folders, isotopes, False)
+
+
+if __name__ == "__main__":
+    cli()
