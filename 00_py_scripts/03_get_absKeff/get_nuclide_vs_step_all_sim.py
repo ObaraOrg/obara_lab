@@ -81,7 +81,7 @@ def isotopes_per_simulation_and_timescales(
 def plot_iso_per_sim(
     isos_per_sim: List[np.ndarray],
     time_scales_per_sim: List[np.ndarray],
-    simulation_names: List[str],
+    sim_names: List[str],
     iso_list: List[str],
     is_cut: bool,
 ) -> None:
@@ -89,7 +89,7 @@ def plot_iso_per_sim(
     # eq:
     # l1 = [1, 2, 3] l2 = [4, 5, 6]
     # idx=0 (1, 4) idx=1 (2, 5) idx=2 (3, 6)
-    for isos, time, name in zip(isos_per_sim, time_scales_per_sim, simulation_names):
+    for isos, time, name in zip(isos_per_sim, time_scales_per_sim, sim_names):
         plt.figure()
         plt.plot(time, isos.T)
         plt.title(name)
@@ -162,7 +162,8 @@ def get_isotope_list() -> None:
 @click.option(
     "--isotopes",
     help="Input The isotop names in the format of"
-    "python get_nuclide_vs_step_all_sim.py --isotopes Pu239 --isotopes Pu240 ...",
+    "python get_nuclide_vs_step_all_sim.py"
+    "--isotopes Pu239 --isotopes Pu240 ...",
     multiple=True,
     callback=validate_isos_exist,
 )
