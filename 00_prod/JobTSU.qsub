@@ -5,13 +5,13 @@
 #$ -o job.out		## Print job output to job.out
 #$ -e job.out 		## Print job errors to job.out
 ## Tsubame options
-#$ -l f_node=1		## Resource type F: qty 1 
-#$ -l h_rt=24:00:00	## Reserve the run for x hours
-#$ -p -4 			## Priority: -5(standard), -4(mid) and -3 (top)
+#$ -l f_node=4		## Resource type F: qty 1 
+#$ -l h_rt=01:00:00	## Reserve the run for x hours
+#$ -p -3 			## Priority: -5(standard), -4(mid) and -3 (top)
 
 ## 28 threads per node (export for sh, setenv for csh)
 ## seems not to be needed because serpent can handle it
-## setenv OMP_NUM_THREADS=28
+setenv OMP_NUM_THREADS 28
 
 ## Module loading 
 . /etc/profile.d/modules.sh
@@ -19,9 +19,8 @@ module load gcc
 module load cuda
 module load intel
 module load openmpi
-module load python/3.7.13
 
-set NNODEs=1			# Number of Nodes for OMPI
+set NNODEs=4			# Number of Nodes for OMPI
 set NCPUs=28			# Number of CPUs for Serpent OMP
 echo Serpent 2 has started: >> calc_time.out
 set RunStart=`date` && set RS=`date -d "$RunStart" +%s`
@@ -30,7 +29,7 @@ set WKDR = $PWD			# set working dir
 set sINP = wh_lfr		# main serpent input file	
 set noBUsteps = 1		# last burnup step output file
 set step = 0			# first suffle step
-set stepx = 96			# last suffle step
+set stepx = 0			# last suffle step
 #===============================================================================================
 
 # - Start run and shuffle fuel.inp
@@ -39,8 +38,7 @@ while ( $step <= $stepx )
     set CyStart=`date` && set CS=`date -d "$CyStart" +%s`
 
 # - Run Serpent
-    (cd ${WKDR}; mpirun -np 1 -n ${NNODEs} -x LD_LIBRARY_PATH \
-	sss2 -omp ${NCPUs} ${sINP} >> sss2.out ) & wait
+    (cd ${WKDR}; mpirun -np 1 -n ${NNODEs} -x LD_LIBRARY_PATH sss2 -omp ${NCPUs} ${sINP} >> sss2.out ) & wait
 	
 # - Note the time for the burnup
 	set S2End=`date` && set S2E=`date -d "$S2End" +%s` && set DCy=`expr \( $S2E - $CS \)`
