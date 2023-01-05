@@ -4,8 +4,6 @@
 # each subsequent calculation of serpent2.
 # SOLUTION: remove the vol insersion code lines and use the
 # mvol option for sss2 to calculate the volumes automatically by MC
-
-
 import re
 from pathlib import Path
 from typing import List
@@ -21,10 +19,10 @@ FA_start = 1
 FA_end = 48
 
 # Reload mat data, natU+99rN-15
-FRESH_MAT_DATA = """92235.09c  2.1125067E-04                                        
-92238.09c  2.8757928E-02                                        
-92234.09c  1.6794750E-06                                        
- 7014.09c  2.8970823E-04                                        
+FRESH_MAT_DATA = """92235.09c  2.1125067E-04
+92238.09c  2.8757928E-02
+92234.09c  1.6794750E-06
+ 7014.09c  2.8970823E-04
  7015.09c  2.8681115E-02
 """
 
@@ -89,7 +87,9 @@ def shuffle() -> None:
 
     additional_data = []
     for i in range(Z_start, z_end + 1):
-        additional_string = f"mat fuelP{1}Z{i} -11.8773 tmp 923.0  burn 1 \n{FRESH_MAT_DATA}"
+        additional_string = (
+            f"mat fuelP{1}Z{i} -11.8773 tmp 923.0  burn 1 \n{FRESH_MAT_DATA}"
+        )
         additional_data.append(additional_string)
     joined_additional_data = "".join(additional_data)
     total = f"{modified_data}\n{joined_additional_data}"
