@@ -8,7 +8,7 @@
 
 # Dev note: The no of host in NNODEs must be reflected in the host_list file
 
-set NNODEs=1			# Number of Nodes for OMPI
+set NNODEs=4			# Number of Nodes for OMPI
 set NCPUs=24			# Number of CPUs for Serpent OMP
 echo Serpent 2 has started: >> calc_time.out
 set RunStart=`date` && set RS=`date -d "$RunStart" +%s`
@@ -17,7 +17,7 @@ set WKDR = $PWD			# set working dir
 set sINP = wh_lfr		# main serpent input file	
 set noBUsteps = 1		# last burnup step output file
 set step = 0			# first suffle step
-set stepx = 96 			# last suffle step
+set stepx = 0 			# last suffle step
 #===============================================================================================
 
 # - Start run and shuffle fuel.inp
@@ -26,8 +26,7 @@ while ( $step <= $stepx )
     set CyStart=`date` && set CS=`date -d "$CyStart" +%s`
 
 # - Run Serpent
-    (cd ${WKDR}; mpirun -hostfile hosts_olds -loadbalance -npernode 1 \
-	-n ${NNODEs} sss2 -omp ${NCPUs} ${sINP} >> sss2.out ) & wait
+    (cd ${WKDR}; mpirun -hostfile hosts_olds -loadbalance -npernode 1 -n ${NNODEs} sss2 -omp ${NCPUs} ${sINP} >> sss2.out ) & wait
 
 # - Note the time for the burnup
 	set S2End=`date` && set S2E=`date -d "$S2End" +%s` && set DCy=`expr \( $S2E - $CS \)`
