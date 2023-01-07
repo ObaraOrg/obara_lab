@@ -149,40 +149,10 @@ This setup should work for any platform you may use (cluster, windows, mac...), 
 - `jupiter-notebook` - once setting up the `pyenv` and `direnv`, a [jupiter server](https://github.com/ObaraOrg/obara_lab/tree/main/05_productivity_scripts) can be started on your own platform or on the cluster **via the browser**, with the python envirorment made inside the `direnv` directory, withouth installing a separate instance on you PC.
 - `tmux` - A terminal multiplexer. It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal. (**ver.1.6** is present on the cluster, latest **ver.3.2** can be found on the TSUBAME by entering `module load tmux`)
 
-### pyenv
-[Official docs](https://github.com/pyenv/pyenv)
-
-It's mostly for creating a virtual environment for python, it's the most useful on the remote environments you might work
-
-#### Installing pyenv 
-   A good place to choose is `$HOME/.pyenv` (but you can install it somewhere else):
-    ```
-    git clone https://github.com/pyenv/pyenv.git ~/.pyenv
-    ```
-*  Optionally, try to compile a dynamic Bash extension to speed up Pyenv. Don't
-   worry if it fails; pyenv will still work normally:
-    ```
-    cd ~/.pyenv && src/configure && make -C src
-    ```
-
-#### Set up your shell environment for Pyenv
-* Define environment variable `PYENV_ROOT` to point to the path where
-  pyenv will store its data. `$HOME/.pyenv` is the default.
-  If you installed Pyenv via Git checkout, we recommend
-  to set it to the same location as where you cloned it.
-* Add the `pyenv` executable to your `PATH` if it's not already there
-* run `eval "$(pyenv init -)"` to install `pyenv` into your shell as a shell function, enable shims and autocompletion
-  * You may run `eval "$(pyenv init --path)"` instead to just enable shims, without shell integration
-
-  - For **bash**:
-    
-    First, add the commands to `~/.bashrc` by running the following in your terminal:
-
-    ~~~ bash
-    echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
-    echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
-    echo 'eval "$(pyenv init -)"' >> ~/.bashrc
-    ~~~
+### prerequisites (for a fresh Ubuntu install)
+'''sh
+sudo apt install make gcc g++ clang zlib1g-dev
+'''
 
 ### direnv
 [Official docs](https://github.com/direnv/direnv)
@@ -238,6 +208,42 @@ source .venv/bin/activate
 # If using windows only god may help you (^_^),
 # but try doing it anyway
 ```
+
+### pyenv
+[Official docs](https://github.com/pyenv/pyenv)
+
+It's mostly for creating a virtual environment for python, it's the most useful on the remote environments you might work
+
+#### Installing pyenv 
+   A good place to choose is `$HOME/.pyenv` (but you can install it somewhere else):
+    ```
+    git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+    ```
+*  Optionally, try to compile a dynamic Bash extension to speed up Pyenv. Don't
+   worry if it fails; pyenv will still work normally:
+    ```
+    cd ~/.pyenv && src/configure && make -C src
+    ```
+
+#### Set up your shell environment for Pyenv
+* Define environment variable `PYENV_ROOT` to point to the path where
+  pyenv will store its data. `$HOME/.pyenv` is the default.
+  If you installed Pyenv via Git checkout, we recommend
+  to set it to the same location as where you cloned it.
+* Add the `pyenv` executable to your `PATH` if it's not already there
+* run `eval "$(pyenv init -)"` to install `pyenv` into your shell as a shell function, enable shims and autocompletion
+  * You may run `eval "$(pyenv init --path)"` instead to just enable shims, without shell integration
+
+  - For **bash**:
+    
+    First, add the commands to `~/.bashrc` by running the following in your terminal:
+
+    ~~~ bash
+    echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+    echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+    echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+    ~~~
+
 
 ### Using the Makefile 
 
