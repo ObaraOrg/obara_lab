@@ -43,6 +43,14 @@ Welcome, this is the lab repository, made to make life easier while working in t
 
 ## Creating the work environment
 
+**Windows** can't use sftps connections you need first some prerequisites:
+  -[WinFsp](https://github.com/winfsp/sshfs-win)
+  This can be easily installed with powershell as:
+  ```sh
+  winget install WinFsp.WinFsp; winget install SSHFS-Win.SSHFS-Win
+  ```
+
+
 |      | Address |  Notes  |  user  | 
 | ------ | ------ | ------ | ------ |
 |  | Wifi |    | obaralab | 
