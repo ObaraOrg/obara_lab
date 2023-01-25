@@ -8,7 +8,7 @@
 
 # Dev note: The no of host in NNODEs must be reflected in the host_list file
 
-set NNODEs=4			# Number of Nodes for OMPI
+set NNODEs=1			# Number of Nodes for MPI
 set NCPUs=24			# Number of CPUs for Serpent OMP
 echo Serpent 2 has started: >> calc_time.out
 set RunStart=`date` && set RS=`date -d "$RunStart" +%s`
