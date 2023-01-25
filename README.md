@@ -16,13 +16,14 @@ Welcome, this is the lab repository, made to make life easier while working in t
     - [Cloning the repository](#cloning-the-repository)
     - [Easy connection](#easy-connection)
   - [Setup the remote environment](#setup-the-remote-environment)
-    - [pyenv](#pyenv)
-      - [Installing pyenv](#installing-pyenv)
-      - [Set up your shell environment for Pyenv](#set-up-your-shell-environment-for-pyenv)
+    - [prerequisites (for a fresh Ubuntu install)](#prerequisites-for-a-fresh-ubuntu-install)
     - [direnv](#direnv)
       - [Installing direnv](#installing-direnv)
       - [Hook to the shell](#hook-to-the-shell)
       - [Set up your direnv environment](#set-up-your-direnv-environment)
+    - [pyenv](#pyenv)
+      - [Installing pyenv](#installing-pyenv)
+      - [Set up your shell environment for Pyenv](#set-up-your-shell-environment-for-pyenv)
     - [Using the Makefile](#using-the-makefile)
     - [Debuging](#debuging)
   - [Running the scripts](#running-the-scripts)
@@ -42,6 +43,14 @@ Welcome, this is the lab repository, made to make life easier while working in t
 ---
 
 ## Creating the work environment
+
+**Windows** can't use sftps connections you need first some prerequisites:
+  -[WinFsp](https://github.com/winfsp/sshfs-win)
+  This can be easily installed with powershell as:
+  ```sh
+  winget install WinFsp.WinFsp; winget install SSHFS-Win.SSHFS-Win
+  ```
+
 
 |      | Address |  Notes  |  user  | 
 | ------ | ------ | ------ | ------ |
