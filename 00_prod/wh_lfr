@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ---     		 Westinghouse Lead Fast Reactor 950MW  -  full core input       		--- %
 %                		        made for Serpent ver. 2.1.33				 				%
-%          		 		  Created by : Stafie Alexandru 17/Nov/2022		 				    %
+%          		 		  Created by : Stafie Alexandru 25/Jan/2023		 				    %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 set title "WH_LFR950"
@@ -14,11 +14,11 @@ include "input/pins.inp"
 include "input/fa.inp"
 
 % --- Core size 
-include "input/120cm/core_3d.inp"		
-include "input/120cm/mvol.inp"			% - Volumes file
+include "input/220cm/core_3d.inp"		% - Core geometry
+include "input/220cm/mvol.inp"			% - Volumes file
 
 % --- Loading pattern
-include "input/lp/core_lp_SF3.inp"		% - Made for the lp generator .py script
+include "input/lp/core_lp_SF6.inp"		% - Made for the lp generator .py script
 
 % --- Detectors and plots
 %include "input/appendix.inp"
@@ -47,7 +47,7 @@ set printm  	1		% - Print material compositions to [input].bumat[bu] file
 set bala 	1			% - OpenMP load balancing on or off (maybe goes faster)
 %set shbuf	1	1		% - Score buffering (0 = private, 1 = shared) 
 %set opti	4 			% - Opt.mode, 2 - good for high no.depl.zones 4 - Max.perf (DEFAULT)
-set nbuf	8.0			% - Sets the size of n buffer (DEF off, use only when sym fails)
+set nbuf	5.0			% - Sets the size of n buffer (DEF off, use only when sym fails)
 		
 		
 % --- Criticality cycles  -------------------------------------------------------------------
@@ -57,7 +57,7 @@ set pop			40000 200 50
 %set pop		5000 100 50
 
 %     On-the-fly n growing pop - max active.cycles/ max pop.generated/ 
- 
+%     This option make calculation fast but the propagation of err in multicycle analisys make it dangerous 
 %set gpop		x 	40000
 
 
@@ -76,6 +76,7 @@ set egrid	5.0E-05 1.0E-07 1.5E+01		% - Red.unionized E grid size,save mem. - DEF
 								
 % --- Calculates pin powers and pin power form factors ---------------------------------------
 %	  Univ.where to calc/ Lat.where to calc - DEFAULT OFF
+
 %set ppw 0 LatC_Z1 
 
 
