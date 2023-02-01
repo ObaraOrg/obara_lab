@@ -57,7 +57,7 @@ set pop			40000 200 50
 %set pop		5000 100 50
 
 %     On-the-fly n growing pop - max active.cycles/ max pop.generated/ 
- 
+%     This option make calculation fast but the propagation of err in multicycle analisys make it dangerous 
 %set gpop		x 	40000
 
 
