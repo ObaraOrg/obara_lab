@@ -1,5 +1,6 @@
 #### NOTE:
 #### Made for SERPENT 2.1.33 Makefile to run on the LOCAL LAB CLUSTER ####
+#### This version ENABLES OMPI(MPI) and OMP
 
 #Create directories and extract SERPENT
 mkdir -p ./serpent
@@ -12,14 +13,13 @@ for f in *.tar.gz; do tar -xzvf "$f"; done
 ###########################################################
 
 #Modify the flags if you want to
-#This version ENABLES OMPI(MPI) and OMP
 
 ###########################################
 #CHANGE the GCC CC to ICC CC
 sed -i "s/CC  	 = gcc/#CC  	 = gcc/g" Makefile
 sed -i "s/CFLAGS   = -Wall -ansi -ffast-math -O3 -Wunused/#CFLAGS   = -Wall -ansi -ffast-math -O3 -Wunused/g" Makefile
 sed -i "s/CFLAGS += -Wno-unused-but-set-variable/#CFLAGS += -Wno-unused-but-set-variable/g" Makefile
-sed -i "s/#CC  	 = icc/CC  	 = icc/g" Makefile
+#sed -i "s/#CC  	 = icc/CC  	 = icc/g" Makefile
 
 #ENABLE Optimization for Intel CPU's:
 sed -i "s/#CFLAGS   = -Wall -ansi -pedantic -xHost -ipo -DINTELCC/CFLAGS   = -Wall -ansi -pedantic -xHost -ipo -DINTELCC/g" Makefile
@@ -39,7 +39,6 @@ sed -i "s/LDFLAGS += -fopenmp/#LDFLAGS += -fopenmp/g" Makefile
 #ENABLE mpiCC compiler
 sed -i "s/#CC  	 = mpicc/CC  	 = mpicc/g" Makefile
 sed -i "s/#CFLAGS  += -DMPI/CFLAGS  += -DMPI/g" Makefile
-
 
 ###########################################################
 

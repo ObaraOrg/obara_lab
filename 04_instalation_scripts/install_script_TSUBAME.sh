@@ -1,10 +1,11 @@
 #### NOTE:
 #### Made for SERPENT 2.1.33 Makefile to run on the TSUBAME ####
+####This version ENABLES OMPI(MPI) use with Serpent and OMP within the Serpent code 
 
-#Load modules for TSUBAME
-module load gcc
-module load cuda
+#Load prerequisite modules for TSUBAME as to compile the code
+#As per the modules the newer ver of openmpi need some cuda libs hence the module loaded
 module load intel
+module load cuda
 module load openmpi 
 
 #Create directories and extract SERPENT
@@ -18,14 +19,13 @@ for f in *.tar.gz; do tar -xzvf "$f"; done
 ###########################################################
 
 #Modify the flags if you want to
-#This version ENABLES OMPI(MPI) use with Serpent and OMP within the Serpent code 
 
 ###########################################
 #CHANGE the GCC CC to ICC CC
 sed -i "s/CC  	 = gccw/#CC  	 = gcc/g" Makefile
 sed -i "s/CFLAGS   = -Wall -ansi -ffast-math -O3 -Wunused/#CFLAGS   = -Wall -ansi -ffast-math -O3 -Wunused/g" Makefile
 sed -i "s/CFLAGS += -Wno-unused-but-set-variable/#CFLAGS += -Wno-unused-but-set-variable/g" Makefile
-sed -i "s/#CC  	 = icc/CC  	 = icc/g" Makefile
+#sed -i "s/#CC  	 = icc/CC  	 = icc/g" Makefile
 
 #ENABLE Optimization for Intel CPU's:
 sed -i "s/#CFLAGS   = -Wall -ansi -pedantic -xHost -ipo -DINTELCC/CFLAGS   = -Wall -ansi -pedantic -xHost -ipo -DINTELCC/g" Makefile
@@ -35,6 +35,7 @@ sed -i "s/#CFLAGS   = -Wall -ansi -pedantic -xHost -ipo -DINTELCC/CFLAGS   = -Wa
 sed -i "s/#CFLAGS  += -DOPEN_MP/CFLAGS  += -DOPEN_MP ##/g" Makefile
 sed -i "s/#CFLAGS  += -openmp/CFLAGS  += -qopenmp/g" Makefile
 sed -i "s/#LDFLAGS += -openmp/LDFLAGS += -qopenmp/g" Makefile
+
 #DISABLE openMPI support for GCC
 sed -i "0,/CFLAGS  += -DOPEN_MP/s//#CFLAGS  += -DOPEN_MP/g" Makefile
 sed -i "s/CFLAGS  += -fopenmp/###CFLAGS  += -fopenmp/g" Makefile

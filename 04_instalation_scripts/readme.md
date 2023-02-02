@@ -26,14 +26,14 @@ ________________________________________
         - [Unzip the required files](#unzip-the-required-files)
         - [Compile Serpent](#compile-serpent)
         - [Preparation of cross-sectional area file](#preparation-of-cross-sectional-area-file)
-        - [Setting environment variables](#setting-environment-variables)
+        - [Setting environment variables for bash, if you use a different shell be aware](#setting-environment-variables-for-bash-if-you-use-a-different-shell-be-aware)
         - [Perform benchmark calculation](#perform-benchmark-calculation)
         - [Perform tutorial calculation](#perform-tutorial-calculation)
 - [On compilation flags](#on-compilation-flags)
         - [GNU Compiler:](#gnu-compiler)
         - [Intel Compiler:](#intel-compiler)
         - [Enable Parallel process calculation using MPI:](#enable-parallel-process-calculation-using-mpi)
-        - [Notes:](#notes)
+        - [Aditional:](#aditional)
 
 <!-- /TOC -->
 ________________________________________
@@ -146,7 +146,7 @@ perl ../../util/xsdirconvert.pl sss_endfb7u.xsdir> sss_endfb7u.xsdata
 ```
 ________________________________________
 
-### Setting environment variables 
+### Setting environment variables (for bash, if you use a different shell be aware)
 (use whatever editor you please)
 Add the following (`usename` is your own account name)
 Add these environment variables by executing the below lines to ~/.bashrc or ~/.bash_profiles (or use the vim to add them manually).
@@ -200,6 +200,9 @@ EXAMPLES:
 - `CXXFLAGS` - are meant to be used when invoking a C++ compiler
 - `LDFLAGS` - flags added when invoking the linker (C, C++, or Fortran)
 
+Note:
+- The ` = ` sign initiates a variable with a value, the ` += ` add an aditional argumet to that variable; If for example `CC  = gcc` is stated and at the bottom part you leave the `CC = mpicc` the **CC** variable will have only the **mpicc** argument declared.
+
 ___
 
 ### GNU Compiler:
@@ -246,14 +249,15 @@ ___
 ___
 
 ### Enable Parallel process calculation using MPI:
-- `CC = mpicc` - mpicc is compiler wrapper
+- `CC = mpicc` - mpicc is the compiler 
 - `CFLAGS += -DMPI` - enables certain lines of the code to be compiled
 
 ___
 
-### Notes:
-Chose **just one** compiler to compile the code, gcc, icc, mpicc.
+### Aditional:
+Chose **just one** compiler to compile the code, *gcc*, *icc*, *mpicc* (if compiling with MPI support, the only choice is the *mpicc*).
 Uncomment the `CFLAGS` under the `CC` compile flag,
 Leave the `LDFLAGS  = -lm` uncommented, under the compiler you use, for the code to link de correct libraries while compiling.
 To enable OMP parralel threading use the apropiate flags under the chosen compiler 
-**NOTE:** the `mpicc` uses the OMP flags under the icc compiler)
+
+**NOTE:** the `mpicc` uses the OMP flags under the icc compiler.
