@@ -9,10 +9,7 @@ set title "WH_LFR950"
 % --- Read block, material and geometry definitions 
 include "input/materials.inp"
 include "input/fuel.inp"
-include "input/pins.inp"
 include "input/fa.inp"
-%include "input/core_lp.inp"		% - Made for the .py script
-%include "input/core_3d.inp"		% - Idem	
 
 % --- Read block, detectors and plots
 include "input/appendix.inp"
@@ -53,8 +50,8 @@ set pop		100000 200 50
 
 % --- Calculation options  ------------------------------------------------------------------
 
-set bc      2			% - boundary type (1=vacuum, 2=reflective, 3=periodic)
-%set fpcut   1.0E-06		% - Fis.prod.yield cut-off, discrd.all cumul.yld.below 0.0001%
+set bc      3			% - boundary type (1=vacuum, 2=reflective, 3=periodic)
+%set fpcut   1.0E-06	% - Fis.prod.yield cut-off, discrd.all cumul.yld.below 0.0001%
 %set xscalc  2			% - Transmutation xs calc.mode(1=dir.tallies, 2=spec-collap)
 						%   NOT USED, because opti mode
 
@@ -81,22 +78,23 @@ set egrid	5.0E-05 1.0E-07 1.5E+01		% - Red.unionized E grid size,save mem. - DEF
 
 % --- Group constant generation -------------------------------------------------------------
 
-set gcu -1				% - Universe for grp.cons.gen. (-1 off for -time) - DEFAULT ON
+set gcu 0				% - Universe for grp.cons.gen. (-1 off for -time) - DEFAULT ON
+						% universe = 0 (homogenization over all space)
 %set nfg 2 0.625E-6		% - Few-group structure: (2g, boundary at 0.625 eV) - OFF
 
 
 % --- Burnup calculation --------------------------------------------------------------------
 
-set power  9.5E+08		% - Sets normalization to total fiss. power [in W]
-%set powdens 24.2E-03	% - Sets normalization to power dens.[kW/g]  - DEFAULT OFF
+%set power  9.5E+08		% - Sets normalization to total fiss. power [in W]
+set powdens 24.2E-03	% - Sets normalization to power dens.[kW/g]  - DEFAULT OFF
 						%   double for me bcs.smaller core from 220cm->120cm	
 
 set bumode  2			% - BU mode, 1 - TTA, 2 - CRAM (DEFAULT)
 set bunorm  1			% - BU norm.mode (1=mat.all,2=burn.mat,3=non-burn.mat) - DEFAULT 1
 
-%dep daytot	 	10 		
+dep daytot	 	1 5 10 25 50 75 100 150 200 250 300 350 450 500 550 650 700 750 		
 
-%set pcc LELI 5 5		% - Use predictor corrector method for the depletion solution
+set pcc LELI 10 10		% - Use predictor corrector method for the depletion solution
 						%   LELI: Linear extrapolation on predictor, 5 substeps
 						%         Linear interpolation on corrector, 5 substeps
 						%   Prev. -> CELI 1 1 (DEFAULT)
@@ -104,18 +102,18 @@ set bunorm  1			% - BU norm.mode (1=mat.all,2=burn.mat,3=non-burn.mat) - DEFAULT
 
 % --- Print options -------------------------------------------------------------------------
 
-%set inventory			% - Sets inventory for dep.m file 
-%
-%Th-227 Th-228 Th-229 Th-230 Th-231 Th-232 Th-233 Th-234
-%Pa-231 Pa-232 Pa-233
-%U-232  U-233  U-234  U-235  U-236  U-237  U-238  U-239  U-240  U-241 
-%Np-235 Np-236 Np-237 Np-238 Np-239
-%Pu-236 Pu-237 Pu-238 Pu-239 Pu-240 Pu-241 Pu-242 Pu-243 Pu-244
-%Am-241 Am-242 Am-242m Am-243 Am-244 Am-244m 
-%Cm-240 Cm-241 Cm-242 Cm-243 Cm-244 Cm-245 Cm-246 Cm-247 Cm-248 Cm-249 Cm-250
-%
-%Th Pa U Np Pu Am Cm			% - total list
-%
+set inventory			% - Sets inventory for dep.m file 
+
+Th-227 Th-228 Th-229 Th-230 Th-231 Th-232 Th-233 Th-234
+Pa-231 Pa-232 Pa-233
+U-232  U-233  U-234  U-235  U-236  U-237  U-238  U-239  U-240  U-241 
+Np-235 Np-236 Np-237 Np-238 Np-239
+Pu-236 Pu-237 Pu-238 Pu-239 Pu-240 Pu-241 Pu-242 Pu-243 Pu-244
+Am-241 Am-242 Am-242m Am-243 Am-244 Am-244m 
+Cm-240 Cm-241 Cm-242 Cm-243 Cm-244 Cm-245 Cm-246 Cm-247 Cm-248 Cm-249 Cm-250
+
+Th Pa U Np Pu Am Cm			% - total list
+
 % - SMALL list (not used)
 %U-234 U-235 U-236 U-238 
 %Np-237 

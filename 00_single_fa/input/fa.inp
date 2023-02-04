@@ -1,33 +1,43 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% ---    FA Lattices definition    --- %
+% -- Pin and FA Lattices definition -- %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% --- U000 assembly pin lattice verbose %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% --- Coolant pin
+pin c
+	lead
 
-% --- Pin lattice definition, name of the lattice "LatFA"
+% --- Fuel pins (smear 85%)
+pin 1
+	fuel	 	0.469242  
+	ods         0.559242   
+	lead
+
+% --- FA Lattices definition 
+%     Pin lattice definition, name of the lattice "LatFA"
 %     Lattice type 3 (hex lattice)
 %     Lattice centered at 0.0 0.0
-%     15 x 15 lattice elements (17x17 U000 rods + 1 layer of lead)
+%     15 x 15 lattice elements (17x17 1 rods + 1 layer of lead)
 %     Lattice pitch 1.33 cm
 %     1/6 symmetry so that we'll only have to type
 %     in 1/6h of the assembly (lazy to do it here)
 
 lat LatFA 3 0.0 0.0 15 15 1.33
-_co_ _co_ _co_ _co_ _co_ _co_ _co_ _co_ _co_ _co_ _co_ _co_ _co_ _co_ _co_ 
- _co_ _co_ _co_ _co_ _co_ _co_ _co_ U000 U000 U000 U000 U000 U000 U000 _co_ 
-  _co_ _co_ _co_ _co_ _co_ _co_ U000 U000 U000 U000 U000 U000 U000 U000 _co_ 
-   _co_ _co_ _co_ _co_ _co_ U000 U000 U000 U000 U000 U000 U000 U000 U000 _co_ 
-    _co_ _co_ _co_ _co_ U000 U000 U000 U000 U000 U000 U000 U000 U000 U000 _co_ 
-     _co_ _co_ _co_ U000 U000 U000 U000 U000 U000 U000 U000 U000 U000 U000 _co_ 
-      _co_ _co_ U000 U000 U000 U000 U000 U000 U000 U000 U000 U000 U000 U000 _co_ 
-       _co_ U000 U000 U000 U000 U000 U000 U000 U000 U000 U000 U000 U000 U000 _co_ 
-        _co_ U000 U000 U000 U000 U000 U000 U000 U000 U000 U000 U000 U000 _co_ _co_ 
-         _co_ U000 U000 U000 U000 U000 U000 U000 U000 U000 U000 U000 _co_ _co_ _co_ 
-          _co_ U000 U000 U000 U000 U000 U000 U000 U000 U000 U000 _co_ _co_ _co_ _co_ 
-           _co_ U000 U000 U000 U000 U000 U000 U000 U000 U000 _co_ _co_ _co_ _co_ _co_ 
-            _co_ U000 U000 U000 U000 U000 U000 U000 U000 _co_ _co_ _co_ _co_ _co_ _co_ 
-             _co_ U000 U000 U000 U000 U000 U000 U000 _co_ _co_ _co_ _co_ _co_ _co_ _co_ 
-              _co_ _co_ _co_ _co_ _co_ _co_ _co_ _co_ _co_ _co_ _co_ _co_ _co_ _co_ _co_
+
+c c c c c c c c c c c c c c c 
+ c c c c c c c 1 1 1 1 1 1 1 c 
+  c c c c c c 1 1 1 1 1 1 1 1 c 
+   c c c c c 1 1 1 1 1 1 1 1 1 c 
+    c c c c 1 1 1 1 1 1 1 1 1 1 c 
+     c c c 1 1 1 1 1 1 1 1 1 1 1 c 
+      c c 1 1 1 1 1 1 1 1 1 1 1 1 c 
+       c 1 1 1 1 1 1 1 1 1 1 1 1 1 c 
+        c 1 1 1 1 1 1 1 1 1 1 1 1 c c 
+         c 1 1 1 1 1 1 1 1 1 1 1 c c c 
+          c 1 1 1 1 1 1 1 1 1 1 c c c c 
+           c 1 1 1 1 1 1 1 1 1 c c c c c 
+            c 1 1 1 1 1 1 1 1 c c c c c c 
+             c 1 1 1 1 1 1 1 c c c c c c c 
+              c c c c c c c c c c c c c c c
 
 % --- Apply a symmetry to the lattice "lat1"
 %     Symmetry axis is the z-axis (3)
@@ -35,7 +45,7 @@ _co_ _co_ _co_ _co_ _co_ _co_ _co_ _co_ _co_ _co_ _co_ _co_ _co_ _co_ _co_
 %     Symmetry axis is located at coordinates (0.0 0.0)
 %     Symmetry covers an angle starting from 270 degrees and extending for 60 degrees
 
-set usym lat1 3 2 0.0 0.0 270 60
+%set usym lat1 3 2 0.0 0.0 270 60 (NOT USED HERE)
 
 % --- FA definitions
 surf S1FA  hexxc    0.0  0.0  7.600  			% Shroud tube inner surface

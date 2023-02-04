@@ -7,19 +7,14 @@
 plot 3 1000 1000
 
 % --- XZ-plot - side ----------------------------------------------------------
-plot 1 1000 1000    12
+plot 1 1000 1000 12
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ---   Other Plots    --- %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% --- Fission rate / thermal flux plot ----------------------------------------
+% --- Fission rate ------------------------------------------------------------
 mesh 3 1000 1000
-mesh 1 1000 1000
-
-% --- Interface temperature plot ----------------------------------------------
-mesh 10 3 1000 1000
-mesh 10 1 1000 1000
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ---  Other outputs   --- %
@@ -42,9 +37,41 @@ mesh 10 1 1000 1000
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% ---    Detectors     --- %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%			
-%
-%% --- Power profiles ----------------------------------------------------------
+
+%% --- Power profiles (not used here) ------------------------------------------
 %det PwrCore  dr -8 void 	% Core power in [W]
 %
 %% Power in [W] for each fuel vol, only on mat fuel, -8 energy deposition
-%det	pwr_U001	dm  fuelP1Z1 	dm  fuelP1Z2	dm  fuelP1Z3 	dm  fuelP1Z4	dm  fuelP1Z5 	dm  fuelP1Z6	dr -8 void				
+%det	pwr_U001	dm  fuelP1Z1 	dm  fuelP1Z2	dm  fuelP1Z3 	dm  fuelP1Z4	
+%                   dm  fuelP1Z5 	dm  fuelP1Z6	dr -8 void
+
+% ------------------------------------------------------------------------------
+
+% --- Neutron energy grid spectrum per energy bins: 
+%	  2 = equal E-width bins; 3 = equal lethargy-width bins 4 = preset E grid
+%     no of bins, Min-Max 1 eV - 15 MeV, 
+
+ene 1 3 100 1E-9 10.0
+ene FastEgrid1 4 nj11 			% LANL 70groups structure
+
+% --- Flux per lethargy (-3	= division by lethargy width):
+
+det 1 de 1 dt -3
+
+% --- Differential capture, fission and production spectra:
+%     dt -2 = division by energy width 
+%     dr -2/-6/-7 = d.response macro xs total capt/fiss/prod
+
+det 2 de 1 dt -2 dr -2 void
+mesh 8 1 1 3 1000 1000
+det 3 de 1 dt -2 dr -6 void
+det 4 de 1 dt -2 dr -7 void
+
+% --- Integral capture, fission and production spectra:
+%     dt -1	= cumulative spectrum
+
+det 5 de 1 dt -1 dr -2 void
+det 6 de 1 dt -1 dr -6 void
+det 7 de 1 dt -1 dr -7 void
+
+% ------------------------------------------------------------------------------
