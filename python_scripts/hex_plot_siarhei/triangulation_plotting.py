@@ -98,7 +98,7 @@ def main():
     y, x = np.where(A)
     coordinates = np.column_stack((y, x))
     for count, (y, x) in enumerate(coordinates):
-        x_origin = (x - y / 2) * h 
+        x_origin = (x - y / 2) * h
         y_origin = h * y * np.sqrt(3) / 2
         x_r.append(x_origin + x_base_coords)
         y_r.append(y_base_coords - y_origin)
