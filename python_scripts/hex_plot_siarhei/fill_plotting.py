@@ -26,6 +26,7 @@ x_base_coords = np.array(
         H / 2,  # bottom coord
         0,  # => bottom left coord
         0,  # => top left coord
+        # h / 2,  # => center coord
     ]
 )
 
@@ -37,6 +38,7 @@ y_base_coords = np.array(
         -H / np.sqrt(3),  # bottom coord
         -H / (2 * np.sqrt(3)),  # => bottom left coord
         H / (2 * np.sqrt(3)),  # => top left coord
+        # 0 # => center coord
     ]
 )
 
