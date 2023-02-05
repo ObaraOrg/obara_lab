@@ -65,7 +65,7 @@ def plot_core(core: np.ndarray, numeric_data: np.ndarray) -> np.ndarray:
     norm = plt.matplotlib.colors.Normalize(
         vmin=np.min(numeric_data), vmax=np.max(numeric_data)
     )
-    cmap = plt.matplotlib.cm.get_cmap("Blues")
+    cmap = plt.matplotlib.cm.get_cmap("autumn_r")
     plt.figure()
     for count, (y, x) in enumerate(coordinates):
         x_origin = (x - y / 2) * H
@@ -74,7 +74,7 @@ def plot_core(core: np.ndarray, numeric_data: np.ndarray) -> np.ndarray:
         y_r = y_base_coords - y_origin
         plt.fill(x_r, y_r, facecolor=cmap(norm(numeric_data[count])))
 
-    sm = plt.cm.ScalarMappable(cmap=plt.cm.Blues, norm=norm)
+    sm = plt.cm.ScalarMappable(cmap=plt.cm.autumn_r, norm=norm)
     plt.tick_params(
         left=False, right=False, labelleft=False, labelbottom=False, bottom=False
     )
