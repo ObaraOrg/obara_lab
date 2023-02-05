@@ -12,12 +12,10 @@ BASE_PATH = Path.cwd()
 
 
 def pathconstructor(index):
-    return BASE_PATH / f"wh_lfrsuffleNo{index}/wh_lfr_res.m"
-    # return BASE_PATH/f"wh_lfr_res.m"
-
+    return BASE_PATH / f"wh_lfr_fa_res.m"
 
 res_list = []
-for index in range(100):
+for index in range(1):
     if Path.exists(pathconstructor(index)):
         with serpentTools.settings.rc:
             serpentTools.settings.rc["verbosity"] = "error"
@@ -33,6 +31,6 @@ for index in range(1, len(res_total)):
     for key in res_total[0].keys():
         if key == "absKeff":
             res_bu_sum = res_total[index][key]
-            res_total_complete[key] = np.vstack((res_total_complete[key], res_bu_sum))
+            res_total_complete[key] = np.vstack((res_total_complete[key], res_bu_sum[0]))
 
 print(res_total_complete["absKeff"])
