@@ -7,15 +7,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 H = 1  # SIDE OF A TRIANGLE
-MIN_RANGE = 0.0
-MAX_RANGE = 1.0
-
 LOAD_PATH = Path("full_core_matrix.txt")
 
 
 def get_data():
     data = []
-    with (open("abc.inp")) as file:
+    with (open("data.inp")) as file:
         for line in file:
             strip = float(line.strip())
             data.append(strip)
@@ -64,8 +61,6 @@ def construct_colors(list_of_values: np.ndarray) -> List[float]:
 def plot_core(core: np.ndarray, numeric_data: np.ndarray) -> np.ndarray:
     y, x = np.where(core)
     coordinates = np.column_stack((y, x))
-
-    breakpoint()
 
     norm = plt.matplotlib.colors.Normalize(
         vmin=np.min(numeric_data), vmax=np.max(numeric_data)

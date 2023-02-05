@@ -106,8 +106,6 @@ for i in range(A.shape[0]):
 
     y_origin = y_origin + h * np.sqrt(3) / 2
 
-breakpoint()
-
 triang = mtri.Triangulation(m_r, n_r, triangles_r)
 xmid = m_r[triang.triangles].mean(axis=1)
 ymid = n_r[triang.triangles].mean(axis=1)

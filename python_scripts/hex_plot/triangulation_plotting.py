@@ -121,7 +121,5 @@ def main():
     fig.patch.set_visible(False)
     #
     plt.show()
-    breakpoint()
-
 
 main()
