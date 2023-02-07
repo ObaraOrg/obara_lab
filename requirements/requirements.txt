@@ -13,6 +13,8 @@ argon2-cffi==21.3.0
     #   notebook
 argon2-cffi-bindings==21.2.0
     # via argon2-cffi
+astroid==2.14.1
+    # via pylint
 attrs==22.2.0
     # via jsonschema
 babel==2.11.0
@@ -43,6 +45,8 @@ decorator==5.1.1
     # via ipython
 defusedxml==0.7.1
     # via nbconvert
+dill==0.3.6
+    # via pylint
 entrypoints==0.4
     # via jupyter-client
 fastjsonschema==2.16.2
@@ -76,7 +80,9 @@ ipython-genutils==0.2.0
     #   nbclassic
     #   notebook
 isort==5.11.4
-    # via -r requirements/requirements.in
+    # via
+    #   -r requirements/requirements.in
+    #   pylint
 jedi==0.18.2
     # via ipython
 jinja2==3.1.2
@@ -126,6 +132,8 @@ jupyterlab-server==2.18.0
     # via jupyterlab
 kiwisolver==1.4.4
     # via matplotlib
+lazy-object-proxy==1.9.0
+    # via astroid
 markupsafe==2.1.1
     # via
     #   jinja2
@@ -138,6 +146,8 @@ matplotlib-inline==0.1.6
     # via
     #   ipykernel
     #   ipython
+mccabe==0.7.0
+    # via pylint
 mistune==2.0.4
     # via nbconvert
 mypy-extensions==0.4.3
@@ -201,7 +211,9 @@ pillow==9.4.0
 pkgutil-resolve-name==1.3.10
     # via jsonschema
 platformdirs==2.6.2
-    # via black
+    # via
+    #   black
+    #   pylint
 prometheus-client==0.15.0
     # via
     #   jupyter-server
@@ -221,6 +233,8 @@ pygments==2.14.0
     # via
     #   ipython
     #   nbconvert
+pylint==2.16.1
+    # via -r requirements/requirements.in
 pyparsing==3.0.9
     # via matplotlib
 pyrsistent==0.19.3
@@ -271,6 +285,9 @@ tomli==2.0.1
     # via
     #   black
     #   jupyterlab
+    #   pylint
+tomlkit==0.11.6
+    # via pylint
 tornado==6.2
     # via
     #   ipykernel
@@ -296,16 +313,20 @@ traitlets==5.8.0
     #   nbformat
     #   notebook
 typed-ast==1.5.4
-    # via black
+    # via
+    #   astroid
+    #   black
 typing-extensions==4.4.0
     # via
     #   anyio
     #   argon2-cffi
+    #   astroid
     #   black
     #   importlib-metadata
     #   jsonschema
     #   kiwisolver
     #   platformdirs
+    #   pylint
 urllib3==1.26.13
     # via requests
 wcwidth==0.2.5
@@ -316,6 +337,8 @@ webencodings==0.5.1
     #   tinycss2
 websocket-client==1.4.2
     # via jupyter-server
+wrapt==1.14.1
+    # via astroid
 zipp==3.11.0
     # via
     #   importlib-metadata
