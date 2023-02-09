@@ -1,9 +1,7 @@
-import copy
-from pathlib import Path
-
 import matplotlib.pyplot as plt
 import numpy as np
 import serpentTools as sp
+from scipy.integrate import cumulative_trapezoid
 
 from mpl_axis_aligner.align import yaxes
 
@@ -32,7 +30,8 @@ def plot_twinx(
     y2_label: str = "",
     x_label: str = "",
 ) -> None:
-    fig, ax1 = plt.subplots()
+
+    fig, ax1 = plt.subplots(figsize=(16, 9))
     ax2 = ax1.twinx()
     ax1.plot(x_axis_data, y1_axis_data, c="green")
     ax2.plot(x_axis_data, y2_axis_data, c="red")
@@ -59,21 +58,36 @@ def main() -> None:
 
     res_file = sp.read(f"{FILE_NAME}_res.m")
 
-    TRIM_STEP = 15
-    burnup = res_file.resdata[BURNUP][:TRIM_STEP, 0]
-    burn_days = res_file.resdata[BURN_DAYS][:TRIM_STEP, 0]
-    kinf = res_file.resdata[ABS_KINF][:TRIM_STEP, 0]
-    numbar = res_file.resdata[NUBAR][:TRIM_STEP, 0]
-    fima = res_file.resdata[FIMA][:TRIM_STEP, 0]
-    # breed_ratio = res_file.resdata[BREED_RATIO][:TRIM_STEP, 0]
+    TRIM_DATA = 70
+    burnup = res_file.resdata[BURNUP][:TRIM_DATA, 0]
+    burn_days = res_file.resdata[BURN_DAYS][:TRIM_DATA, 0]
+    kinf = res_file.resdata[ABS_KINF][:TRIM_DATA, 0]
+    numbar = res_file.resdata[NUBAR][:TRIM_DATA, 0]
+    fima = res_file.resdata[FIMA][:TRIM_DATA, 0]
 
-    dbu = np.diff(burnup, prepend=burnup[0])
-    integral = np.cumsum(numbar * (1 - (1 / kinf)) * dbu)
+    # burnup = res_file.resdata[BURNUP][:, 0]
+    # burn_days = res_file.resdata[BURN_DAYS][:, 0]
+    # kinf = res_file.resdata[ABS_KINF][:, 0]
+    # numbar = res_file.resdata[NUBAR][:, 0]
+    # fima = res_file.resdata[FIMA][:, 0]
 
-    plot_twinx(burnup, integral, kinf, "NB", "$K_{inf}$", "burnup")
+    # breed_ratio = res_file.resdata[BREED_RATIO][:TRIM_DATA, 0]
+
+    integral = cumulative_trapezoid(numbar * (1 - (1 / kinf)), burnup, initial=0)
+
+    plot_twinx(burnup, integral, kinf, "NB", "$K_{inf}$", "MWd/kgU")
+    save_fig = "NB_vs_BUdays.png"
+    plt.savefig(save_fig, dpi=70)
     plt.show()
 
-    plot_twinx(fima, integral, kinf, "NB", "$K_{inf}$", "fima")
+    plot_twinx(burn_days, integral, kinf, "NB", "$K_{inf}$", "EFPD")
+    save_fig = f"NB_vs_BUdays.png"
+    plt.savefig(save_fig, dpi=70)
+    plt.show()
+
+    plot_twinx(fima * 100, integral, kinf, "NB", "$K_{inf}$", "%FIMA")
+    save_fig = f"NB_vs_FI.png"
+    plt.savefig(save_fig, dpi=70)
     plt.show()
 
 
