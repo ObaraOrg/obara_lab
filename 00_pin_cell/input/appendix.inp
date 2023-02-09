@@ -4,17 +4,18 @@
 
 % plt TYPE Xpixels Ypixels [ zPOS MIN1x MAX1x MIN2y MAX2y ]
 % --- XY-plot - above ---------------------------------------------------------
-plot 3 1000 1000
+plot 3 500 500
+plot 3 500 500 0.0 -6 6 -6 6
 
 % --- XZ-plot - side ----------------------------------------------------------
-plot 1 1000 1000 12
+plot 1 500 500 12
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ---   Other Plots    --- %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % --- Fission rate ------------------------------------------------------------
-%mesh 3 1000 1000
+mesh 3 500 500
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ---  Other outputs   --- %
@@ -63,15 +64,15 @@ det 1bis de FastEgrid1 dt -3
 %     dt -2 = division by energy width 
 %     dr -2/-6/-7 = d.response macro xs total capt/fiss/prod
 
-det dif_capt de 2grp dt -2 dr -2 void
-det dif_fiss de 2grp dt -2 dr -6 void
-det dif_prod de 2grp dt -2 dr -7 void
+det 2 de 2grp dt -2 dr -2 void
+det 3 de 2grp dt -2 dr -6 void
+det 4 de 2grp dt -2 dr -7 void
 
 % --- Integral capture, fission and production spectra:
 %     dt -1	= cumulative spectrum
 
-det integr_capt de 2grp dt -1 dr -2 void
-det integr_fiss de 2grp dt -1 dr -6 void
-det integr_prod de 2grp dt -1 dr -7 void
+det 5 de 2grp dt -1 dr -2 void
+det 6 de 2grp dt -1 dr -6 void
+det 7 de 2grp dt -1 dr -7 void
 
 % ------------------------------------------------------------------------------

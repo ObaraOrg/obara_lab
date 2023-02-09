@@ -1,0 +1,24 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% -- 		 Pin definition 		-- %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% --- Coolant pin
+pin c
+	lead
+
+% --- Fuel pins (smear 85%)
+pin 1
+	fuel	 	0.469242  
+	ods         0.559242   
+	lead
+
+% --- Hex surface with 1.33(pin pitch) cm side centered at (x,y) = (0,0)
+surf S1pin hexxc    0.0  0.0  0.665
+
+% --- Cell c1 -> univ. 0, filled pin p1 and covers everything inside surf S1pin
+% --- Cell c1 -> univ. 1, def as "outside" cell and covers everything out. surf. s1
+
+cell C1 0 fill 	1	-S1pin
+cell C2 0 outside	 S1pin
+
+
