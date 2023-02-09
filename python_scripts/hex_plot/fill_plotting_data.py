@@ -17,7 +17,7 @@ H = 2  # SIDE OF A TRIANGLE
 
 P = 48  # max no of FA
 Z = 6  # max no of slices
-LOAD_PATH = Path("full_core_matrix.txt")
+LOAD_PATH = Path("core_lp_SF3.txt")
 
 
 x_base_coords = np.array(
@@ -145,7 +145,7 @@ def plot_core(core: np.ndarray, numeric_data: np.ndarray, additional_text_list: 
     )
     cmap = plt.matplotlib.cm.get_cmap("autumn_r")
 
-    plt.figure()
+    plt.figure(figsize=[18, 14])
 
     for count, (y, x) in enumerate(coordinates):
         x_origin = (x - y / 2) * H
@@ -158,7 +158,7 @@ def plot_core(core: np.ndarray, numeric_data: np.ndarray, additional_text_list: 
         plt.text(
             center[0],
             center[1],
-            f"{numeric_data[count]:.3f} \n" + additional_text_list[count],
+            additional_text_list[count] + f"\n{numeric_data[count]:.2f}",
             ha="center",
             va="center",
         )
@@ -213,7 +213,9 @@ def main():
     u_array = np.char.array(map).flatten()[mask.flatten()]
     u_array = np.char.array([el[:4] for el in u_array])
 
-    additional_text_list = p_array + "\n" + u_array
+    # add a function for correnction to add both text
+    # additional_text_list = p_array + "\n" + u_array
+    additional_text_list = u_array
     plot_core(mask, core_values, additional_text_list)
 
 
