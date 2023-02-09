@@ -87,4 +87,4 @@ def main(trim: int = -1) -> None:
 
 
 if __name__ == "__main__":
-    main(70)
+    main()
