@@ -33,12 +33,14 @@ def plot_twinx(
 
     fig, ax1 = plt.subplots(figsize=(16, 9))
 
-    F_SIZE = 14
+    F_SIZE = 20
     ax2 = ax1.twinx()
     ax1.plot(x_axis_data, y1_axis_data, c="green", marker="x", label=y1_label)
     ax2.plot(x_axis_data, y2_axis_data, c="red", marker="x", label=y2_label)
     start, end = tuple(round(x / 10) * 10 for x in ax1.get_xlim())
     ax1.xaxis.set_ticks(np.arange(start, end + 1, end // (len(x_axis_data) // 2.5)))
+    ax1.tick_params(axis='both', which='major', labelsize=16)
+    ax2.tick_params(axis='both', which='major', labelsize=16)
     ax1.legend(loc="upper left", fontsize=F_SIZE)
     ax2.legend(loc="upper right", fontsize=F_SIZE)
 
