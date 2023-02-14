@@ -52,7 +52,7 @@ There are two versions of serpent in this folder, use the one with the install s
 | ------ | ------ | ------ |
 | [192.168.11.3](ftp://192.168.11.3/obaralab/Serpent) | obaralab | ask for it :P|
 
-All the files for installing serpent avalabile on the lab NAS:
+All the files for installing serpent available on the lab NAS:
 - Source code
 - Xs-libraries
 - Conversion utility for the Xs libraries (perl script)
@@ -64,7 +64,7 @@ ________________________________________
 
 ### Download data from the server
 
-Transfer the contents of the folder DIRECTLY in your user home directory (sepent folder + install scripts), paths are references to the main directory `~/serpent/` as for the script to find the apropiate files.
+Transfer the contents of the folder DIRECTLY in your user home directory (serpent folder + install scripts), paths are references to the main directory `~/serpent/` as for the script to find the appropriate files.
 
 ```sh
 #Create serpent directory in your home directory
@@ -201,7 +201,7 @@ EXAMPLES:
 - `LDFLAGS` - flags added when invoking the linker (C, C++, or Fortran)
 
 Note:
-- The ` = ` sign initiates a variable with a value, the ` += ` add an aditional argumet to that variable; If for example `CC  = gcc` is stated and at the bottom part you leave the `CC = mpicc` the **CC** variable will have only the **mpicc** argument declared.
+- The ` = ` sign initiates a variable with a value, the ` += ` add an additional argument to that variable; If for example `CC  = gcc` is stated and at the bottom part you leave the `CC = mpicc` the **CC** variable will have only the **mpicc** argument declared.
 
 ___
 
@@ -258,6 +258,6 @@ ___
 Chose **just one** compiler to compile the code, *gcc*, *icc*, *mpicc* (if compiling with MPI support, the only choice is the *mpicc*).
 Uncomment the `CFLAGS` under the `CC` compile flag,
 Leave the `LDFLAGS  = -lm` uncommented, under the compiler you use, for the code to link de correct libraries while compiling.
-To enable OMP parralel threading use the apropiate flags under the chosen compiler 
+To enable OMP parallel threading use the appropriate flags under the chosen compiler 
 
 **NOTE:** the `mpicc` uses the OMP flags under the icc compiler.

@@ -2,14 +2,6 @@
 
 **[Back to main page](https://github.com/ObaraOrg/obara_lab)**
 
-<!-- TOC -->
-
-- [Getting started with Vi-Vim text editor](#getting-started-with-vi-vim-text-editor)
-  - [Resources](#resources)
-  - [Vim has two modes of function:](#vim-has-two-modes-of-function)
-
-<!-- /TOC -->
-
 ## Resources
 
 Interactive Vim tutorial: [Open Vim](https://openvim.com/)
@@ -18,7 +10,7 @@ Graphical vi-vim [Cheat Sheet](http://www.viemu.com/a_vi_vim_graphical_cheat_she
 
 ---
 
-## Vim has two modes of function:
+## Vim has two modes of function
 
 1. **Insert mode** (Where you can just type like normal text editor (press `i` for insert mode)
 2. **Command mode**, where you give commands to the editor to get things done (press `ESC` for command mode)
