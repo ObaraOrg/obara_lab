@@ -8,7 +8,7 @@
   - [File Tree](#file-tree)
   - [Old way of usage](#old-way-of-usage)
   - [Usage](#usage)
-  - [Python Invocation](#python-invocation)
+  - [Python Invocation of the script](#python-invocation-of-the-script)
   - [Future improvements](#future-improvements)
 
 <!-- /TOC -->
@@ -17,37 +17,40 @@ This project is structured in a way that separates scripts, installations script
 
 ---
 
-
 ## File Tree
 
 The base file tree looks like the following (bolded ones are the important ones)
 
-    ┣ 📂**config** (This folder holds the constants of the project, no of FAs, axial zooning, etc)
-    ┃ ┗ 📜constants.py *(Still in the working)*
+    ┣ 📂**config**                  (Holds the constants of the project, no of FAs, axial zooning, etc)
+    ┃ ┗ 📜constants.py                  - Still in the working
     ┣ 📂**legacy_scripts_and_code** (Holds old code, may be deleted in the future)
-    ┣ 📂**documentation** (Contains the markdown documentation)
-    ┣ 📂**installation_scripts** (Contains the installation scrips)
-    ┣ 📂**productivity_scripts** (Contains bash scripts for enhancing productivity working on the cluster and TSUBAME)
-    ┃ ┣ 📂01_tmux_test_scripts *(testing area, will be deleted in the future)*
-    ┃ ┣ 📂02_putty_terminal_script (instant connection to the cluster and TSUBAME)
-    ┃ ┣ 📂03_tmux_resource_monitor (see the processes running on each node)
-    ┃ ┣ 📜jupiter_notebook.sh (launch a jupiter notebook server locally)
-    ┃ ┗ 📜tmux_layout.sh (helpful tmux layout for analysis)
-    ┣ 📂**nuclear_lib** (This folder is the most important one, it contains all of the functions used in the scripts for data analysis)
-    ┣ 📂**python_scripts** (This folder contains all the scripts for data analysis)
-    ┃ ┣ 📂get_BU_data
-    ┃ ┣ 📂get_absKeff
-    ┃ ┣ 📂get_nuclides
-    ┃ ┣ 📂lp_hex_rot_script
-    ┃ ┣ 📂python_context_manager
-    ┃ ┣ 📂shuffling_script
+    ┣ 📂**documentation**           (Contains the markdown documentation)
+    ┣ 📂**installation_scripts**    (Contains the installation scrips)
+    ┣ 📂**productivity_scripts**    (Contains bash scripts for enhancing productivity working on the cluster and TSUBAME)
+    ┃ ┣ 📂01_tmux_test_scripts          - testing area, will be deleted in the future
+    ┃ ┣ 📂02_putty_terminal_script      - instant connection to the cluster and TSUBAME
+    ┃ ┣ 📂03_tmux_resource_monitor      - see the processes running on each node)
+    ┃ ┣ 📜jupiter_notebook.sh           - launch a jupiter notebook server locally)
+    ┃ ┗ 📜tmux_layout.sh                - helpful tmux layout for analysis)
+    ┣ 📂**nuclear_lib**             (Most important one, it contains all of the functions used in the scripts for data analysis)
+    ┣ 📂**python_scripts**          (This folder contains all the scripts for data analysis)
+    ┃ ┣ 📂get_BU_data                   - plotting for multiple simulations (shuffling run)
+    ┃ ┣ 📂get_absKeff                   - plotting for multiple simulations (shuffling run)
+    ┃ ┣ 📂get_nuclides                  - plotting for multiple simulations (shuffling run)
+    ┃ ┣ 📂lp_hex_rot_script             - made to generate a lp map for the serpent input
+    ┃ ┣ 📂hex_plot                      - plotting a single simulation file parameters
+    ┃ ┣ 📂neutron_balance               - plotting a single simulation file parameters
+    ┃ ┣ 📂python_context_manager 
+    ┃ ┣ 📂shuffling_script              - idepent script for the shuffling bash script
     ┃ ┣ 📂test_and_learning
-    ┣ **📂requirements** (This folder holds the requirements for the direnv)
+    ┣ **📂requirements**            (This folder holds the requirements for the direnv)
     ┃ ┣ 📜requirements.in
     ┃ ┗ 📜requirements.txt
-    ┣ 📂**serpent_analysis** (This folder should contains all of the simulations, and they should be exclusively done in this folder)
+    ┣ 📂**serpent_analysis**        (This folder should contains all of the simulations, and they should be exclusively done in this folder)
 
-**NOTE:** For a global python installation just run the .txt file though pip, see the documentation on this *here*
+**NOTE:** For a global python installation just run the .txt file though pip, see the documentation on this on the main page
+
+---
 
 ## Old way of usage 
 Some scripts that don't have the below implementational style don't need to be invoked like this but can be invoked in the analysis folder itself
@@ -66,7 +69,13 @@ The following script should never be implemented in the new style:
 
 ## Usage
 
-The function contained in the nuclear_lib are called from the scripts files by absolute referencing meaning that the importing of a function should look as:
+The new scripts that run this way:
+
+    ┣ 📂get_BU_data 
+    ┣ 📂hex_plot
+    ┣ 📂neutron_balance     
+
+The function contained in the `nuclear_lib` are called from the scripts files by absolute referencing meaning that the importing of a function should look as:
 
 ```python 
 
@@ -107,7 +116,7 @@ mv python_scripts/neutron_balance/nb_keff_vs_burnup.py serpent_analysis/pin_cell
 ---
 
 
-## Python Invocation
+## Python Invocation of the script
 Because we are in use of global baths from the base folder we have to execute the python from the root of the project 
 Example:
 
