@@ -39,8 +39,8 @@ def plot_twinx(
     ax2.plot(x_axis_data, y2_axis_data, c="red", marker="x", label=y2_label)
     start, end = tuple(round(x / 10) * 10 for x in ax1.get_xlim())
     ax1.xaxis.set_ticks(np.arange(start, end + 1, end // (len(x_axis_data) // 2.5)))
-    ax1.tick_params(axis='both', which='major', labelsize=16)
-    ax2.tick_params(axis='both', which='major', labelsize=16)
+    ax1.tick_params(axis="both", which="major", labelsize=16)
+    ax2.tick_params(axis="both", which="major", labelsize=16)
     ax1.legend(loc="upper left", fontsize=F_SIZE)
     ax2.legend(loc="upper right", fontsize=F_SIZE)
 
@@ -52,16 +52,31 @@ def plot_twinx(
     ax1.margins(x=0)
     ax1.axhline(y=0, color="black", linestyle="--", linewidth=1)
     ax1.grid()
-    
 
-def align_yaxis(ax1, v1, ax2, v2):
-    """adjust ax2 ylimit so that v2 in ax2 is aligned to v1 in ax1"""
-    _, y1 = ax1.transData.transform((0, v1))
-    _, y2 = ax2.transData.transform((0, v2))
-    inv = ax2.transData.inverted()
-    _, dy = inv.transform((0, 0)) - inv.transform((0, y1 - y2))
-    miny, maxy = ax2.get_ylim()
-    ax2.set_ylim(miny + dy, maxy + dy)
+    # Show the max values
+    ax1.annotate(
+        "NB = {:.2f}".format(max(y1_axis_data)),
+        xy=(x_axis_data[np.argmax(y1_axis_data)], max(y1_axis_data)),
+        xytext=(x_axis_data[np.argmax(y1_axis_data)], max(y1_axis_data) + 5),
+        arrowprops=dict(facecolor="black", shrink=0.05),
+    )
+    ax2.annotate(
+        "K-inf = {:.4f}".format(max(y2_axis_data)),
+        xy=(x_axis_data[np.argmax(y2_axis_data)], max(y2_axis_data)),
+        xytext=(x_axis_data[np.argmax(y2_axis_data)], max(y2_axis_data) * 1.05),
+        arrowprops=dict(facecolor="black", shrink=0.05),
+    )
+
+
+# NOTE: Maybe come up with somethin better than the yaxes
+# def align_yaxis(ax1, v1, ax2, v2):
+#     """adjust ax2 ylimit so that v2 in ax2 is aligned to v1 in ax1"""
+#     _, y1 = ax1.transData.transform((0, v1))
+#     _, y2 = ax2.transData.transform((0, v2))
+#     inv = ax2.transData.inverted()
+#     _, dy = inv.transform((0, 0)) - inv.transform((0, y1 - y2))
+#     miny, maxy = ax2.get_ylim()
+#     ax2.set_ylim(miny + dy, maxy + dy)
 
 
 def main(trim: int = -1) -> None:
