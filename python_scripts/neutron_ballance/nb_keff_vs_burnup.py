@@ -2,9 +2,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 import serpentTools as sp
 from scipy.integrate import cumulative_trapezoid
+import os
+from pathlib import Path
 
-from mpl_axis_aligner.align import yaxes
 
+from nuclear_lib.mpl_axis_aligner.align import yaxes
+
+BASE_DIR = Path(os.path.dirname(__file__))
 # Suppersing the ver and reading err outputed by serpentTools
 sp.settings.rc["serpentVersion"] = "2.1.32"
 sp.settings.rc["verbosity"] = "error"
@@ -81,7 +85,7 @@ def plot_twinx(
 
 def main(trim: int = -1) -> None:
 
-    res_file = sp.read(f"{FILE_NAME}_res.m")
+    res_file = sp.read(BASE_DIR / f"{FILE_NAME}_res.m")
 
     burnup = res_file.resdata[BURNUP][:trim, 0]
     burn_days = res_file.resdata[BURN_DAYS][:trim, 0]
@@ -93,13 +97,13 @@ def main(trim: int = -1) -> None:
     integral = cumulative_trapezoid(numbar * (1 - (1 / kinf)), burnup, initial=0)
 
     plot_twinx(burnup, integral, kinf, "NB", "$K_{inf}$", "Burnup $(\\frac{MWd}{kgU})$")
-    plt.savefig("NB_vs_BU.png", dpi=70)
+    plt.savefig(BASE_DIR / "NB_vs_BU.png", dpi=70)
 
     plot_twinx(burn_days, integral, kinf, "NB", "$K_{inf}$", "Burnup (EFPD)")
-    plt.savefig("NB_vs_BUdays.png", dpi=70)
+    plt.savefig(BASE_DIR / "NB_vs_BUdays.png", dpi=70)
 
     plot_twinx(fima * 100, integral, kinf, "NB", "$K_{inf}$", "[%] FIMA")
-    plt.savefig("NB_vs_FI.png", dpi=70)
+    plt.savefig(BASE_DIR / "NB_vs_FI.png", dpi=70)
     plt.show()
 
 
