@@ -39,13 +39,6 @@ Welcome, this is the lab repository, made to make life easier while working in t
 
 ## Creating the work environment
 
-**Windows** can't use sftps connections you need first some prerequisites:
-  -[WinFsp](https://github.com/winfsp/sshfs-win)
-  This can be easily installed with powershell as:
-  ```sh
-  winget install WinFsp.WinFsp; winget install SSHFS-Win.SSHFS-Win
-  ```
-
 
 |                                                                                   | Address                                 | Notes                                                                                  | user           |
 | --------------------------------------------------------------------------------- | --------------------------------------- | -------------------------------------------------------------------------------------- | -------------- |
@@ -64,9 +57,18 @@ Welcome, this is the lab repository, made to make life easier while working in t
 
 ## File transfer software:
 
+
+
 - **FileZilla**
 - **WinSCP** (but I would recommend it with the Notepad++ as to make life easier)
-- **Windows** [file explorer integration](https://github.com/winfsp/sshfs-win) for sftp connections ([tutorial](https://sftptogo.com/blog/how-to-map-sftp-as-a-windows-10-drive/))
+- **Windows** [file explorer integration via network mapping of a location]
+
+**NOTE:** Windows can't use `sftp` connections you need first some prerequisites:
+  - [WinFsp](https://github.com/winfsp/sshfs-win)
+  This can solve this and can be easily installed via windows powershell as follows (follow the [tutorial](https://sftptogo.com/blog/how-to-map-sftp-as-a-windows-10-drive/)  on how to use it here ):
+  ```sh
+  winget install WinFsp.WinFsp; winget install SSHFS-Win.SSHFS-Win
+  ```
 
 **NOTE:** for the *TSUBAME group disk* use windows explorer to map the folder ([tutorial](https://helpdesk.t3.gsic.titech.ac.jp/manuals/handbook.en/storage/#highspeed)), else this should be mapped with a symbolic link towards you home directory on the TSUBAME.
 
