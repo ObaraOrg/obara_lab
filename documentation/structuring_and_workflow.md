@@ -1,13 +1,15 @@
 # Project Structure
 
+**[Back to main page](https://github.com/ObaraOrg/obara_lab)**
+
 <!-- TOC -->
 
 - [Project Structure](#project-structure)
-  - [File Tree](#file-tree)
-  - [Old way of usage](#old-way-of-usage)
-  - [Usage](#usage)
-  - [Python Invocation](#python-invocation)
-  - [Future improvements](#future-improvements)
+    - [File Tree](#file-tree)
+    - [Old way of usage](#old-way-of-usage)
+    - [Usage](#usage)
+    - [Python Invocation](#python-invocation)
+    - [Future improvements](#future-improvements)
 
 <!-- /TOC -->
 

@@ -24,11 +24,11 @@ Welcome, this is the lab repository, made to make life easier while working in t
 * [**Linux commands**](documentation/linux_commands.md)
 * [**Setup python dev environment**](documentation/setup_py_environment.md)
 * [**Vim tutorial**](documentation/vim_commands.md)
-* [**Installing Serpent 2**](04_installation_scripts)
+* [**Installing Serpent 2**](installation_scripts)
 * [**Learning Serpent 2**](documentation/learning_sss2.md)
 * [**Parallel calculation with Serpent 2**](documentation/mpi_commands.md)
 * [**Helpful cluster commands**](documentation/cluster_commands.md)
-* [**Productivity scripts**](05_productivity_scripts)
+* [**Productivity scripts**](productivity_scripts)
 
 ---
 
@@ -68,7 +68,7 @@ Welcome, this is the lab repository, made to make life easier while working in t
 ## SSH command line interface:
 
 - Putty
-- Putty script for a quick terminal, make a .bat file for windows (check these files [here](01_work/productivity_scripts/02_putty_terminal_script/README.md))
+- Putty script for a quick terminal, make a .bat file for windows (check these files [here](productivity_scripts/02_putty_terminal_script/README.md))
 
 ---
 
@@ -102,7 +102,7 @@ ssh-keygen -t ed25519 -C "your_email@example.com"
 [Official docs](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
 
 ### Easy connection
-I find a putty terminal to be the most useful at the start, here's some [scripts](https://github.com/ObaraOrg/obara_lab/tree/main/05_productivity_scripts/02_putty_terminal_script) to make life a bit easier
+I find a putty terminal to be the most useful at the start, here's some [scripts](productivity_scripts/02_putty_terminal_script) to make life a bit easier
 <br>
 
 
@@ -117,7 +117,7 @@ There are two choices:
    ```sh
    pip install -r requirements.txt
    ```
-  2. The developers way of doing it by using `direnv` and `pyenv`, for this please follow this guide [here](01_work/documentation/setup_py_environment)
+  2. The developers way of doing it by using `direnv` and `pyenv`, for this please follow this guide [here](documentation/setup_py_environment)
 
      - For `python` version control, there is `pyenv` that can be pulled from  `git`, see the [tutorial](https://github.com/pyenv/pyenv#installation)), you can use it for version management of python (up to **3.7.13**, **CentOS 6.x** is deprecated and it misses a lot of package support)
      - Same goes for the TSUBAME, you can install `pyenv` to manage your python and install packages more easily :P
@@ -127,7 +127,7 @@ There are two choices:
 
 ## Project structure for analysis
 
-**[Project map](01_work/documentation/structuring_and_workflow.md)**
+**[Project map](documentation/structuring_and_workflow.md)**
 
 This project is structured in a way that separates scripts, installations scripts, productivity scripts, documentation and the nuclear_library.
-The entire explanation can be found [here](01_work/documentation/structuring_and_workflow.md), this is made to be more intuitive to work while using python as the main tool for manipulation and analysis of data for the current scope of the lab, but it's not a must in your project. 
+The entire explanation can be found [here](documentation/structuring_and_workflow.md), this is made to be more intuitive to work while using python as the main tool for manipulation and analysis of data for the current scope of the lab, but it's not a must in your project. 
