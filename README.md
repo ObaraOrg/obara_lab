@@ -21,14 +21,19 @@ Welcome, this is the lab repository, made to make life easier while working in t
 
 ## Documentation and available materials
 
-* [**Linux commands**](documentation/linux_commands.md)
-* [**Setup python dev environment**](documentation/setup_py_environment.md)
-* [**Vim tutorial**](documentation/vim_commands.md)
-* [**Installing Serpent 2**](installation_scripts)
-* [**Learning Serpent 2**](documentation/learning_sss2.md)
-* [**Parallel calculation with Serpent 2**](documentation/mpi_commands.md)
-* [**Helpful cluster commands**](documentation/cluster_commands.md)
-* [**Productivity scripts**](productivity_scripts)
+* **Setup**
+  * [**Linux commands**](documentation/linux_commands.md)
+  * [**Setup python dev environment**](documentation/setup_py_environment.md)
+* **Serpent related**
+  * [**Installing Serpent 2**](installation_scripts)
+  * [**Learning Serpent 2**](documentation/learning_sss2.md)
+  * [**Parallel calculation with Serpent 2**](documentation/mpi_commands.md)
+* **Productivity**
+  * [**Helpful cluster commands**](documentation/cluster_commands.md)
+  * [**Productivity scripts**](productivity_scripts)
+  * [**Vim tutorial**](documentation/vim_commands.md)
+* **Project related**
+  * [**Project Structure**](documentation/structuring_and_workflow.md)
 
 ---
 
