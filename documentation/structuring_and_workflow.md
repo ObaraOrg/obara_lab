@@ -1,23 +1,57 @@
 # Project Structure
 
-This project is structured in a way that separates scripts, instalations scripts, productivity scripts, documentation and finally the most important part the Nuclear Library Itself
+<!-- TOC -->
+
+- [Project Structure](#project-structure)
+  - [File Tree](#file-tree)
+  - [Old way of usage](#old-way-of-usage)
+  - [Usage](#usage)
+  - [Python Invocation](#python-invocation)
+  - [Future improvements](#future-improvements)
+
+<!-- /TOC -->
+
+This project is structured in a way that separates scripts, installations scripts, productivity scripts, documentation and finally the most important part the Nuclear Library Itself
 ## File Tree
-The base file tree looks like the following
-- instalation_scripts (Containts the installation scrips)
-- scripts (This folder contains all the scripts for data analysis)
-- productivity_scripts (This folder contains bashs scipts for enhancing productivity and work on the cluster and tsubame)
-- documentation (This folder contains the markdown documentation)
-- nuclear_lib (This folder is the most important one, it contains all of the functions used in the scripts for data analysis)
-- serpent_analysis (This folder should countain all of the simulations, and they should be exclusively done in this folder)
-## OLD WAY OF USAGE
-Some scripts that don't have the below implemenational style don't need to be invoked like this but can be invoked int the analysis folder itself
+
+The base file tree looks like the following (bolded ones are the important ones)
+
+┣ 📂**config** (This folder holds the constants of the project, no of FAs, axial zooning, etc)
+┃ ┗ 📜constants.py *(Still in the working)*
+┣ 📂**legacy_scripts_and_code** (Holds old code, may be deleted in the future)
+┣ 📂**documentation** (Contains the markdown documentation)
+┣ 📂**installation_scripts** (Contains the installation scrips)
+┣ 📂**productivity_scripts** (Contains bash scripts for enhancing productivity working on the cluster and TSUBAME)
+┃ ┣ 📂01_tmux_test_scripts *(testing area, will be deleted in the future)*
+┃ ┣ 📂02_putty_terminal_script (instant connection to the cluster and TSUBAME)
+┃ ┣ 📂03_tmux_resource_monitor (see the processes running on each node)
+┃ ┣ 📜jupiter_notebook.sh (launch a jupiter notebook server locally)
+┃ ┗ 📜tmux_layout.sh (helpful tmux layout for analysis)
+┣ 📂**nuclear_lib** (This folder is the most important one, it contains all of the functions used in the scripts for data analysis)
+┣ 📂**python_scripts** (This folder contains all the scripts for data analysis)
+┃ ┣ 📂get_BU_data
+┃ ┣ 📂get_absKeff
+┃ ┣ 📂get_nuclides
+┃ ┣ 📂lp_hex_rot_script
+┃ ┣ 📂python_context_manager
+┃ ┣ 📂shuffling_script
+┃ ┣ 📂test_and_learning
+┣ **📂requirements** (This folder holds the requirements for the direnv)
+┃ ┣ 📜requirements.in
+┃ ┗ 📜requirements.txt
+┣ 📂**serpent_analysis** (This folder should contains all of the simulations, and they should be exclusively done in this folder)
+
+**NOTE:** For a global python installation just run the .txt file though pip, see the documentation on this *here*
+
+## Old way of usage 
+Some scripts that don't have the below implementational style don't need to be invoked like this but can be invoked in the analysis folder itself
 - get_abs_keff
 - get_nuclides
 
-The folowing script should never be implemented in the new style:
+The following script should never be implemented in the new style:
 - lp_hex_rot_scripts
 - shuffling_script
-**They are not analysis scripts and should NEVER be rewritten !!!**
+**They are not analysis scripts and should NEVER be rewritten in the style below !**
 
 ## Usage
 
@@ -29,7 +63,7 @@ from nuclear_lib.get_bu_data import get_bu_data
 get_bu_data(dep: DepletionReader, atomic_wt: pd.DataFrame, P: int, Z: int)
 ```
 
-Each script file should countain the following line:
+Each script file should contains the following line:
 
 ```python 
 import os
@@ -51,10 +85,10 @@ BASE_DIR = Path(os.path.dirname(__file__))
 plt.plot(...)
 plt.save_fig(BASE_PATH + "file_name.png")
 ```
-NOTE: !!!!!!!! **DON'T FORGET TO INCLUDE THE BASE_PATH** !!!!!!!!!!!!!!!!
+**NOTE:** Don't forget to add the BASE_PATH !
 
 Each scripts when needed must be copied to the simulation folder of interest:
-Example: We want to plot the keff and Nb in a simulation folder called pin_cell
+Example: We want to plot the keff and NB in a simulation folder called pin_cell
 ```sh
 mv python_scripts/neutron_balance/nb_keff_vs_burnup.py serpent_analysis/pin_cell/
 ```
@@ -66,6 +100,4 @@ Example:
 python serpent_analysis/pin_cell/nb_keff_vs_burnup.py
 ```
 ## Future improvements
-Project dependant constants...
-
-
+Project dependent constants...
