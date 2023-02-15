@@ -8,10 +8,10 @@ pin c
 
 % --- Fuel pins (smear 85%)
 pin 1
-	fuel	 	0.469242  
-	ods         0.559242   
+	fuel	 	0.44500
+	ods         0.53500  
 	lead
-
+	
 % --- FA Lattices definition 
 %     Pin lattice definition, name of the lattice "LatFA"
 %     Lattice type 3 (hex lattice)

@@ -29,7 +29,7 @@ set printm  1			% - Print material compositions to [input].bumat[bu] file
 %set his		1		% - Batch hist.record; Fiss.src.calc.(Shannon)entrp - DEFAULT OFF
 %set rfw		1  		% - Writes mat.comp.in BU calc. in binary res. file - DEFAULT OFF
 %set rfr		1		% - NOT MASTERED YET
-set mcvol 		1E7		% - Calculate material vol. before sim. by  - DEFAULT OFF
+set mcvol 	1E7			% - Calculate material vol. before sim. by  - DEFAULT OFF
 						%   sampling 10 million random points in the geometry.
 						%   Specifying the mat. volumes is crucial in BU calc.		
 
@@ -45,6 +45,11 @@ set nbuf	8.0			% - Sets the size of n buffer (DEF off, use only when sym fails)
 %     N.pop.generated/ active.cycles/ inactive.cycles/ guess for k0/  
 
 set pop		200000 200 50
+
+%     On-the-fly n growing pop - max active.cycles/ max pop.generated/ 
+%     This option make calculation fast but the propagation of err in multicycle analisys make it dangerous 
+%set gpop	400 250000
+
 
 % --- Calculation options  ------------------------------------------------------------------
 
