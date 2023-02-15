@@ -8,8 +8,8 @@ pin c
 
 % --- Fuel pins (smear 85%)
 pin 1
-	fuel	 	0.469242  
-	ods         0.559242   
+	fuel	 	0.44500
+	ods         0.53500  
 	lead
 
 % --- Hex surface with 1.33(pin pitch) cm side centered at (x,y) = (0,0)

@@ -1,0 +1,129 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ---     		 Westinghouse Lead Fast Reactor 950MW  -  full core input       		--- %
+%                		        made for Serpent ver. 2.1.33				 				%
+%          		 		  Created by : Stafie Alexandru 17/Nov/2022		 				    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+set title "WH_LFR950"
+
+% --- Read block, material and geometry definitions 
+include "input/materials.inp"
+include "fuel.inp"
+include "input/stuctural_mat.inp"
+include "input/pins.inp"
+include "input/fa.inp"
+include "input/core_lp.inp"		% - Made for the .py script
+include "input/core_3d.inp"		% - Idem	
+
+% --- Read block, detectors and plots
+%include "input/appendix.inp"
+
+% --- Cross section libraries
+set acelib "sss_endfb7u.xsdata"
+set declib "sss_endfb7.dec"
+set nfylib "sss_endfb7.nfy"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ---          Run options         --- %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+% --- Miscellaneous options  ----------------------------------------------------------------
+
+set printm  1			% - Print material compositions to [input].bumat[bu] file
+%set his		1		% - Batch hist.record; Fiss.src.calc.(Shannon)entrp - DEFAULT OFF
+%set rfw		1  		% - Writes mat.comp.in BU calc. in binary res. file - DEFAULT OFF
+%set rfr		1		% - NOT MASTERED YET
+%set mcvol 	1E10		% - Calculate material vol. before sim. by  - DEFAULT OFF
+						%   sampling 10 million random points in the geometry.
+						%   Specifying the mat. volumes is crucial in BU calc.		
+
+% --- Perfomance related  -------------------------------------------------------------------
+
+set bala 	1			% - OpenMP load balancing on or off (maybe goes faster)
+%set shbuf	1	1		% - Score buffering (0 = private, 1 = shared) 
+%set opti	4 			% - Opt.mode, 2 - good for high no.depl.zones 4 - Max.perf (DEFAULT)
+set nbuf	8.0			% - Sets the size of n buffer (DEF off, use only when sym fails)
+		
+		
+% --- Criticality cycles  -------------------------------------------------------------------
+%     N.pop.generated/ active.cycles/ inactive.cycles/ guess for k0/  
+
+%set pop		40000 200 50
+set pop		5000 100 50 
+%set gpop	200 40000
+
+
+% --- Calculation options  ------------------------------------------------------------------
+
+set bc      1			% - boundary type (1=vacuum, 2=reflective, 3=periodic)
+set fpcut   1.0E-06		% - Fis.prod.yield cut-off, discrd.all cumul.yld.below 0.0001%
+%set xscalc  2			% - Transmutation xs calc.mode(1=dir.tallies, 2=spec-collap)
+						%   NOT USED, because opti mode
+
+set egrid	5.0E-05 1.0E-07 1.5E+01		% - Red.unionized E grid size,save mem. - DEFAULT OFF
+%set egrid	5.0E-05 1.0E-09 2.0E+01		%   Grid thinning with 5e-5 reconstruction  
+										%   tolerance between    0.1 eV - 15 MeV.					
+										%   tolerance between 0.0001 eV - 20 MeV. - old   
+
+								
+% --- Calculates pin powers and pin power form factors ---------------------------------------
+%	  Univ.where to calc/ Lat.where to calc - DEFAULT OFF
+%set ppw 0 LatC_Z1 
+
+
+% --- Unresolved ressonance probality table sampling (++time to the run) --------------------
+%	  Adds considerable +time to the run for accuracy - DEFAULT OFF 
+%set ures    1
+%92233.09c 92234.09c 92235.09c 92236.09c 92237.09c 92238.09c 92239.09c 92240.09c 
+%93237.09c 93239.09c
+%94238.09c 94239.09c 94240.09c 94241.09c 94242.09c 94243.09c 
+%95241.09c 95242.09c 95342.09c 95243.09c 
+%96242.09c 96243.09c 96244.09c 96245.09c
+
+
+% --- Group constant generation -------------------------------------------------------------
+
+set gcu -1				% - Universe for grp.cons.gen. (-1 off for -time) - DEFAULT ON
+%set nfg 2 0.625E-6		% - Few-group structure: (2g, boundary at 0.625 eV) - OFF
+
+
+% --- Burnup calculation --------------------------------------------------------------------
+
+set power  9.5E+08		% - Sets normalization to total fiss. power [in W]
+%set powdens 24.2E-03	% - Sets normalization to power dens.[kW/g]  - DEFAULT OFF
+						%   double for me bcs.smaller core from 220cm->120cm	
+
+set bumode  2			% - BU mode, 1 - TTA, 2 - CRAM (DEFAULT)
+set bunorm  1			% - BU norm.mode (1=mat.all,2=burn.mat,3=non-burn.mat) - DEFAULT 1
+
+
+set pcc LELI 5 5		% - Use predictor corrector method for the depletion solution
+						%   LELI: Linear extrapolation on predictor, 5 substeps
+						%         Linear interpolation on corrector, 5 substeps
+						%   Prev. -> CELI 1 1 (DEFAULT)
+
+
+% --- Print options -------------------------------------------------------------------------
+
+set inventory			% - Sets inventory for dep.m file 
+
+Th-227 Th-228 Th-229 Th-230 Th-231 Th-232 Th-233 Th-234
+Pa-231 Pa-232 Pa-233
+U-232  U-233  U-234  U-235  U-236  U-237  U-238  U-239  U-240  U-241 
+Np-235 Np-236 Np-237 Np-238 Np-239
+Pu-236 Pu-237 Pu-238 Pu-239 Pu-240 Pu-241 Pu-242 Pu-243 Pu-244
+Am-241 Am-242 Am-242m Am-243 Am-244 Am-244m 
+Cm-240 Cm-241 Cm-242 Cm-243 Cm-244 Cm-245 Cm-246 Cm-247 Cm-248 Cm-249 Cm-250
+
+Th Pa U Np Pu Am Cm			% - total list
+
+% - SMALL list (not used)
+%U-234 U-235 U-236 U-238 
+%Np-237 
+%Pu-238 Pu-239 Pu-240 Pu-241 Pu-242 Am-241 Am-243
+
+
+% -	Sets analog reaction rate calculation on or off (normal OFF)
+%   Val are normalized micro reac.rate integr.over all mat.and energ.
+%   0 = no reac., 1 = only reac.that affect n.balance 2 = all reac.
+%set arr 1

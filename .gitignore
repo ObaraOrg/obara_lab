@@ -1,7 +1,7 @@
 # Folders
-01_simulations
-02_learning_serpent
-03_lab_examples
+**/simulations
+**/learning_serpent
+**/lab_examples
 wh_lfrsuffleNo*
 
 # Exceptions from the rules
