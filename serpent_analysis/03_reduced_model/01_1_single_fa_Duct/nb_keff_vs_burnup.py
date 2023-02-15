@@ -62,13 +62,13 @@ def plot_twinx(
         "NB = {:.2f}".format(max(y1_axis_data)),
         xy=(x_axis_data[np.argmax(y1_axis_data)], max(y1_axis_data)),
         xytext=(x_axis_data[np.argmax(y1_axis_data)], max(y1_axis_data) + 5),
-        arrowprops=dict(facecolor="black", shrink=0.05),
+        arrowprops=dict(facecolor="black", shrink=0.05), size=F_SIZE,
     )
     ax2.annotate(
         "K-inf = {:.4f}".format(max(y2_axis_data)),
         xy=(x_axis_data[np.argmax(y2_axis_data)], max(y2_axis_data)),
         xytext=(x_axis_data[np.argmax(y2_axis_data)], max(y2_axis_data) * 1.05),
-        arrowprops=dict(facecolor="black", shrink=0.05),
+        arrowprops=dict(facecolor="black", shrink=0.05), size=F_SIZE,
     )
 
 
