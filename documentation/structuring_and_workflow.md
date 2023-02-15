@@ -108,7 +108,7 @@ plt.save_fig(BASE_PATH + "file_name.png")
 **NOTE:** Don't forget to add the BASE_PATH !
 
 Each scripts when needed must be copied to the simulation folder of interest:
-Example: We want to plot the keff and NB in a simulation folder called pin_cell
+Example: We want to plot the k-eff and NB in a simulation folder called pin_cell
 ```sh
 mv python_scripts/neutron_balance/nb_keff_vs_burnup.py serpent_analysis/pin_cell/
 ```

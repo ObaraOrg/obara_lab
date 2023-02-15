@@ -1,12 +1,12 @@
 
-# Running Serpent
+# Learning Serpent2
 
 **[Back to main page](https://github.com/ObaraOrg/obara_lab)**
 
 <!-- TOC -->
 
-- [Running Serpent](#running-serpent)
-  - [Learning Serpent 2 :](#learning-serpent-2-)
+- [Learning Serpent2](#learning-serpent2)
+  - [Running Serpent](#running-serpent)
     - [Tips :](#tips-)
     - [Less obvious things in Serpent :](#less-obvious-things-in-serpent-)
     - [Useful tools for serpent analysis :](#useful-tools-for-serpent-analysis-)
@@ -22,7 +22,7 @@
 
 ---
 
-## Learning Serpent 2 :
+## Running Serpent
 
 Simply _run the input from terminal,_ by being in the same directory as the input file and executing
 
