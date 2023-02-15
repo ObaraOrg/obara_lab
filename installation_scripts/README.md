@@ -1,4 +1,4 @@
-# Getting started with Serpent 2 
+# Getting started with Serpent2 
 Made for Serpent 2.1.32
 
 **[Back to main page](https://github.com/ObaraOrg/obara_lab)**
@@ -16,10 +16,10 @@ ________________________________________
 ## Table of contents
 <!-- TOC -->
 
-- [Getting started with Serpent 2](#getting-started-with-serpent-2)
+- [Getting started with Serpent2](#getting-started-with-serpent2)
         - [Regarding the scripts functionality and capabilities:](#regarding-the-scripts-functionality-and-capabilities)
     - [Table of contents](#table-of-contents)
-- [Installing Serpent 2](#installing-serpent-2)
+- [Installing Serpent2](#installing-serpent2)
         - [Required files](#required-files)
         - [Download data from the server](#download-data-from-the-server)
     - [Manual installation steps](#manual-installation-steps)
@@ -37,10 +37,12 @@ ________________________________________
 
 <!-- /TOC -->
 ________________________________________
-# Installing Serpent 2
+
+## Installing Serpent2
+
 **[Serpent wiki, installation and tutorial guides.](https://serpent.vtt.fi/mediawiki/index.php/Main_Page)**
-* There are two ways of installing Serpent 2, follow the manual installation steps bellow.	
-* Use the [scripts](https://github.com/ObaraOrg/obara_lab/tree/main/04_instalation_scripts) to install Serpent 2 automatically with the sh command.
+* There are two ways of installing Serpent2, follow the manual installation steps bellow.	
+* Use the [scripts](https://github.com/ObaraOrg/obara_lab/tree/main/04_instalation_scripts) to install Serpent2 automatically with the `sh` command.
 
 **NOTE:** In case you're not familiar with the linux environment or are a bit rusty, use the TSUBAME Intro to [linux tutorial](https://www.t3.gsic.titech.ac.jp/sites/upload/T3_seminar_Linux_2019_fall_en.pdf), Japanese version [here](https://www.t3.gsic.titech.ac.jp/sites/upload/T3_seminar_Linux.pdf).
 ________________________________________
@@ -147,10 +149,11 @@ perl ../../util/xsdirconvert.pl sss_endfb7u.xsdir> sss_endfb7u.xsdata
 ________________________________________
 
 ### Setting environment variables (for bash, if you use a different shell be aware)
-(use whatever editor you please)
-Add the following (`usename` is your own account name)
-Add these environment variables by executing the below lines to ~/.bashrc or ~/.bash_profiles (or use the vim to add them manually).
-**NOTE:** B shell needs also the "export" part, compared to other shells
+**NOTE:** 
+  - Use whatever editor you please
+  - Add the following (`usename` is your own account name)
+  - Add these environment variables by executing the below lines to ~/.bashrc or ~/.bash_profiles (or use the vim to add them manually).
+  - B shell needs also the "export" part, compared to other shells
 
 ```sh
 echo 'export SERPENT_DIR=/home/username/serpent/' >>~/.bashrc
@@ -189,7 +192,7 @@ ________________________________________
 The compiled files are to found in the `/tutorial_serpent_wiki` folder.
 ________________________________________
 
-# On compilation flags
+## On compilation flags
 **This part is to explain why and how we change flags in a make file**
 
 `CFLAGS` and `CXXFLAGS` are either the name of environment variables or of `Makefile` variables that can be set to specify additional switches to be passed to a compiler in the process of building computer software.
@@ -254,7 +257,7 @@ ___
 
 ___
 
-### Aditional:
+### Additional:
 Chose **just one** compiler to compile the code, *gcc*, *icc*, *mpicc* (if compiling with MPI support, the only choice is the *mpicc*).
 Uncomment the `CFLAGS` under the `CC` compile flag,
 Leave the `LDFLAGS  = -lm` uncommented, under the compiler you use, for the code to link de correct libraries while compiling.
