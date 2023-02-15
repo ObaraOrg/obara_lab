@@ -1,7 +1,7 @@
 #!/bin/csh
 #$ -cwd
 #$ -V
-#$ -N single_fa
+#$ -N single_fa_clad
 #$ -o job.out 
 #$ -e job.out
 ## Resource type F: qty 4

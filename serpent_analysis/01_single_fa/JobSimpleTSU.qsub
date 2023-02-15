@@ -13,5 +13,5 @@ module load intel
 module load cuda
 module load openmpi
 
-setenv OMP_NUM_THREADS 50
-mpirun -npernode 1 -n 4 -x LD_LIBRARY_PATH sss2 -omp 50 wh_lfr_fa >> sss.out 
+setenv OMP_NUM_THREADS 28
+mpirun -npernode 1 -n 4 -x LD_LIBRARY_PATH sss2 -omp 28 wh_lfr_fa >> sss.out 

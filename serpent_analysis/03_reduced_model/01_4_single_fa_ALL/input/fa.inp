@@ -8,7 +8,7 @@ pin c
 
 % --- Fuel pins (smear 85%)
 pin 1
-	fuel	 	0.44500
+	fuel	 	0.47200
 	ods         0.53500  
 	lead
 	
@@ -49,7 +49,7 @@ c c c c c c c c c c c c c c c
 
 % --- FA definitions
 surf S1FA  hexxc    0.0  0.0  7.600  			% Shroud tube inner surface
-surf S2FA  hexxc    0.0  0.0  7.950  			% Shroud tube outer surface
+surf S2FA  hexxc    0.0  0.0  7.845  			% Shroud tube outer surface
 surf S3FA  hexxc    0.0  0.0  8.150  			% Outer boundary	
 	  
 cell C1FA  0   fill  LatFA	  		 -S1FA		% Pin lattice                 
