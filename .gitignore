@@ -40,6 +40,7 @@ __pycache__/
 *$py.class
 .direnv
 test/
+.python_env
 
 # C extensions
 *.so
