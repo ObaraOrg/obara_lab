@@ -125,11 +125,37 @@ I find a putty terminal to be the most useful at the start, here's some [scripts
 **NOTE:** Min version of `python` must be **3.7.13** (this is the latest version the cluster can use, TSUBAME can do higher)
 
 **There are two choices:**
+  1. Intsalling python on the tsubame
 
-  1. Install python globally as normal and use the pip to install the requirements.txt file inside the base folder
+   Activate the python with 
    ```sh
-   pip install -r requirements.txt
+       module load python/3.8.3
    ```
+
+   Yon need to dump the python in a virtual env in order to intsall pip packages
+   ```sh
+       python -m venv .python_env
+   ```
+
+   Everytime you log in or out or do something you need to load the python environment
+   ```sh
+       source .python_env/bin/activate
+   ```
+   In order to install scientific packages such as scipy, numpy etc. you need to load compilers and other tsubame modules
+   ```sh
+       module laod gcc intel cuda openmpi
+   ```
+
+   Before running the pip install command we need to reserve a node
+   ```sh
+      iqrsh -g [TSUBAME group]-l h_rt=<time>
+   ```
+
+   After that we can run the pip install command as
+   ```sh
+   pip install -r requirements/requirements.txt 
+   ```
+
   2. The developers way of doing it by using `direnv` and `pyenv`, for this please follow this guide [here](documentation/setup_py_environment)
 
      - For `python` version control, there is `pyenv` that can be pulled from  `git`, see the [tutorial](https://github.com/pyenv/pyenv#installation)), you can use it for version management of python (up to **3.7.13**, **CentOS 6.x** is deprecated and it misses a lot of package support)
@@ -146,3 +172,5 @@ I find a putty terminal to be the most useful at the start, here's some [scripts
 
 This project is structured in a way that separates scripts, installations scripts, productivity scripts, documentation and the nuclear_library.
 The entire explanation can be found [here](documentation/structuring_and_workflow.md), this is made to be more intuitive to work while using python as the main tool for manipulation and analysis of data for the current scope of the lab, but it's not a must in your project. 
+
+
