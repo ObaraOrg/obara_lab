@@ -42,13 +42,13 @@ Welcome, this is the lab repository, made to make life easier while working in t
 ## Creating the work environment
 
 
-|                                                                                   | Address                                 | Notes                                                                                  | user           |
-| --------------------------------------------------------------------------------- | --------------------------------------- | -------------------------------------------------------------------------------------- | -------------- |
-|                                                                                   | Wifi                                    |                                                                                        | obaralab       |
-| File Server                                                                       | [192.168.11.3](ftp://192.168.11.3)      | (can be mapped with FTP)<br>Documentation and serpent files are to be found here       | -              |
-| Local User                                                                        | 192.168.11.206:22                       | The local work cluster, **olds**                                                       | _student user_ |
-| [TSUBAME Login](https://helpdesk.t3.gsic.titech.ac.jp/manuals/handbook.en/start/) | `student_ID`@login.t3.gsic.titech.ac.jp | Login node, home dir space is less than 17Gb so I recommend you use the **group disk** for storage | `student_ID`   |
-| TSUBAME group DISK                                                                | /gs/hs0/tga-oba2                        | Create a symbolic link ( `ln -s` command)                                               |                |
+|                                                                                   | Address                                 | Notes                                                                                              | user           |
+| --------------------------------------------------------------------------------- | --------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------- |
+|                                                                                   | WIFI                                    |                                                                                                    | obaralab       |
+| File Server                                                                       | [192.168.11.3](ftp://192.168.11.3)      | (can be mapped with FTP)<br>Documentation and serpent files are to be found here                   | -              |
+| Local User                                                                        | 192.168.11.206:22                       | The local work cluster, **olds**                                                                   | _student user_ |
+| [TSUBAME Login](https://helpdesk.t3.gsic.titech.ac.jp/manuals/handbook.en/start/) | `student_ID`@login.t3.gsic.titech.ac.jp | Login node, home directory space is less than 17Gb so I recommend you use the **group disk** for storage | `student_ID`   |
+| TSUBAME group DISK                                                                | /gs/hs0/tga-oba2                        | Create a symbolic link ( `ln -s` command)                                                          |                |
 
 <br>
 
@@ -140,7 +140,7 @@ I find a putty terminal to be the most useful at the start, here's some [scripts
           source .python_env/bin/activate
       ```
 
-      - Before running the `pip install` command we need to reserve a node, heavy package instalations like `scipy` crash on the login node.
+      - Before running the `pip install` command we need to reserve a node, heavy package installations like `scipy` crash on the login node.
       ```sh
           iqrsh -g [TSUBAME group]-l h_rt=<time>
       ```
