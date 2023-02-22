@@ -51,6 +51,17 @@ Result :
 
 Example output:
 - Entire shuffling steps
-![Keff_vs_STEPS_from_step_0](Demo_from_step_0.png)
+
+<img
+  src="Demo_from_step_0.png"
+  alt="Alt text"
+  title="Keff_vs_STEPS_from_step_0"
+  style="display: inline-block; margin: 0 auto; max-width: 500px">
+
 - Last five steps 
-![Keff_vs_STEPS_from_step_5](Demo_from_step_5.png)
+  
+<img
+  src="Demo_from_step_5.png"
+  alt="Alt text"
+  title="Keff_vs_STEPS_from_step_5"
+  style="display: inline-block; margin: 0 auto; max-width: 500px">
