@@ -1,5 +1,4 @@
 import re
-from gc import callbacks
 from pathlib import Path
 from typing import List, Tuple
 
