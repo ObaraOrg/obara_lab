@@ -15,6 +15,9 @@
 
 This project is structured in a way that separates scripts, installations scripts, productivity scripts, documentation and finally the most important part the Nuclear Library Itself
 
+The alternative that is to use the python_scripts_nolib, they can be copy pasted inside the analysis folder
+as is to make them work
+
 ---
 
 ## File Tree
