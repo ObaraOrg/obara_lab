@@ -44,7 +44,7 @@ The base file tree looks like the following (bolded ones are the important ones)
     ┃ ┣ 📂hex_plot                      - plotting a single simulation file parameters
     ┃ ┣ 📂neutron_balance               - plotting a single simulation file parameters
     ┃ ┣ 📂python_context_manager 
-    ┃ ┣ 📂shuffling_script              - idepent script for the shuffling bash script
+    ┃ ┣ 📂shuffling_script              - idependent script for the shuffling bash script
     ┃ ┣ 📂test_and_learning
     ┣ **📂requirements**            (This folder holds the requirements for the direnv)
     ┃ ┣ 📜requirements.in
