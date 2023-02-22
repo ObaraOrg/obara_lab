@@ -122,45 +122,39 @@ I find a putty terminal to be the most useful at the start, here's some [scripts
 
 ## Setup the remote environment
 
-**NOTE:** Min version of `python` must be **3.7.13** (this is the latest version the cluster can use, TSUBAME can do higher)
+**NOTE:** `python` version must be at least **3.7.13** (this is also the latest version the cluster can use, TSUBAME can do higher)
 
 **There are two choices:**
-  1. Intsalling python on the tsubame
+  1. Installing `python` on the TSUBAME (version 3.8.3)
 
-   Activate the python with 
-   ```sh
-       module load python/3.8.3
-   ```
+       - Load the `python` module and dump it in a virtual environment in order to install pip packages.
+         - **NOTE:** In order to install and run scientific packages such as scipy, numpy etc. you need to load the compilers and other TSUBAME modules (recommend that the modules be added to the `.bashrc`)
+  
+      ```sh
+          module load python/3.8.3 gcc intel cuda openmpi
+          python -m venv .python_env
+      ```
+  
+      - Every time you log in or out or do something you need to load the `python` environment.
+      ```sh
+          source .python_env/bin/activate
+      ```
 
-   Yon need to dump the python in a virtual env in order to intsall pip packages
-   ```sh
-       python -m venv .python_env
-   ```
+      - Before running the `pip install` command we need to reserve a node, heavy package instalations like `scipy` crash on the login node.
+      ```sh
+          iqrsh -g [TSUBAME group]-l h_rt=<time>
+      ```
 
-   Everytime you log in or out or do something you need to load the python environment
-   ```sh
-       source .python_env/bin/activate
-   ```
-   In order to install scientific packages such as scipy, numpy etc. you need to load compilers and other tsubame modules
-   ```sh
-       module laod gcc intel cuda openmpi
-   ```
-
-   Before running the pip install command we need to reserve a node
-   ```sh
-      iqrsh -g [TSUBAME group]-l h_rt=<time>
-   ```
-
-   After that we can run the pip install command as
-   ```sh
-   pip install -r requirements/requirements.txt 
-   ```
+      - After that we can run the `pip install` command with the help of the requirements file inside the project
+      ```sh
+          pip install -r requirements/requirements.txt 
+      ```
 
   2. The developers way of doing it by using `direnv` and `pyenv`, for this please follow this guide [here](documentation/setup_py_environment)
 
-     - For `python` version control, there is `pyenv` that can be pulled from  `git`, see the [tutorial](https://github.com/pyenv/pyenv#installation)), you can use it for version management of python (up to **3.7.13**, **CentOS 6.x** is deprecated and it misses a lot of package support)
-     - Same goes for the TSUBAME, you can install `pyenv` to manage your python and install packages more easily :P
-     - Also `direnv` can be also used for even more facile version control of the Linux environment, not only for python version control (much more recommended)
+     - For `python` version control, there is `pyenv` that can be pulled from  `git`, see the [tutorial](https://github.com/pyenv/pyenv#installation)), you can use it for version management of `python` (up to **3.7.13**, **CentOS 6.x** is deprecated and it misses a lot of package support)
+     - Same goes for the TSUBAME, you can install `pyenv` to manage your `python` and install packages more easily :P
+     - Also `direnv` can be also used for even more facile version control of the Linux environment, not only for `python` version control (much more recommended)
 
 <br>
 
