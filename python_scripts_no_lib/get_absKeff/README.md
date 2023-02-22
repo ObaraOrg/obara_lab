@@ -37,9 +37,9 @@ Functions inside the scrips :
 plot_keff(5)
 ```
 
+Result :
 
 ```
-Result :
 📂serpent_analysis
 ┣ 📂simulations
 ┃ ┣ 📂set_01
