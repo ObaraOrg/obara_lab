@@ -15,15 +15,17 @@ sp.settings.rc["verbosity"] = "error"
 
 # Mod these to adapt for your base sss2 file name
 
-# get rid of it and use pathlib...
-FILE_NAME = "wh_lfr_fa"
-
 BURNUP = "burnup"
 BURN_DAYS = "burnDays"
 ABS_KINF = "absKinf"
 NUBAR = "nubar"
 FIMA = "fima"
 BREED_RATIO = "conversionRatio"
+
+# get rid of it and use pathlib...
+FILE_NAME = "demo"
+
+
 
 
 def plot_twinx(
