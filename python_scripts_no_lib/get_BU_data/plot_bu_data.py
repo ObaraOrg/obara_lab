@@ -8,20 +8,24 @@ import os
 
 serpentTools.settings.rc["serpentVersion"] = "2.1.32"
 serpentTools.settings.rc["verbosity"] = "error"
+
 BASE_DIR = Path(os.path.dirname(__file__))
-P = 48  # max no of FA
-Z = 6  # max no of slices
 
 AV = 0.6221408e24
+
+FILE_NAME = "demo"
+
+P = 48  # max no of FA
+Z = 6  # max no of axial slices
 
 
 def main() -> None:
     atomic_wt = pd.read_csv("nuclear_lib/isotope_awt_list.csv")
-    dep = serpentTools.read(BASE_DIR / "wh_lfr_dep.m", reader="dep")
+    dep = serpentTools.read(BASE_DIR / f"{FILE_NAME}_dep.m", reader="dep")
     _, corrected_burnup_mat, _, _ = get_bu_data(dep, atomic_wt, P, Z)
-    breakpoint()
 
     sns.heatmap(corrected_burnup_mat)
+    plt.savefig("Burnup_heatmap.png", dpi=70)
     plt.show()
 
 
