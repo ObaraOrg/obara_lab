@@ -18,7 +18,7 @@ include "input/222cm/core_3d.inp"		% - Core geometry
 include "input/222cm/mvol.inp"			% - Volumes file
 
 % --- Loading pattern
-include "input/lp/core_lp_SF6.inp"		% - Made for the lp generator .py script
+include "input/lp/core_lp_SF3.inp"		% - Made for the lp generator .py script
 
 % --- Detectors and plots
 %include "input/appendix.inp"
