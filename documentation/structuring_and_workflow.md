@@ -13,7 +13,10 @@
 
 <!-- /TOC -->
 
-This project is structured in a way that separates scripts, installations scripts, productivity scripts, documentation and finally the most important part the Nuclear Library Itself
+This project is structured in a way that separates scripts, installations scripts, productivity scripts, documentation and finally the most important part the Nuclear Library Itself.
+
+The alternative that is to use the [python_scripts_nolib](python_scripts_no_lib), 
+they can be copy pasted inside the analysis folder as is to make them work.
 
 ---
 
@@ -41,7 +44,7 @@ The base file tree looks like the following (bolded ones are the important ones)
     ┃ ┣ 📂hex_plot                      - plotting a single simulation file parameters
     ┃ ┣ 📂neutron_balance               - plotting a single simulation file parameters
     ┃ ┣ 📂python_context_manager 
-    ┃ ┣ 📂shuffling_script              - idepent script for the shuffling bash script
+    ┃ ┣ 📂shuffling_script              - idependent script for the shuffling bash script
     ┃ ┣ 📂test_and_learning
     ┣ **📂requirements**            (This folder holds the requirements for the direnv)
     ┃ ┣ 📜requirements.in
