@@ -1,7 +1,7 @@
 from typing import List
 
 
-def make_hex(p, z, n: int) -> List[List[str]]:
+def make_hex(p: int, z: int, n: int) -> List[List[str]]:
     assert z > 0, "Z must be greater than zero"
     base_element = f"P{p}Z{z}"
     external_element = "_co_"
@@ -23,13 +23,13 @@ def make_hex(p, z, n: int) -> List[List[str]]:
     ]
     top_hexagon = top_hexagon_inv[::-1]
     bot_hexagon = [row[::-1] for row in top_hexagon_inv]
-    y_border_row = [*([external_element] * n)]
+    border_row = [*([external_element] * n)]
     core = [
-        y_border_row,
+        border_row,
         *top_hexagon,
         center_array,
         *bot_hexagon,
-        y_border_row,
+        border_row,
     ]
 
     core_row_str = [" ".join(row) for row in core]
@@ -65,10 +65,7 @@ cell CxFA_{p_str}z{z}  U0{p_str}z{z}   lead                          S3FA_{p_str
     return fa_definition_template
 
 
-def main() -> None:
-    p = 48
-    z = 6
-    n = 15
+def main(p: int, z: int, n: int, file_name: str = "fa.inp") -> None:
     input = ""
 
     for p_itter in range(1, p + 1):
@@ -80,7 +77,7 @@ def main() -> None:
             zone_template = f"{fa_map_templ_comb}{core_templ}\n{fa_templ_comb}\n"
             input += zone_template
 
-    with open("fa.inp", "w") as f:
+    with open(file_name, "w") as f:
         f.write(input)
 
 

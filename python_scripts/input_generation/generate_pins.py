@@ -12,9 +12,7 @@ lead
     return template
 
 
-def main() -> None:
-    p = 48
-    z = 6
+def main(p: int, z: int, file_name: str = "pins.inp") -> None:
     input = f"{COOLANT_PIN}\n"
 
     for p_itter in range(1, p + 1):
@@ -22,7 +20,7 @@ def main() -> None:
             zone_template = f"{pin_template(p_itter, z_itter)}\n"
             input += zone_template
 
-    with open("pins.inp", "w") as f:
+    with open(file_name, "w") as f:
         f.write(input)
 
 

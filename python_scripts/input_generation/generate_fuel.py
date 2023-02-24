@@ -9,7 +9,7 @@ def fuel_template(p: int, z: int) -> str:
     return template
 
 
-def main(p=48, z=6) -> None:
+def main(p: int, z: int, file_name: str = "fuel.inp") -> None:
     input = ""
 
     for p_itter in range(1, p + 1):
@@ -17,7 +17,7 @@ def main(p=48, z=6) -> None:
             zone_template = f"{fuel_template(p_itter, z_itter)}\n"
             input += zone_template
 
-    with open("fuel.inp", "w") as f:
+    with open(file_name, "w") as f:
         f.write(input)
 
 
