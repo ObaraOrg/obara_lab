@@ -19,7 +19,6 @@ def main() -> None:
     atomic_wt = pd.read_csv("nuclear_lib/isotope_awt_list.csv")
     dep = serpentTools.read(BASE_DIR / "wh_lfr_dep.m", reader="dep")
     _, corrected_burnup_mat, _, _ = get_bu_data(dep, atomic_wt, P, Z)
-    breakpoint()
 
     sns.heatmap(corrected_burnup_mat)
     plt.show()
