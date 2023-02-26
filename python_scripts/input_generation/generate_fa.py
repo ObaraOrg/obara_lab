@@ -41,10 +41,7 @@ def format_p_integer(p: int) -> str:
     p_str = str(p)
     assert len(p_str) <= 2, "P is max 99"
     assert p > 0, "P can't be zero"
-    if len(p_str) == 1:
-        return f"0{p_str}"
-    else:
-        return p_str
+    return f"0{p_str}" if len(p_str) == 1 else p_str
 
 
 def fa_map_template(p: int, z: int, n: int) -> str:
