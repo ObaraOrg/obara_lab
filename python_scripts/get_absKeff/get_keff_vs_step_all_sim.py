@@ -1,9 +1,10 @@
 import re
-import numpy as np
-import matplotlib.pyplot as plt
-import serpentTools as sp
-
 from pathlib import Path
+from typing import List
+
+import matplotlib.pyplot as plt
+import numpy as np
+import serpentTools as sp
 
 # Suppersing the ver and reading err outputed by serpentTools
 sp.settings.rc["serpentVersion"] = "2.1.32"
@@ -11,6 +12,14 @@ sp.settings.rc["verbosity"] = "error"
 
 # Mod these to adapt for your base sss2 file name
 FILE_NAME = "wh_lfr"
+
+
+def check_consistency(files_read: List[Path]) -> None:
+    shapes = [file.resdata["absKeff"].shape for file in files_read]
+    initial_shape = shapes[0]
+    for index, shape in enumerate(initial_shape):
+        if shape != initial_shape:
+            raise Exception(f"File {files_read[index].filePath} is not consistent")
 
 
 def plot_keff(num_of_keffs_to_cut: int = 0) -> None:
@@ -27,7 +36,7 @@ def plot_keff(num_of_keffs_to_cut: int = 0) -> None:
     # Pathlib builds the listing of subdirectories
     folders = [x for x in Path(".").iterdir() if x.is_dir()]
     print("Ploting :")
-    
+
     plt.figure(figsize=(12, 9))
 
     for sim_folder in folders:
@@ -39,6 +48,10 @@ def plot_keff(num_of_keffs_to_cut: int = 0) -> None:
         files_str.sort(key=lambda f: int(re.sub(r"\D", "", f)))
         files_read = [sp.read(file_loc) for file_loc in files_str]
 
+        check_consistency(files_read)
+        keffs_from_files = [reader.resdata["absKeff"][:, 0] for reader in files_read]
+        keff_shapes = [keff.resdata["absKeff"][:, 0] for keff in keffs_from_files]
+
         keffs = np.concatenate(
             [reader.resdata["absKeff"][:, 0] for reader in files_read]
         )
@@ -48,14 +61,16 @@ def plot_keff(num_of_keffs_to_cut: int = 0) -> None:
         # This is where the code generates the X axis for the steps
         for index in range(len(time_arr)):
             time_arr[index] = index / (len(time_arr) - 1)
-        time_arr = np.concatenate(
-            [time_arr + idx for idx in range(0, len(files_read))])
+        time_arr = np.concatenate([time_arr + idx for idx in range(0, len(files_read))])
 
         short_time_scale = single_time_arr * num_of_keffs_to_cut
         time_arr = time_arr[-short_time_scale:]
         keffs = keffs[-short_time_scale:]
 
-        plt.plot(time_arr, keffs, label=sim_folder)
+        try:
+            plt.plot(time_arr, keffs, label=sim_folder)
+        except:
+            breakpoint()
 
     plt.legend(loc="best")
     plt.xlabel("Shuffling step", fontsize=12)
