@@ -1,5 +1,4 @@
 import re
-from gc import callbacks
 from pathlib import Path
 from typing import List, Tuple
 
@@ -89,7 +88,9 @@ def plot_iso_per_sim(
     # eq:
     # l1 = [1, 2, 3] l2 = [4, 5, 6]
     # idx=0 (1, 4) idx=1 (2, 5) idx=2 (3, 6)
-    for isos, time, name in zip(isos_per_sim, time_scales_per_sim, sim_names):
+    for isos, time, name in tqdm(
+        zip(isos_per_sim, time_scales_per_sim, sim_names), total=len(iso_list)
+    ):
         plt.figure()
         plt.plot(time, isos.T)
         plt.title(name)
@@ -111,7 +112,7 @@ def plot_iso_comparison(
     is_cut: bool,
 ) -> None:
 
-    for idx, iso in enumerate(iso_list):
+    for idx, iso in tqdm(enumerate(iso_list), total=len(iso_list)):
         plt.figure()
         for run, time_array in zip(isos_per_sim, time_scales_per_sim):
             plt.plot(time_array, run[idx], linestyle="-")
@@ -126,7 +127,7 @@ def plot_iso_comparison(
         plt.savefig(f"{iso}{zoom}.png")
 
 
-def validate_isos_exist(ctx, param, isotopes: Tuple[str]):
+def validate_isos_length(ctx, param, isotopes: Tuple[str]):
     assert len(isotopes) > 0, "You must pass arguments for the isotopes"
     return list(isotopes)
 
@@ -149,8 +150,9 @@ def get_isotope_list() -> None:
     folders_with_files = []
     for folder in folders:
         files_in_folder = [str(file) for file in sorted(folder.rglob("wh_lfr_dep.m"))]
+        assert len(files_in_folder) > 0, "No data in the folder"
         files_in_folder.sort(key=lambda f: int(re.sub(r"\D", "", f)))
-        with ExecutionTimer("File Reading benchmarking"):
+        with ExecutionTimer("File Reading benchmarking parallel code"):
             files_read = read_files(files_in_folder)
         folders_with_files.append(files_read)
 
@@ -159,26 +161,33 @@ def get_isotope_list() -> None:
 
 
 @cli.command(help="Plot for the mentioned isotopes")
-@click.option(
-    "--isotopes",
-    help="Input The isotop names in the format of"
-    "python get_nuclide_vs_step_all_sim.py"
-    "--isotopes Pu239 --isotopes Pu240 ...",
-    multiple=True,
-    callback=validate_isos_exist,
+@click.argument(
+    "isotopes",
+    nargs=-1,
+    callback=validate_isos_length,
 )
-def plot_results(isotopes: List[str]) -> None:
+def plot_results(isotopes: Tuple[str]) -> None:
+    """Plots the selected isotopes for each step in each simulation
+
+    Example:
+
+    python get_nuclide_vs_step_all_sim.py plot-results -- Pu240 Pu340
+
+    Args:
+        isotopes (Tuple[str]): Tuple of all of the isotopes passed
+    """
+
     folders = [x for x in Path(".").iterdir() if x.is_dir()]
     folders = [x for x in folders if "__" not in str(x)]
     folders_with_files = []
     for folder in folders:
         files_in_folder = [str(file) for file in sorted(folder.rglob("wh_lfr_dep.m"))]
         files_in_folder.sort(key=lambda f: int(re.sub(r"\D", "", f)))
-        with ExecutionTimer("File Reading benchmarking"):
+        with ExecutionTimer("File Reading benchmarking parallel code"):
             files_read = read_files(files_in_folder)
         folders_with_files.append(files_read)
 
-    assert len(folders_with_files) > 0
+    assert len(folders_with_files) > 0, "No Folders found"
     assert validate_isotope_sets(
         isotopes, folders_with_files[0][0].names
     ), "Some isotopes are not in the simulations"
@@ -186,11 +195,10 @@ def plot_results(isotopes: List[str]) -> None:
     isos_per_sim, time_scales_per_sim = isotopes_per_simulation_and_timescales(
         folders_with_files, isotopes
     )
-    with ExecutionTimer("Per sim plotting benchmark"):
-        plot_iso_per_sim(isos_per_sim, time_scales_per_sim, folders, isotopes, False)
 
-    with ExecutionTimer("Per iso plotting benchmark"):
-        plot_iso_comparison(isos_per_sim, time_scales_per_sim, folders, isotopes, False)
+    plot_iso_per_sim(isos_per_sim, time_scales_per_sim, folders, isotopes, False)
+
+    plot_iso_comparison(isos_per_sim, time_scales_per_sim, folders, isotopes, False)
 
 
 if __name__ == "__main__":
