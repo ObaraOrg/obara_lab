@@ -1,6 +1,7 @@
 import re
+import click
 from pathlib import Path
-from typing import List
+from typing import List, Tuple
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -17,24 +18,48 @@ FILE_NAME = "wh_lfr"
 def check_consistency(files_read: List[Path]) -> None:
     shapes = [file.resdata["absKeff"].shape for file in files_read]
     initial_shape = shapes[0]
-    for index, shape in enumerate(initial_shape):
+    for index, shape in enumerate(shapes):
         if shape != initial_shape:
             raise Exception(f"File {files_read[index].filePath} is not consistent")
 
 
-def plot_keff(num_of_keffs_to_cut: int = 0) -> None:
-    """Function to
-        - progress through the folders and find every _res.m file for data
-        -
+@click.command()
+@click.option(
+    "--num_of_keffs_to_cut",
+    default=0,
+    help="Specify how many last steps to plot",
+    type=int,
+)
+@click.argument(
+    "input_folders",
+    nargs=-1,
+    type=click.Path(exists=True),
+)
+def plot_keff(
+    num_of_keffs_to_cut: int,
+    input_folders: Tuple[str, ...],
+) -> None:
+    """Progress through the folders specified and plot data from every _res.m file
+       Example:
+
+    python get_keff_vs_step_all_sim.py --num_of_keffs_to_cut=3 -- sim1 sim2
+
+    Example: # By default plots all steps
+
+    python get_keff_vs_step_all_sim.py -- sim1
 
     Args:
-        num_of_keffs_to_cut (int, optional): _description_. Defaults to 0.
+        num_of_keffs_to_cut (int): Specify how many last steps to plot
+        input_folders (Tuple[str, ...]): Specify which folders by default every folder is parsed
     """
+    
+    if len(input_folders) > 0:
+        # Pathlib builds the listing of subdirectories
+        folders = [Path(folder) for folder in input_folders]
+    else:
+        folders = [x for x in Path(".").iterdir() if x.is_dir()]
 
-    # Pathlib builds the listing of subdirectories
-    folders = [x for x in Path(".").iterdir() if x.is_dir()]
     print("Ploting :")
-
     plt.figure(figsize=(12, 9))
 
     for sim_folder in folders:
@@ -45,12 +70,13 @@ def plot_keff(num_of_keffs_to_cut: int = 0) -> None:
         files_str = [str(file) for file in list_of_files]
         files_str.sort(key=lambda f: int(re.sub(r"\D", "", f)))
         files_read = [sp.read(file_loc) for file_loc in files_str]
+
         check_consistency(files_read)
 
         keffs = np.concatenate(
             [reader.resdata["absKeff"][:, 0] for reader in files_read]
         )
-        time_arr = files_read[0].resdata["burnDays"][0:, 0]
+        time_arr = files_read[0].resdata["burnDays"][:, 0]
         single_time_arr = len(time_arr)
 
         # This is where the code generates the X axis for EFPD
@@ -80,12 +106,7 @@ def plot_keff(num_of_keffs_to_cut: int = 0) -> None:
     plt.grid()
     save_fig = f"Keff_vs_EFPD_from_step_{num_of_keffs_to_cut}.png"
     plt.savefig(save_fig, dpi=70)
-
-    # Put a legend below current axis
-    plt.plot(time_arr, keffs)
-
+    plt.show()
 
 if __name__ == "__main__":
     plot_keff()
-    plot_keff(2)
-    plt.show()
