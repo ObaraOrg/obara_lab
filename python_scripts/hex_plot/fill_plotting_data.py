@@ -118,7 +118,9 @@ def main():
     map = map[::-1]
     mask = np.array(mask)[::-1]
     burnup_list = [el for el in average_burnup_dict.items()]
-    burnup_list.sort(key=lambda ps: int(ps[0][1:]))
+    breakpoint()
+    # burnup_list.sort(key=lambda ps: int(ps[0][1:]))
+    burnup_list = sorted(burnup_list[0:])
     burnup_list_values = [el[1] for el in burnup_list]
     core_values = make_value_map(map, burnup_list_values)
 

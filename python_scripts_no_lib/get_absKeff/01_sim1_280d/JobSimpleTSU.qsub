@@ -1,0 +1,18 @@
+#!/bin/csh
+#$ -cwd
+#$ -V
+#$ -N serpent_run
+#$ -o job.out 
+#$ -e job.out
+## Resource type F: qty 1
+#$ -l f_node=1
+#$ -l h_rt=12:00:00
+
+## Load modules
+module load gcc
+module load cuda
+module load intel
+module load openmpi
+
+setenv OMP_NUM_THREADS 28
+mpirun -npernode 1 -n 4 -x LD_LIBRARY_PATH sss2 -omp 28 wh_lfr >> sss.out 
