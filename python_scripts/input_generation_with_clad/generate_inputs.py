@@ -9,7 +9,7 @@ CASE = "Note: this is the 61 pin FA with 30%% reduced dimensions"
 P = 48
 Z = 6
 # Modify this value to change the latice size of fuel assemblies
-N = 15
+N = 11
 
 # This script generates the input files for the fuel, clad, pins and fuel ass.
 # Modify the constant values inside the generate_fuel.py, generate_pins.py and
