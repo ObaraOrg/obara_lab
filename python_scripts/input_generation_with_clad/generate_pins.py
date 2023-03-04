@@ -5,8 +5,8 @@ lead
 
 def pin_template(p: int, z: int) -> str:
     template = f"""pin P{p}Z{z}
-fuelP{p}Z{z} 	0.44500
-odsP{p}Z{z}    0.53500
+fuelP{p}Z{z} 	0.78550
+odsP{p}Z{z}    0.84850
 lead
 """
     return template

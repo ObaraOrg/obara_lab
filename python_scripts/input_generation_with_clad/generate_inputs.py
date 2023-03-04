@@ -3,6 +3,8 @@ from generate_clad import main as generate_clad
 from generate_pins import main as generate_pins
 from generate_fa import main as generate_fa
 
+
+CASE = "Note: this is the 61 pin FA with 30%% reduced dimensions"
 # Modify these values to change the number pins, fuel assemblies and zones
 P = 48
 Z = 6
@@ -23,4 +25,5 @@ def main() -> None:
 
 
 if __name__ == "__main__":
+    print(CASE)
     main()

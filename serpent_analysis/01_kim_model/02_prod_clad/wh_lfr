@@ -9,7 +9,7 @@ set title "WH_LFR950"
 % --- Read block, material and geometry definitions 
 include "input/materials.inp"
 include "fuel.inp"
-include "clad.inp"
+include "input/clad.inp"
 include "input/stuctural_mat.inp"
 include "input/pins.inp"
 include "input/fa.inp"

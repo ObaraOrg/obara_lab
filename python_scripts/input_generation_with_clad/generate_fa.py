@@ -46,13 +46,13 @@ def format_p_integer(p: int) -> str:
 
 def fa_map_template(p: int, z: int, n: int) -> str:
     p_str = format_p_integer(p)
-    return f"lat LatFA_{p_str}z{z} 3 0.0 0.0 {n} {n} 1.33\n"
+    return f"lat LatFA_{p_str}z{z} 3 0.0 0.0 {n} {n} 1.9397\n"
 
 
 def fa_template(p: int, z: int) -> str:
     p_str = format_p_integer(p)
     fa_definition_template = f"""surf S1FA_{p_str}z{z}  hexxc    0.0  0.0  7.600
-surf S2FA_{p_str}z{z}  hexxc    0.0  0.0  7.950
+surf S2FA_{p_str}z{z}  hexxc    0.0  0.0  7.845
 surf S3FA_{p_str}z{z}  hexxc    0.0  0.0  8.150
 cell C1FA_{p_str}z{z}  U0{p_str}z{z}   fill  LatFA_{p_str}z{z} -S1FA_{p_str}z{z}
 cell C2FA_{p_str}z{z}  U0{p_str}z{z}   ods               S1FA_{p_str}z{z}  -S2FA_{p_str}z{z} 

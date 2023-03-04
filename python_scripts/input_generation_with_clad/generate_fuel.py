@@ -1,5 +1,5 @@
 def fuel_template(p: int, z: int) -> str:
-    template = f"""mat  fuelP{p}Z{z} -12.1720 tmp 1200 burn 1    
+    template = f"""mat  fuelP{p}Z{z} -12.79808 tmp 1200 burn 1    
 92235.09c  2.1125067E-04                                        
 92238.09c  2.8757928E-02                                        
 92234.09c  1.6794750E-06                                        
