@@ -22,7 +22,7 @@ include "input/222cm/mvol.inp"			% - Volumes file
 include "input/lp/core_lp_SF3.inp"		% - Made for the lp generator .py script
 
 % --- Detectors and plots
-%include "input/appendix.inp"
+include "input/appendix.inp"
 %include "input/detectors.inp"
 
 % --- Cross section libraries
