@@ -4,8 +4,6 @@
 # each subsequent calculation of serpent2.
 # SOLUTION: remove the vol insersion code lines and use the
 # mvol option for sss2 to calculate the volumes automatically by MC
-
-
 import re
 from pathlib import Path
 from typing import List
@@ -21,18 +19,19 @@ FA_start = 1
 FA_end = 48
 
 # Reload mat data, natU+99rN-15
-FRESH_MAT_DATA = """92235.09c  2.06136E-04
-92238.09c  2.80617E-02 % natural U
-92234.09c  1.63881E-06 
- 7014.09c  2.82694E-04 
- 7015.09c  2.79867E-02 % 99N-15
+FRESH_MAT_HEADER = "-12.79808 tmp 1200 burn 1"
+FRESH_MAT_DATA = """92235.09c  2.1125067E-04
+92238.09c  2.8757928E-02
+92234.09c  1.6794750E-06
+ 7014.09c  2.8970823E-04
+ 7015.09c  2.8681115E-02
 """
 
-# add temp and burn option to he mat card
-MAT_EXTRA_OPTIONS = "tmp 923.0  burn 1"
+# Mat header for the burned fuel
+MAT_HEADER = "tmp 1200 burn 1"
 
 # remember to input this via manual calculation
-FUEL_VOL = "1.0542136E+04"
+# FUEL_VOL = "1.0542136E+04"
 
 MATCH_FUEL_NO = r"P\d\d?"
 
@@ -83,13 +82,15 @@ def shuffle() -> None:
 
     for idx in idxs_of_non_numeric:
         material_line = list_of_lines[idx]
-        modified_header = modify_material_header(material_line, MAT_EXTRA_OPTIONS)
+        modified_header = modify_material_header(material_line, MAT_HEADER)
         list_of_lines[idx] = modified_header
     modified_data = "\n".join(list_of_lines)
 
     additional_data = []
     for i in range(Z_start, z_end + 1):
-        additional_string = f"mat fuelP{1}Z{i} -11.8773 tmp 923.0  burn 1  vol {FUEL_VOL}\n{FRESH_MAT_DATA}"
+        additional_string = (
+            f"mat fuelP{1}Z{i} {FRESH_MAT_HEADER} \n{FRESH_MAT_DATA}"
+        )
         additional_data.append(additional_string)
     joined_additional_data = "".join(additional_data)
     total = f"{modified_data}\n{joined_additional_data}"
