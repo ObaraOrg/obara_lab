@@ -1,25 +1,11 @@
+NOTES :
+fisssion power generation per each FA, power map
+	-get BU out of this MWD/MTU
+	-radial power profile (BOC, EOC)
 
-
-det My_det3   de My_ene1  dt -3  dm cladP1Z6  dv 7.29072E+03
-det My_det4   de My_ene1  dt -3  dm cladP35Z6  dv 7.29072E+03
-det Det_cladP1Z1t  de My_ene2  dt -3  dm cladP1Z1  dv 1.45814E+04
-det Det_cladP2Z1t  de My_ene2  dt -3  dm cladP2Z1  dv 1.45814E+04
-det Det_cladP3Z1t  de My_ene2  dt -3  dm cladP3Z1  dv 1.45814E+04
-det Det_cladP4Z1t  de My_ene2  dt -3  dm cladP4Z1  dv 1.45814E+04
-det Det_cladP5Z1t  de My_ene2  dt -3  dm cladP5Z1  dv 1.45814E+04
-
-
-% Neutron spectrum per lethargy: 3 = equal lethargy-width bins & -3 = division by lethargy width
-ene My_ene3   3  107 1.0E-01 1.5E+01
-det My_det5   de My_ene3  dt -3  dm cladP1Z6  dv 7.29072E+03
-det My_det6   de My_ene3  dt -3  dm cladP35Z6  dv 7.29072E+03
-% Total neutron pectrum per lethargy: 3 = equal lethargy-width bins & -3 = division by lethargy width
-ene My_ene4   3  1  1.0E-01 1.5E+01
-det Det_cladP1Z1  de My_ene4  dt -3  dm cladP1Z1  dv 1.45814E+04
-det Det_cladP2Z1  de My_ene4  dt -3  dm cladP2Z1  dv 1.45814E+04
-det Det_cladP3Z1  de My_ene4  dt -3  dm cladP3Z1  dv 1.45814E+04
-det Det_cladP4Z1  de My_ene4  dt -3  dm cladP4Z1  dv 1.45814E+04
-det Det_cladP5Z1  de My_ene4  dt -3  dm cladP5Z1  dv 1.45814E+04
+Last FA discharged
+	-U238, Pu239, Pu241 variation from the start :P
+	-BU
 
 
 
@@ -39,7 +25,9 @@ det Det_cladP5Z1  de My_ene4  dt -3  dm cladP5Z1  dv 1.45814E+04
 %%  %     Orientation is xy (3)
 %%  
 %%  mesh 8 2 capture 3  2000 2000
-%%  
+
+
+
 %%  % -2- Detector that calculates the capture reaction rate in the system
 %%  %     Name of the detector is capture.
 %%  %     The detector uses response number -6 (total fission cross section)
@@ -54,8 +42,9 @@ det Det_cladP5Z1  de My_ene4  dt -3  dm cladP5Z1  dv 1.45814E+04
 %%  %     Orientation is xy (3)
 %%  
 %%  mesh 8 1 fission 3  2000 2000 
-%%  
-%%  
+
+
+
 %%  % --- Detector for tallying the flux energy spectrum
 %%  %     The energy grid used for tallying will be defined later
 %%  
@@ -79,13 +68,7 @@ det Det_cladP5Z1  de My_ene4  dt -3  dm cladP5Z1  dv 1.45814E+04
 %%  %det FApowers dr -8 void dh 3 0 0 1.85000E+02 27 27 -110 1
 
 
-fisssion power generation per each FA, power map
-	-get BU out of this MWD/MTU
-	-radial power profile (BOC, EOC)
 
-Last FA discharged
-	-U238, Pu239, Pu241 variation from the start :P
-	-BU
 
 
 % --- Define the energy grid to be used with the detector
@@ -109,46 +92,4 @@ det CoreEnergyDetector de FastEgrid1
 det FApwr de FastEgrid2 dr -8 dl LatC_Z5
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%% OUTPUT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% --- Energy grids
-%     Grid type 2 (bins have uniform energy width)
-%     Grid type 3 (bins have uniform lethargy width)
-
-ene FastEgrid0 3 107 1.0E-09 1.5E+01
-ene FastEgrid1 2 70 1e-06 1e01			% 70 bins E between 1e-06 MeV and 1e01 MeV.
-ene FastEgrid2 2  1 1e-06 1e01			%  1 bin  E between 1e-06 MeV and 1e01 MeV.
-ene FastFluence 1 0.1 10				%  1 bin  E between 0.1 MeV and 2 MeV, for DPA calculation
-
-
-% --- Detector for tallying the flux energy spectrum for the whole core
-
-det CoreEnergyDetector1 de FastEgrid1
-det CoreEnergyDetector2 de FastEgrid2
-
-% --- Detector for tallying the center core region
-
-det Flux_fuelP38Z3_1 	de FastFluence dm fuelP38Z3 	
-
-det Flux_fuelP38Z3_2 	de FastFluence dm fuelP38Z3 		dv 2.62497433E+04
-det Flux_fuelP38Z3_3 	de FastFluence dm fuelP38Z3 dt -1 	dv 2.62497433E+04  % cumulative spectrum
-det Flux_fuelP38Z3_3b 	de FastFluence dm fuelP38Z3 dt -2 	dv 2.62497433E+04  % division by energy width
-det Flux_fuelP38Z3_3bb 	de FastFluence dm fuelP38Z3 dt -3 	dv 2.62497433E+04  % division by lethargy width
-
-
-DETCoreEnergyDetector2 = [
-    1    1    1    1     1     1     1    1    1    1  2.04088E+22 0.00039 
-DETFlux_fuelP38Z3_1 = [
-    1    1    1    1     1     1     1    1    1    1  1.87927E+20 0.00316 
-DETFlux_fuelP38Z3_2 = [
-    1    1    1    1     1     1     1    1    1    1  7.15921E+15 0.00316 
-DETFlux_fuelP38Z3_3 = [
-    1    1    1    1     1     1     1    1    1    1  7.15921E+15 0.00316 
-DETFlux_fuelP38Z3_3b = [
-    1    1    1    1     1     1     1    1    1    1  7.23153E+14 0.00316 
-DETFlux_fuelP38Z3_3bb = [
-    1    1    1    1     1     1     1    1    1    1  1.55460E+15 0.00316 
-
-DETFlux___________1E = [
- 1.00000E-01  1.00000E+01  5.05000E+00    % energy level interval
+TRIED AND TESTED

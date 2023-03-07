@@ -77,3 +77,52 @@ det CoreDet_1gfast	de fastfluence
 
 % --- Neutron flux Detectors for cladding ------------------------------------------------------------------------------
 
+%% Flux in ods, for each FA vol, only on mat ods , normalized to vol (res for one FA exposure)
+det flux_odsP1  de fastfluence dm  odsP1Z1 dm  odsP1Z2 dm  odsP1Z3 dm  odsP1Z4 dm  odsP1Z5 dm  odsP1Z6 dv 4.39828792E+03
+det flux_odsP2  de fastfluence dm  odsP2Z1 dm  odsP2Z2 dm  odsP2Z3 dm  odsP2Z4 dm  odsP2Z5 dm  odsP2Z6 dv 4.39828792E+03
+det flux_odsP3  de fastfluence dm  odsP3Z1 dm  odsP3Z2 dm  odsP3Z3 dm  odsP3Z4 dm  odsP3Z5 dm  odsP3Z6 dv 4.39828792E+03
+det flux_odsP4  de fastfluence dm  odsP4Z1 dm  odsP4Z2 dm  odsP4Z3 dm  odsP4Z4 dm  odsP4Z5 dm  odsP4Z6 dv 4.39828792E+03
+det flux_odsP5  de fastfluence dm  odsP5Z1 dm  odsP5Z2 dm  odsP5Z3 dm  odsP5Z4 dm  odsP5Z5 dm  odsP5Z6 dv 4.39828792E+03
+det flux_odsP6  de fastfluence dm  odsP6Z1 dm  odsP6Z2 dm  odsP6Z3 dm  odsP6Z4 dm  odsP6Z5 dm  odsP6Z6 dv 4.39828792E+03
+det flux_odsP7  de fastfluence dm  odsP7Z1 dm  odsP7Z2 dm  odsP7Z3 dm  odsP7Z4 dm  odsP7Z5 dm  odsP7Z6 dv 4.39828792E+03
+det flux_odsP8  de fastfluence dm  odsP8Z1 dm  odsP8Z2 dm  odsP8Z3 dm  odsP8Z4 dm  odsP8Z5 dm  odsP8Z6 dv 4.39828792E+03
+det flux_odsP9  de fastfluence dm  odsP9Z1 dm  odsP9Z2 dm  odsP9Z3 dm  odsP9Z4 dm  odsP9Z5 dm  odsP9Z6 dv 4.39828792E+03
+det flux_odsP10 de fastfluence dm odsP10Z1 dm odsP10Z2 dm odsP10Z3 dm odsP10Z4 dm odsP10Z5 dm odsP10Z6 dv 4.39828792E+03
+det flux_odsP11 de fastfluence dm odsP11Z1 dm odsP11Z2 dm odsP11Z3 dm odsP11Z4 dm odsP11Z5 dm odsP11Z6 dv 4.39828792E+03
+det flux_odsP12 de fastfluence dm odsP12Z1 dm odsP12Z2 dm odsP12Z3 dm odsP12Z4 dm odsP12Z5 dm odsP12Z6 dv 4.39828792E+03
+det flux_odsP13 de fastfluence dm odsP13Z1 dm odsP13Z2 dm odsP13Z3 dm odsP13Z4 dm odsP13Z5 dm odsP13Z6 dv 4.39828792E+03
+det flux_odsP14 de fastfluence dm odsP14Z1 dm odsP14Z2 dm odsP14Z3 dm odsP14Z4 dm odsP14Z5 dm odsP14Z6 dv 4.39828792E+03
+det flux_odsP15 de fastfluence dm odsP15Z1 dm odsP15Z2 dm odsP15Z3 dm odsP15Z4 dm odsP15Z5 dm odsP15Z6 dv 4.39828792E+03
+det flux_odsP16 de fastfluence dm odsP16Z1 dm odsP16Z2 dm odsP16Z3 dm odsP16Z4 dm odsP16Z5 dm odsP16Z6 dv 4.39828792E+03
+det flux_odsP17 de fastfluence dm odsP17Z1 dm odsP17Z2 dm odsP17Z3 dm odsP17Z4 dm odsP17Z5 dm odsP17Z6 dv 4.39828792E+03
+det flux_odsP18 de fastfluence dm odsP18Z1 dm odsP18Z2 dm odsP18Z3 dm odsP18Z4 dm odsP18Z5 dm odsP18Z6 dv 4.39828792E+03
+det flux_odsP19 de fastfluence dm odsP19Z1 dm odsP19Z2 dm odsP19Z3 dm odsP19Z4 dm odsP19Z5 dm odsP19Z6 dv 4.39828792E+03
+det flux_odsP20 de fastfluence dm odsP20Z1 dm odsP20Z2 dm odsP20Z3 dm odsP20Z4 dm odsP20Z5 dm odsP20Z6 dv 4.39828792E+03
+det flux_odsP21 de fastfluence dm odsP21Z1 dm odsP21Z2 dm odsP21Z3 dm odsP21Z4 dm odsP21Z5 dm odsP21Z6 dv 4.39828792E+03
+det flux_odsP22 de fastfluence dm odsP22Z1 dm odsP22Z2 dm odsP22Z3 dm odsP22Z4 dm odsP22Z5 dm odsP22Z6 dv 4.39828792E+03
+det flux_odsP23 de fastfluence dm odsP23Z1 dm odsP23Z2 dm odsP23Z3 dm odsP23Z4 dm odsP23Z5 dm odsP23Z6 dv 4.39828792E+03
+det flux_odsP24 de fastfluence dm odsP24Z1 dm odsP24Z2 dm odsP24Z3 dm odsP24Z4 dm odsP24Z5 dm odsP24Z6 dv 4.39828792E+03
+det flux_odsP25 de fastfluence dm odsP25Z1 dm odsP25Z2 dm odsP25Z3 dm odsP25Z4 dm odsP25Z5 dm odsP25Z6 dv 4.39828792E+03
+det flux_odsP26 de fastfluence dm odsP26Z1 dm odsP26Z2 dm odsP26Z3 dm odsP26Z4 dm odsP26Z5 dm odsP26Z6 dv 4.39828792E+03
+det flux_odsP27 de fastfluence dm odsP27Z1 dm odsP27Z2 dm odsP27Z3 dm odsP27Z4 dm odsP27Z5 dm odsP27Z6 dv 4.39828792E+03
+det flux_odsP28 de fastfluence dm odsP28Z1 dm odsP28Z2 dm odsP28Z3 dm odsP28Z4 dm odsP28Z5 dm odsP28Z6 dv 4.39828792E+03
+det flux_odsP29 de fastfluence dm odsP29Z1 dm odsP29Z2 dm odsP29Z3 dm odsP29Z4 dm odsP29Z5 dm odsP29Z6 dv 4.39828792E+03
+det flux_odsP30 de fastfluence dm odsP30Z1 dm odsP30Z2 dm odsP30Z3 dm odsP30Z4 dm odsP30Z5 dm odsP30Z6 dv 4.39828792E+03
+det flux_odsP31 de fastfluence dm odsP31Z1 dm odsP31Z2 dm odsP31Z3 dm odsP31Z4 dm odsP31Z5 dm odsP31Z6 dv 4.39828792E+03
+det flux_odsP32 de fastfluence dm odsP32Z1 dm odsP32Z2 dm odsP32Z3 dm odsP32Z4 dm odsP32Z5 dm odsP32Z6 dv 4.39828792E+03
+det flux_odsP33 de fastfluence dm odsP33Z1 dm odsP33Z2 dm odsP33Z3 dm odsP33Z4 dm odsP33Z5 dm odsP33Z6 dv 4.39828792E+03
+det flux_odsP34 de fastfluence dm odsP34Z1 dm odsP34Z2 dm odsP34Z3 dm odsP34Z4 dm odsP34Z5 dm odsP34Z6 dv 4.39828792E+03
+det flux_odsP35 de fastfluence dm odsP35Z1 dm odsP35Z2 dm odsP35Z3 dm odsP35Z4 dm odsP35Z5 dm odsP35Z6 dv 4.39828792E+03
+det flux_odsP36 de fastfluence dm odsP36Z1 dm odsP36Z2 dm odsP36Z3 dm odsP36Z4 dm odsP36Z5 dm odsP36Z6 dv 4.39828792E+03
+det flux_odsP37 de fastfluence dm odsP37Z1 dm odsP37Z2 dm odsP37Z3 dm odsP37Z4 dm odsP37Z5 dm odsP37Z6 dv 4.39828792E+03
+det flux_odsP38 de fastfluence dm odsP38Z1 dm odsP38Z2 dm odsP38Z3 dm odsP38Z4 dm odsP38Z5 dm odsP38Z6 dv 4.39828792E+03
+det flux_odsP39 de fastfluence dm odsP39Z1 dm odsP39Z2 dm odsP39Z3 dm odsP39Z4 dm odsP39Z5 dm odsP39Z6 dv 4.39828792E+03
+det flux_odsP40 de fastfluence dm odsP40Z1 dm odsP40Z2 dm odsP40Z3 dm odsP40Z4 dm odsP40Z5 dm odsP40Z6 dv 4.39828792E+03
+det flux_odsP41 de fastfluence dm odsP41Z1 dm odsP41Z2 dm odsP41Z3 dm odsP41Z4 dm odsP41Z5 dm odsP41Z6 dv 4.39828792E+03
+det flux_odsP42 de fastfluence dm odsP42Z1 dm odsP42Z2 dm odsP42Z3 dm odsP42Z4 dm odsP42Z5 dm odsP42Z6 dv 4.39828792E+03
+det flux_odsP43 de fastfluence dm odsP43Z1 dm odsP43Z2 dm odsP43Z3 dm odsP43Z4 dm odsP43Z5 dm odsP43Z6 dv 4.39828792E+03
+det flux_odsP44 de fastfluence dm odsP44Z1 dm odsP44Z2 dm odsP44Z3 dm odsP44Z4 dm odsP44Z5 dm odsP44Z6 dv 4.39828792E+03
+det flux_odsP45 de fastfluence dm odsP45Z1 dm odsP45Z2 dm odsP45Z3 dm odsP45Z4 dm odsP45Z5 dm odsP45Z6 dv 4.39828792E+03
+det flux_odsP46 de fastfluence dm odsP46Z1 dm odsP46Z2 dm odsP46Z3 dm odsP46Z4 dm odsP46Z5 dm odsP46Z6 dv 4.39828792E+03
+det flux_odsP47 de fastfluence dm odsP47Z1 dm odsP47Z2 dm odsP47Z3 dm odsP47Z4 dm odsP47Z5 dm odsP47Z6 dv 4.39828792E+03
+det flux_odsP48 de fastfluence dm odsP48Z1 dm odsP48Z2 dm odsP48Z3 dm odsP48Z4 dm odsP48Z5 dm odsP48Z6 dv 4.39828792E+03

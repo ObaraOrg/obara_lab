@@ -1,8 +1,53 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ---   Visual Plots   --- %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% plt TYPE Xpixels Ypixels [ zPOS MIN1x MAX1x MIN2y MAX2y ]
+% --- XY-plot - above ---------------------------------------------------------
+plot 3 3000 3000
+plot 3 3000 3000   210   0 200   0 200
+plot 3 3000 3000   150  75 125  75 125
+
+% --- XZ-plot - side ----------------------------------------------------------
+plot 1 3000 3000    12
+plot 1 3000 3000    12  85 185 125 275
+plot 2 3000 3000    3
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ---   Other Plots    --- %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% --- Fission rate / thermal flux plot ----------------------------------------
+%mesh 3 2500 2500
+%mesh 1 2500 2500
+
+% --- Interface temperature plot ----------------------------------------------
+%mesh 10 3 2500 2500
+%mesh 10 1 2500 2500
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ---  Other outputs   --- %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Geometry errors caused by undefined regions can be ignored ------------------
+%set lost -1 	% Option to treat undefined geometry regions as void
+%set inftrk 1	% Sets parameters for terminating infinite tracking loops
+
+% --- Lattice-wise power distributions:
+%	  Out.power distrib.in Watts (analogously to mt = -8 detector response)
+%	  Gives an index map coresponding to the FA lattice, no. from left to right
+%     Level depth 1 - FA (%a), 2 - individual pins (%p)
+%	  LVL_DEPTH/ No.zAxis_bins/ zMIN/ zMAX/ [ 1stLVL 2ndLVL ]
+
+set cpd       1  1  140 260
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ---    Detectors     --- %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%			
 
-% --- Power profiles -----------------------------------------------------------------------------------------------------
+% --- Power profiles ----------------------------------------------------------
 det PwrCore  dr -8 void 	% Core power in [W]
 
 % Power in [W] for each fuel vol, only on mat fuel, -8 energy deposition
@@ -54,26 +99,4 @@ det	pwr_U045	dm fuelP45Z1    dm fuelP45Z2	dm fuelP45Z3    dm fuelP45Z4	dm fuelP4
 det	pwr_U046	dm fuelP46Z1    dm fuelP46Z2	dm fuelP46Z3    dm fuelP46Z4	dm fuelP46Z5    dm fuelP46Z6	dr -8 void
 det	pwr_U047	dm fuelP47Z1    dm fuelP47Z2	dm fuelP47Z3    dm fuelP47Z4	dm fuelP47Z5    dm fuelP47Z6	dr -8 void
 det	pwr_U048	dm fuelP48Z1    dm fuelP48Z2	dm fuelP48Z3    dm fuelP48Z4	dm fuelP48Z5    dm fuelP48Z6	dr -8 void
-
-
-% --- Neutron flux Detectors ---------------------------------------------------
-
-% --- Energy grids -------------------------------------------------------------
-%     Grid type 2 (bins have uniform energy width)
-%     Grid type 3 (bins have uniform lethargy width)
-
-ene ene_107g	 2	107		1.0E-09		2.0E+01		%107 bins, 1e-09 MeV - 20 MeV
-ene ene_70g		 2	70		1.0E-06		2.0E+01		% 70 bins, 1e-06 MeV - 20 MeV
-ene ene_1g		 2	1		1.0E-06		2.0E+01		%  1 bin , 1e-06 MeV - 20 MeV
-ene fastfluence	 1 			0.1			2.0E+01		%  1 bin , 1e-01 MeV - 20 MeV for DPA calculation
-
-
-% --- Detector for tallying the flux energy spectrum for the whole core --------
-
-%det CoreDet_107g	de ene_107g		
-%det CoreDet_70g	de ene_70g	
-det CoreDet_1g		de ene_1g	    
-det CoreDet_1gfast	de fastfluence	
-
-% --- Neutron flux Detectors for cladding ------------------------------------------------------------------------------
-
+					
