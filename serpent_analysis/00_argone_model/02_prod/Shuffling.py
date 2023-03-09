@@ -19,15 +19,16 @@ FA_start = 1
 FA_end = 48
 
 # Reload mat data, natU+99rN-15
-FRESH_MAT_DATA = """92235.09c  2.1125067E-04
-92238.09c  2.8757928E-02
-92234.09c  1.6794750E-06
- 7014.09c  2.8970823E-04
- 7015.09c  2.8681115E-02
+FRESH_MAT_HEADER = "-12.79808 tmp 1200 burn 1"
+FRESH_MAT_DATA ="""7014.12c	-5.534410475E-04
+7015.12c	-5.869182198E-02
+92234.12c 	-5.272476960E-05
+92235.12c	-6.688884284E-03
+92238.12c	-9.340158581E-01
 """
 
-# add temp and burn option to he mat card
-MAT_EXTRA_OPTIONS = "tmp 923.0  burn 1"
+# Mat header for the burned fuel
+MAT_HEADER = "tmp 1200 burn 1"
 
 # remember to input this via manual calculation
 # FUEL_VOL = "1.0542136E+04"
@@ -81,14 +82,14 @@ def shuffle() -> None:
 
     for idx in idxs_of_non_numeric:
         material_line = list_of_lines[idx]
-        modified_header = modify_material_header(material_line, MAT_EXTRA_OPTIONS)
+        modified_header = modify_material_header(material_line, MAT_HEADER)
         list_of_lines[idx] = modified_header
     modified_data = "\n".join(list_of_lines)
 
     additional_data = []
     for i in range(Z_start, z_end + 1):
         additional_string = (
-            f"mat fuelP{1}Z{i} -11.8773 tmp 923.0  burn 1 \n{FRESH_MAT_DATA}"
+            f"mat fuelP{1}Z{i} {FRESH_MAT_HEADER} \n{FRESH_MAT_DATA}"
         )
         additional_data.append(additional_string)
     joined_additional_data = "".join(additional_data)
