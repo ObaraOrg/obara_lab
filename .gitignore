@@ -1,5 +1,5 @@
 # Exceptions from the rules
-!serpent_analysis/learning_serpent/*
+!serpent_analysis/learning_serpent
 
 # Folders
 simulations
