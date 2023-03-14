@@ -1,10 +1,10 @@
+# Exceptions from the rules
+!serpent_analysis/learning_serpent/
+
 # Folders
 simulations
 **/lab_examples
 wh_lfrsuffleNo*
-
-# Exceptions from the rules
-!00_py_scripts/
 
 # Files
 new_matrix.txt

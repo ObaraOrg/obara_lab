@@ -1,0 +1,108 @@
+% --- SERPENT2 Tutorial ---
+
+set title "Tutorial 1 - Infinite homogeneous system"
+
+% --- Cross section library file path:
+
+set acelib "sss_endfb7u.xsdata"
+set declib "sss_endfb7.dec"
+set nfylib "sss_endfb7.nfy"
+
+% --- Define thermal scattering libraries associated with hydrogen-2
+
+%therm MyThermLib lwj3.11t
+therm MyThermLib hwj3.00t
+
+/************************
+ * Material definitions *
+ ************************/
+
+% --- Fuel material ( x wt-% enriched uranium), density 10.1 g/cm3
+%     One part (in mass) of uranium, 0.005 parts (in mass) of hydrogen
+%     mat <name> <dens> <options> 
+%     + is atomic densities [10^24/cm3]  
+%     - mass densities [g/cm3] or mass fractions
+
+mat fuel     -10.1
+92235.03c    -0.0376 
+92238.03c    -0.9624
+% 1001.03c    -0.005
+
+% --- Heavy water (density 1.11 g/cm3)
+%     2 parts (atomic) of hydrogen-2, 1 parts (atomic) of oxygen-16
+%     Hydrogen 2 is flagged as a bound scatterer with the "moder"-card
+
+mat heavywater -1.11 moder MyThermLib 1002
+ 1002.03c       2
+ 8016.03c       1
+
+/************************
+ * Geometry definitions *
+ ************************/
+
+% --- Bounding surface for the geometry is an axially infinite square prism
+%     centered at 0.0 0.0 with a half-width of 100 cm
+%     see: http://serpent.vtt.fi/mediawiki/index.php/Surface_types
+
+%surf s1 sqc 0.0 0.0 10.0
+surf s1 sph 0.0 0.0 0.0 60.0  % 60cm sphere of U
+%surf s2 sph 0.0 0.0 0.0 120.0 % enclosed in a sphere of HW of 60cm 
+surf s2 sqc 0.0 0.0 120.0      % enclosed in a cube of HW of 60cm 
+
+% --- Cell c1 belongs to the base universe 0, contains the material fuel
+%     and covers everything inside surface s1
+
+cell c1 0 fuel      -s1
+
+% --- Cell c2 belongs to the base universe 0, contains HW
+
+cell c2 0 heavywater    s1 -s2
+
+% --- Cell c3 belongs to the base universe 0, is defined as an "outside" cell
+%     and covers everything outside surface s1
+
+cell c3 0 outside    s2
+
+
+% --- Use reflective boundary conditions to make the system infinite
+%     These are applied on the boundary surface of the outside cell
+%     i.e. surface s1
+
+set bc 1
+ 
+/******************
+   * Detectors *
+ ******************/
+
+% --- Detector for tallying the flux energy spectrum
+
+det EnergyDetector de MyEnergyGrid % de - use x energy grid 
+
+% --- Define the energy grid used for tallying used with the detector
+%     Grid type 3 (bins have uniform lethargy width)
+%     500 bins between 1e-11 MeV and 2e1 MeV.
+
+ene MyEnergyGrid 3 500 1e-11 2e1
+ 
+/******************
+ * Run parameters *
+ ******************/
+
+% --- Neutron population: 5000 neutrons per cycle, 100 active / 20 inactive cycles
+
+set pop 5000 100 20
+
+% --- Geometry and mesh plots:
+
+plot 3 500 500
+mesh 3 500 500 
+
+% --- Sets batch history
+%     Serpent collects batch-wise data on keff, fission source 
+%     entropy etc. and produces a separate output file.
+
+set his 1
+
+% --- Sets unresolved resonance probability table sampling
+%     Affects running time
+set ures 1

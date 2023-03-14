@@ -1,0 +1,13 @@
+% --- Material volumes:
+
+% Produced Tue Jun  7 12:29:45 2022 by MC volume calculation routine by
+% sampling 10000000 random points in the geometry.
+
+set mvol
+
+fuel            0 1.19960E+04 % (0.008)
+Zircaloy4       0 1.21632E+04 % (0.009)
+graphite        0 8.49513E+05 % (0.001)
+B4C             0 2.25600E+02 % (0.063)
+ssteel          0 6.95920E+03 % (0.009)
+water           0 5.40249E+06 % (0.000)

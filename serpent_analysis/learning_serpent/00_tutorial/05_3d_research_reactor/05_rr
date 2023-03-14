@@ -1,0 +1,108 @@
+% --- Research reactor input for Serpent tutorial
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% We'll start from a simple water geometry %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% --- Our reactor model will fit inside a cubic surface with an edge length of 100 cm
+
+%Code clean up, comment out the cIN and cOUT, after code development, their not needed
+
+%surf sCUBE cube 0.0 0.0 0.0 100.0
+
+% --- Cell cIN contains water
+%cell cIN  0 water   -sCUBE
+
+% --- Cell cIN is now filled with reactor    
+%cell cIN  0 fill reactor -sCUBE
+
+% --- Cell cIN is now filled with the universe "F"
+%cell cIN  0 fill F -sCUBE
+
+% --- Cell cIN is filled with the universe "core"
+%cell cIN  0 fill core -sCUBE
+
+% --- Cell cIN is filled with the universe "reactor"
+%cell cIN  0 fill reactor -sCUBE
+
+% --- Cell cOUT is defined as an outside cell
+%cell cOUT 0 outside  sCUBE
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Link additional input files here %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%I didn't make a separate file for the empty tubes
+
+% --- Link the materials file to this input
+include "05_materials"
+
+% --- Link the reactorpool file to this input
+include "05_reactorpool"
+
+% --- Link the fuelrod file to this input
+include "05_fuelrod"
+
+% --- Link the core file to this input
+include "05_core"
+
+% --- Link the guidetube file to this input
+include "05_guidetube"
+
+% --- Link the controlrod file to this input
+include "05_controlrod"
+
+/******************
+ *  CR possition  *
+ ******************/
+
+% --- Transformation for the control rod movement
+%     The values given are transformations in (x, y, z)
+%     Transformation of  0.0 means fully inserted.
+%     Transformation of 25.0 means 50 %  inserted.
+%     Transformation of 50.0 means fully withdrawn.
+%     e.g.
+
+trans u CRuni 0.0 0.0 50.0
+
+/******************
+ * Run parameters *
+ ******************/
+
+% --- Neutron population: 10000 neutrons per cycle, 100 active / 50 inactive cycles
+
+set pop 10000 100 50
+
+% --- Geometry plots
+
+% --- XY-plot
+
+plot 3 1000 1000 0 -100 100 -100 100
+
+% --- XZ-plot
+
+plot 2 1000 1000 0 -100 100 -100 100
+
+% --- XY-Fuel-plot
+
+plot 3 500 500 0 -1 1 -1 1
+
+% --- XZ-Fuel-plot
+
+plot 2 200 800 0 -1 1 -50 50
+
+% --- XY-plot at the level of axial midplane
+
+plot 3 500 500   0 -30 30 -30 30
+
+% --- XY-plot at the level of lower grid
+
+plot 3 500 500 -36 -30 30 -30 30
+
+% --- XZ-plot
+
+plot 2 500 667   0 -30 30 -40 40
+
+% --- XZ-plot, level of control rods
+
+plot 2 500 667 7.2 -30 30 -40 40
