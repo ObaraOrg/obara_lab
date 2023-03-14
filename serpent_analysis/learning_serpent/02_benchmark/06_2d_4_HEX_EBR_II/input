@@ -1,0 +1,283 @@
+% --- 2D Simplified 4-HEX super-cell model-like EBR-II --------------------- %
+
+set title "2D Simplified 4-HEX super-cell model-like EBR-II"
+
+% ------------------------- PIN DEFINITION --------------------------------- %
+% --- Fuel pin with central hole:
+
+pin 1
+void   0.08000
+fuel1  0.37800
+void   0.38800
+clad   0.45750
+cool   
+
+pin 2
+void   0.08000
+fuel2  0.37800
+void   0.38800
+clad   0.45750
+cool
+ 
+pin 3
+void   0.08000
+fuel3  0.37800
+void   0.38800
+clad   0.45750
+cool
+ 
+pin 4
+void   0.08000
+fuel4  0.37800
+void   0.38800
+clad   0.45750
+cool
+ 
+pin 5
+void   0.08000
+fuel5  0.37800
+void   0.38800
+clad   0.45750
+cool
+ 
+pin 6
+void   0.08000
+fuel6  0.37800
+void   0.38800
+clad   0.45750
+cool
+
+pin 7
+void   0.08000
+fuel7  0.37800
+void   0.38800
+clad   0.45750
+cool
+
+% --- Central tube:
+
+pin 8 
+cool  0.44000
+clad   0.51500
+cool   
+
+% --- Empty lattice position:
+
+pin 9
+cool   
+
+% ------------------------- HEXAGONAL PART --------------------------------- %
+% --- Lattice (type = 3, pin pitch = 1.23 cm) - hexagonal-baseline:
+
+lat 10  3  0.0 0.0 15 15 1.23
+9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+ 9 9 9 9 9 9 9 1 1 1 1 1 1 1 9
+  9 9 9 9 9 9 1 1 1 1 1 1 1 1 9 
+   9 9 9 9 9 1 1 1 1 1 1 1 1 1 9 
+    9 9 9 9 1 1 1 1 1 1 1 1 1 1 9 
+     9 9 9 1 1 1 1 1 1 1 1 1 1 1 9
+      9 9 1 1 1 1 1 1 1 1 1 1 1 1 9
+       9 1 1 1 1 1 1 8 1 1 1 1 1 1 9
+        9 1 1 1 1 1 1 1 1 1 1 1 1 9 9
+         9 1 1 1 1 1 1 1 1 1 1 1 9 9 9 
+          9 1 1 1 1 1 1 1 1 1 1 9 9 9 9
+           9 1 1 1 1 1 1 1 1 1 9 9 9 9 9
+            9 1 1 1 1 1 1 1 1 9 9 9 9 9 9
+             9 1 1 1 1 1 1 1 9 9 9 9 9 9 9
+              9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+			  
+% --- Lattice (type = 3, pin pitch = 1.23 cm) - triangular-baseline:
+
+lat 20  3  0.0 0.0 15 15 1.23
+9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+ 9 9 9 9 9 9 9 1 7 7 7 7 7 1 9
+  9 9 9 9 9 9 2 1 7 7 7 7 1 6 9 
+   9 9 9 9 9 2 2 1 7 7 7 1 6 6 9 
+    9 9 9 9 2 2 2 1 7 7 1 6 6 6 9 
+     9 9 9 2 2 2 2 1 7 1 6 6 6 6 9
+      9 9 2 2 2 2 2 1 1 6 6 6 6 6 9
+       9 1 1 1 1 1 1 8 1 1 1 1 1 1 9
+        9 3 3 3 3 3 1 1 5 5 5 5 5 9 9
+         9 3 3 3 3 1 4 1 5 5 5 5 9 9 9
+          9 3 3 3 1 4 4 1 5 5 5 9 9 9 9
+           9 3 3 1 4 4 4 1 5 5 9 9 9 9 9
+            9 3 1 4 4 4 4 1 5 9 9 9 9 9 9
+             9 1 4 4 4 4 4 1 9 9 9 9 9 9 9
+              9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+
+% --- Lattice (type = 3, pin pitch = 1.23 cm) - empty:
+
+lat 30  3  0.0 0.0 15 15 1.23
+9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+ 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+  9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+   9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+    9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+     9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+      9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+       9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+        9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+         9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+          9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+           9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+            9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+             9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+              9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+
+% --- Surfaces (assembly pitch = 14.7 cm):
+
+surf  41  hexxc  0.0  0.0  7.100  % Shroud tube inner radius  
+surf  42  hexxc  0.0  0.0  7.250  % Shroud tube outer radius 
+surf  43  hexxc  0.0  0.0  7.350  % Outer boundary 
+
+% --- Cells for radial reflector:
+
+cell  41  40  refl    -41         % Reflector               
+cell  42  40  tube     41    -42  % Shroud tube              
+cell  43  40  cool     42    -43  % Water in channel 
+ 
+% ------------------------- TRIANGULAR PART -------------------------------- %
+% --- Triangular surfaces:
+
+surf  21 tric  -2.45   4.24352447854   2.45   1
+surf  22 tric   2.45   4.24352447854   2.45   3
+surf  23 tric  -4.90   0.0             2.45   3
+surf  24 tric   4.90   0.0             2.45   1
+surf  25 tric  -2.45  -4.24352447854   2.45   1
+surf  26 tric   2.45  -4.24352447854   2.45   3
+
+% --- Sub-assembly cells (switch between hexagonal/triangular baseline):
+
+cell 21t 21t fill 20 -21 
+cell 22t 22t fill 20 -22
+cell 23t 23t fill 20 -23
+cell 24t 24t fill 20 -24
+cell 25t 25t fill 20 -25
+cell 26t 26t fill 20 -26
+
+% --- Transformations to return to global coordinates (0,0,0):
+
+trans  U  21t   2.45  -4.24352447854   0.0
+trans  U  22t  -2.45  -4.24352447854   0.0
+trans  U  23t   4.90   0.0             0.0
+trans  U  24t  -4.90   0.0             0.0
+trans  U  25t   2.45   4.24352447854   0.0
+trans  U  26t  -2.45   4.24352447854   0.0
+
+% --- Sub-assembly lattice:
+
+lat  21  9   0.0 0.0 1 0.0 21t
+lat  22  9   0.0 0.0 1 0.0 22t
+lat  23  9   0.0 0.0 1 0.0 23t
+lat  24  9   0.0 0.0 1 0.0 24t
+lat  25  9   0.0 0.0 1 0.0 25t
+lat  26  9   0.0 0.0 1 0.0 26t
+
+% --- Lattice (type = 14, pin pitch = 4.90 cm):
+
+lat 50  14  4.90 0.00 3 3 4.90
+  25 26 40 
+  23 24 40 
+  21 22 40 
+
+% ------------------------- ASSEMBLY LATTICE -------------------------------- %
+% --- Lattice (type = 1, pin pitch = 14.70 cm)
+
+lat 60  2  0.0 0.00 3 3 14.70
+  30 10 10
+  10 50 10
+  10 10 30
+
+surf  70 hexxc 0.0 0.0 14.70
+
+cell  71 70 fill 60     -70       % Fill with assembly lattice
+cell  72 70 cool         70
+
+% ------------------------- 4-HEX SUPER-CELL -------------------------------- %
+
+surf  80 hexxprism 0.0 0.0 14.7 0.0 36.9
+
+cell  81 0 fill 70      -80       % Fill with super-cell lattice
+cell  82 0 outside       80       % outside world
+
+% ----------------------------- MATERIALS ----------------------------------- %
+% --- UO2 fuel enriched to 3.6 wt-% U-235:
+
+mat fuel1   -10.45700 
+ 92235.09c   -0.03173
+ 92238.09c   -0.84977
+  8016.09c   -0.11850
+
+mat fuel2   -10.45700
+ 92235.09c   -0.03173
+ 92238.09c   -0.84977
+  8016.09c   -0.11850
+
+mat fuel3   -10.45700
+ 92235.09c   -0.03173
+ 92238.09c   -0.84977
+  8016.09c   -0.11850
+
+mat fuel4   -10.45700
+ 92235.09c   -0.03173
+ 92238.09c   -0.84977
+  8016.09c   -0.11850
+
+mat fuel5   -10.45700
+ 92235.09c   -0.03173
+ 92238.09c   -0.84977
+  8016.09c   -0.11850
+
+mat fuel6   -10.45700
+ 92235.09c   -0.03173
+ 92238.09c   -0.84977
+  8016.09c   -0.11850
+
+mat fuel7   -10.45700
+ 92235.09c   -0.03173
+ 92238.09c   -0.84977
+  8016.09c   -0.11850
+
+% --- Zr-Nb cladding and shroud tube wall:
+
+mat clad     -6.55000
+ 40000.06c   -0.99000
+ 41093.06c   -0.01000
+
+mat tube     -6.55000
+ 40000.06c   -0.99000
+ 41093.06c   -0.01000
+
+% --- Coolant and reflector:
+
+mat cool     -0.72070  moder lwtr 1001
+  1001.06c    2.0
+  8016.06c    1.0
+
+mat refl     -0.72070  moder lwtr 1001
+  1001.03c    2.0
+  8016.03c    1.0
+
+% --- Thermal scattering data for light water:
+
+therm lwtr lwj3.11t
+
+% ----------------------------- SETTINGS ------------------------------------ %
+% --- Cross section data library file path:
+
+set acelib "sss_jeff311u.xsdata"
+
+% --- Boundary condition:
+
+set bc 3
+
+% --- Neutron population and criticality cycles
+
+set pop 2000 500 20
+
+% --- Geometry and mesh plots:
+
+plot 3 1000 1000 
+mesh 3 1000 1000
+
+% --------------------------------------------------------------------------- %

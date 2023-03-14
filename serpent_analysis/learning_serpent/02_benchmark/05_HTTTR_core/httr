@@ -1,0 +1,88 @@
+% --- Geometry and material data ----------------------------------------------
+
+% --- Read core data:
+
+include "input/core.inp"
+
+% --- Cross section library:
+
+set acelib "/xs/sss_endfb7u.xsdata"
+
+% --- Thermal scattering data for graphite:
+
+therm grph gre7.00t
+
+% --- Particle fuel options:
+
+cell 4001 401 fill 4001 -400
+pbed 4001 400 "input/particles1.inp"
+
+cell 4002 402 fill 4002 -400
+pbed 4002 400 "input/particles2.inp"
+
+cell 4003 403 fill 4003 -400
+pbed 4003 400 "input/particles3.inp"
+
+cell 4004 404 fill 4004 -400
+pbed 4004 400 "input/particles4.inp"
+
+cell 4005 405 fill 4005 -400
+pbed 4005 400 "input/particles5.inp"
+
+cell 4006 406 fill 4006 -400
+pbed 4006 400 "input/particles6.inp"
+
+cell 4007 407 fill 4007 -400
+pbed 4007 400 "input/particles7.inp"
+
+cell 4008 408 fill 4008 -400
+pbed 4008 400 "input/particles8.inp"
+
+cell 4009 409 fill 4009 -400
+pbed 4009 400 "input/particles9.inp"
+
+cell 4010 410 fill 4010 -400
+pbed 4010 400 "input/particles10.inp"
+
+cell 4011 411 fill 4011 -400
+pbed 4011 400 "input/particles11.inp"
+
+cell 4012 412 fill 4012 -400
+pbed 4012 400 "input/particles12.inp"
+
+% --- Set control rod positions:
+
+trans 200 0.0 0.0 177.5
+trans 210 0.0 0.0 177.5
+trans 220 0.0 0.0 177.5
+trans 230 0.0 0.0 404.9
+
+% -----------------------------------------------------------------------------
+
+% --- Calculation parameters --------------------------------------------------
+
+% --- Title:
+
+set title "HTTR Critical configuration"
+
+% --- Neutron histories:
+
+set pop 10000 500 50
+
+% --- Geometry plot
+
+plot 1 600  737
+plot 2 600  737
+plot 3 850  850  200
+
+% --- Mesh plot
+
+mesh 1 600 737
+mesh 2 600 737
+mesh 3 850 850
+
+% --- History file:
+
+set outfile 1
+
+% -----------------------------------------------------------------------------
