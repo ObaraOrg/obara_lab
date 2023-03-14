@@ -11,6 +11,13 @@ matrix_dump.txt
 
 # Exceptions from the rules above
 !serpent_analysis/learning_serpent/**
+!serpent_analysis/learning_serpent/01_input_examples/BWR/**
+!serpent_analysis/learning_serpent/01_input_examples/CANDU/**
+!serpent_analysis/learning_serpent/01_input_examples/HTGR_BURNUP/**
+!serpent_analysis/learning_serpent/01_input_examples/PC_BURNUP/**
+!serpent_analysis/learning_serpent/01_input_examples/PWR_BURNUP/**
+!serpent_analysis/learning_serpent/01_input_examples/PWR_MOX/**
+!serpent_analysis/learning_serpent/01_input_examples/VVER/**
 
 # Image Files
 *.png
@@ -270,3 +277,4 @@ python_scripts/get_nuclides/02_120cm_400d/input/222cm/mvol.inp
 python_scripts/get_nuclides/02_120cm_400d/input/lp/core_lp_SF1bis.inp
 python_scripts/get_nuclides/02_120cm_400d/input/lp/core_lp_SF3.inp
 python_scripts/get_nuclides/02_120cm_400d/input/lp/core_lp_SF4.inp
+

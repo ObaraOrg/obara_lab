@@ -1,0 +1,266 @@
+
+% -----------------------------------------------------------------------------
+
+set title "HTGR Depletion Benchmark, Prismatic Fuel Model"  
+
+% -----------------------------------------------------------------------------
+
+% Geometry:
+
+% -----------------------------------------------------------------------------
+
+% --- Coated particle:
+
+particle 1
+
+fuel    0.0250
+buffer  0.0340
+PyC     0.0380
+SiC     0.0415
+PyC     0.0455
+matrix  
+
+% --- Universe surrounding particles:
+
+surf 10 inf
+
+cell 10 6 matrix  -10
+
+% --- Read particles:
+
+pbed 10 6 "part2.inp"
+
+% --- Compact
+
+surf 1 cyl 0.0 0.0 0.62250
+surf 2 cyl 0.0 0.0 0.62350
+
+cell 1 2 fill 10  -1
+cell 2 2 helium    1 -2
+cell 3 2 matrix    2
+
+% Coolant channel:
+
+surf 3 cyl 0.0 0.0 0.79400
+
+cell 4 3 helium   -3
+cell 5 3 matrix    3
+
+% --- Empry lattice position:
+
+surf 5 inf
+
+cell 6 4 matrix -5
+
+% --- Compact lattice
+
+lat 20  2  0.0 0.0 3 3 1.880
+
+  4 2 2   
+   2 3 2
+    2 2 4
+
+surf 7 hexxprism 0.0 0.0 1.880 0.0 4.93
+
+cell 7 0 fill 20 -7
+cell 8 0 outside  7
+
+% -----------------------------------------------------------------------------
+
+% Material data:
+
+% -----------------------------------------------------------------------------
+
+% -- Fuel:
+
+mat fuel   -10.4          burn 1
+
+92238.03c    2.12877E-02
+92235.03c    1.92585E-03
+ 8016.03c    4.64272E-02
+ 5010.03c    1.14694E-07
+ 5011.03c    4.64570E-07
+
+% --- Carbon buffer layer:
+
+mat buffer  -1.05         moder grph 6000
+
+ 6000.03c    5.26449E-02
+
+% --- Pyrolytic carbon layer:
+
+mat PyC     -1.90         moder grph 6000
+
+ 6000.03c    9.52621E-02
+
+% --- Silicon carbide layer:
+
+mat SiC     -3.18
+
+14000.03c    4.77240E-02
+ 6000.03c    4.77240E-02
+
+% --- Graphite matrix:
+
+mat matrix  -1.75         moder grph 6000   burn 1 vol 47.045
+
+ 6000.03c    8.77414E-02
+ 5010.03c    9.64977E-09
+ 5011.03c    3.90864E-08
+
+mat helium   2.65156E-05
+
+ 2004.03c    2.65156E-05
+
+% --- Thermal scattering data:
+
+therm grph gre7.00t
+
+% -----------------------------------------------------------------------------
+
+% Calculation parameters:
+
+% -----------------------------------------------------------------------------
+
+% --- Geometry plot:
+
+plot 3 500 500 2.0
+
+% --- Libraries:
+
+set acelib "/xs/sss_endfb7u.xsdata"
+set declib "/xs/sss_endfb7.dec"
+set nfylib "/xs/sss_endfb7.nfy"
+
+% --- Energy grid:
+
+set egrid 2E-6 1E-10 15.0
+set dix 1
+
+% --- Boundary conditions:
+
+set bc 3
+
+% --- Histories:
+
+set pop 2000 500 10
+
+% -----------------------------------------------------------------------------
+
+% Detectors:
+
+% -----------------------------------------------------------------------------
+
+% --- Detector materials:
+
+mat m92238  1.0 92238.03c 1.0
+mat m92235  1.0 92235.03c 1.0
+
+% --- Energy grid structures:
+
+ene 1 1 1E-11 0.625E-6 20.0
+ene 2 3 1000 1E-11 20.0
+
+% --- Spectral indices (in fuel):
+
+det 1 de 1 dm fuelp1r1 dr 102 m92238
+det 2 de 1 dm fuelp1r1 dr  18 m92235
+det 3      dm fuelp1r1 dr  18 m92235 dr  18 m92238
+det 4      dm fuelp1r1 dr  18 m92235 dr 102 m92238
+
+% --- Spectrum:
+
+det 10 de 2
+
+% -----------------------------------------------------------------------------
+
+% Burnup calculation:
+
+% -----------------------------------------------------------------------------
+
+% --- Options:
+
+set fpcut 1E-6
+set stabcut 0.0
+set xsfcut  0.0
+set pcc 1
+
+% --- Power density
+
+set powdens 62.0E-3
+
+% --- Irradiation history:
+
+dep butot
+
+   0.1
+   0.5
+   1.0
+   2.0
+   3.0
+   4.0
+   5.0
+   6.0
+   7.0
+   8.0
+   9.0
+  10.0
+  12.0
+  14.0
+  16.0
+  18.0
+  20.0
+  22.0
+  24.0
+  26.0
+  28.0
+  30.0
+  32.0
+  34.0
+  36.0
+  38.0
+  40.0
+  45.0
+  50.0
+  55.0
+  60.0
+  65.0
+  70.0
+  75.0
+  80.0
+  85.0
+  90.0
+  95.0
+ 100.0
+ 105.0
+ 110.0
+ 115.0
+ 120.0
+
+% --- Nuclide inventory:
+
+set inventory
+
+% Actinides: 
+
+922350
+922380
+942390
+942400
+942410
+942420
+952410
+952440
+952450
+
+% Fission products:
+
+360850
+380900
+471101
+551370
+541350
+621490
+621510
+
+% -----------------------------------------------------------------------------
