@@ -133,9 +133,10 @@ def get_bu_data(
         df["mdens_ratio"].shift(1, fill_value=df["mdens_ratio"].iloc[0])
         * df["serpent_burnup"]
     )
-
+    print("Corected Bu", df["corrected_burnup"])
     average_burnup = df.groupby("p")["corrected_burnup"].mean()
+    print("Average BU",average_burnup)
     sum_burnup_by_z = df.groupby("z")["corrected_burnup"].sum()
+    print("BU by Z", sum_burnup_by_z)
     corrected_burnup_mat = df["corrected_burnup"].to_numpy().reshape(Z, P)
-    breakpoint()
     return (df, corrected_burnup_mat, average_burnup, sum_burnup_by_z)
