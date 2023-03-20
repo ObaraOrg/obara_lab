@@ -4,7 +4,7 @@ import hex_lp_rot_sym_script
 
 TEST_PATH = Path("full_core_matrix.txt")
 OUTPUT_PATH = Path("core_lp.inp")
-NUMBER_OF_REPETITIONS = 6
+NUMBER_OF_REPETITIONS = 22
 
 STATIC_HEADER = """%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ---   Core Geometry definition   --- %
