@@ -1,0 +1,134 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ---   Core Geometry definition   --- %
+% --- Additional comp. and 3D def. --- %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% --- Additional FA components lattice
+
+lat latPLUG 2 0.0 0.0 27 27 16.3
+COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL
+COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL uSHD uSHD uSHD uSHD uSHD uSHD uSHD uSHD uSHD COOL COOL COOL
+COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL uSHD uSHD uREF uREF uREF uREF uREF uREF uREF uREF uSHD uSHD COOL COOL
+COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL uSHD uSHD uREF uREF uPLG uPLG uPLG uPLG uPLG uPLG uPLG uREF uREF uSHD uSHD COOL
+COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL uSHD uREF uREF uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uREF uREF uSHD COOL
+COOL COOL COOL COOL COOL COOL COOL COOL COOL uSHD uREF uPLG uPLG uPLG uPLG COOL uPLG uPLG uPLG COOL uPLG uPLG uPLG uPLG uREF uSHD COOL
+COOL COOL COOL COOL COOL COOL COOL COOL uSHD uREF uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uREF uSHD COOL
+COOL COOL COOL COOL COOL COOL COOL uSHD uREF uPLG uPLG COOL uPLG uPLG uPLG uPLG COOL uPLG uPLG uPLG uPLG COOL uPLG uPLG uREF uSHD COOL
+COOL COOL COOL COOL COOL COOL uSHD uREF uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uREF uSHD COOL
+COOL COOL COOL COOL COOL uSHD uREF uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uREF uSHD COOL
+COOL COOL COOL COOL uSHD uREF uPLG uPLG uPLG uPLG COOL uPLG uPLG COOL uPLG uPLG COOL uPLG uPLG COOL uPLG uPLG uPLG uPLG uREF uSHD COOL
+COOL COOL COOL uSHD uREF uPLG uPLG COOL uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG COOL uPLG uPLG uREF uSHD COOL
+COOL COOL COOL uSHD uREF uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uREF uSHD COOL COOL
+COOL COOL uSHD uREF uPLG uPLG uPLG uPLG uPLG uPLG COOL uPLG uPLG COOL uPLG uPLG COOL uPLG uPLG uPLG uPLG uPLG uPLG uREF uSHD COOL COOL
+COOL COOL uSHD uREF uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uREF uSHD COOL COOL COOL
+COOL uSHD uREF uPLG uPLG COOL uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG COOL uPLG uPLG uREF uSHD COOL COOL COOL
+COOL uSHD uREF uPLG uPLG uPLG uPLG COOL uPLG uPLG COOL uPLG uPLG COOL uPLG uPLG COOL uPLG uPLG uPLG uPLG uREF uSHD COOL COOL COOL COOL
+COOL uSHD uREF uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uREF uSHD COOL COOL COOL COOL COOL
+COOL uSHD uREF uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uREF uSHD COOL COOL COOL COOL COOL COOL
+COOL uSHD uREF uPLG uPLG COOL uPLG uPLG uPLG uPLG COOL uPLG uPLG uPLG uPLG COOL uPLG uPLG uREF uSHD COOL COOL COOL COOL COOL COOL COOL
+COOL uSHD uREF uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uREF uSHD COOL COOL COOL COOL COOL COOL COOL COOL
+COOL uSHD uREF uPLG uPLG uPLG uPLG COOL uPLG uPLG uPLG COOL uPLG uPLG uPLG uPLG uREF uSHD COOL COOL COOL COOL COOL COOL COOL COOL COOL
+COOL uSHD uREF uREF uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uPLG uREF uREF uSHD COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL
+COOL uSHD uSHD uREF uREF uPLG uPLG uPLG uPLG uPLG uPLG uPLG uREF uREF uSHD uSHD COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL
+COOL COOL uSHD uSHD uREF uREF uREF uREF uREF uREF uREF uREF uSHD uSHD COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL
+COOL COOL COOL uSHD uSHD uSHD uSHD uSHD uSHD uSHD uSHD uSHD COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL
+COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL COOL
+
+pin COOL
+	lead
+
+% Hex prism slices for the core 
+surf SdwPLUG  hexyprism 0.00000E+00  0.00000E+00  1.80000E+02    15	140 % --- 125 cm Down plug 
+%------------------------------------------------------------------------------------
+surf HCoreZ1  hexyprism 0.00000E+00  0.00000E+00  1.80000E+02   140	150 % --- 10  cm
+surf HCoreZ2  hexyprism 0.00000E+00  0.00000E+00  1.80000E+02   150	160 % --- 10  cm
+surf HCoreZ3  hexyprism 0.00000E+00  0.00000E+00  1.80000E+02   160	170 % --- 10  cm
+surf HCoreZ4  hexyprism 0.00000E+00  0.00000E+00  1.80000E+02   170	180 % --- 10  cm
+surf HCoreZ5  hexyprism 0.00000E+00  0.00000E+00  1.80000E+02   180	190 % --- 10  cm
+surf HCoreZ6  hexyprism 0.00000E+00  0.00000E+00  1.80000E+02   190	200 % --- 10  cm
+surf HCoreZ7  hexyprism 0.00000E+00  0.00000E+00  1.80000E+02   200	210 % --- 10  cm
+surf HCoreZ8  hexyprism 0.00000E+00  0.00000E+00  1.80000E+02   210	220 % --- 10  cm
+surf HCoreZ9  hexyprism 0.00000E+00  0.00000E+00  1.80000E+02   220	230 % --- 10  cm
+surf HCoreZ10 hexyprism 0.00000E+00  0.00000E+00  1.80000E+02   230	240 % --- 10  cm 
+surf HCoreZ11 hexyprism 0.00000E+00  0.00000E+00  1.80000E+02   240	250 % --- 10  cm Mid slice
+surf HCoreZ12 hexyprism 0.00000E+00  0.00000E+00  1.80000E+02   250	260 % --- 10  cm Mid slice
+surf HCoreZ13 hexyprism 0.00000E+00  0.00000E+00  1.80000E+02   260	270 % --- 10  cm
+surf HCoreZ14 hexyprism 0.00000E+00  0.00000E+00  1.80000E+02   270	280 % --- 10  cm
+surf HCoreZ15 hexyprism 0.00000E+00  0.00000E+00  1.80000E+02   280	290 % --- 10  cm
+surf HCoreZ16 hexyprism 0.00000E+00  0.00000E+00  1.80000E+02   290	300 % --- 10  cm
+surf HCoreZ17 hexyprism 0.00000E+00  0.00000E+00  1.80000E+02   300	310 % --- 10  cm
+surf HCoreZ18 hexyprism 0.00000E+00  0.00000E+00  1.80000E+02   310	320 % --- 10  cm
+surf HCoreZ19 hexyprism 0.00000E+00  0.00000E+00  1.80000E+02   320	330 % --- 10  cm
+surf HCoreZ20 hexyprism 0.00000E+00  0.00000E+00  1.80000E+02   330	340 % --- 10  cm
+surf HCoreZ21 hexyprism 0.00000E+00  0.00000E+00  1.80000E+02   340	350 % --- 10  cm
+surf HCoreZ22 hexyprism 0.00000E+00  0.00000E+00  1.80000E+02   350	360 % --- 10  cm
+%------------------------------------------------------------------------------------
+surf SupPLUG  hexyprism 0.00000E+00  0.00000E+00  1.80000E+02   360	472 % --- 112 cm Up plug 
+% (NOTE: when modifying the volumes here, the fuel volumes need to be changed)
+
+% Alocated cells for the core inside the prism slices
+cell c1z0  0 fill latPLUG  -SdwPLUG
+%----------------------------------
+cell c1z1  0 fill LatC_Z1  -HCoreZ1  
+cell c1z2  0 fill LatC_Z2  -HCoreZ2 
+cell c1z3  0 fill LatC_Z3  -HCoreZ3 
+cell c1z4  0 fill LatC_Z4  -HCoreZ4  
+cell c1z5  0 fill LatC_Z5  -HCoreZ5 
+cell c1z6  0 fill LatC_Z6  -HCoreZ6 
+cell c1z7  0 fill LatC_Z7  -HCoreZ7  
+cell c1z8  0 fill LatC_Z8  -HCoreZ8 
+cell c1z9  0 fill LatC_Z9  -HCoreZ9 
+cell c1z10 0 fill LatC_Z10 -HCoreZ10 
+cell c1z11 0 fill LatC_Z11 -HCoreZ11
+cell c1z12 0 fill LatC_Z12 -HCoreZ12
+cell c1z13 0 fill LatC_Z13 -HCoreZ13
+cell c1z14 0 fill LatC_Z14 -HCoreZ14 
+cell c1z15 0 fill LatC_Z15 -HCoreZ15
+cell c1z16 0 fill LatC_Z16 -HCoreZ16
+cell c1z17 0 fill LatC_Z17 -HCoreZ17 
+cell c1z18 0 fill LatC_Z18 -HCoreZ18
+cell c1z19 0 fill LatC_Z19 -HCoreZ19
+cell c1z20 0 fill LatC_Z20 -HCoreZ20
+cell c1z21 0 fill LatC_Z21 -HCoreZ21
+cell c1z22 0 fill LatC_Z22 -HCoreZ22
+%-----------------------------------
+cell c1zx 0 fill latPLUG -SupPLUG
+
+% Surf and cell for the barel outside the core lattice
+surf sRPV1  cylz 0.0 0.0 210 0 500
+surf sRPV2  cylz 0.0 0.0 215 0 500
+surf sINF   inf
+
+% Coolant cell for the ext of the core lattice
+cell cLEAD uCOOL lead -sINF
+
+% Alocated cells reactor RPV
+cell cCORE  0 fill    uCOOL   -sRPV1      
+										SdwPLUG
+										HCoreZ1 
+										HCoreZ2 
+										HCoreZ3 
+                                        HCoreZ4 
+										HCoreZ5 
+                                        HCoreZ6 
+                                        HCoreZ7 
+										HCoreZ8 
+										HCoreZ9 
+										HCoreZ10
+										HCoreZ11
+										HCoreZ12
+										HCoreZ13
+										HCoreZ14
+										HCoreZ15
+										HCoreZ16
+										HCoreZ17
+										HCoreZ18
+										HCoreZ19
+										HCoreZ20
+										HCoreZ21
+										HCoreZ22
+										SupPLUG
+cell cRPV	0 ssteel		   sRPV1     -sRPV2
+cell cOUT	0 outside		   sRPV2      
+
+

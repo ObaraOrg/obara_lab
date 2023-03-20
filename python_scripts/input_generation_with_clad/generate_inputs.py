@@ -7,7 +7,7 @@ from generate_fa import main as generate_fa
 CASE = "Note: this is the 61 pin FA with 30%% reduced dimensions"
 # Modify these values to change the number pins, fuel assemblies and zones
 P = 48
-Z = 6
+Z = 22
 # Modify this value to change the latice size of fuel assemblies
 N = 11
 
