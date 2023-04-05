@@ -56,61 +56,6 @@ fuelP1Z11 	0.78550
 odsP1Z11    0.84850
 lead
 
-pin P1Z12
-fuelP1Z12 	0.78550
-odsP1Z12    0.84850
-lead
-
-pin P1Z13
-fuelP1Z13 	0.78550
-odsP1Z13    0.84850
-lead
-
-pin P1Z14
-fuelP1Z14 	0.78550
-odsP1Z14    0.84850
-lead
-
-pin P1Z15
-fuelP1Z15 	0.78550
-odsP1Z15    0.84850
-lead
-
-pin P1Z16
-fuelP1Z16 	0.78550
-odsP1Z16    0.84850
-lead
-
-pin P1Z17
-fuelP1Z17 	0.78550
-odsP1Z17    0.84850
-lead
-
-pin P1Z18
-fuelP1Z18 	0.78550
-odsP1Z18    0.84850
-lead
-
-pin P1Z19
-fuelP1Z19 	0.78550
-odsP1Z19    0.84850
-lead
-
-pin P1Z20
-fuelP1Z20 	0.78550
-odsP1Z20    0.84850
-lead
-
-pin P1Z21
-fuelP1Z21 	0.78550
-odsP1Z21    0.84850
-lead
-
-pin P1Z22
-fuelP1Z22 	0.78550
-odsP1Z22    0.84850
-lead
-
 pin P2Z1
 fuelP2Z1 	0.78550
 odsP2Z1    0.84850
@@ -164,61 +109,6 @@ lead
 pin P2Z11
 fuelP2Z11 	0.78550
 odsP2Z11    0.84850
-lead
-
-pin P2Z12
-fuelP2Z12 	0.78550
-odsP2Z12    0.84850
-lead
-
-pin P2Z13
-fuelP2Z13 	0.78550
-odsP2Z13    0.84850
-lead
-
-pin P2Z14
-fuelP2Z14 	0.78550
-odsP2Z14    0.84850
-lead
-
-pin P2Z15
-fuelP2Z15 	0.78550
-odsP2Z15    0.84850
-lead
-
-pin P2Z16
-fuelP2Z16 	0.78550
-odsP2Z16    0.84850
-lead
-
-pin P2Z17
-fuelP2Z17 	0.78550
-odsP2Z17    0.84850
-lead
-
-pin P2Z18
-fuelP2Z18 	0.78550
-odsP2Z18    0.84850
-lead
-
-pin P2Z19
-fuelP2Z19 	0.78550
-odsP2Z19    0.84850
-lead
-
-pin P2Z20
-fuelP2Z20 	0.78550
-odsP2Z20    0.84850
-lead
-
-pin P2Z21
-fuelP2Z21 	0.78550
-odsP2Z21    0.84850
-lead
-
-pin P2Z22
-fuelP2Z22 	0.78550
-odsP2Z22    0.84850
 lead
 
 pin P3Z1
@@ -276,61 +166,6 @@ fuelP3Z11 	0.78550
 odsP3Z11    0.84850
 lead
 
-pin P3Z12
-fuelP3Z12 	0.78550
-odsP3Z12    0.84850
-lead
-
-pin P3Z13
-fuelP3Z13 	0.78550
-odsP3Z13    0.84850
-lead
-
-pin P3Z14
-fuelP3Z14 	0.78550
-odsP3Z14    0.84850
-lead
-
-pin P3Z15
-fuelP3Z15 	0.78550
-odsP3Z15    0.84850
-lead
-
-pin P3Z16
-fuelP3Z16 	0.78550
-odsP3Z16    0.84850
-lead
-
-pin P3Z17
-fuelP3Z17 	0.78550
-odsP3Z17    0.84850
-lead
-
-pin P3Z18
-fuelP3Z18 	0.78550
-odsP3Z18    0.84850
-lead
-
-pin P3Z19
-fuelP3Z19 	0.78550
-odsP3Z19    0.84850
-lead
-
-pin P3Z20
-fuelP3Z20 	0.78550
-odsP3Z20    0.84850
-lead
-
-pin P3Z21
-fuelP3Z21 	0.78550
-odsP3Z21    0.84850
-lead
-
-pin P3Z22
-fuelP3Z22 	0.78550
-odsP3Z22    0.84850
-lead
-
 pin P4Z1
 fuelP4Z1 	0.78550
 odsP4Z1    0.84850
@@ -384,61 +219,6 @@ lead
 pin P4Z11
 fuelP4Z11 	0.78550
 odsP4Z11    0.84850
-lead
-
-pin P4Z12
-fuelP4Z12 	0.78550
-odsP4Z12    0.84850
-lead
-
-pin P4Z13
-fuelP4Z13 	0.78550
-odsP4Z13    0.84850
-lead
-
-pin P4Z14
-fuelP4Z14 	0.78550
-odsP4Z14    0.84850
-lead
-
-pin P4Z15
-fuelP4Z15 	0.78550
-odsP4Z15    0.84850
-lead
-
-pin P4Z16
-fuelP4Z16 	0.78550
-odsP4Z16    0.84850
-lead
-
-pin P4Z17
-fuelP4Z17 	0.78550
-odsP4Z17    0.84850
-lead
-
-pin P4Z18
-fuelP4Z18 	0.78550
-odsP4Z18    0.84850
-lead
-
-pin P4Z19
-fuelP4Z19 	0.78550
-odsP4Z19    0.84850
-lead
-
-pin P4Z20
-fuelP4Z20 	0.78550
-odsP4Z20    0.84850
-lead
-
-pin P4Z21
-fuelP4Z21 	0.78550
-odsP4Z21    0.84850
-lead
-
-pin P4Z22
-fuelP4Z22 	0.78550
-odsP4Z22    0.84850
 lead
 
 pin P5Z1
@@ -496,61 +276,6 @@ fuelP5Z11 	0.78550
 odsP5Z11    0.84850
 lead
 
-pin P5Z12
-fuelP5Z12 	0.78550
-odsP5Z12    0.84850
-lead
-
-pin P5Z13
-fuelP5Z13 	0.78550
-odsP5Z13    0.84850
-lead
-
-pin P5Z14
-fuelP5Z14 	0.78550
-odsP5Z14    0.84850
-lead
-
-pin P5Z15
-fuelP5Z15 	0.78550
-odsP5Z15    0.84850
-lead
-
-pin P5Z16
-fuelP5Z16 	0.78550
-odsP5Z16    0.84850
-lead
-
-pin P5Z17
-fuelP5Z17 	0.78550
-odsP5Z17    0.84850
-lead
-
-pin P5Z18
-fuelP5Z18 	0.78550
-odsP5Z18    0.84850
-lead
-
-pin P5Z19
-fuelP5Z19 	0.78550
-odsP5Z19    0.84850
-lead
-
-pin P5Z20
-fuelP5Z20 	0.78550
-odsP5Z20    0.84850
-lead
-
-pin P5Z21
-fuelP5Z21 	0.78550
-odsP5Z21    0.84850
-lead
-
-pin P5Z22
-fuelP5Z22 	0.78550
-odsP5Z22    0.84850
-lead
-
 pin P6Z1
 fuelP6Z1 	0.78550
 odsP6Z1    0.84850
@@ -604,61 +329,6 @@ lead
 pin P6Z11
 fuelP6Z11 	0.78550
 odsP6Z11    0.84850
-lead
-
-pin P6Z12
-fuelP6Z12 	0.78550
-odsP6Z12    0.84850
-lead
-
-pin P6Z13
-fuelP6Z13 	0.78550
-odsP6Z13    0.84850
-lead
-
-pin P6Z14
-fuelP6Z14 	0.78550
-odsP6Z14    0.84850
-lead
-
-pin P6Z15
-fuelP6Z15 	0.78550
-odsP6Z15    0.84850
-lead
-
-pin P6Z16
-fuelP6Z16 	0.78550
-odsP6Z16    0.84850
-lead
-
-pin P6Z17
-fuelP6Z17 	0.78550
-odsP6Z17    0.84850
-lead
-
-pin P6Z18
-fuelP6Z18 	0.78550
-odsP6Z18    0.84850
-lead
-
-pin P6Z19
-fuelP6Z19 	0.78550
-odsP6Z19    0.84850
-lead
-
-pin P6Z20
-fuelP6Z20 	0.78550
-odsP6Z20    0.84850
-lead
-
-pin P6Z21
-fuelP6Z21 	0.78550
-odsP6Z21    0.84850
-lead
-
-pin P6Z22
-fuelP6Z22 	0.78550
-odsP6Z22    0.84850
 lead
 
 pin P7Z1
@@ -716,61 +386,6 @@ fuelP7Z11 	0.78550
 odsP7Z11    0.84850
 lead
 
-pin P7Z12
-fuelP7Z12 	0.78550
-odsP7Z12    0.84850
-lead
-
-pin P7Z13
-fuelP7Z13 	0.78550
-odsP7Z13    0.84850
-lead
-
-pin P7Z14
-fuelP7Z14 	0.78550
-odsP7Z14    0.84850
-lead
-
-pin P7Z15
-fuelP7Z15 	0.78550
-odsP7Z15    0.84850
-lead
-
-pin P7Z16
-fuelP7Z16 	0.78550
-odsP7Z16    0.84850
-lead
-
-pin P7Z17
-fuelP7Z17 	0.78550
-odsP7Z17    0.84850
-lead
-
-pin P7Z18
-fuelP7Z18 	0.78550
-odsP7Z18    0.84850
-lead
-
-pin P7Z19
-fuelP7Z19 	0.78550
-odsP7Z19    0.84850
-lead
-
-pin P7Z20
-fuelP7Z20 	0.78550
-odsP7Z20    0.84850
-lead
-
-pin P7Z21
-fuelP7Z21 	0.78550
-odsP7Z21    0.84850
-lead
-
-pin P7Z22
-fuelP7Z22 	0.78550
-odsP7Z22    0.84850
-lead
-
 pin P8Z1
 fuelP8Z1 	0.78550
 odsP8Z1    0.84850
@@ -824,61 +439,6 @@ lead
 pin P8Z11
 fuelP8Z11 	0.78550
 odsP8Z11    0.84850
-lead
-
-pin P8Z12
-fuelP8Z12 	0.78550
-odsP8Z12    0.84850
-lead
-
-pin P8Z13
-fuelP8Z13 	0.78550
-odsP8Z13    0.84850
-lead
-
-pin P8Z14
-fuelP8Z14 	0.78550
-odsP8Z14    0.84850
-lead
-
-pin P8Z15
-fuelP8Z15 	0.78550
-odsP8Z15    0.84850
-lead
-
-pin P8Z16
-fuelP8Z16 	0.78550
-odsP8Z16    0.84850
-lead
-
-pin P8Z17
-fuelP8Z17 	0.78550
-odsP8Z17    0.84850
-lead
-
-pin P8Z18
-fuelP8Z18 	0.78550
-odsP8Z18    0.84850
-lead
-
-pin P8Z19
-fuelP8Z19 	0.78550
-odsP8Z19    0.84850
-lead
-
-pin P8Z20
-fuelP8Z20 	0.78550
-odsP8Z20    0.84850
-lead
-
-pin P8Z21
-fuelP8Z21 	0.78550
-odsP8Z21    0.84850
-lead
-
-pin P8Z22
-fuelP8Z22 	0.78550
-odsP8Z22    0.84850
 lead
 
 pin P9Z1
@@ -936,61 +496,6 @@ fuelP9Z11 	0.78550
 odsP9Z11    0.84850
 lead
 
-pin P9Z12
-fuelP9Z12 	0.78550
-odsP9Z12    0.84850
-lead
-
-pin P9Z13
-fuelP9Z13 	0.78550
-odsP9Z13    0.84850
-lead
-
-pin P9Z14
-fuelP9Z14 	0.78550
-odsP9Z14    0.84850
-lead
-
-pin P9Z15
-fuelP9Z15 	0.78550
-odsP9Z15    0.84850
-lead
-
-pin P9Z16
-fuelP9Z16 	0.78550
-odsP9Z16    0.84850
-lead
-
-pin P9Z17
-fuelP9Z17 	0.78550
-odsP9Z17    0.84850
-lead
-
-pin P9Z18
-fuelP9Z18 	0.78550
-odsP9Z18    0.84850
-lead
-
-pin P9Z19
-fuelP9Z19 	0.78550
-odsP9Z19    0.84850
-lead
-
-pin P9Z20
-fuelP9Z20 	0.78550
-odsP9Z20    0.84850
-lead
-
-pin P9Z21
-fuelP9Z21 	0.78550
-odsP9Z21    0.84850
-lead
-
-pin P9Z22
-fuelP9Z22 	0.78550
-odsP9Z22    0.84850
-lead
-
 pin P10Z1
 fuelP10Z1 	0.78550
 odsP10Z1    0.84850
@@ -1044,61 +549,6 @@ lead
 pin P10Z11
 fuelP10Z11 	0.78550
 odsP10Z11    0.84850
-lead
-
-pin P10Z12
-fuelP10Z12 	0.78550
-odsP10Z12    0.84850
-lead
-
-pin P10Z13
-fuelP10Z13 	0.78550
-odsP10Z13    0.84850
-lead
-
-pin P10Z14
-fuelP10Z14 	0.78550
-odsP10Z14    0.84850
-lead
-
-pin P10Z15
-fuelP10Z15 	0.78550
-odsP10Z15    0.84850
-lead
-
-pin P10Z16
-fuelP10Z16 	0.78550
-odsP10Z16    0.84850
-lead
-
-pin P10Z17
-fuelP10Z17 	0.78550
-odsP10Z17    0.84850
-lead
-
-pin P10Z18
-fuelP10Z18 	0.78550
-odsP10Z18    0.84850
-lead
-
-pin P10Z19
-fuelP10Z19 	0.78550
-odsP10Z19    0.84850
-lead
-
-pin P10Z20
-fuelP10Z20 	0.78550
-odsP10Z20    0.84850
-lead
-
-pin P10Z21
-fuelP10Z21 	0.78550
-odsP10Z21    0.84850
-lead
-
-pin P10Z22
-fuelP10Z22 	0.78550
-odsP10Z22    0.84850
 lead
 
 pin P11Z1
@@ -1156,61 +606,6 @@ fuelP11Z11 	0.78550
 odsP11Z11    0.84850
 lead
 
-pin P11Z12
-fuelP11Z12 	0.78550
-odsP11Z12    0.84850
-lead
-
-pin P11Z13
-fuelP11Z13 	0.78550
-odsP11Z13    0.84850
-lead
-
-pin P11Z14
-fuelP11Z14 	0.78550
-odsP11Z14    0.84850
-lead
-
-pin P11Z15
-fuelP11Z15 	0.78550
-odsP11Z15    0.84850
-lead
-
-pin P11Z16
-fuelP11Z16 	0.78550
-odsP11Z16    0.84850
-lead
-
-pin P11Z17
-fuelP11Z17 	0.78550
-odsP11Z17    0.84850
-lead
-
-pin P11Z18
-fuelP11Z18 	0.78550
-odsP11Z18    0.84850
-lead
-
-pin P11Z19
-fuelP11Z19 	0.78550
-odsP11Z19    0.84850
-lead
-
-pin P11Z20
-fuelP11Z20 	0.78550
-odsP11Z20    0.84850
-lead
-
-pin P11Z21
-fuelP11Z21 	0.78550
-odsP11Z21    0.84850
-lead
-
-pin P11Z22
-fuelP11Z22 	0.78550
-odsP11Z22    0.84850
-lead
-
 pin P12Z1
 fuelP12Z1 	0.78550
 odsP12Z1    0.84850
@@ -1264,61 +659,6 @@ lead
 pin P12Z11
 fuelP12Z11 	0.78550
 odsP12Z11    0.84850
-lead
-
-pin P12Z12
-fuelP12Z12 	0.78550
-odsP12Z12    0.84850
-lead
-
-pin P12Z13
-fuelP12Z13 	0.78550
-odsP12Z13    0.84850
-lead
-
-pin P12Z14
-fuelP12Z14 	0.78550
-odsP12Z14    0.84850
-lead
-
-pin P12Z15
-fuelP12Z15 	0.78550
-odsP12Z15    0.84850
-lead
-
-pin P12Z16
-fuelP12Z16 	0.78550
-odsP12Z16    0.84850
-lead
-
-pin P12Z17
-fuelP12Z17 	0.78550
-odsP12Z17    0.84850
-lead
-
-pin P12Z18
-fuelP12Z18 	0.78550
-odsP12Z18    0.84850
-lead
-
-pin P12Z19
-fuelP12Z19 	0.78550
-odsP12Z19    0.84850
-lead
-
-pin P12Z20
-fuelP12Z20 	0.78550
-odsP12Z20    0.84850
-lead
-
-pin P12Z21
-fuelP12Z21 	0.78550
-odsP12Z21    0.84850
-lead
-
-pin P12Z22
-fuelP12Z22 	0.78550
-odsP12Z22    0.84850
 lead
 
 pin P13Z1
@@ -1376,61 +716,6 @@ fuelP13Z11 	0.78550
 odsP13Z11    0.84850
 lead
 
-pin P13Z12
-fuelP13Z12 	0.78550
-odsP13Z12    0.84850
-lead
-
-pin P13Z13
-fuelP13Z13 	0.78550
-odsP13Z13    0.84850
-lead
-
-pin P13Z14
-fuelP13Z14 	0.78550
-odsP13Z14    0.84850
-lead
-
-pin P13Z15
-fuelP13Z15 	0.78550
-odsP13Z15    0.84850
-lead
-
-pin P13Z16
-fuelP13Z16 	0.78550
-odsP13Z16    0.84850
-lead
-
-pin P13Z17
-fuelP13Z17 	0.78550
-odsP13Z17    0.84850
-lead
-
-pin P13Z18
-fuelP13Z18 	0.78550
-odsP13Z18    0.84850
-lead
-
-pin P13Z19
-fuelP13Z19 	0.78550
-odsP13Z19    0.84850
-lead
-
-pin P13Z20
-fuelP13Z20 	0.78550
-odsP13Z20    0.84850
-lead
-
-pin P13Z21
-fuelP13Z21 	0.78550
-odsP13Z21    0.84850
-lead
-
-pin P13Z22
-fuelP13Z22 	0.78550
-odsP13Z22    0.84850
-lead
-
 pin P14Z1
 fuelP14Z1 	0.78550
 odsP14Z1    0.84850
@@ -1484,61 +769,6 @@ lead
 pin P14Z11
 fuelP14Z11 	0.78550
 odsP14Z11    0.84850
-lead
-
-pin P14Z12
-fuelP14Z12 	0.78550
-odsP14Z12    0.84850
-lead
-
-pin P14Z13
-fuelP14Z13 	0.78550
-odsP14Z13    0.84850
-lead
-
-pin P14Z14
-fuelP14Z14 	0.78550
-odsP14Z14    0.84850
-lead
-
-pin P14Z15
-fuelP14Z15 	0.78550
-odsP14Z15    0.84850
-lead
-
-pin P14Z16
-fuelP14Z16 	0.78550
-odsP14Z16    0.84850
-lead
-
-pin P14Z17
-fuelP14Z17 	0.78550
-odsP14Z17    0.84850
-lead
-
-pin P14Z18
-fuelP14Z18 	0.78550
-odsP14Z18    0.84850
-lead
-
-pin P14Z19
-fuelP14Z19 	0.78550
-odsP14Z19    0.84850
-lead
-
-pin P14Z20
-fuelP14Z20 	0.78550
-odsP14Z20    0.84850
-lead
-
-pin P14Z21
-fuelP14Z21 	0.78550
-odsP14Z21    0.84850
-lead
-
-pin P14Z22
-fuelP14Z22 	0.78550
-odsP14Z22    0.84850
 lead
 
 pin P15Z1
@@ -1596,61 +826,6 @@ fuelP15Z11 	0.78550
 odsP15Z11    0.84850
 lead
 
-pin P15Z12
-fuelP15Z12 	0.78550
-odsP15Z12    0.84850
-lead
-
-pin P15Z13
-fuelP15Z13 	0.78550
-odsP15Z13    0.84850
-lead
-
-pin P15Z14
-fuelP15Z14 	0.78550
-odsP15Z14    0.84850
-lead
-
-pin P15Z15
-fuelP15Z15 	0.78550
-odsP15Z15    0.84850
-lead
-
-pin P15Z16
-fuelP15Z16 	0.78550
-odsP15Z16    0.84850
-lead
-
-pin P15Z17
-fuelP15Z17 	0.78550
-odsP15Z17    0.84850
-lead
-
-pin P15Z18
-fuelP15Z18 	0.78550
-odsP15Z18    0.84850
-lead
-
-pin P15Z19
-fuelP15Z19 	0.78550
-odsP15Z19    0.84850
-lead
-
-pin P15Z20
-fuelP15Z20 	0.78550
-odsP15Z20    0.84850
-lead
-
-pin P15Z21
-fuelP15Z21 	0.78550
-odsP15Z21    0.84850
-lead
-
-pin P15Z22
-fuelP15Z22 	0.78550
-odsP15Z22    0.84850
-lead
-
 pin P16Z1
 fuelP16Z1 	0.78550
 odsP16Z1    0.84850
@@ -1704,61 +879,6 @@ lead
 pin P16Z11
 fuelP16Z11 	0.78550
 odsP16Z11    0.84850
-lead
-
-pin P16Z12
-fuelP16Z12 	0.78550
-odsP16Z12    0.84850
-lead
-
-pin P16Z13
-fuelP16Z13 	0.78550
-odsP16Z13    0.84850
-lead
-
-pin P16Z14
-fuelP16Z14 	0.78550
-odsP16Z14    0.84850
-lead
-
-pin P16Z15
-fuelP16Z15 	0.78550
-odsP16Z15    0.84850
-lead
-
-pin P16Z16
-fuelP16Z16 	0.78550
-odsP16Z16    0.84850
-lead
-
-pin P16Z17
-fuelP16Z17 	0.78550
-odsP16Z17    0.84850
-lead
-
-pin P16Z18
-fuelP16Z18 	0.78550
-odsP16Z18    0.84850
-lead
-
-pin P16Z19
-fuelP16Z19 	0.78550
-odsP16Z19    0.84850
-lead
-
-pin P16Z20
-fuelP16Z20 	0.78550
-odsP16Z20    0.84850
-lead
-
-pin P16Z21
-fuelP16Z21 	0.78550
-odsP16Z21    0.84850
-lead
-
-pin P16Z22
-fuelP16Z22 	0.78550
-odsP16Z22    0.84850
 lead
 
 pin P17Z1
@@ -1816,61 +936,6 @@ fuelP17Z11 	0.78550
 odsP17Z11    0.84850
 lead
 
-pin P17Z12
-fuelP17Z12 	0.78550
-odsP17Z12    0.84850
-lead
-
-pin P17Z13
-fuelP17Z13 	0.78550
-odsP17Z13    0.84850
-lead
-
-pin P17Z14
-fuelP17Z14 	0.78550
-odsP17Z14    0.84850
-lead
-
-pin P17Z15
-fuelP17Z15 	0.78550
-odsP17Z15    0.84850
-lead
-
-pin P17Z16
-fuelP17Z16 	0.78550
-odsP17Z16    0.84850
-lead
-
-pin P17Z17
-fuelP17Z17 	0.78550
-odsP17Z17    0.84850
-lead
-
-pin P17Z18
-fuelP17Z18 	0.78550
-odsP17Z18    0.84850
-lead
-
-pin P17Z19
-fuelP17Z19 	0.78550
-odsP17Z19    0.84850
-lead
-
-pin P17Z20
-fuelP17Z20 	0.78550
-odsP17Z20    0.84850
-lead
-
-pin P17Z21
-fuelP17Z21 	0.78550
-odsP17Z21    0.84850
-lead
-
-pin P17Z22
-fuelP17Z22 	0.78550
-odsP17Z22    0.84850
-lead
-
 pin P18Z1
 fuelP18Z1 	0.78550
 odsP18Z1    0.84850
@@ -1924,61 +989,6 @@ lead
 pin P18Z11
 fuelP18Z11 	0.78550
 odsP18Z11    0.84850
-lead
-
-pin P18Z12
-fuelP18Z12 	0.78550
-odsP18Z12    0.84850
-lead
-
-pin P18Z13
-fuelP18Z13 	0.78550
-odsP18Z13    0.84850
-lead
-
-pin P18Z14
-fuelP18Z14 	0.78550
-odsP18Z14    0.84850
-lead
-
-pin P18Z15
-fuelP18Z15 	0.78550
-odsP18Z15    0.84850
-lead
-
-pin P18Z16
-fuelP18Z16 	0.78550
-odsP18Z16    0.84850
-lead
-
-pin P18Z17
-fuelP18Z17 	0.78550
-odsP18Z17    0.84850
-lead
-
-pin P18Z18
-fuelP18Z18 	0.78550
-odsP18Z18    0.84850
-lead
-
-pin P18Z19
-fuelP18Z19 	0.78550
-odsP18Z19    0.84850
-lead
-
-pin P18Z20
-fuelP18Z20 	0.78550
-odsP18Z20    0.84850
-lead
-
-pin P18Z21
-fuelP18Z21 	0.78550
-odsP18Z21    0.84850
-lead
-
-pin P18Z22
-fuelP18Z22 	0.78550
-odsP18Z22    0.84850
 lead
 
 pin P19Z1
@@ -2036,61 +1046,6 @@ fuelP19Z11 	0.78550
 odsP19Z11    0.84850
 lead
 
-pin P19Z12
-fuelP19Z12 	0.78550
-odsP19Z12    0.84850
-lead
-
-pin P19Z13
-fuelP19Z13 	0.78550
-odsP19Z13    0.84850
-lead
-
-pin P19Z14
-fuelP19Z14 	0.78550
-odsP19Z14    0.84850
-lead
-
-pin P19Z15
-fuelP19Z15 	0.78550
-odsP19Z15    0.84850
-lead
-
-pin P19Z16
-fuelP19Z16 	0.78550
-odsP19Z16    0.84850
-lead
-
-pin P19Z17
-fuelP19Z17 	0.78550
-odsP19Z17    0.84850
-lead
-
-pin P19Z18
-fuelP19Z18 	0.78550
-odsP19Z18    0.84850
-lead
-
-pin P19Z19
-fuelP19Z19 	0.78550
-odsP19Z19    0.84850
-lead
-
-pin P19Z20
-fuelP19Z20 	0.78550
-odsP19Z20    0.84850
-lead
-
-pin P19Z21
-fuelP19Z21 	0.78550
-odsP19Z21    0.84850
-lead
-
-pin P19Z22
-fuelP19Z22 	0.78550
-odsP19Z22    0.84850
-lead
-
 pin P20Z1
 fuelP20Z1 	0.78550
 odsP20Z1    0.84850
@@ -2144,61 +1099,6 @@ lead
 pin P20Z11
 fuelP20Z11 	0.78550
 odsP20Z11    0.84850
-lead
-
-pin P20Z12
-fuelP20Z12 	0.78550
-odsP20Z12    0.84850
-lead
-
-pin P20Z13
-fuelP20Z13 	0.78550
-odsP20Z13    0.84850
-lead
-
-pin P20Z14
-fuelP20Z14 	0.78550
-odsP20Z14    0.84850
-lead
-
-pin P20Z15
-fuelP20Z15 	0.78550
-odsP20Z15    0.84850
-lead
-
-pin P20Z16
-fuelP20Z16 	0.78550
-odsP20Z16    0.84850
-lead
-
-pin P20Z17
-fuelP20Z17 	0.78550
-odsP20Z17    0.84850
-lead
-
-pin P20Z18
-fuelP20Z18 	0.78550
-odsP20Z18    0.84850
-lead
-
-pin P20Z19
-fuelP20Z19 	0.78550
-odsP20Z19    0.84850
-lead
-
-pin P20Z20
-fuelP20Z20 	0.78550
-odsP20Z20    0.84850
-lead
-
-pin P20Z21
-fuelP20Z21 	0.78550
-odsP20Z21    0.84850
-lead
-
-pin P20Z22
-fuelP20Z22 	0.78550
-odsP20Z22    0.84850
 lead
 
 pin P21Z1
@@ -2256,61 +1156,6 @@ fuelP21Z11 	0.78550
 odsP21Z11    0.84850
 lead
 
-pin P21Z12
-fuelP21Z12 	0.78550
-odsP21Z12    0.84850
-lead
-
-pin P21Z13
-fuelP21Z13 	0.78550
-odsP21Z13    0.84850
-lead
-
-pin P21Z14
-fuelP21Z14 	0.78550
-odsP21Z14    0.84850
-lead
-
-pin P21Z15
-fuelP21Z15 	0.78550
-odsP21Z15    0.84850
-lead
-
-pin P21Z16
-fuelP21Z16 	0.78550
-odsP21Z16    0.84850
-lead
-
-pin P21Z17
-fuelP21Z17 	0.78550
-odsP21Z17    0.84850
-lead
-
-pin P21Z18
-fuelP21Z18 	0.78550
-odsP21Z18    0.84850
-lead
-
-pin P21Z19
-fuelP21Z19 	0.78550
-odsP21Z19    0.84850
-lead
-
-pin P21Z20
-fuelP21Z20 	0.78550
-odsP21Z20    0.84850
-lead
-
-pin P21Z21
-fuelP21Z21 	0.78550
-odsP21Z21    0.84850
-lead
-
-pin P21Z22
-fuelP21Z22 	0.78550
-odsP21Z22    0.84850
-lead
-
 pin P22Z1
 fuelP22Z1 	0.78550
 odsP22Z1    0.84850
@@ -2364,61 +1209,6 @@ lead
 pin P22Z11
 fuelP22Z11 	0.78550
 odsP22Z11    0.84850
-lead
-
-pin P22Z12
-fuelP22Z12 	0.78550
-odsP22Z12    0.84850
-lead
-
-pin P22Z13
-fuelP22Z13 	0.78550
-odsP22Z13    0.84850
-lead
-
-pin P22Z14
-fuelP22Z14 	0.78550
-odsP22Z14    0.84850
-lead
-
-pin P22Z15
-fuelP22Z15 	0.78550
-odsP22Z15    0.84850
-lead
-
-pin P22Z16
-fuelP22Z16 	0.78550
-odsP22Z16    0.84850
-lead
-
-pin P22Z17
-fuelP22Z17 	0.78550
-odsP22Z17    0.84850
-lead
-
-pin P22Z18
-fuelP22Z18 	0.78550
-odsP22Z18    0.84850
-lead
-
-pin P22Z19
-fuelP22Z19 	0.78550
-odsP22Z19    0.84850
-lead
-
-pin P22Z20
-fuelP22Z20 	0.78550
-odsP22Z20    0.84850
-lead
-
-pin P22Z21
-fuelP22Z21 	0.78550
-odsP22Z21    0.84850
-lead
-
-pin P22Z22
-fuelP22Z22 	0.78550
-odsP22Z22    0.84850
 lead
 
 pin P23Z1
@@ -2476,61 +1266,6 @@ fuelP23Z11 	0.78550
 odsP23Z11    0.84850
 lead
 
-pin P23Z12
-fuelP23Z12 	0.78550
-odsP23Z12    0.84850
-lead
-
-pin P23Z13
-fuelP23Z13 	0.78550
-odsP23Z13    0.84850
-lead
-
-pin P23Z14
-fuelP23Z14 	0.78550
-odsP23Z14    0.84850
-lead
-
-pin P23Z15
-fuelP23Z15 	0.78550
-odsP23Z15    0.84850
-lead
-
-pin P23Z16
-fuelP23Z16 	0.78550
-odsP23Z16    0.84850
-lead
-
-pin P23Z17
-fuelP23Z17 	0.78550
-odsP23Z17    0.84850
-lead
-
-pin P23Z18
-fuelP23Z18 	0.78550
-odsP23Z18    0.84850
-lead
-
-pin P23Z19
-fuelP23Z19 	0.78550
-odsP23Z19    0.84850
-lead
-
-pin P23Z20
-fuelP23Z20 	0.78550
-odsP23Z20    0.84850
-lead
-
-pin P23Z21
-fuelP23Z21 	0.78550
-odsP23Z21    0.84850
-lead
-
-pin P23Z22
-fuelP23Z22 	0.78550
-odsP23Z22    0.84850
-lead
-
 pin P24Z1
 fuelP24Z1 	0.78550
 odsP24Z1    0.84850
@@ -2584,61 +1319,6 @@ lead
 pin P24Z11
 fuelP24Z11 	0.78550
 odsP24Z11    0.84850
-lead
-
-pin P24Z12
-fuelP24Z12 	0.78550
-odsP24Z12    0.84850
-lead
-
-pin P24Z13
-fuelP24Z13 	0.78550
-odsP24Z13    0.84850
-lead
-
-pin P24Z14
-fuelP24Z14 	0.78550
-odsP24Z14    0.84850
-lead
-
-pin P24Z15
-fuelP24Z15 	0.78550
-odsP24Z15    0.84850
-lead
-
-pin P24Z16
-fuelP24Z16 	0.78550
-odsP24Z16    0.84850
-lead
-
-pin P24Z17
-fuelP24Z17 	0.78550
-odsP24Z17    0.84850
-lead
-
-pin P24Z18
-fuelP24Z18 	0.78550
-odsP24Z18    0.84850
-lead
-
-pin P24Z19
-fuelP24Z19 	0.78550
-odsP24Z19    0.84850
-lead
-
-pin P24Z20
-fuelP24Z20 	0.78550
-odsP24Z20    0.84850
-lead
-
-pin P24Z21
-fuelP24Z21 	0.78550
-odsP24Z21    0.84850
-lead
-
-pin P24Z22
-fuelP24Z22 	0.78550
-odsP24Z22    0.84850
 lead
 
 pin P25Z1
@@ -2696,61 +1376,6 @@ fuelP25Z11 	0.78550
 odsP25Z11    0.84850
 lead
 
-pin P25Z12
-fuelP25Z12 	0.78550
-odsP25Z12    0.84850
-lead
-
-pin P25Z13
-fuelP25Z13 	0.78550
-odsP25Z13    0.84850
-lead
-
-pin P25Z14
-fuelP25Z14 	0.78550
-odsP25Z14    0.84850
-lead
-
-pin P25Z15
-fuelP25Z15 	0.78550
-odsP25Z15    0.84850
-lead
-
-pin P25Z16
-fuelP25Z16 	0.78550
-odsP25Z16    0.84850
-lead
-
-pin P25Z17
-fuelP25Z17 	0.78550
-odsP25Z17    0.84850
-lead
-
-pin P25Z18
-fuelP25Z18 	0.78550
-odsP25Z18    0.84850
-lead
-
-pin P25Z19
-fuelP25Z19 	0.78550
-odsP25Z19    0.84850
-lead
-
-pin P25Z20
-fuelP25Z20 	0.78550
-odsP25Z20    0.84850
-lead
-
-pin P25Z21
-fuelP25Z21 	0.78550
-odsP25Z21    0.84850
-lead
-
-pin P25Z22
-fuelP25Z22 	0.78550
-odsP25Z22    0.84850
-lead
-
 pin P26Z1
 fuelP26Z1 	0.78550
 odsP26Z1    0.84850
@@ -2804,61 +1429,6 @@ lead
 pin P26Z11
 fuelP26Z11 	0.78550
 odsP26Z11    0.84850
-lead
-
-pin P26Z12
-fuelP26Z12 	0.78550
-odsP26Z12    0.84850
-lead
-
-pin P26Z13
-fuelP26Z13 	0.78550
-odsP26Z13    0.84850
-lead
-
-pin P26Z14
-fuelP26Z14 	0.78550
-odsP26Z14    0.84850
-lead
-
-pin P26Z15
-fuelP26Z15 	0.78550
-odsP26Z15    0.84850
-lead
-
-pin P26Z16
-fuelP26Z16 	0.78550
-odsP26Z16    0.84850
-lead
-
-pin P26Z17
-fuelP26Z17 	0.78550
-odsP26Z17    0.84850
-lead
-
-pin P26Z18
-fuelP26Z18 	0.78550
-odsP26Z18    0.84850
-lead
-
-pin P26Z19
-fuelP26Z19 	0.78550
-odsP26Z19    0.84850
-lead
-
-pin P26Z20
-fuelP26Z20 	0.78550
-odsP26Z20    0.84850
-lead
-
-pin P26Z21
-fuelP26Z21 	0.78550
-odsP26Z21    0.84850
-lead
-
-pin P26Z22
-fuelP26Z22 	0.78550
-odsP26Z22    0.84850
 lead
 
 pin P27Z1
@@ -2916,61 +1486,6 @@ fuelP27Z11 	0.78550
 odsP27Z11    0.84850
 lead
 
-pin P27Z12
-fuelP27Z12 	0.78550
-odsP27Z12    0.84850
-lead
-
-pin P27Z13
-fuelP27Z13 	0.78550
-odsP27Z13    0.84850
-lead
-
-pin P27Z14
-fuelP27Z14 	0.78550
-odsP27Z14    0.84850
-lead
-
-pin P27Z15
-fuelP27Z15 	0.78550
-odsP27Z15    0.84850
-lead
-
-pin P27Z16
-fuelP27Z16 	0.78550
-odsP27Z16    0.84850
-lead
-
-pin P27Z17
-fuelP27Z17 	0.78550
-odsP27Z17    0.84850
-lead
-
-pin P27Z18
-fuelP27Z18 	0.78550
-odsP27Z18    0.84850
-lead
-
-pin P27Z19
-fuelP27Z19 	0.78550
-odsP27Z19    0.84850
-lead
-
-pin P27Z20
-fuelP27Z20 	0.78550
-odsP27Z20    0.84850
-lead
-
-pin P27Z21
-fuelP27Z21 	0.78550
-odsP27Z21    0.84850
-lead
-
-pin P27Z22
-fuelP27Z22 	0.78550
-odsP27Z22    0.84850
-lead
-
 pin P28Z1
 fuelP28Z1 	0.78550
 odsP28Z1    0.84850
@@ -3024,61 +1539,6 @@ lead
 pin P28Z11
 fuelP28Z11 	0.78550
 odsP28Z11    0.84850
-lead
-
-pin P28Z12
-fuelP28Z12 	0.78550
-odsP28Z12    0.84850
-lead
-
-pin P28Z13
-fuelP28Z13 	0.78550
-odsP28Z13    0.84850
-lead
-
-pin P28Z14
-fuelP28Z14 	0.78550
-odsP28Z14    0.84850
-lead
-
-pin P28Z15
-fuelP28Z15 	0.78550
-odsP28Z15    0.84850
-lead
-
-pin P28Z16
-fuelP28Z16 	0.78550
-odsP28Z16    0.84850
-lead
-
-pin P28Z17
-fuelP28Z17 	0.78550
-odsP28Z17    0.84850
-lead
-
-pin P28Z18
-fuelP28Z18 	0.78550
-odsP28Z18    0.84850
-lead
-
-pin P28Z19
-fuelP28Z19 	0.78550
-odsP28Z19    0.84850
-lead
-
-pin P28Z20
-fuelP28Z20 	0.78550
-odsP28Z20    0.84850
-lead
-
-pin P28Z21
-fuelP28Z21 	0.78550
-odsP28Z21    0.84850
-lead
-
-pin P28Z22
-fuelP28Z22 	0.78550
-odsP28Z22    0.84850
 lead
 
 pin P29Z1
@@ -3136,61 +1596,6 @@ fuelP29Z11 	0.78550
 odsP29Z11    0.84850
 lead
 
-pin P29Z12
-fuelP29Z12 	0.78550
-odsP29Z12    0.84850
-lead
-
-pin P29Z13
-fuelP29Z13 	0.78550
-odsP29Z13    0.84850
-lead
-
-pin P29Z14
-fuelP29Z14 	0.78550
-odsP29Z14    0.84850
-lead
-
-pin P29Z15
-fuelP29Z15 	0.78550
-odsP29Z15    0.84850
-lead
-
-pin P29Z16
-fuelP29Z16 	0.78550
-odsP29Z16    0.84850
-lead
-
-pin P29Z17
-fuelP29Z17 	0.78550
-odsP29Z17    0.84850
-lead
-
-pin P29Z18
-fuelP29Z18 	0.78550
-odsP29Z18    0.84850
-lead
-
-pin P29Z19
-fuelP29Z19 	0.78550
-odsP29Z19    0.84850
-lead
-
-pin P29Z20
-fuelP29Z20 	0.78550
-odsP29Z20    0.84850
-lead
-
-pin P29Z21
-fuelP29Z21 	0.78550
-odsP29Z21    0.84850
-lead
-
-pin P29Z22
-fuelP29Z22 	0.78550
-odsP29Z22    0.84850
-lead
-
 pin P30Z1
 fuelP30Z1 	0.78550
 odsP30Z1    0.84850
@@ -3244,61 +1649,6 @@ lead
 pin P30Z11
 fuelP30Z11 	0.78550
 odsP30Z11    0.84850
-lead
-
-pin P30Z12
-fuelP30Z12 	0.78550
-odsP30Z12    0.84850
-lead
-
-pin P30Z13
-fuelP30Z13 	0.78550
-odsP30Z13    0.84850
-lead
-
-pin P30Z14
-fuelP30Z14 	0.78550
-odsP30Z14    0.84850
-lead
-
-pin P30Z15
-fuelP30Z15 	0.78550
-odsP30Z15    0.84850
-lead
-
-pin P30Z16
-fuelP30Z16 	0.78550
-odsP30Z16    0.84850
-lead
-
-pin P30Z17
-fuelP30Z17 	0.78550
-odsP30Z17    0.84850
-lead
-
-pin P30Z18
-fuelP30Z18 	0.78550
-odsP30Z18    0.84850
-lead
-
-pin P30Z19
-fuelP30Z19 	0.78550
-odsP30Z19    0.84850
-lead
-
-pin P30Z20
-fuelP30Z20 	0.78550
-odsP30Z20    0.84850
-lead
-
-pin P30Z21
-fuelP30Z21 	0.78550
-odsP30Z21    0.84850
-lead
-
-pin P30Z22
-fuelP30Z22 	0.78550
-odsP30Z22    0.84850
 lead
 
 pin P31Z1
@@ -3356,61 +1706,6 @@ fuelP31Z11 	0.78550
 odsP31Z11    0.84850
 lead
 
-pin P31Z12
-fuelP31Z12 	0.78550
-odsP31Z12    0.84850
-lead
-
-pin P31Z13
-fuelP31Z13 	0.78550
-odsP31Z13    0.84850
-lead
-
-pin P31Z14
-fuelP31Z14 	0.78550
-odsP31Z14    0.84850
-lead
-
-pin P31Z15
-fuelP31Z15 	0.78550
-odsP31Z15    0.84850
-lead
-
-pin P31Z16
-fuelP31Z16 	0.78550
-odsP31Z16    0.84850
-lead
-
-pin P31Z17
-fuelP31Z17 	0.78550
-odsP31Z17    0.84850
-lead
-
-pin P31Z18
-fuelP31Z18 	0.78550
-odsP31Z18    0.84850
-lead
-
-pin P31Z19
-fuelP31Z19 	0.78550
-odsP31Z19    0.84850
-lead
-
-pin P31Z20
-fuelP31Z20 	0.78550
-odsP31Z20    0.84850
-lead
-
-pin P31Z21
-fuelP31Z21 	0.78550
-odsP31Z21    0.84850
-lead
-
-pin P31Z22
-fuelP31Z22 	0.78550
-odsP31Z22    0.84850
-lead
-
 pin P32Z1
 fuelP32Z1 	0.78550
 odsP32Z1    0.84850
@@ -3464,61 +1759,6 @@ lead
 pin P32Z11
 fuelP32Z11 	0.78550
 odsP32Z11    0.84850
-lead
-
-pin P32Z12
-fuelP32Z12 	0.78550
-odsP32Z12    0.84850
-lead
-
-pin P32Z13
-fuelP32Z13 	0.78550
-odsP32Z13    0.84850
-lead
-
-pin P32Z14
-fuelP32Z14 	0.78550
-odsP32Z14    0.84850
-lead
-
-pin P32Z15
-fuelP32Z15 	0.78550
-odsP32Z15    0.84850
-lead
-
-pin P32Z16
-fuelP32Z16 	0.78550
-odsP32Z16    0.84850
-lead
-
-pin P32Z17
-fuelP32Z17 	0.78550
-odsP32Z17    0.84850
-lead
-
-pin P32Z18
-fuelP32Z18 	0.78550
-odsP32Z18    0.84850
-lead
-
-pin P32Z19
-fuelP32Z19 	0.78550
-odsP32Z19    0.84850
-lead
-
-pin P32Z20
-fuelP32Z20 	0.78550
-odsP32Z20    0.84850
-lead
-
-pin P32Z21
-fuelP32Z21 	0.78550
-odsP32Z21    0.84850
-lead
-
-pin P32Z22
-fuelP32Z22 	0.78550
-odsP32Z22    0.84850
 lead
 
 pin P33Z1
@@ -3576,61 +1816,6 @@ fuelP33Z11 	0.78550
 odsP33Z11    0.84850
 lead
 
-pin P33Z12
-fuelP33Z12 	0.78550
-odsP33Z12    0.84850
-lead
-
-pin P33Z13
-fuelP33Z13 	0.78550
-odsP33Z13    0.84850
-lead
-
-pin P33Z14
-fuelP33Z14 	0.78550
-odsP33Z14    0.84850
-lead
-
-pin P33Z15
-fuelP33Z15 	0.78550
-odsP33Z15    0.84850
-lead
-
-pin P33Z16
-fuelP33Z16 	0.78550
-odsP33Z16    0.84850
-lead
-
-pin P33Z17
-fuelP33Z17 	0.78550
-odsP33Z17    0.84850
-lead
-
-pin P33Z18
-fuelP33Z18 	0.78550
-odsP33Z18    0.84850
-lead
-
-pin P33Z19
-fuelP33Z19 	0.78550
-odsP33Z19    0.84850
-lead
-
-pin P33Z20
-fuelP33Z20 	0.78550
-odsP33Z20    0.84850
-lead
-
-pin P33Z21
-fuelP33Z21 	0.78550
-odsP33Z21    0.84850
-lead
-
-pin P33Z22
-fuelP33Z22 	0.78550
-odsP33Z22    0.84850
-lead
-
 pin P34Z1
 fuelP34Z1 	0.78550
 odsP34Z1    0.84850
@@ -3684,61 +1869,6 @@ lead
 pin P34Z11
 fuelP34Z11 	0.78550
 odsP34Z11    0.84850
-lead
-
-pin P34Z12
-fuelP34Z12 	0.78550
-odsP34Z12    0.84850
-lead
-
-pin P34Z13
-fuelP34Z13 	0.78550
-odsP34Z13    0.84850
-lead
-
-pin P34Z14
-fuelP34Z14 	0.78550
-odsP34Z14    0.84850
-lead
-
-pin P34Z15
-fuelP34Z15 	0.78550
-odsP34Z15    0.84850
-lead
-
-pin P34Z16
-fuelP34Z16 	0.78550
-odsP34Z16    0.84850
-lead
-
-pin P34Z17
-fuelP34Z17 	0.78550
-odsP34Z17    0.84850
-lead
-
-pin P34Z18
-fuelP34Z18 	0.78550
-odsP34Z18    0.84850
-lead
-
-pin P34Z19
-fuelP34Z19 	0.78550
-odsP34Z19    0.84850
-lead
-
-pin P34Z20
-fuelP34Z20 	0.78550
-odsP34Z20    0.84850
-lead
-
-pin P34Z21
-fuelP34Z21 	0.78550
-odsP34Z21    0.84850
-lead
-
-pin P34Z22
-fuelP34Z22 	0.78550
-odsP34Z22    0.84850
 lead
 
 pin P35Z1
@@ -3796,61 +1926,6 @@ fuelP35Z11 	0.78550
 odsP35Z11    0.84850
 lead
 
-pin P35Z12
-fuelP35Z12 	0.78550
-odsP35Z12    0.84850
-lead
-
-pin P35Z13
-fuelP35Z13 	0.78550
-odsP35Z13    0.84850
-lead
-
-pin P35Z14
-fuelP35Z14 	0.78550
-odsP35Z14    0.84850
-lead
-
-pin P35Z15
-fuelP35Z15 	0.78550
-odsP35Z15    0.84850
-lead
-
-pin P35Z16
-fuelP35Z16 	0.78550
-odsP35Z16    0.84850
-lead
-
-pin P35Z17
-fuelP35Z17 	0.78550
-odsP35Z17    0.84850
-lead
-
-pin P35Z18
-fuelP35Z18 	0.78550
-odsP35Z18    0.84850
-lead
-
-pin P35Z19
-fuelP35Z19 	0.78550
-odsP35Z19    0.84850
-lead
-
-pin P35Z20
-fuelP35Z20 	0.78550
-odsP35Z20    0.84850
-lead
-
-pin P35Z21
-fuelP35Z21 	0.78550
-odsP35Z21    0.84850
-lead
-
-pin P35Z22
-fuelP35Z22 	0.78550
-odsP35Z22    0.84850
-lead
-
 pin P36Z1
 fuelP36Z1 	0.78550
 odsP36Z1    0.84850
@@ -3904,61 +1979,6 @@ lead
 pin P36Z11
 fuelP36Z11 	0.78550
 odsP36Z11    0.84850
-lead
-
-pin P36Z12
-fuelP36Z12 	0.78550
-odsP36Z12    0.84850
-lead
-
-pin P36Z13
-fuelP36Z13 	0.78550
-odsP36Z13    0.84850
-lead
-
-pin P36Z14
-fuelP36Z14 	0.78550
-odsP36Z14    0.84850
-lead
-
-pin P36Z15
-fuelP36Z15 	0.78550
-odsP36Z15    0.84850
-lead
-
-pin P36Z16
-fuelP36Z16 	0.78550
-odsP36Z16    0.84850
-lead
-
-pin P36Z17
-fuelP36Z17 	0.78550
-odsP36Z17    0.84850
-lead
-
-pin P36Z18
-fuelP36Z18 	0.78550
-odsP36Z18    0.84850
-lead
-
-pin P36Z19
-fuelP36Z19 	0.78550
-odsP36Z19    0.84850
-lead
-
-pin P36Z20
-fuelP36Z20 	0.78550
-odsP36Z20    0.84850
-lead
-
-pin P36Z21
-fuelP36Z21 	0.78550
-odsP36Z21    0.84850
-lead
-
-pin P36Z22
-fuelP36Z22 	0.78550
-odsP36Z22    0.84850
 lead
 
 pin P37Z1
@@ -4016,61 +2036,6 @@ fuelP37Z11 	0.78550
 odsP37Z11    0.84850
 lead
 
-pin P37Z12
-fuelP37Z12 	0.78550
-odsP37Z12    0.84850
-lead
-
-pin P37Z13
-fuelP37Z13 	0.78550
-odsP37Z13    0.84850
-lead
-
-pin P37Z14
-fuelP37Z14 	0.78550
-odsP37Z14    0.84850
-lead
-
-pin P37Z15
-fuelP37Z15 	0.78550
-odsP37Z15    0.84850
-lead
-
-pin P37Z16
-fuelP37Z16 	0.78550
-odsP37Z16    0.84850
-lead
-
-pin P37Z17
-fuelP37Z17 	0.78550
-odsP37Z17    0.84850
-lead
-
-pin P37Z18
-fuelP37Z18 	0.78550
-odsP37Z18    0.84850
-lead
-
-pin P37Z19
-fuelP37Z19 	0.78550
-odsP37Z19    0.84850
-lead
-
-pin P37Z20
-fuelP37Z20 	0.78550
-odsP37Z20    0.84850
-lead
-
-pin P37Z21
-fuelP37Z21 	0.78550
-odsP37Z21    0.84850
-lead
-
-pin P37Z22
-fuelP37Z22 	0.78550
-odsP37Z22    0.84850
-lead
-
 pin P38Z1
 fuelP38Z1 	0.78550
 odsP38Z1    0.84850
@@ -4124,61 +2089,6 @@ lead
 pin P38Z11
 fuelP38Z11 	0.78550
 odsP38Z11    0.84850
-lead
-
-pin P38Z12
-fuelP38Z12 	0.78550
-odsP38Z12    0.84850
-lead
-
-pin P38Z13
-fuelP38Z13 	0.78550
-odsP38Z13    0.84850
-lead
-
-pin P38Z14
-fuelP38Z14 	0.78550
-odsP38Z14    0.84850
-lead
-
-pin P38Z15
-fuelP38Z15 	0.78550
-odsP38Z15    0.84850
-lead
-
-pin P38Z16
-fuelP38Z16 	0.78550
-odsP38Z16    0.84850
-lead
-
-pin P38Z17
-fuelP38Z17 	0.78550
-odsP38Z17    0.84850
-lead
-
-pin P38Z18
-fuelP38Z18 	0.78550
-odsP38Z18    0.84850
-lead
-
-pin P38Z19
-fuelP38Z19 	0.78550
-odsP38Z19    0.84850
-lead
-
-pin P38Z20
-fuelP38Z20 	0.78550
-odsP38Z20    0.84850
-lead
-
-pin P38Z21
-fuelP38Z21 	0.78550
-odsP38Z21    0.84850
-lead
-
-pin P38Z22
-fuelP38Z22 	0.78550
-odsP38Z22    0.84850
 lead
 
 pin P39Z1
@@ -4236,61 +2146,6 @@ fuelP39Z11 	0.78550
 odsP39Z11    0.84850
 lead
 
-pin P39Z12
-fuelP39Z12 	0.78550
-odsP39Z12    0.84850
-lead
-
-pin P39Z13
-fuelP39Z13 	0.78550
-odsP39Z13    0.84850
-lead
-
-pin P39Z14
-fuelP39Z14 	0.78550
-odsP39Z14    0.84850
-lead
-
-pin P39Z15
-fuelP39Z15 	0.78550
-odsP39Z15    0.84850
-lead
-
-pin P39Z16
-fuelP39Z16 	0.78550
-odsP39Z16    0.84850
-lead
-
-pin P39Z17
-fuelP39Z17 	0.78550
-odsP39Z17    0.84850
-lead
-
-pin P39Z18
-fuelP39Z18 	0.78550
-odsP39Z18    0.84850
-lead
-
-pin P39Z19
-fuelP39Z19 	0.78550
-odsP39Z19    0.84850
-lead
-
-pin P39Z20
-fuelP39Z20 	0.78550
-odsP39Z20    0.84850
-lead
-
-pin P39Z21
-fuelP39Z21 	0.78550
-odsP39Z21    0.84850
-lead
-
-pin P39Z22
-fuelP39Z22 	0.78550
-odsP39Z22    0.84850
-lead
-
 pin P40Z1
 fuelP40Z1 	0.78550
 odsP40Z1    0.84850
@@ -4344,61 +2199,6 @@ lead
 pin P40Z11
 fuelP40Z11 	0.78550
 odsP40Z11    0.84850
-lead
-
-pin P40Z12
-fuelP40Z12 	0.78550
-odsP40Z12    0.84850
-lead
-
-pin P40Z13
-fuelP40Z13 	0.78550
-odsP40Z13    0.84850
-lead
-
-pin P40Z14
-fuelP40Z14 	0.78550
-odsP40Z14    0.84850
-lead
-
-pin P40Z15
-fuelP40Z15 	0.78550
-odsP40Z15    0.84850
-lead
-
-pin P40Z16
-fuelP40Z16 	0.78550
-odsP40Z16    0.84850
-lead
-
-pin P40Z17
-fuelP40Z17 	0.78550
-odsP40Z17    0.84850
-lead
-
-pin P40Z18
-fuelP40Z18 	0.78550
-odsP40Z18    0.84850
-lead
-
-pin P40Z19
-fuelP40Z19 	0.78550
-odsP40Z19    0.84850
-lead
-
-pin P40Z20
-fuelP40Z20 	0.78550
-odsP40Z20    0.84850
-lead
-
-pin P40Z21
-fuelP40Z21 	0.78550
-odsP40Z21    0.84850
-lead
-
-pin P40Z22
-fuelP40Z22 	0.78550
-odsP40Z22    0.84850
 lead
 
 pin P41Z1
@@ -4456,61 +2256,6 @@ fuelP41Z11 	0.78550
 odsP41Z11    0.84850
 lead
 
-pin P41Z12
-fuelP41Z12 	0.78550
-odsP41Z12    0.84850
-lead
-
-pin P41Z13
-fuelP41Z13 	0.78550
-odsP41Z13    0.84850
-lead
-
-pin P41Z14
-fuelP41Z14 	0.78550
-odsP41Z14    0.84850
-lead
-
-pin P41Z15
-fuelP41Z15 	0.78550
-odsP41Z15    0.84850
-lead
-
-pin P41Z16
-fuelP41Z16 	0.78550
-odsP41Z16    0.84850
-lead
-
-pin P41Z17
-fuelP41Z17 	0.78550
-odsP41Z17    0.84850
-lead
-
-pin P41Z18
-fuelP41Z18 	0.78550
-odsP41Z18    0.84850
-lead
-
-pin P41Z19
-fuelP41Z19 	0.78550
-odsP41Z19    0.84850
-lead
-
-pin P41Z20
-fuelP41Z20 	0.78550
-odsP41Z20    0.84850
-lead
-
-pin P41Z21
-fuelP41Z21 	0.78550
-odsP41Z21    0.84850
-lead
-
-pin P41Z22
-fuelP41Z22 	0.78550
-odsP41Z22    0.84850
-lead
-
 pin P42Z1
 fuelP42Z1 	0.78550
 odsP42Z1    0.84850
@@ -4564,61 +2309,6 @@ lead
 pin P42Z11
 fuelP42Z11 	0.78550
 odsP42Z11    0.84850
-lead
-
-pin P42Z12
-fuelP42Z12 	0.78550
-odsP42Z12    0.84850
-lead
-
-pin P42Z13
-fuelP42Z13 	0.78550
-odsP42Z13    0.84850
-lead
-
-pin P42Z14
-fuelP42Z14 	0.78550
-odsP42Z14    0.84850
-lead
-
-pin P42Z15
-fuelP42Z15 	0.78550
-odsP42Z15    0.84850
-lead
-
-pin P42Z16
-fuelP42Z16 	0.78550
-odsP42Z16    0.84850
-lead
-
-pin P42Z17
-fuelP42Z17 	0.78550
-odsP42Z17    0.84850
-lead
-
-pin P42Z18
-fuelP42Z18 	0.78550
-odsP42Z18    0.84850
-lead
-
-pin P42Z19
-fuelP42Z19 	0.78550
-odsP42Z19    0.84850
-lead
-
-pin P42Z20
-fuelP42Z20 	0.78550
-odsP42Z20    0.84850
-lead
-
-pin P42Z21
-fuelP42Z21 	0.78550
-odsP42Z21    0.84850
-lead
-
-pin P42Z22
-fuelP42Z22 	0.78550
-odsP42Z22    0.84850
 lead
 
 pin P43Z1
@@ -4676,61 +2366,6 @@ fuelP43Z11 	0.78550
 odsP43Z11    0.84850
 lead
 
-pin P43Z12
-fuelP43Z12 	0.78550
-odsP43Z12    0.84850
-lead
-
-pin P43Z13
-fuelP43Z13 	0.78550
-odsP43Z13    0.84850
-lead
-
-pin P43Z14
-fuelP43Z14 	0.78550
-odsP43Z14    0.84850
-lead
-
-pin P43Z15
-fuelP43Z15 	0.78550
-odsP43Z15    0.84850
-lead
-
-pin P43Z16
-fuelP43Z16 	0.78550
-odsP43Z16    0.84850
-lead
-
-pin P43Z17
-fuelP43Z17 	0.78550
-odsP43Z17    0.84850
-lead
-
-pin P43Z18
-fuelP43Z18 	0.78550
-odsP43Z18    0.84850
-lead
-
-pin P43Z19
-fuelP43Z19 	0.78550
-odsP43Z19    0.84850
-lead
-
-pin P43Z20
-fuelP43Z20 	0.78550
-odsP43Z20    0.84850
-lead
-
-pin P43Z21
-fuelP43Z21 	0.78550
-odsP43Z21    0.84850
-lead
-
-pin P43Z22
-fuelP43Z22 	0.78550
-odsP43Z22    0.84850
-lead
-
 pin P44Z1
 fuelP44Z1 	0.78550
 odsP44Z1    0.84850
@@ -4784,61 +2419,6 @@ lead
 pin P44Z11
 fuelP44Z11 	0.78550
 odsP44Z11    0.84850
-lead
-
-pin P44Z12
-fuelP44Z12 	0.78550
-odsP44Z12    0.84850
-lead
-
-pin P44Z13
-fuelP44Z13 	0.78550
-odsP44Z13    0.84850
-lead
-
-pin P44Z14
-fuelP44Z14 	0.78550
-odsP44Z14    0.84850
-lead
-
-pin P44Z15
-fuelP44Z15 	0.78550
-odsP44Z15    0.84850
-lead
-
-pin P44Z16
-fuelP44Z16 	0.78550
-odsP44Z16    0.84850
-lead
-
-pin P44Z17
-fuelP44Z17 	0.78550
-odsP44Z17    0.84850
-lead
-
-pin P44Z18
-fuelP44Z18 	0.78550
-odsP44Z18    0.84850
-lead
-
-pin P44Z19
-fuelP44Z19 	0.78550
-odsP44Z19    0.84850
-lead
-
-pin P44Z20
-fuelP44Z20 	0.78550
-odsP44Z20    0.84850
-lead
-
-pin P44Z21
-fuelP44Z21 	0.78550
-odsP44Z21    0.84850
-lead
-
-pin P44Z22
-fuelP44Z22 	0.78550
-odsP44Z22    0.84850
 lead
 
 pin P45Z1
@@ -4896,61 +2476,6 @@ fuelP45Z11 	0.78550
 odsP45Z11    0.84850
 lead
 
-pin P45Z12
-fuelP45Z12 	0.78550
-odsP45Z12    0.84850
-lead
-
-pin P45Z13
-fuelP45Z13 	0.78550
-odsP45Z13    0.84850
-lead
-
-pin P45Z14
-fuelP45Z14 	0.78550
-odsP45Z14    0.84850
-lead
-
-pin P45Z15
-fuelP45Z15 	0.78550
-odsP45Z15    0.84850
-lead
-
-pin P45Z16
-fuelP45Z16 	0.78550
-odsP45Z16    0.84850
-lead
-
-pin P45Z17
-fuelP45Z17 	0.78550
-odsP45Z17    0.84850
-lead
-
-pin P45Z18
-fuelP45Z18 	0.78550
-odsP45Z18    0.84850
-lead
-
-pin P45Z19
-fuelP45Z19 	0.78550
-odsP45Z19    0.84850
-lead
-
-pin P45Z20
-fuelP45Z20 	0.78550
-odsP45Z20    0.84850
-lead
-
-pin P45Z21
-fuelP45Z21 	0.78550
-odsP45Z21    0.84850
-lead
-
-pin P45Z22
-fuelP45Z22 	0.78550
-odsP45Z22    0.84850
-lead
-
 pin P46Z1
 fuelP46Z1 	0.78550
 odsP46Z1    0.84850
@@ -5004,61 +2529,6 @@ lead
 pin P46Z11
 fuelP46Z11 	0.78550
 odsP46Z11    0.84850
-lead
-
-pin P46Z12
-fuelP46Z12 	0.78550
-odsP46Z12    0.84850
-lead
-
-pin P46Z13
-fuelP46Z13 	0.78550
-odsP46Z13    0.84850
-lead
-
-pin P46Z14
-fuelP46Z14 	0.78550
-odsP46Z14    0.84850
-lead
-
-pin P46Z15
-fuelP46Z15 	0.78550
-odsP46Z15    0.84850
-lead
-
-pin P46Z16
-fuelP46Z16 	0.78550
-odsP46Z16    0.84850
-lead
-
-pin P46Z17
-fuelP46Z17 	0.78550
-odsP46Z17    0.84850
-lead
-
-pin P46Z18
-fuelP46Z18 	0.78550
-odsP46Z18    0.84850
-lead
-
-pin P46Z19
-fuelP46Z19 	0.78550
-odsP46Z19    0.84850
-lead
-
-pin P46Z20
-fuelP46Z20 	0.78550
-odsP46Z20    0.84850
-lead
-
-pin P46Z21
-fuelP46Z21 	0.78550
-odsP46Z21    0.84850
-lead
-
-pin P46Z22
-fuelP46Z22 	0.78550
-odsP46Z22    0.84850
 lead
 
 pin P47Z1
@@ -5116,61 +2586,6 @@ fuelP47Z11 	0.78550
 odsP47Z11    0.84850
 lead
 
-pin P47Z12
-fuelP47Z12 	0.78550
-odsP47Z12    0.84850
-lead
-
-pin P47Z13
-fuelP47Z13 	0.78550
-odsP47Z13    0.84850
-lead
-
-pin P47Z14
-fuelP47Z14 	0.78550
-odsP47Z14    0.84850
-lead
-
-pin P47Z15
-fuelP47Z15 	0.78550
-odsP47Z15    0.84850
-lead
-
-pin P47Z16
-fuelP47Z16 	0.78550
-odsP47Z16    0.84850
-lead
-
-pin P47Z17
-fuelP47Z17 	0.78550
-odsP47Z17    0.84850
-lead
-
-pin P47Z18
-fuelP47Z18 	0.78550
-odsP47Z18    0.84850
-lead
-
-pin P47Z19
-fuelP47Z19 	0.78550
-odsP47Z19    0.84850
-lead
-
-pin P47Z20
-fuelP47Z20 	0.78550
-odsP47Z20    0.84850
-lead
-
-pin P47Z21
-fuelP47Z21 	0.78550
-odsP47Z21    0.84850
-lead
-
-pin P47Z22
-fuelP47Z22 	0.78550
-odsP47Z22    0.84850
-lead
-
 pin P48Z1
 fuelP48Z1 	0.78550
 odsP48Z1    0.84850
@@ -5224,60 +2639,5 @@ lead
 pin P48Z11
 fuelP48Z11 	0.78550
 odsP48Z11    0.84850
-lead
-
-pin P48Z12
-fuelP48Z12 	0.78550
-odsP48Z12    0.84850
-lead
-
-pin P48Z13
-fuelP48Z13 	0.78550
-odsP48Z13    0.84850
-lead
-
-pin P48Z14
-fuelP48Z14 	0.78550
-odsP48Z14    0.84850
-lead
-
-pin P48Z15
-fuelP48Z15 	0.78550
-odsP48Z15    0.84850
-lead
-
-pin P48Z16
-fuelP48Z16 	0.78550
-odsP48Z16    0.84850
-lead
-
-pin P48Z17
-fuelP48Z17 	0.78550
-odsP48Z17    0.84850
-lead
-
-pin P48Z18
-fuelP48Z18 	0.78550
-odsP48Z18    0.84850
-lead
-
-pin P48Z19
-fuelP48Z19 	0.78550
-odsP48Z19    0.84850
-lead
-
-pin P48Z20
-fuelP48Z20 	0.78550
-odsP48Z20    0.84850
-lead
-
-pin P48Z21
-fuelP48Z21 	0.78550
-odsP48Z21    0.84850
-lead
-
-pin P48Z22
-fuelP48Z22 	0.78550
-odsP48Z22    0.84850
 lead
 
