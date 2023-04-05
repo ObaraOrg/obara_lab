@@ -140,5 +140,3 @@ Th Pa U Np Pu Am Cm			% - total list
 %   Val are normalized micro reac.rate integr.over all mat.and energ.
 %   0 = no reac., 1 = only reac.that affect n.balance 2 = all reac.
 %set arr 1
-
-include "input/detectors.inp"
