@@ -13,7 +13,7 @@ INPUT = Path("fuel.inp")
 
 # no axial slices Z_start to z_end
 Z_start = 1
-z_end = 13
+z_end = 11
 # No fuel assemblies FA_start to FA_end
 FA_start = 1
 FA_end = 48
