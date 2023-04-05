@@ -1,0 +1,44 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ---   Visual Plots   --- %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% plt TYPE Xpixels Ypixels [ zPOS MIN1x MAX1x MIN2y MAX2y ]
+% --- XY-plot - above ---------------------------------------------------------
+plot 3 3000 3000
+plot 3 3000 3000   145   0 200   0 200
+plot 3 3000 3000   305  75 125  75 125
+
+% --- XZ-plot - side ----------------------------------------------------------
+plot 1 3000 3000    12
+plot 1 3000 3000    12  85 185 125 275
+plot 2 3000 3000    3
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ---   Other Plots    --- %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% --- Fission rate / thermal flux plot ----------------------------------------
+%mesh 3 2500 2500
+%mesh 1 2500 2500
+
+% --- Interface temperature plot ----------------------------------------------
+%mesh 10 3 2500 2500
+%mesh 10 1 2500 2500
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ---  Other outputs   --- %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Geometry errors caused by undefined regions can be ignored ------------------
+%set lost -1 	% Option to treat undefined geometry regions as void
+%set inftrk 1	% Sets parameters for terminating infinite tracking loops
+
+% --- Lattice-wise power distributions:
+%	  Out.power distrib.in Watts (analogously to mt = -8 detector response)
+%	  Gives an index map coresponding to the FA lattice, no. from left to right
+%     Level depth 1 - FA (%a), 2 - individual pins (%p)
+%	  LVL_DEPTH/ No.zAxis_bins/ zMIN/ zMAX/ [ 1stLVL 2ndLVL ]
+
+set cpd       1  1  140 360
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
