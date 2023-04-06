@@ -135,7 +135,7 @@ def get_bu_data(
     )
     print("Corected Bu", df["corrected_burnup"])
     average_burnup = df.groupby("p")["corrected_burnup"].mean()
-    print("Average BU",average_burnup)
+    print("Average BU", average_burnup)
     sum_burnup_by_z = df.groupby("z")["corrected_burnup"].sum()
     print("BU by Z", sum_burnup_by_z)
     corrected_burnup_mat = df["corrected_burnup"].to_numpy().reshape(Z, P)

@@ -53,17 +53,19 @@ def get_number_pz(string: str):
     return 0
 
 
-def sum_and_sort_by_p_and_z(materials: Dict[str, DepletedMaterial]):
+def sum_and_sort_by_p_and_z(nuclides: Tuple[str], materials: Dict[str, DepletedMaterial]):
     p_z_pairs = materials.keys()
     max_valued_pz_pair = max(p_z_pairs, key=get_number_pz)
     p_index = get_number_pz(max_valued_pz_pair)
     material_list = []
     for z in range(1, 7):
-        material = f"fuelP{p_index}Z{z}"
+        fuel_vol = f"fuelP{p_index}Z{z}"
         # row is isotope column is time
-        material_list.append(
-            materials[material].toDataFrame("mdens", names=["U235", "Pu239"])
-        )
+        # breakpoint()
+        x = materials[fuel_vol].toDataFrame("mdens", names=['Pu239', 'Pu240', 'Pu241', 'Pu242', 'Pu243', 'U235'])
+        y = materials[fuel_vol].volume[0]
+        z = x * y / 1000
+        material_list.append(z)
     return sum(material_list)
 
 
@@ -78,7 +80,7 @@ def plot_results(isotopes: Tuple[str]) -> None:
 
     Example:
 
-    python get_nuclide_vs_step_all_sim.py plot-results -- Pu240 Pu340
+    python compare_nuclides.py plot-results -- Pu240 Pu241
 
     Args:
         isotopes (Tuple[str]): Tuple of all of the isotopes passed
@@ -100,16 +102,18 @@ def plot_results(isotopes: Tuple[str]) -> None:
 
     data_frames = []
     for index, file in enumerate(files):
-        summed_df = sum_and_sort_by_p_and_z(file.materials)
+        summed_df = sum_and_sort_by_p_and_z(isotopes, file.materials)
         df = summed_df.iloc[[-1]].melt()
         df["Snum"] = index
         df["FolderName"] = folders[index]
         data_frames.append(df)
     # files[0].materials['total'].toDataFrame("mass", names=["U235", "Pu239"])
-
+    
     merged_df = pd.concat(data_frames)
-
-    sns.barplot(data=merged_df, x="Snum", y="value")
+    sorted_df = merged_df.sort_values(by=["Isotopes"])
+    breakpoint()
+    print(sorted_df)
+    sns.barplot(data=sorted_df, x="Isotopes", y="value")
     plt.show()
 
 
