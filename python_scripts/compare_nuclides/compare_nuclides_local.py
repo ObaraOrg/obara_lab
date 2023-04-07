@@ -12,11 +12,9 @@ from serpentTools.parsers.depletion import DepletionReader
 
 sp.settings.rc["serpentVersion"] = "2.1.32"
 
-FILE_NAME = "wh_lfr"
-
-# NOTE: THIS GETS EXECUTED FROM THE FOLDER ITSELF
-
-
+FILE_NAME = "test_dep.m"
+Z_START = 2
+Z_END = 6
 
 def read_file(file_loc: str) -> DepletionReader:
     return sp.read(file_loc)
@@ -60,10 +58,9 @@ def sum_and_sort_by_p_and_z(nuclides: Tuple[str], materials: Dict[str, DepletedM
     max_valued_pz_pair = max(p_z_pairs, key=get_number_pz)
     p_index = get_number_pz(max_valued_pz_pair)
     material_list = []
-    for z in range(1, 7):
+    for z in range(Z_START, Z_END + 1):
         fuel_vol = f"fuelP{p_index}Z{z}"
         # row is isotope column is time
-        # breakpoint()
         x = materials[fuel_vol].toDataFrame("mdens", names=nuclides)
         y = materials[fuel_vol].volume[0]
         z = x * y / 1000
@@ -77,12 +74,12 @@ def sum_and_sort_by_p_and_z(nuclides: Tuple[str], materials: Dict[str, DepletedM
     nargs=-1,
     callback=validate_isos_length,
 )
-def plot_results(isotopes: Tuple[str]) -> None:
+def print_results(isotopes: Tuple[str]) -> None:
     """Plots the selected isotopes for each step in each simulation
 
     Example:
 
-    python compare_nuclides.py plot-results -- Pu240 Pu241
+    python compare_nuclides_local.py print-results -- Pu239 Pu241
 
     Args:
         isotopes (Tuple[str]): Tuple of all of the isotopes passed
@@ -92,9 +89,8 @@ def plot_results(isotopes: Tuple[str]) -> None:
     folders = [x for x in folders if "__" not in str(x)]
     files = []
     for folder in folders:
-        files_in_folder = [str(file) for file in sorted(folder.rglob(f"{FILE_NAME}_dep.m"))]
-        max_valued_path = max(files_in_folder, key=get_number_from_folder)
-        file_read = read_file(max_valued_path)
+        file_in_folder = [str(file) for file in (folder.rglob(FILE_NAME))]
+        file_read = read_file(file_in_folder[0])
         files.append(file_read)
 
     assert len(files) > 0, "No Folders found"
@@ -106,10 +102,9 @@ def plot_results(isotopes: Tuple[str]) -> None:
     for index, file in enumerate(files):
         summed_df = sum_and_sort_by_p_and_z(isotopes, file.materials)
         df = summed_df.iloc[[-1]].melt()
-        df["Snum"] = index
+        df["Sim_no"] = index
         df["FolderName"] = folders[index]
         data_frames.append(df)
-    # files[0].materials['total'].toDataFrame("mass", names=["U235", "Pu239"])
     
     merged_df = pd.concat(data_frames)
     merged_df.to_csv("DischargedFuel_nuclides.csv")
@@ -117,8 +112,8 @@ def plot_results(isotopes: Tuple[str]) -> None:
     sorted_df = merged_df.sort_values(by=["Isotopes"])
     print(sorted_df)
     
-    sns.barplot(data=sorted_df, x="Isotopes", y="value")
-    plt.show()
+    # sns.barplot(data=sorted_df, x="Isotopes", y="value")
+    # plt.show()
 
 
 if __name__ == "__main__":
