@@ -17,7 +17,6 @@ FILE_NAME = "wh_lfr"
 # NOTE: THIS GETS EXECUTED FROM THE FOLDER ITSELF
 
 
-
 def read_file(file_loc: str) -> DepletionReader:
     return sp.read(file_loc)
 
@@ -55,7 +54,9 @@ def get_number_pz(string: str):
     return 0
 
 
-def sum_and_sort_by_p_and_z(nuclides: Tuple[str], materials: Dict[str, DepletedMaterial]):
+def sum_and_sort_by_p_and_z(
+    nuclides: Tuple[str], materials: Dict[str, DepletedMaterial]
+):
     p_z_pairs = materials.keys()
     max_valued_pz_pair = max(p_z_pairs, key=get_number_pz)
     p_index = get_number_pz(max_valued_pz_pair)
@@ -92,7 +93,9 @@ def plot_results(isotopes: Tuple[str]) -> None:
     folders = [x for x in folders if "__" not in str(x)]
     files = []
     for folder in folders:
-        files_in_folder = [str(file) for file in sorted(folder.rglob(f"{FILE_NAME}_dep.m"))]
+        files_in_folder = [
+            str(file) for file in sorted(folder.rglob(f"{FILE_NAME}_dep.m"))
+        ]
         max_valued_path = max(files_in_folder, key=get_number_from_folder)
         file_read = read_file(max_valued_path)
         files.append(file_read)
@@ -110,14 +113,20 @@ def plot_results(isotopes: Tuple[str]) -> None:
         df["FolderName"] = folders[index]
         data_frames.append(df)
     # files[0].materials['total'].toDataFrame("mass", names=["U235", "Pu239"])
-    
+
     merged_df = pd.concat(data_frames)
     merged_df.to_csv("DischargedFuel_nuclides.csv")
     merged_df.to_excel("DischargedFuel_nuclides.xlsx")
     sorted_df = merged_df.sort_values(by=["Isotopes"])
     print(sorted_df)
-    
-    sns.barplot(data=sorted_df, x="Isotopes", y="value")
+
+    g = sns.catplot(data=sorted_df, x="Isotopes", y="value", kind="bar", col="Snum")
+    for ax in g.axes.ravel():
+        # add annotations
+        for c in ax.containers:
+            labels = [f"{(v.get_height()):.1f}Kg" for v in c]
+            ax.bar_label(c, labels=labels, label_type="edge")
+        ax.margins(y=0.2)
     plt.show()
 
 
