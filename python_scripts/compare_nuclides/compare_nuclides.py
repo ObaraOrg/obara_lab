@@ -109,10 +109,16 @@ def plot_results(isotopes: Tuple[str]) -> None:
     for index, file in enumerate(files):
         summed_df = sum_and_sort_by_p_and_z(isotopes, file.materials)
         df = summed_df.iloc[[-1]].melt()
-        df["Snum"] = index
+        df["Sim_no"] = index
         df["FolderName"] = folders[index]
+
+        total_wt_df = sum_and_sort_by_p_and_z("total", file.materials)
+        df2 = total_wt_df.iloc[[-1]].melt()
+        total_wt = df2.iloc[0, 1]
+        df["Fraction"] = df["value"] / total_wt * 100
+        df["RelativeFrac"] = df["value"] / df['value'].sum() * 100
+
         data_frames.append(df)
-    # files[0].materials['total'].toDataFrame("mass", names=["U235", "Pu239"])
 
     merged_df = pd.concat(data_frames)
     merged_df.to_csv("DischargedFuel_nuclides.csv")
@@ -120,11 +126,33 @@ def plot_results(isotopes: Tuple[str]) -> None:
     sorted_df = merged_df.sort_values(by=["Isotopes"])
     print(sorted_df)
 
-    g = sns.catplot(data=sorted_df, x="Isotopes", y="value", kind="bar", col="Snum")
-    for ax in g.axes.ravel():
+    g1 = sns.catplot(
+        data=sorted_df, x="Isotopes", y="value", kind="bar", col="FolderName"
+    )
+    for ax in g1.axes.ravel():
         # add annotations
         for c in ax.containers:
             labels = [f"{(v.get_height()):.1f}Kg" for v in c]
+            ax.bar_label(c, labels=labels, label_type="edge")
+        ax.margins(y=0.2)
+
+    g2 = sns.catplot(
+        data=sorted_df, x="Isotopes", y="Fraction", kind="bar", col="FolderName"
+    )
+    for ax in g2.axes.ravel():
+        # add annotations
+        for c in ax.containers:
+            labels = [f"{(v.get_height()):.3f}%" for v in c]
+            ax.bar_label(c, labels=labels, label_type="edge")
+        ax.margins(y=0.2)
+
+    g3 = sns.catplot(
+        data=sorted_df, x="Isotopes", y="RelativeFrac", kind="bar", col="FolderName"
+    )
+    for ax in g3.axes.ravel():
+        # add annotations
+        for c in ax.containers:
+            labels = [f"{(v.get_height()):.3f}%" for v in c]
             ax.bar_label(c, labels=labels, label_type="edge")
         ax.margins(y=0.2)
     plt.show()
