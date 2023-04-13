@@ -16,7 +16,7 @@ BASE_DIR = Path(os.path.dirname(__file__))
 H = 2  # SIDE OF A TRIANGLE
 
 P = 48  # max no of FA
-Z = 6  # max no of slices
+Z = 11  # max no of slices
 LOAD_PATH = BASE_DIR / "core_lp_SF3.txt"
 
 
