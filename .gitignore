@@ -12,6 +12,8 @@ matrix_dump.txt
 # Exceptions from the rules above
 !serpent_analysis/learning_serpent/**
 
+# Work files
+*.xlsx
 
 # Image Files
 *.png
