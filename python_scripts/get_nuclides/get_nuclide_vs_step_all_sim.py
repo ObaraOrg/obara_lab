@@ -171,7 +171,7 @@ def plot_results(isotopes: Tuple[str]) -> None:
 
     Example:
 
-    python get_nuclide_vs_step_all_sim.py plot-results -- Pu240 Pu340
+    python get_nuclide_vs_step_all_sim.py plot-results -- Pu240 Pu241
 
     Args:
         isotopes (Tuple[str]): Tuple of all of the isotopes passed
