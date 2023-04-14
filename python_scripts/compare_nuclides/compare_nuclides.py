@@ -3,6 +3,7 @@ from pathlib import Path
 from typing import Dict, List, Tuple
 
 import click
+import os
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
@@ -10,9 +11,12 @@ import serpentTools as sp
 from serpentTools.objects.materials import DepletedMaterial
 from serpentTools.parsers.depletion import DepletionReader
 
-serpentTools.settings.rc["serpentVersion"] = "2.1.32"
-serpentTools.settings.rc["verbosity"] = "error"
-BASE_DIR = Path(os.path.dirname(__file__))
+sp.settings.rc["serpentVersion"] = "2.1.32"
+sp.settings.rc["verbosity"] = "error"
+
+os.environ["CLICK_PAGER"] = "1"
+
+BASE_PATH = Path(os.path.dirname(__file__))
 
 FILE_NAME = "wh_lfr"
 
@@ -32,11 +36,6 @@ def validate_isotope_sets(input_list: List[str], name_list: List[str]) -> bool:
     inp_set = set(input_list)
     name_set = set(name_list)
     return inp_set.issubset(name_set)
-
-
-@click.group()
-def cli():
-    pass
 
 
 def get_number_from_folder(file_name: Path):
@@ -65,8 +64,7 @@ def sum_and_sort_by_p_and_z(
     material_list = []
     for z in range(1, 7):
         fuel_vol = f"fuelP{p_index}Z{z}"
-        # row is isotope column is time
-        # breakpoint()
+        # row is isotope, column is time
         x = materials[fuel_vol].toDataFrame("mdens", names=nuclides)
         y = materials[fuel_vol].volume[0]
         z = x * y / 1000
@@ -74,25 +72,41 @@ def sum_and_sort_by_p_and_z(
     return sum(material_list)
 
 
-@cli.command(help="Plot for the mentioned isotopes")
+@click.group()
+def cli():
+    pass
+
+
+@cli.command(help="Pu240 Pu241 (subcommand examples)")
 @click.argument(
     "isotopes",
     nargs=-1,
     callback=validate_isos_length,
 )
 def plot_results(isotopes: Tuple[str]) -> None:
-    """Plots the selected isotopes for each step in each simulation
-
-    Example:
-
-    python compare_nuclides.py plot-results -- Pu240 Pu241
+    """
+    Plots the selected isotopes for each step in each simulation/simulations.
 
     Args:
-        isotopes (Tuple[str]): Tuple of all of the isotopes passed
+        isotopes (Tuple[str]): Tuple of all of the isotopes passed.
+
+    Raises:
+        click.BadParameter: If the list of isotopes is invalid.
+
+    Returns:
+        None
+
+    Example:
+        >>> python ../../compare_nuclides.py plot-results -- Pu240 Pu241
     """
 
-    folders = [x for x in Path(".").iterdir() if x.is_dir()]
+    # Iterate through all of the folders using the base path
+    # Ignore the folders that start with __
+    # Sort the folders by name (this is the order of the simulations)
+    folders = [x for x in Path(BASE_PATH).iterdir() if x.is_dir()]
     folders = [x for x in folders if "__" not in str(x)]
+    folders.sort(key=lambda x: x.name)
+
     files = []
     for folder in folders:
         files_in_folder = [
@@ -107,18 +121,20 @@ def plot_results(isotopes: Tuple[str]) -> None:
         isotopes, files[0].names
     ), "Some isotopes are not in the simulations"
 
+    last_folder_names = [folder.name for folder in folders]
+
     data_frames = []
     for index, file in enumerate(files):
         summed_df = sum_and_sort_by_p_and_z(isotopes, file.materials)
         df = summed_df.iloc[[-1]].melt()
         df["Sim_no"] = index
-        df["FolderName"] = folders[index]
+        df["Sim"] = last_folder_names[index]
 
         total_wt_df = sum_and_sort_by_p_and_z("total", file.materials)
         df2 = total_wt_df.iloc[[-1]].melt()
         total_wt = df2.iloc[0, 1]
         df["Fraction"] = df["value"] / total_wt * 100
-        df["RelativeFrac"] = df["value"] / df['value'].sum() * 100
+        df["RelativeFrac"] = df["value"] / df["value"].sum() * 100
 
         data_frames.append(df)
 
@@ -128,35 +144,22 @@ def plot_results(isotopes: Tuple[str]) -> None:
     sorted_df = merged_df.sort_values(by=["Isotopes"])
     print(sorted_df)
 
-    g1 = sns.catplot(
-        data=sorted_df, x="Isotopes", y="value", kind="bar", col="FolderName"
-    )
-    for ax in g1.axes.ravel():
-        # add annotations
-        for c in ax.containers:
-            labels = [f"{(v.get_height()):.1f}Kg" for v in c]
-            ax.bar_label(c, labels=labels, label_type="edge")
-        ax.margins(y=0.2)
+    # Print the folowing
+    data_cols = [("value", "kg"), ("Fraction", "%"), ("RelativeFrac", "%")]
+    plot_titles = ["Isotopes_kg", "Isotopes_frac", "Isotopes_rel_frac"]
 
-    g2 = sns.catplot(
-        data=sorted_df, x="Isotopes", y="Fraction", kind="bar", col="FolderName"
-    )
-    for ax in g2.axes.ravel():
-        # add annotations
-        for c in ax.containers:
-            labels = [f"{(v.get_height()):.3f}%" for v in c]
-            ax.bar_label(c, labels=labels, label_type="edge")
-        ax.margins(y=0.2)
+    for i, (data_col, label) in enumerate(data_cols):
+        g = sns.catplot(
+            data=sorted_df, x="Isotopes", y=data_col, kind="bar", col="Sim"
+        )
+        for ax in g.axes.ravel():
+            # add annotations
+            for c in ax.containers:
+                labels = [f"{(v.get_height()):.3f}{label}" for v in c]
+                ax.bar_label(c, labels=labels, label_type="edge")
+            ax.margins(y=0.2)
+        plt.savefig(f"{BASE_PATH}/{plot_titles[i]}.png")
 
-    g3 = sns.catplot(
-        data=sorted_df, x="Isotopes", y="RelativeFrac", kind="bar", col="FolderName"
-    )
-    for ax in g3.axes.ravel():
-        # add annotations
-        for c in ax.containers:
-            labels = [f"{(v.get_height()):.3f}%" for v in c]
-            ax.bar_label(c, labels=labels, label_type="edge")
-        ax.margins(y=0.2)
     plt.show()
 
 
