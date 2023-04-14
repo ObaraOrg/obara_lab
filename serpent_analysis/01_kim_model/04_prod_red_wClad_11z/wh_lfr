@@ -23,8 +23,8 @@ include "input/220cm/mvol.inp"			% - Volumes file
 include "input/lp/core_lp_SF3.inp"		% - Made for the lp generator .py script
 
 % --- Detectors and plots
-%include "input/appendix.inp"
-%include "input/detectors.inp"
+#include "input/appendix.inp"
+#include "input/detectors.inp"
 
 % --- Cross section libraries
 set acelib "sss_endfb7u.xsdata"
@@ -108,7 +108,7 @@ set power  950E+06		% - Sets normalization to total fiss. power [in W]
 set bumode  2			% - BU mode, 1 - TTA, 2 - CRAM (DEFAULT)
 set bunorm  1			% - BU norm.mode (1=mat.all,2=burn.mat,3=non-burn.mat) - DEFAULT 1
 
-dep daytot	 100 400	
+dep daytot	200 400	
 
 set pcc LELI 5 5		% - Use predictor corrector method for the depletion solution
 						%   LELI: Linear extrapolation on predictor, 5 substeps

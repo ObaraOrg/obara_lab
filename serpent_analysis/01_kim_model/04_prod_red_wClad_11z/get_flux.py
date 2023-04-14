@@ -1,7 +1,7 @@
 import numpy as np
 import serpentTools as sp
 
-file = "wh_lfr_det2.m"
+file = "wh_lfr_det5.m"
 det_data = sp.read(file)
 
 data_array=[]

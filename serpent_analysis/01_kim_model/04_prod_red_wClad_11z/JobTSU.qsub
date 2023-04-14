@@ -39,7 +39,9 @@ while ( $step <= $stepx )
 
 # - Include the detector calculation in the last run
 	if [ $step == $stepx ]; then
-		echo 'include \"input/detectors.inp\"' >> ${sINP}
+		echo 'include "input/detectors.inp"' >> ${sINP}
+        echo 'include "input/detectors.inp"' >> ${sINP}
+    endif
 
 # - Run Serpent
     (cd ${WKDR}; mpirun -npernode 1 -n {NNODEs} -x LD_LIBRARY_PATH \ 

@@ -29,10 +29,6 @@ FRESH_MAT_DATA = """92235.09c  2.1125067E-04
 
 # Mat header for the burned fuel
 MAT_HEADER = "tmp 1200 burn 1"
-
-# remember to input this via manual calculation
-# FUEL_VOL = "1.0542136E+04"
-
 MATCH_FUEL_NO = r"P\d\d?"
 
 
