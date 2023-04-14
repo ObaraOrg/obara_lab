@@ -1,13 +1,13 @@
 import itertools
-import pandas as pd
 import os
 from pathlib import Path
-import serpentTools
 from typing import List
-from nuclear_lib.get_bu_data import get_bu_data
 
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
+import serpentTools
+from nuclear_lib.get_bu_data import get_bu_data
 
 serpentTools.settings.rc["serpentVersion"] = "2.1.32"
 serpentTools.settings.rc["verbosity"] = "error"
@@ -16,7 +16,7 @@ BASE_DIR = Path(os.path.dirname(__file__))
 H = 2  # SIDE OF A TRIANGLE
 
 P = 48  # max no of FA
-Z = 6  # max no of slices
+Z = 11  # max no of slices
 LOAD_PATH = BASE_DIR / "core_lp_SF3.txt"
 
 
@@ -46,9 +46,14 @@ y_base_coords = np.array(
 
 
 def plot_core(
-    core: np.ndarray, numeric_data: np.ndarray, additional_text_list: np.char.array
+    core: np.ndarray,
+    numeric_data: np.ndarray,
+    additional_text_list: np.char.array,
+    quarter: bool = False,
 ) -> np.ndarray:
+    # core = core[: core.shape[0] // 2 + 1, core.shape[1] // 2 :]
     y, x = np.where(core)
+    full_core_center = core.shape[0] // 2
     coordinates = np.column_stack((y, x))
 
     norm = plt.matplotlib.colors.Normalize(
@@ -59,6 +64,8 @@ def plot_core(
     plt.figure(figsize=[18, 14])
 
     for count, (y, x) in enumerate(coordinates):
+        if quarter and (y < full_core_center or x >= full_core_center):
+            continue
         x_origin = (x - y / 2) * H
         y_origin = H * y * np.sqrt(3) / 2
         x_r = x_origin + x_base_coords
@@ -81,7 +88,6 @@ def plot_core(
         left=False, right=False, labelleft=False, labelbottom=False, bottom=False
     )
     plt.colorbar(sm)
-    plt.show()
 
 
 def filter_string_material(material_name: str) -> bool:
@@ -118,7 +124,6 @@ def main():
     map = map[::-1]
     mask = np.array(mask)[::-1]
     burnup_list = [el for el in average_burnup_dict.items()]
-    breakpoint()
     # burnup_list.sort(key=lambda ps: int(ps[0][1:]))
     burnup_list = sorted(burnup_list[0:])
     burnup_list_values = [el[1] for el in burnup_list]
@@ -133,6 +138,8 @@ def main():
     # additional_text_list = p_array + "\n" + u_array
     additional_text_list = u_array
     plot_core(mask, core_values, additional_text_list)
+    plot_core(mask, core_values, additional_text_list, True)
+    plt.show()
 
 
 main()
