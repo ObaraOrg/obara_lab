@@ -10,7 +10,9 @@ import serpentTools as sp
 from serpentTools.objects.materials import DepletedMaterial
 from serpentTools.parsers.depletion import DepletionReader
 
-sp.settings.rc["serpentVersion"] = "2.1.32"
+serpentTools.settings.rc["serpentVersion"] = "2.1.32"
+serpentTools.settings.rc["verbosity"] = "error"
+BASE_DIR = Path(os.path.dirname(__file__))
 
 FILE_NAME = "wh_lfr"
 
