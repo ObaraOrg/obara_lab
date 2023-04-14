@@ -21,7 +21,7 @@ def main() -> None:
     _, corrected_burnup_mat, _, _ = get_bu_data(dep, atomic_wt, P, Z)
 
     sns.heatmap(corrected_burnup_mat)
-    plt.savefig("heatmap.png")
+    plt.savefig(f"{BASE_DIR}/heatmap.png")
     plt.show()
 
 
