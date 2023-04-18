@@ -1,26 +1,18 @@
 import itertools
 import os
 from pathlib import Path
-from typing import List
+from typing import Callable, List, Tuple
 
 import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
-import serpentTools
-from nuclear_lib.get_bu_data import get_bu_data
+from matplotlib.colorbar import Colorbar
 
-serpentTools.settings.rc["serpentVersion"] = "2.1.32"
-serpentTools.settings.rc["verbosity"] = "error"
 BASE_DIR = Path(os.path.dirname(__file__))
 
 H = 2  # SIDE OF A TRIANGLE
 
-P = 48  # max no of FA
-Z = 11  # max no of slices
-LOAD_PATH = BASE_DIR / "core_lp_SF3.txt"
 
-
-x_base_coords = np.array(
+X_BASE_COORDS = np.array(
     [
         H / 2,  # top_coord
         H,  # top right coord
@@ -32,7 +24,7 @@ x_base_coords = np.array(
     ]
 )
 
-y_base_coords = np.array(
+Y_BASE_COORDS = np.array(
     [
         H / np.sqrt(3),  # top_coord
         H / (2 * np.sqrt(3)),  # top right coord
@@ -45,12 +37,21 @@ y_base_coords = np.array(
 )
 
 
+def two_decimal_notation(value: str) -> str:
+    return f"{value:.2f}"
+
+
+def power_10_notation(value: str) -> str:
+    return f"{value:.2e}"
+
+
 def plot_core(
     core: np.ndarray,
     numeric_data: np.ndarray,
     additional_text_list: np.char.array,
     quarter: bool = False,
-) -> np.ndarray:
+    format_style: Callable[[str], str] = two_decimal_notation,
+) -> Colorbar:
     # core = core[: core.shape[0] // 2 + 1, core.shape[1] // 2 :]
     y, x = np.where(core)
     full_core_center = core.shape[0] // 2
@@ -61,33 +62,39 @@ def plot_core(
     )
     cmap = plt.matplotlib.cm.get_cmap("autumn_r")
 
-    plt.figure(figsize=[18, 14])
+    plt.subplots(1, 1, figsize=(18, 14), layout="constrained")
 
     for count, (y, x) in enumerate(coordinates):
         if quarter and (y < full_core_center or x >= full_core_center):
             continue
         x_origin = (x - y / 2) * H
         y_origin = H * y * np.sqrt(3) / 2
-        x_r = x_origin + x_base_coords
-        y_r = y_base_coords - y_origin
+        x_r = x_origin + X_BASE_COORDS
+        y_r = Y_BASE_COORDS - y_origin
         center = (x_r[-1], y_r[-1])
         x_r = x_r[:-1]
         y_r = y_r[:-1]
+        formated_text = format_style(numeric_data[count])
         plt.text(
             center[0],
             center[1],
-            f"{additional_text_list[count]}\n{numeric_data[count]:.2f}",
+            f"{additional_text_list[count]}\n{formated_text}",
             ha="center",
             va="center",
         )
         plt.fill(x_r, y_r, facecolor=cmap(norm(numeric_data[count])))
         plt.plot(np.append(x_r, x_r[0]), np.append(y_r, y_r[0]), c="black")
 
-    sm = plt.cm.ScalarMappable(cmap=plt.cm.autumn_r, norm=norm)
+    sc_mapper = plt.cm.ScalarMappable(cmap=plt.cm.autumn_r, norm=norm)
     plt.tick_params(
-        left=False, right=False, labelleft=False, labelbottom=False, bottom=False
+        left=False,
+        right=False,
+        labelleft=False,
+        labelbottom=False,
+        bottom=False,
     )
-    plt.colorbar(sm)
+    color_bar = plt.colorbar(sc_mapper)
+    return color_bar
 
 
 def filter_string_material(material_name: str) -> bool:
@@ -105,41 +112,15 @@ def make_value_map(map: List[List[str]], data: np.ndarray) -> np.ndarray:
     return core_value_list
 
 
-def main():
-    atomic_wt = pd.read_csv("nuclear_lib/isotope_awt_list.csv")
-    dep = serpentTools.read(BASE_DIR / "wh_lfr_dep.m", reader="dep")
-    _, _, average_burnup_dict, _ = get_bu_data(dep, atomic_wt, P, Z)
-
-    map = []
+def read_core(
+    txt_file_path, delimiter: str = "U"
+) -> Tuple[List[List[str]], List[List[bool]]]:
+    map_ = []
     mask = []
-    with (open(LOAD_PATH)) as file:
+    with open(txt_file_path, "r", encoding="UTF-8") as file:
         for line in file:
-            strip = line.strip()
-            row = strip.split(" ")
-            mask_row = [el[0] == "U" for el in row]
-            map.append(row)
+            row = line.strip().split(" ")
+            mask_row = [el[0] == delimiter for el in row]
+            map_.append(row)
             mask.append(mask_row)
-
-    # NOTE:core[start:stop:step] # start through not past stop, by step
-    map = map[::-1]
-    mask = np.array(mask)[::-1]
-    burnup_list = [el for el in average_burnup_dict.items()]
-    # burnup_list.sort(key=lambda ps: int(ps[0][1:]))
-    burnup_list = sorted(burnup_list[0:])
-    burnup_list_values = [el[1] for el in burnup_list]
-    core_values = make_value_map(map, burnup_list_values)
-
-    p_array = [f"p{i}" for i in range(1, 49)]
-    p_array = np.char.array(make_value_map(map, p_array))
-    u_array = np.char.array(map).flatten()[mask.flatten()]
-    u_array = np.char.array([el[:4] for el in u_array])
-
-    # add a function for correnction to add both text
-    # additional_text_list = p_array + "\n" + u_array
-    additional_text_list = u_array
-    plot_core(mask, core_values, additional_text_list)
-    plot_core(mask, core_values, additional_text_list, True)
-    plt.show()
-
-
-main()
+    return map_[::-1], mask[::-1]

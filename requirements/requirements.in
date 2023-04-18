@@ -13,7 +13,7 @@ scipy~=1.7.3
 seaborn~=0.12.2
 typer~=0.7.0
 
-pylint~=2.16.1
+# pylint~=2.16.1
 flake8>=3.8.1
 isort>=4.3.21
 
