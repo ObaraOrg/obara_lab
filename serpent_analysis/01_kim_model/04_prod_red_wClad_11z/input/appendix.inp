@@ -4,7 +4,9 @@
 
 % plt TYPE Xpixels Ypixels [ zPOS MIN1x MAX1x MIN2y MAX2y ]
 % --- XY-plot - above ---------------------------------------------------------
+plot 3 3000 3000   100
 plot 3 3000 3000
+plot 3 3000 3000   350    
 plot 3 3000 3000   145   0 200   0 200
 plot 3 3000 3000   305  75 125  75 125
 

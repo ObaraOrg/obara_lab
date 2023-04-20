@@ -1,6 +1,13 @@
-# The volume is for the 222cm core w/t 11z
+% --- Material volumes:
+% The volume is for the 222cm core w/t 11z
 
 set mvol
+
+lead            0 4.03270E+07
+ods             0 1.23312E+07
+ssteel          0 3.33721E+06
+borsteel        0 4.10725E+06
+zirc            0 3.76378E+06
 fuelP1Z1        1 1.41881848E+04
 fuelP1Z2        1 1.41881848E+04
 fuelP1Z3        1 1.41881848E+04
