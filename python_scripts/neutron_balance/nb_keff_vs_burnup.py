@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 import serpentTools as sp
 from scipy.integrate import cumulative_trapezoid
 import os
@@ -7,6 +8,9 @@ from pathlib import Path
 
 from nuclear_lib.mpl_axis_aligner.align import yaxes
 
+# NOTE: This script works only with >= 2.1.32 version of serpent,
+#       beacause of the FIMA, previous ver. do not output this data,
+#       if you really need this one, comment out the fima part
 
 BASE_DIR = Path(os.path.dirname(__file__))
 # Supressing the ver. and reading error outputed by serpentTools
@@ -34,7 +38,6 @@ def plot_twinx(
     y2_label: str = "",
     x_label: str = "",
 ) -> None:
-
     fig, ax1 = plt.subplots(figsize=(16, 9))
 
     F_SIZE = 20
@@ -58,45 +61,72 @@ def plot_twinx(
     ax1.grid()
 
     # Show the max values
-    ax1.annotate(
-        "NB = {:.2f}".format(max(y1_axis_data)),
-        xy=(x_axis_data[np.argmax(y1_axis_data)], max(y1_axis_data)),
-        xytext=(x_axis_data[np.argmax(y1_axis_data)], max(y1_axis_data) + 5),
-        arrowprops=dict(facecolor="black", shrink=0.05), size=F_SIZE,
-    )
+    ax2_max_index = np.argmax(y2_axis_data)
     ax2.annotate(
         "K-inf = {:.4f}".format(max(y2_axis_data)),
-        xy=(x_axis_data[np.argmax(y2_axis_data)], max(y2_axis_data)),
-        xytext=(x_axis_data[np.argmax(y2_axis_data)], max(y2_axis_data) * 1.05),
-        arrowprops=dict(facecolor="black", shrink=0.05), size=F_SIZE,
+        xy=(x_axis_data[ax2_max_index], max(y2_axis_data)),
+        xytext=(x_axis_data[ax2_max_index], max(y2_axis_data) * 1.05),
+        arrowprops=dict(facecolor="black", shrink=0.05),
+        size=F_SIZE,
+    )
+    y1_max_index = ax2_max_index + np.argmax(y1_axis_data[ax2_max_index:])
+    ax1.annotate(
+        "NB = {:.2f}".format(max(y1_axis_data[ax2_max_index:])),
+        xy=(x_axis_data[y1_max_index], max(y1_axis_data[ax2_max_index:])),
+        xytext=(x_axis_data[y1_max_index], max(y1_axis_data[ax2_max_index:]) * -1.2),
+        arrowprops=dict(facecolor="black", shrink=0.05),
+        size=F_SIZE,
     )
 
-
-# NOTE: Maybe come up with somethin better than the yaxes
-# def align_yaxis(ax1, v1, ax2, v2):
-#     """adjust ax2 ylimit so that v2 in ax2 is aligned to v1 in ax1"""
-#     _, y1 = ax1.transData.transform((0, v1))
-#     _, y2 = ax2.transData.transform((0, v2))
-#     inv = ax2.transData.inverted()
-#     _, dy = inv.transform((0, 0)) - inv.transform((0, y1 - y2))
-#     miny, maxy = ax2.get_ylim()
-#     ax2.set_ylim(miny + dy, maxy + dy)
+    # Add vertical line for max y values
+    ax1.axvline(x=x_axis_data[y1_max_index], color="blue", alpha=0.5, linestyle="--")
+    ax1.text(
+        x_axis_data[y1_max_index],
+        ax1.get_ylim()[0],
+        f"{x_axis_data[y1_max_index]:.2f}",
+        ha="right",
+        va="bottom",
+        fontsize=F_SIZE,
+        color="blue",
+    )
+    ax2.axvline(x=x_axis_data[ax2_max_index], color="blue", alpha=0.5, linestyle="--")
+    ax2.text(
+        x_axis_data[ax2_max_index],
+        ax2.get_ylim()[0],
+        f"{x_axis_data[ax2_max_index]:.2f}",
+        ha="right",
+        va="bottom",
+        fontsize=F_SIZE,
+        color="blue",
+    )
 
 
 def main(trim: int = -1) -> None:
-
     res_file = sp.read(BASE_DIR / f"{FILE_NAME}_res.m")
 
     burnup = res_file.resdata[BURNUP][:trim, 0]
     burn_days = res_file.resdata[BURN_DAYS][:trim, 0]
     kinf = res_file.resdata[ABS_KINF][:trim, 0]
     numbar = res_file.resdata[NUBAR][:trim, 0]
-    breakpoint()
     fima = res_file.resdata[FIMA][:trim, 0]
     # breed_ratio = res_file.resdata[BREED_RATIO][:trim, 0]
 
     integral = cumulative_trapezoid(numbar * (1 - (1 / kinf)), burnup, initial=0)
 
+    df = pd.DataFrame(
+        {
+            "burnup": burnup,
+            "burn_days": burn_days,
+            "abs_kinf": kinf,
+            "nubar": numbar,
+            "fima": fima,
+            "integral": integral,
+        }
+    )
+    print(df)
+    df.to_excel("NB_data.xlsx", index=False)
+
+    # Plotting
     plot_twinx(burnup, integral, kinf, "NB", "$K_{inf}$", "Burnup $(\\frac{MWd}{kgU})$")
     plt.savefig(BASE_DIR / "NB_vs_BU.png", dpi=70)
 
