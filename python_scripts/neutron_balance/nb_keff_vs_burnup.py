@@ -5,11 +5,11 @@ from scipy.integrate import cumulative_trapezoid
 import os
 from pathlib import Path
 
-
 from nuclear_lib.mpl_axis_aligner.align import yaxes
 
+
 BASE_DIR = Path(os.path.dirname(__file__))
-# Suppersing the ver and reading err outputed by serpentTools
+# Supressing the ver. and reading error outputed by serpentTools
 sp.settings.rc["serpentVersion"] = "2.1.32"
 sp.settings.rc["verbosity"] = "error"
 
@@ -91,6 +91,7 @@ def main(trim: int = -1) -> None:
     burn_days = res_file.resdata[BURN_DAYS][:trim, 0]
     kinf = res_file.resdata[ABS_KINF][:trim, 0]
     numbar = res_file.resdata[NUBAR][:trim, 0]
+    breakpoint()
     fima = res_file.resdata[FIMA][:trim, 0]
     # breed_ratio = res_file.resdata[BREED_RATIO][:trim, 0]
 
