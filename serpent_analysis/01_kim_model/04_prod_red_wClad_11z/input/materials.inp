@@ -178,6 +178,19 @@ mat zirc  -6.55 tmp 823.0 rgb 100 100 100
 	Sn-122.06c 2.2308e-05
 	Sn-124.06c 2.7897e-05
 
+
+% --- "Boron Carbide" 
+%	  [PNNL-15870, Rev. 1]
+
+mat b4c -2.52000E+00 tmp 823.0
+%	5000.06c  -7.82610E-01
+%	6000.06c  -2.17390E-01
+	5010.06c  -1.44242E-01
+	5011.06c  -6.38368E-01
+	6012.06c  -2.14872E-01
+%	6013.06c  -2.51831E-03
+
+
 % --- Air (Dry, Near Sea Level, for outside the RPV)
 %     [Composition from PNNL-15870, Rev. 1]
 %mat air -1.20500E-03 tmp 300.0 rgb 228 240 239
