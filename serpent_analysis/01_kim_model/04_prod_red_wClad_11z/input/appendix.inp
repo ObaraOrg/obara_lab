@@ -43,4 +43,12 @@ plot 2 3000 3000    3
 
 set cpd       1  1  140 360
 
+
+% --- Calculates pin powers and pin power form factors ---------------------------------------
+%	  Univ.where to calc/ Lat.where to calc - DEFAULT OFF
+%	  NOTE: Needs the adf option also on to calculate the discontinuation factors
+
+%set ppw 0 LatC_Z1 
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

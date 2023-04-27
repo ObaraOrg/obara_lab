@@ -12,7 +12,7 @@ BASE_PATH = Path.cwd()
 
 
 def pathconstructor(index):
-    return BASE_PATH / f"wh_lfrsuffleNo{index}/wh_lfr_res.m"
+    return BASE_PATH / f"wh_lfr_res.m"
     # return BASE_PATH/f"wh_lfr_res.m"
 
 

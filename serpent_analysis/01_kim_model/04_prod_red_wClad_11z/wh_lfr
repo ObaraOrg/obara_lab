@@ -1,8 +1,7 @@
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
-																																																																																																																																																											%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% ---     		 Westinghouse Lead Fast Reactor 950MW  -  full core input       		--- %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+---     		 Westinghouse Lead Fast Reactor 950MW  -  full core input       		--- %
 %                		        made for Serpent ver. 2.1.33				 				%
-%          		 		  Created by : Stafie Alexandru 25/Jan/2023		 				    %
+%          		 		  Created by : Stafie Alexandru 27/Apr/2023		 				    %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 set title "WH_LFR950"
@@ -21,20 +20,21 @@ include "input/220cm/core_3d.inp"			% - Core geometry
 include "input/220cm/mvol.inp"				% - Volumes file
 
 % --- Loading pattern
-include "input/lp/core_lp_SF3_wt_CR.inp"	% - Made for the lp generator .py script
+include "input/lp/core_lp_SF3_wt_CR.inp"	% - Made from lp generator .py script
 
-% --- Detectors and plots
-include "input/appendix.inp"
-include "input/detectors.inp"
+% --- Detectors, plots and cases
+include "input/appendix.inp"				% - Plot, mesh and cpd
+include "input/study_cases.inp"				% - Branches and coefpara
+include "input/detectors.inp"				% - Pwr, flux data
 
 % --- Cross section libraries
 set acelib "sss_endfb7u.xsdata"
 set declib "sss_endfb7.dec"
 set nfylib "sss_endfb7.nfy"
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% ---          Run options         --- %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+% ---  Run options        
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % --- Miscellaneous options  ----------------------------------------------------------------
 
@@ -42,7 +42,7 @@ set printm  	1		% - Print material compositions to [input].bumat[bu] file
 %set his		1		% - Batch hist.record; Fiss.src.calc.(Shannon)entrp - DEFAULT OFF
 %set rfw		1  		% - Writes mat.comp.in BU calc. in binary res. file - DEFAULT OFF
 %set rfr		1		% - NOT MASTERED YET
-%set mcvol 		1E9		% - Calculate material vol. before sim. by  - DEFAULT OFF
+%set mcvol 		1E8		% - Calculate material vol. before sim. by  - DEFAULT OFF
 						%   sampling 10 million random points in the geometry.
 						%   Specifying the mat. volumes is crucial in BU calc.		
 
@@ -58,11 +58,11 @@ set nbuf	5.0			% - Sets the size of n buffer (DEF off, use only when sym fails)
 %     N.pop.per gen/ active.cycles/ inactive.cycles/ guess for k0/ 
  
 set pop			100000 100 50
-%set pop		5000 100 50
+%set pop		1000 100 50
 
 %     On-the-fly n growing pop - max active.cycles/ max pop.generated/ 
-%     This option make calculation fast but the propagation of err in multicycle analisys make it dangerous 
-%set gpop		x 	40000
+%     Makes calc. fast but the err.propagation in multi cy.analysis makes it dangerous 
+%set gpop		100 	40000
 
 
 % --- Calculation options  ------------------------------------------------------------------
@@ -72,20 +72,15 @@ set fpcut   1.0E-06		% - Fis.prod.yield cut-off, discrd.all cumul.yld.below 0.00
 %set xscalc  2			% - Transmutation xs calc.mode(1=dir.tallies, 2=spec-collap)
 						%   NOT USED, because opti mode
 
-set egrid	5.0E-05 1.0E-08 2.0E+01		% - Red.unionized E grid size,save mem. - DEFAULT OFF
-%set egrid	5.0E-05 1.0E-09 2.0E+01		%   Grid thinning with 5e-5 reconstruction  
-										%   tolerance between    0.1 eV - 15 MeV.					
+set egrid	5.0E-05 1.0E-06 2.0E+01		% - Red.unionized E grid size,save mem. - DEFAULT OFF
+										%   Grid thinning with 5e-5 reconstruction  
+										%   tolerance between    1.0 eV - 20 MeV.					
 										%   tolerance between 0.0001 eV - 20 MeV. - old   
-
-								
-% --- Calculates pin powers and pin power form factors ---------------------------------------
-%	  Univ.where to calc/ Lat.where to calc - DEFAULT OFF
-
-%set ppw 0 LatC_Z1 
 
 
 % --- Unresolved ressonance probality table sampling (++time to the run) --------------------
 %	  Adds considerable +time to the run for accuracy - DEFAULT OFF 
+
 %set ures    1
 %92233.09c 92234.09c 92235.09c 92236.09c 92237.09c 92238.09c 92239.09c 92240.09c 
 %93237.09c 93239.09c
@@ -96,7 +91,7 @@ set egrid	5.0E-05 1.0E-08 2.0E+01		% - Red.unionized E grid size,save mem. - DEF
 
 % --- Group constant generation -------------------------------------------------------------
 
-set gcu -1				% - Universe for grp.cons.gen. (-1 off for less time) - DEFAULT ON
+set gcu 0				% - Universe for grp.cons.gen. (-1 off for less time) - DEFAULT ON
 %set nfg 2 0.625E-6		% - Few-group structure: (2g, boundary at 0.625 eV) - OFF
 
 
@@ -109,13 +104,20 @@ set power  950E+06		% - Sets normalization to total fiss. power [in W]
 set bumode  2			% - BU mode, 1 - TTA, 2 - CRAM (DEFAULT)
 set bunorm  1			% - BU norm.mode (1=mat.all,2=burn.mat,3=non-burn.mat) - DEFAULT 1
 
-dep daytot	10 50 100 200 400 
+dep daytot	200 400 
 
 set pcc LELI 5 5		% - Use predictor corrector method for the depletion solution
 						%   LELI: Linear extrapolation on predictor, 5 substeps
 						%         Linear interpolation on corrector, 5 substeps
 						%   Prev. -> CELI 1 1 (DEFAULT)
 
+% --- Coefficient matrix --------------------------------------------------------------------
+
+coef 3 0 -200 -400  	% - 2x2x1 cases to be calculated
+ 
+2 nom ARI
+2 nom HZP 
+1 HIS_TRACK
 
 % --- Print options -------------------------------------------------------------------------
 
