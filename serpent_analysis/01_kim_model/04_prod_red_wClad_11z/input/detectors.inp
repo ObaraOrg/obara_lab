@@ -6,15 +6,15 @@
 det PwrCore  dr -8 void 	% Core power in [W]
 
 % Power in [W] for each fuel vol, only on mat fuel, -8 energy deposition
-det	pwr_U001	dm  fuelP1Z1 	dm  fuelP1Z2	dm  fuelP1Z3 	dm  fuelP1Z4	dm  fuelP1Z5 	dm  fuelP1Z6	dm  fuelP1Z7 	dm  fuelP1Z8	dm  fuelP1Z9 	dm  fuelP1Z10	dm  fuelP1Z11	dr -8 void
-det	pwr_U002	dm  fuelP2Z1 	dm  fuelP2Z2	dm  fuelP2Z3 	dm  fuelP2Z4	dm  fuelP2Z5 	dm  fuelP2Z6	dm  fuelP2Z7 	dm  fuelP2Z8	dm  fuelP2Z9 	dm  fuelP2Z10	dm  fuelP2Z11	dr -8 void
-det	pwr_U003	dm  fuelP3Z1 	dm  fuelP3Z2	dm  fuelP3Z3 	dm  fuelP3Z4	dm  fuelP3Z5 	dm  fuelP3Z6	dm  fuelP3Z7 	dm  fuelP3Z8	dm  fuelP3Z9 	dm  fuelP3Z10	dm  fuelP3Z11	dr -8 void
-det	pwr_U004	dm  fuelP4Z1 	dm  fuelP4Z2	dm  fuelP4Z3 	dm  fuelP4Z4	dm  fuelP4Z5 	dm  fuelP4Z6	dm  fuelP4Z7 	dm  fuelP4Z8	dm  fuelP4Z9 	dm  fuelP4Z10	dm  fuelP4Z11	dr -8 void
-det	pwr_U005	dm  fuelP5Z1 	dm  fuelP5Z2	dm  fuelP5Z3 	dm  fuelP5Z4	dm  fuelP5Z5 	dm  fuelP5Z6	dm  fuelP5Z7 	dm  fuelP5Z8	dm  fuelP5Z9 	dm  fuelP5Z10	dm  fuelP5Z11	dr -8 void
-det	pwr_U006	dm  fuelP6Z1 	dm  fuelP6Z2	dm  fuelP6Z3 	dm  fuelP6Z4	dm  fuelP6Z5 	dm  fuelP6Z6	dm  fuelP6Z7 	dm  fuelP6Z8	dm  fuelP6Z9 	dm  fuelP6Z10	dm  fuelP6Z11	dr -8 void
-det	pwr_U007	dm  fuelP7Z1 	dm  fuelP7Z2	dm  fuelP7Z3 	dm  fuelP7Z4	dm  fuelP7Z5 	dm  fuelP7Z6	dm  fuelP7Z7 	dm  fuelP7Z8	dm  fuelP7Z9 	dm  fuelP7Z10	dm  fuelP7Z11	dr -8 void
-det	pwr_U008	dm  fuelP8Z1 	dm  fuelP8Z2	dm  fuelP8Z3 	dm  fuelP8Z4	dm  fuelP8Z5 	dm  fuelP8Z6	dm  fuelP8Z7 	dm  fuelP8Z8	dm  fuelP8Z9 	dm  fuelP8Z10	dm  fuelP8Z11	dr -8 void
-det	pwr_U009	dm  fuelP9Z1 	dm  fuelP9Z2	dm  fuelP9Z3 	dm  fuelP9Z4	dm  fuelP9Z5 	dm  fuelP9Z6	dm  fuelP9Z7 	dm  fuelP9Z8	dm  fuelP9Z9 	dm  fuelP9Z10	dm  fuelP9Z11	dr -8 void
+det	pwr_U01 	dm  fuelP1Z1 	dm  fuelP1Z2	dm  fuelP1Z3 	dm  fuelP1Z4	dm  fuelP1Z5 	dm  fuelP1Z6	dm  fuelP1Z7 	dm  fuelP1Z8	dm  fuelP1Z9 	dm  fuelP1Z10	dm  fuelP1Z11	dr -8 void
+det	pwr_U02 	dm  fuelP2Z1 	dm  fuelP2Z2	dm  fuelP2Z3 	dm  fuelP2Z4	dm  fuelP2Z5 	dm  fuelP2Z6	dm  fuelP2Z7 	dm  fuelP2Z8	dm  fuelP2Z9 	dm  fuelP2Z10	dm  fuelP2Z11	dr -8 void
+det	pwr_U03 	dm  fuelP3Z1 	dm  fuelP3Z2	dm  fuelP3Z3 	dm  fuelP3Z4	dm  fuelP3Z5 	dm  fuelP3Z6	dm  fuelP3Z7 	dm  fuelP3Z8	dm  fuelP3Z9 	dm  fuelP3Z10	dm  fuelP3Z11	dr -8 void
+det	pwr_U04 	dm  fuelP4Z1 	dm  fuelP4Z2	dm  fuelP4Z3 	dm  fuelP4Z4	dm  fuelP4Z5 	dm  fuelP4Z6	dm  fuelP4Z7 	dm  fuelP4Z8	dm  fuelP4Z9 	dm  fuelP4Z10	dm  fuelP4Z11	dr -8 void
+det	pwr_U05 	dm  fuelP5Z1 	dm  fuelP5Z2	dm  fuelP5Z3 	dm  fuelP5Z4	dm  fuelP5Z5 	dm  fuelP5Z6	dm  fuelP5Z7 	dm  fuelP5Z8	dm  fuelP5Z9 	dm  fuelP5Z10	dm  fuelP5Z11	dr -8 void
+det	pwr_U06 	dm  fuelP6Z1 	dm  fuelP6Z2	dm  fuelP6Z3 	dm  fuelP6Z4	dm  fuelP6Z5 	dm  fuelP6Z6	dm  fuelP6Z7 	dm  fuelP6Z8	dm  fuelP6Z9 	dm  fuelP6Z10	dm  fuelP6Z11	dr -8 void
+det	pwr_U07 	dm  fuelP7Z1 	dm  fuelP7Z2	dm  fuelP7Z3 	dm  fuelP7Z4	dm  fuelP7Z5 	dm  fuelP7Z6	dm  fuelP7Z7 	dm  fuelP7Z8	dm  fuelP7Z9 	dm  fuelP7Z10	dm  fuelP7Z11	dr -8 void
+det	pwr_U08 	dm  fuelP8Z1 	dm  fuelP8Z2	dm  fuelP8Z3 	dm  fuelP8Z4	dm  fuelP8Z5 	dm  fuelP8Z6	dm  fuelP8Z7 	dm  fuelP8Z8	dm  fuelP8Z9 	dm  fuelP8Z10	dm  fuelP8Z11	dr -8 void
+det	pwr_U09 	dm  fuelP9Z1 	dm  fuelP9Z2	dm  fuelP9Z3 	dm  fuelP9Z4	dm  fuelP9Z5 	dm  fuelP9Z6	dm  fuelP9Z7 	dm  fuelP9Z8	dm  fuelP9Z9 	dm  fuelP9Z10	dm  fuelP9Z11	dr -8 void
 det	pwr_U010	dm fuelP10Z1    dm fuelP10Z2	dm fuelP10Z3    dm fuelP10Z4	dm fuelP10Z5    dm fuelP10Z6	dm fuelP10Z7    dm fuelP10Z8	dm fuelP10Z9    dm fuelP10Z10	dm fuelP10Z11	dr -8 void
 det	pwr_U011	dm fuelP11Z1    dm fuelP11Z2	dm fuelP11Z3    dm fuelP11Z4	dm fuelP11Z5    dm fuelP11Z6	dm fuelP11Z7    dm fuelP11Z8	dm fuelP11Z9    dm fuelP11Z10	dm fuelP11Z11	dr -8 void
 det	pwr_U012	dm fuelP12Z1    dm fuelP12Z2	dm fuelP12Z3    dm fuelP12Z4	dm fuelP12Z5    dm fuelP12Z6	dm fuelP12Z7    dm fuelP12Z8	dm fuelP12Z9    dm fuelP12Z10	dm fuelP12Z11	dr -8 void

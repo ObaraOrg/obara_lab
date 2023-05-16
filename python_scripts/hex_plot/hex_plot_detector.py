@@ -13,6 +13,8 @@ serpentTools.settings.rc["serpentVersion"] = "2.1.32"
 serpentTools.settings.rc["verbosity"] = "error"
 BASE_DIR = Path(os.path.dirname(__file__))
 
+PLOT_VALUE = "pwr_U0"
+
 P = 48  # max no of FA
 Z = 11  # max no of slices
 LOAD_PATH = BASE_DIR / "core_lp_SF3.txt"
@@ -34,7 +36,10 @@ def main() -> None:
     total_bins = np.zeros((len(files_data), P))
     for file_idx, file in enumerate(files_data):
         for p_idx in range(P):
-            bin = file.detectors[f"flux_odsP{p_idx+1}"].bins.T[-2].sum()
+            if p_idx < 9:
+                bin = file.detectors[f"{PLOT_VALUE}0{p_idx+1}"].bins.T[-2].sum()
+            else:
+                bin = file.detectors[f"{PLOT_VALUE}{p_idx+1}"].bins.T[-2].sum()
             total_bins[file_idx, p_idx] = bin
 
     map_, mask = read_core(LOAD_PATH, "U")
@@ -51,14 +56,14 @@ def main() -> None:
         # add a function for correnction to add both text
         # additional_text_list = p_array + "\n" + u_array
         additional_text_list = u_array
-        c_bar = plot_core(
-            mask,
-            core_values,
-            additional_text_list,
-            format_style=power_10_notation,
-        )
-        plt.title("full core flux")
-        c_bar.set_label("$\Phi$")
+        # c_bar = plot_core(
+        #     mask,
+        #     core_values,
+        #     additional_text_list,
+        #     format_style=power_10_notation,
+        # )
+        # plt.title("full core flux")
+        # c_bar.set_label("$\Phi$")
 
         c_bar = plot_core(
             mask,
@@ -70,8 +75,5 @@ def main() -> None:
         plt.title("quarter core flux map")
         c_bar.set_label("$\Phi$")
         plt.show()
-
-    breakpoint()
-
 
 main()

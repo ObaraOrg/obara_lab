@@ -4,14 +4,14 @@ import hex_lp_rot_sym_script
 
 TEST_PATH = Path("full_core_matrix.txt")
 OUTPUT_PATH = Path("core_lp.inp")
-NUMBER_OF_REPETITIONS = 22
+NUMBER_OF_REPETITIONS = 11
 
 STATIC_HEADER = """%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ---   Core Geometry definition   --- %
 % ---     Loading pattern only     --- %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% --- Suffling pattern : SF1_bis_1
+% --- Suffling pattern : SF3_wt_CR
 
 % --- Fuel Assembly lattices
 
