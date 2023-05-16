@@ -1,11 +1,97 @@
-% Control rods
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ---   Control rods definition    --- %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+pin co
+	lead
+
+% --- Guide tubes --- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+surf S1GT  hexxc    0.0  0.0  7.600                  % Shroud tube inner surface
+surf S2GT  hexxc    0.0  0.0  7.845                  % Shroud tube outer surface
+
+cell C1GT1  uGT1     lead			 -S1GT			 % Coolant in channel         
+cell C2GT1  uGT1     ods              S1GT   -S2GT   % Shroud tube                
+cell C3GT1  uGT1     lead             S2GT           % Coolant in channel   
+
+cell C1GT2  uGT2     lead			 -S1GT			 % Coolant in channel         
+cell C2GT2  uGT2     ods              S1GT   -S2GT   % Shroud tube                
+cell C3GT2  uGT2     lead             S2GT           % Coolant in channel  
+
+cell C1SDM  uGTs     lead			 -S1GT			 % Coolant in channel         
+cell C2SDM  uGTs     ods              S1GT   -S2GT   % Shroud tube                
+cell C3SDM  uGTs     lead             S2GT           % Coolant in channel  
 
 
-% Bank 1 - CR1 (inside)
 
+% --- Bank 1 - CR1 (inside) --- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Bank 2 - CR2 (outside)
+lat LatCR1 3 0.0 0.0 5 5 4
+co co co co co   
+ co co cp1 cp1 co    
+  co cp1 cp1 cp1 co 
+   co cp1 cp1 co co
+	co co co co co 
 
+surf S1CR1  hexxc    0.0  0.0  7.600                  % Shroud tube inner surface
+surf S2CR1  hexxc    0.0  0.0  7.845                  % Shroud tube outer surface
 
-% SDR (mid)
+% --- Universe uCR1 --- CR1 assembly
 
+cell C1CR1  uCR1     fill    LatCR1  -S1CR1           % Pin lattice                 
+cell C2CR1  uCR1     ods              S1CR1   -S2CR1  % Shroud tube                
+cell C3CR1  uCR1     lead             S2CR1           % Coolant in channel                
+
+% - Plug ODS pin
+pin     cp1
+	b4c		1.200
+	ods 	1.400
+	lead
+
+% --- Bank 2 - CR2 (outside) --- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+lat LatCR2 3 0.0 0.0 5 5 4
+co co co co co   
+ co co cp2 cp2 co    
+  co cp2 cp2 cp2 co 
+   co cp2 cp2 co co
+	co co co co co 
+
+surf S1CR2  hexxc    0.0  0.0  7.600                  % Shroud tube inner surface
+surf S2CR2  hexxc    0.0  0.0  7.845                  % Shroud tube outer surface
+
+% --- Universe uCR2 --- CR2 assembly
+
+cell C1CR2  uCR2     fill    LatCR2  -S1CR2           % Pin lattice                 
+cell C2CR2  uCR2     ods              S1CR2   -S2CR2  % Shroud tube                
+cell C3CR2  uCR2     lead             S2CR2           % Coolant in channel                
+
+% - Plug ODS pin
+pin     cp2
+	b4c		1.200
+	ods 	1.400
+	lead		
+
+% --- SDR (mid) --- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+lat LatSDR 3 0.0 0.0 5 5 4
+co co co co co   
+ co co sd sd co    
+  co sd sd sd co 
+   co sd sd co co
+	co co co co co 
+
+surf S1SDR  hexxc    0.0  0.0  7.600                  % Shroud tube inner surface
+surf S2SDR  hexxc    0.0  0.0  7.845                  % Shroud tube outer surface
+
+% --- Universe uSDM --- SDM assembly
+
+cell C1SDR  uSDR     fill    LatSDR  -S1SDR           % Pin lattice                 
+cell C2SDR  uSDR     ods              S1SDR   -S2SDR  % Shroud tube                
+cell C3SDR  uSDR     lead             S2SDR           % Coolant in channel                
+
+% - Plug ODS pin
+pin     sd
+	b4c		1.200
+	ods 	1.400
+	lead		
