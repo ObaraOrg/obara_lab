@@ -5,14 +5,16 @@ from typing import List
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import seaborn as sns
 import serpentTools
-from nuclear_lib.hex_plot import make_value_map, plot_core, power_10_notation, read_core
+from nuclear_lib.hex_plot import (make_value_map, plot_core, power_10_notation,
+                                  read_core)
 
 serpentTools.settings.rc["serpentVersion"] = "2.1.32"
 serpentTools.settings.rc["verbosity"] = "error"
 BASE_DIR = Path(os.path.dirname(__file__))
 
-plt.gcf().set_size_inches(8, 6)  # Set figure size (adjust as needed)
+# plt.gcf().set_size_inches(8, 6)  # Set figure size (adjust as needed)
 plt.rcParams.update({"font.size": 18})  # Set font size (adjust as needed)
 
 PLOT_VALUE = "pwr_U0"
@@ -45,9 +47,9 @@ def main() -> None:
     map_, mask = read_core(LOAD_PATH, "U")
     mask = np.array(mask)
 
-    step = 0
+    fig, ax = plt.subplots(figsize=(10, 8))
 
-    for bu_steps in total_bins:
+    for step, bu_steps in enumerate(total_bins):
         core_values, names_array = make_value_map(map_, bu_steps)
         # Strip last 2 chars.
         names_array = np.array([name[:-2] for name in names_array])
@@ -55,11 +57,10 @@ def main() -> None:
         p_array = [f"p{i}" for i in range(1, P + 1)]
         p_array = np.char.array(make_value_map(map_, p_array))
         u_array = np.char.array(map_).flatten()[mask.flatten()]
-        u_array = np.char.array([el[:4] for el in u_array])
+        additional_text_list = np.char.array([el[:4] for el in u_array])
 
         # add a function for correnction to add both text
         # additional_text_list = p_array + "\n" + u_array
-        additional_text_list = u_array
         # c_bar = plot_core(
         #     mask,
         #     core_values,
@@ -77,13 +78,11 @@ def main() -> None:
             format_style=power_10_notation,
         )
         fig_name = files_paths[step]
-                
+
         plt.title(f"Power distribution in the core{fig_name}")
         c_bar.set_label("W/m3")
         plot_save_path = BASE_DIR / f"flux_plot_{fig_name}.png"
         plt.savefig(plot_save_path, bbox_inches="tight", dpi=300)
-
-
 
         distances = {"FA": fa_names, "Distance": dist}
         df1 = pd.DataFrame(distances, columns=["FA", "Distance"])
@@ -91,21 +90,24 @@ def main() -> None:
 
         data_FA = {"FA": names_array, "Values": core_values}
         df2 = pd.DataFrame(data_FA, columns=["FA", "Values"])
-        df2 = df2.groupby("FA").mean() 
+        df2 = df2.groupby("FA").mean()
 
-        merged_df = pd.merge(df1, df2, on='FA')
-        plt.plot(merged_df['Distance'], merged_df['Values'])
-        plt.xlabel('Distance')
-        plt.ylabel('Values')
-        plt.title('Values vs. Distance')
-        plt.show()      
+        merged_df = pd.merge(df1, df2, on="FA")
 
+        sns.regplot(
+            ax=ax,
+            data=merged_df,
+            x="Distance",
+            y="Values",
+            scatter=True,
+            order=4,
+            label=f"{step}",
+        )
+        ax.axhline(y=0, color="gray", linestyle="--", linewidth=2, alpha=0.8)
 
-
-        breakpoint()
-
-        step += 1
-
+    ax.set_title("Values vs. Distance")
+    ax.legend()
+    fig.savefig("value_vs_distance.png")
     plt.show()
 
 
