@@ -48,7 +48,9 @@ def main() -> None:
     step = 0
 
     for bu_steps in total_bins:
-        core_values = make_value_map(map_, bu_steps)
+        core_values, names_array = make_value_map(map_, bu_steps)
+        # Strip last 2 chars.
+        names_array = np.array([name[:-2] for name in names_array])
 
         p_array = [f"p{i}" for i in range(1, P + 1)]
         p_array = np.char.array(make_value_map(map_, p_array))
@@ -67,7 +69,7 @@ def main() -> None:
         # plt.title("full core flux")
         # c_bar.set_label("$\Phi$")
 
-        c_bar = plot_core(
+        c_bar, _, dist, fa_names = plot_core(
             mask,
             core_values,
             additional_text_list,
@@ -75,11 +77,32 @@ def main() -> None:
             format_style=power_10_notation,
         )
         fig_name = files_paths[step]
-
+                
         plt.title(f"Power distribution in the core{fig_name}")
         c_bar.set_label("W/m3")
         plot_save_path = BASE_DIR / f"flux_plot_{fig_name}.png"
         plt.savefig(plot_save_path, bbox_inches="tight", dpi=300)
+
+
+
+        distances = {"FA": fa_names, "Distance": dist}
+        df1 = pd.DataFrame(distances, columns=["FA", "Distance"])
+        df1 = df1.sort_values(by=["FA"])
+
+        data_FA = {"FA": names_array, "Values": core_values}
+        df2 = pd.DataFrame(data_FA, columns=["FA", "Values"])
+        df2 = df2.groupby("FA").mean() 
+
+        merged_df = pd.merge(df1, df2, on='FA')
+        plt.plot(merged_df['Distance'], merged_df['Values'])
+        plt.xlabel('Distance')
+        plt.ylabel('Values')
+        plt.title('Values vs. Distance')
+        plt.show()      
+
+
+
+        breakpoint()
 
         step += 1
 
