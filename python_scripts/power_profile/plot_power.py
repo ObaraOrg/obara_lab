@@ -1,22 +1,22 @@
 import numpy as np
 
-NAME = "BBR.CORERef"
+NAME = "wh_lfr"
 
 # Distance from center and location ID
-m = 17  # number of rows
-n = 17  # number of columns
+m = 27  # number of rows
+n = 27  # number of columns
 distvec = []
 number = []
 
 
 # get volume from pin pitch
-pitcha = 20.0918 / 2
-pitchb = 20.0918 / np.sqrt(3)
-height = 140
+pitcha = 16.3 / 2
+pitchb = 16.3 / np.sqrt(3)
+height = 220
 favol = pitcha * pitchb * 3 * height
 
 for i in range(3, 10):
-    p = 19 - i
+    p = 17 - i
     while p < 17:
         distrow = (2 * (p - 9) - (9 - i)) * pitcha
         distcolumn = 1.5 * (i - 9) * pitchb
@@ -32,37 +32,39 @@ referb = {}
 refere = {}
 boec = []
 eoec = []
-length = sum([1 for _ in open(f"./{NAME}0/{NAME}_core0.m")])
+length = sum([1 for _ in open(f"{NAME}_core0.m")])
+breakpoint()
 
 
 # BOEC power density
-while a < 73:  # number of steps
-    with open(f"./{NAME}" + str(a) + f"/{NAME}_core" + str(0) + ".m") as fb:
+while a < 2:  # number of steps
+    with open(f"{NAME}_core" + str(1) + ".m") as fb:
         for kb in range(length):
             datab = fb.readline()
             datab = datab.split()
 
-            if "a" in datab:  # FAごとの出力を辞書で登録
+            if "a" in datab:  # Register the output for each FA in a dictionary
                 datab[0] = int(datab[0])
                 datab[1] = float(datab[1]) / favol
                 referb[datab[0]] = datab[1]
 
     for numb in number:
-        boec.append(referb[numb])  # referbにBOECの出力密度データを追加
+        breakpoint()
+        boec.append(referb[numb])  # Added BOEC power density data to referb
 
     # EOEC power density
-    with open(f"./{NAME}" + str(a) + f"/{NAME}_core" + str(4) + ".m") as fe:
+    with open(f"{NAME}_core" + str(4) + ".m") as fe:
         for k in range(length):
             datae = fe.readline()
             datae = datae.split()
 
-            if "a" in datae:  # FAごとの出力を辞書で登録
+            if "a" in datae:  # Register the output for each FA in a dictionary
                 datae[0] = int(datae[0])
                 datae[1] = float(datae[1]) / favol
                 refere[datae[0]] = datae[1]
 
     for nume in number:
-        eoec.append(refere[nume])  # refereにEOECの出力密度データを追加
+        eoec.append(refere[nume])  # Added EOEC power density data to refere
 
     # plot,save
     import matplotlib.pyplot as plt
@@ -95,7 +97,7 @@ while a < 73:  # number of steps
     fig.savefig("Power Density" + " step " + str(a), facecolor="w")
     plt.close()
 
-    print(str(a) + "まで終了")  # check
+    print(str(a) + "end up to")  # check
 
     eoec.clear()
     boec.clear()
