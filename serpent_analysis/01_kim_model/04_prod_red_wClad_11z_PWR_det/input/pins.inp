@@ -1,0 +1,2643 @@
+pin _co_
+lead
+
+pin P1Z1
+fuelP1Z1 	0.78550
+odsP1Z1    0.84850
+lead
+
+pin P1Z2
+fuelP1Z2 	0.78550
+odsP1Z2    0.84850
+lead
+
+pin P1Z3
+fuelP1Z3 	0.78550
+odsP1Z3    0.84850
+lead
+
+pin P1Z4
+fuelP1Z4 	0.78550
+odsP1Z4    0.84850
+lead
+
+pin P1Z5
+fuelP1Z5 	0.78550
+odsP1Z5    0.84850
+lead
+
+pin P1Z6
+fuelP1Z6 	0.78550
+odsP1Z6    0.84850
+lead
+
+pin P1Z7
+fuelP1Z7 	0.78550
+odsP1Z7    0.84850
+lead
+
+pin P1Z8
+fuelP1Z8 	0.78550
+odsP1Z8    0.84850
+lead
+
+pin P1Z9
+fuelP1Z9 	0.78550
+odsP1Z9    0.84850
+lead
+
+pin P1Z10
+fuelP1Z10 	0.78550
+odsP1Z10    0.84850
+lead
+
+pin P1Z11
+fuelP1Z11 	0.78550
+odsP1Z11    0.84850
+lead
+
+pin P2Z1
+fuelP2Z1 	0.78550
+odsP2Z1    0.84850
+lead
+
+pin P2Z2
+fuelP2Z2 	0.78550
+odsP2Z2    0.84850
+lead
+
+pin P2Z3
+fuelP2Z3 	0.78550
+odsP2Z3    0.84850
+lead
+
+pin P2Z4
+fuelP2Z4 	0.78550
+odsP2Z4    0.84850
+lead
+
+pin P2Z5
+fuelP2Z5 	0.78550
+odsP2Z5    0.84850
+lead
+
+pin P2Z6
+fuelP2Z6 	0.78550
+odsP2Z6    0.84850
+lead
+
+pin P2Z7
+fuelP2Z7 	0.78550
+odsP2Z7    0.84850
+lead
+
+pin P2Z8
+fuelP2Z8 	0.78550
+odsP2Z8    0.84850
+lead
+
+pin P2Z9
+fuelP2Z9 	0.78550
+odsP2Z9    0.84850
+lead
+
+pin P2Z10
+fuelP2Z10 	0.78550
+odsP2Z10    0.84850
+lead
+
+pin P2Z11
+fuelP2Z11 	0.78550
+odsP2Z11    0.84850
+lead
+
+pin P3Z1
+fuelP3Z1 	0.78550
+odsP3Z1    0.84850
+lead
+
+pin P3Z2
+fuelP3Z2 	0.78550
+odsP3Z2    0.84850
+lead
+
+pin P3Z3
+fuelP3Z3 	0.78550
+odsP3Z3    0.84850
+lead
+
+pin P3Z4
+fuelP3Z4 	0.78550
+odsP3Z4    0.84850
+lead
+
+pin P3Z5
+fuelP3Z5 	0.78550
+odsP3Z5    0.84850
+lead
+
+pin P3Z6
+fuelP3Z6 	0.78550
+odsP3Z6    0.84850
+lead
+
+pin P3Z7
+fuelP3Z7 	0.78550
+odsP3Z7    0.84850
+lead
+
+pin P3Z8
+fuelP3Z8 	0.78550
+odsP3Z8    0.84850
+lead
+
+pin P3Z9
+fuelP3Z9 	0.78550
+odsP3Z9    0.84850
+lead
+
+pin P3Z10
+fuelP3Z10 	0.78550
+odsP3Z10    0.84850
+lead
+
+pin P3Z11
+fuelP3Z11 	0.78550
+odsP3Z11    0.84850
+lead
+
+pin P4Z1
+fuelP4Z1 	0.78550
+odsP4Z1    0.84850
+lead
+
+pin P4Z2
+fuelP4Z2 	0.78550
+odsP4Z2    0.84850
+lead
+
+pin P4Z3
+fuelP4Z3 	0.78550
+odsP4Z3    0.84850
+lead
+
+pin P4Z4
+fuelP4Z4 	0.78550
+odsP4Z4    0.84850
+lead
+
+pin P4Z5
+fuelP4Z5 	0.78550
+odsP4Z5    0.84850
+lead
+
+pin P4Z6
+fuelP4Z6 	0.78550
+odsP4Z6    0.84850
+lead
+
+pin P4Z7
+fuelP4Z7 	0.78550
+odsP4Z7    0.84850
+lead
+
+pin P4Z8
+fuelP4Z8 	0.78550
+odsP4Z8    0.84850
+lead
+
+pin P4Z9
+fuelP4Z9 	0.78550
+odsP4Z9    0.84850
+lead
+
+pin P4Z10
+fuelP4Z10 	0.78550
+odsP4Z10    0.84850
+lead
+
+pin P4Z11
+fuelP4Z11 	0.78550
+odsP4Z11    0.84850
+lead
+
+pin P5Z1
+fuelP5Z1 	0.78550
+odsP5Z1    0.84850
+lead
+
+pin P5Z2
+fuelP5Z2 	0.78550
+odsP5Z2    0.84850
+lead
+
+pin P5Z3
+fuelP5Z3 	0.78550
+odsP5Z3    0.84850
+lead
+
+pin P5Z4
+fuelP5Z4 	0.78550
+odsP5Z4    0.84850
+lead
+
+pin P5Z5
+fuelP5Z5 	0.78550
+odsP5Z5    0.84850
+lead
+
+pin P5Z6
+fuelP5Z6 	0.78550
+odsP5Z6    0.84850
+lead
+
+pin P5Z7
+fuelP5Z7 	0.78550
+odsP5Z7    0.84850
+lead
+
+pin P5Z8
+fuelP5Z8 	0.78550
+odsP5Z8    0.84850
+lead
+
+pin P5Z9
+fuelP5Z9 	0.78550
+odsP5Z9    0.84850
+lead
+
+pin P5Z10
+fuelP5Z10 	0.78550
+odsP5Z10    0.84850
+lead
+
+pin P5Z11
+fuelP5Z11 	0.78550
+odsP5Z11    0.84850
+lead
+
+pin P6Z1
+fuelP6Z1 	0.78550
+odsP6Z1    0.84850
+lead
+
+pin P6Z2
+fuelP6Z2 	0.78550
+odsP6Z2    0.84850
+lead
+
+pin P6Z3
+fuelP6Z3 	0.78550
+odsP6Z3    0.84850
+lead
+
+pin P6Z4
+fuelP6Z4 	0.78550
+odsP6Z4    0.84850
+lead
+
+pin P6Z5
+fuelP6Z5 	0.78550
+odsP6Z5    0.84850
+lead
+
+pin P6Z6
+fuelP6Z6 	0.78550
+odsP6Z6    0.84850
+lead
+
+pin P6Z7
+fuelP6Z7 	0.78550
+odsP6Z7    0.84850
+lead
+
+pin P6Z8
+fuelP6Z8 	0.78550
+odsP6Z8    0.84850
+lead
+
+pin P6Z9
+fuelP6Z9 	0.78550
+odsP6Z9    0.84850
+lead
+
+pin P6Z10
+fuelP6Z10 	0.78550
+odsP6Z10    0.84850
+lead
+
+pin P6Z11
+fuelP6Z11 	0.78550
+odsP6Z11    0.84850
+lead
+
+pin P7Z1
+fuelP7Z1 	0.78550
+odsP7Z1    0.84850
+lead
+
+pin P7Z2
+fuelP7Z2 	0.78550
+odsP7Z2    0.84850
+lead
+
+pin P7Z3
+fuelP7Z3 	0.78550
+odsP7Z3    0.84850
+lead
+
+pin P7Z4
+fuelP7Z4 	0.78550
+odsP7Z4    0.84850
+lead
+
+pin P7Z5
+fuelP7Z5 	0.78550
+odsP7Z5    0.84850
+lead
+
+pin P7Z6
+fuelP7Z6 	0.78550
+odsP7Z6    0.84850
+lead
+
+pin P7Z7
+fuelP7Z7 	0.78550
+odsP7Z7    0.84850
+lead
+
+pin P7Z8
+fuelP7Z8 	0.78550
+odsP7Z8    0.84850
+lead
+
+pin P7Z9
+fuelP7Z9 	0.78550
+odsP7Z9    0.84850
+lead
+
+pin P7Z10
+fuelP7Z10 	0.78550
+odsP7Z10    0.84850
+lead
+
+pin P7Z11
+fuelP7Z11 	0.78550
+odsP7Z11    0.84850
+lead
+
+pin P8Z1
+fuelP8Z1 	0.78550
+odsP8Z1    0.84850
+lead
+
+pin P8Z2
+fuelP8Z2 	0.78550
+odsP8Z2    0.84850
+lead
+
+pin P8Z3
+fuelP8Z3 	0.78550
+odsP8Z3    0.84850
+lead
+
+pin P8Z4
+fuelP8Z4 	0.78550
+odsP8Z4    0.84850
+lead
+
+pin P8Z5
+fuelP8Z5 	0.78550
+odsP8Z5    0.84850
+lead
+
+pin P8Z6
+fuelP8Z6 	0.78550
+odsP8Z6    0.84850
+lead
+
+pin P8Z7
+fuelP8Z7 	0.78550
+odsP8Z7    0.84850
+lead
+
+pin P8Z8
+fuelP8Z8 	0.78550
+odsP8Z8    0.84850
+lead
+
+pin P8Z9
+fuelP8Z9 	0.78550
+odsP8Z9    0.84850
+lead
+
+pin P8Z10
+fuelP8Z10 	0.78550
+odsP8Z10    0.84850
+lead
+
+pin P8Z11
+fuelP8Z11 	0.78550
+odsP8Z11    0.84850
+lead
+
+pin P9Z1
+fuelP9Z1 	0.78550
+odsP9Z1    0.84850
+lead
+
+pin P9Z2
+fuelP9Z2 	0.78550
+odsP9Z2    0.84850
+lead
+
+pin P9Z3
+fuelP9Z3 	0.78550
+odsP9Z3    0.84850
+lead
+
+pin P9Z4
+fuelP9Z4 	0.78550
+odsP9Z4    0.84850
+lead
+
+pin P9Z5
+fuelP9Z5 	0.78550
+odsP9Z5    0.84850
+lead
+
+pin P9Z6
+fuelP9Z6 	0.78550
+odsP9Z6    0.84850
+lead
+
+pin P9Z7
+fuelP9Z7 	0.78550
+odsP9Z7    0.84850
+lead
+
+pin P9Z8
+fuelP9Z8 	0.78550
+odsP9Z8    0.84850
+lead
+
+pin P9Z9
+fuelP9Z9 	0.78550
+odsP9Z9    0.84850
+lead
+
+pin P9Z10
+fuelP9Z10 	0.78550
+odsP9Z10    0.84850
+lead
+
+pin P9Z11
+fuelP9Z11 	0.78550
+odsP9Z11    0.84850
+lead
+
+pin P10Z1
+fuelP10Z1 	0.78550
+odsP10Z1    0.84850
+lead
+
+pin P10Z2
+fuelP10Z2 	0.78550
+odsP10Z2    0.84850
+lead
+
+pin P10Z3
+fuelP10Z3 	0.78550
+odsP10Z3    0.84850
+lead
+
+pin P10Z4
+fuelP10Z4 	0.78550
+odsP10Z4    0.84850
+lead
+
+pin P10Z5
+fuelP10Z5 	0.78550
+odsP10Z5    0.84850
+lead
+
+pin P10Z6
+fuelP10Z6 	0.78550
+odsP10Z6    0.84850
+lead
+
+pin P10Z7
+fuelP10Z7 	0.78550
+odsP10Z7    0.84850
+lead
+
+pin P10Z8
+fuelP10Z8 	0.78550
+odsP10Z8    0.84850
+lead
+
+pin P10Z9
+fuelP10Z9 	0.78550
+odsP10Z9    0.84850
+lead
+
+pin P10Z10
+fuelP10Z10 	0.78550
+odsP10Z10    0.84850
+lead
+
+pin P10Z11
+fuelP10Z11 	0.78550
+odsP10Z11    0.84850
+lead
+
+pin P11Z1
+fuelP11Z1 	0.78550
+odsP11Z1    0.84850
+lead
+
+pin P11Z2
+fuelP11Z2 	0.78550
+odsP11Z2    0.84850
+lead
+
+pin P11Z3
+fuelP11Z3 	0.78550
+odsP11Z3    0.84850
+lead
+
+pin P11Z4
+fuelP11Z4 	0.78550
+odsP11Z4    0.84850
+lead
+
+pin P11Z5
+fuelP11Z5 	0.78550
+odsP11Z5    0.84850
+lead
+
+pin P11Z6
+fuelP11Z6 	0.78550
+odsP11Z6    0.84850
+lead
+
+pin P11Z7
+fuelP11Z7 	0.78550
+odsP11Z7    0.84850
+lead
+
+pin P11Z8
+fuelP11Z8 	0.78550
+odsP11Z8    0.84850
+lead
+
+pin P11Z9
+fuelP11Z9 	0.78550
+odsP11Z9    0.84850
+lead
+
+pin P11Z10
+fuelP11Z10 	0.78550
+odsP11Z10    0.84850
+lead
+
+pin P11Z11
+fuelP11Z11 	0.78550
+odsP11Z11    0.84850
+lead
+
+pin P12Z1
+fuelP12Z1 	0.78550
+odsP12Z1    0.84850
+lead
+
+pin P12Z2
+fuelP12Z2 	0.78550
+odsP12Z2    0.84850
+lead
+
+pin P12Z3
+fuelP12Z3 	0.78550
+odsP12Z3    0.84850
+lead
+
+pin P12Z4
+fuelP12Z4 	0.78550
+odsP12Z4    0.84850
+lead
+
+pin P12Z5
+fuelP12Z5 	0.78550
+odsP12Z5    0.84850
+lead
+
+pin P12Z6
+fuelP12Z6 	0.78550
+odsP12Z6    0.84850
+lead
+
+pin P12Z7
+fuelP12Z7 	0.78550
+odsP12Z7    0.84850
+lead
+
+pin P12Z8
+fuelP12Z8 	0.78550
+odsP12Z8    0.84850
+lead
+
+pin P12Z9
+fuelP12Z9 	0.78550
+odsP12Z9    0.84850
+lead
+
+pin P12Z10
+fuelP12Z10 	0.78550
+odsP12Z10    0.84850
+lead
+
+pin P12Z11
+fuelP12Z11 	0.78550
+odsP12Z11    0.84850
+lead
+
+pin P13Z1
+fuelP13Z1 	0.78550
+odsP13Z1    0.84850
+lead
+
+pin P13Z2
+fuelP13Z2 	0.78550
+odsP13Z2    0.84850
+lead
+
+pin P13Z3
+fuelP13Z3 	0.78550
+odsP13Z3    0.84850
+lead
+
+pin P13Z4
+fuelP13Z4 	0.78550
+odsP13Z4    0.84850
+lead
+
+pin P13Z5
+fuelP13Z5 	0.78550
+odsP13Z5    0.84850
+lead
+
+pin P13Z6
+fuelP13Z6 	0.78550
+odsP13Z6    0.84850
+lead
+
+pin P13Z7
+fuelP13Z7 	0.78550
+odsP13Z7    0.84850
+lead
+
+pin P13Z8
+fuelP13Z8 	0.78550
+odsP13Z8    0.84850
+lead
+
+pin P13Z9
+fuelP13Z9 	0.78550
+odsP13Z9    0.84850
+lead
+
+pin P13Z10
+fuelP13Z10 	0.78550
+odsP13Z10    0.84850
+lead
+
+pin P13Z11
+fuelP13Z11 	0.78550
+odsP13Z11    0.84850
+lead
+
+pin P14Z1
+fuelP14Z1 	0.78550
+odsP14Z1    0.84850
+lead
+
+pin P14Z2
+fuelP14Z2 	0.78550
+odsP14Z2    0.84850
+lead
+
+pin P14Z3
+fuelP14Z3 	0.78550
+odsP14Z3    0.84850
+lead
+
+pin P14Z4
+fuelP14Z4 	0.78550
+odsP14Z4    0.84850
+lead
+
+pin P14Z5
+fuelP14Z5 	0.78550
+odsP14Z5    0.84850
+lead
+
+pin P14Z6
+fuelP14Z6 	0.78550
+odsP14Z6    0.84850
+lead
+
+pin P14Z7
+fuelP14Z7 	0.78550
+odsP14Z7    0.84850
+lead
+
+pin P14Z8
+fuelP14Z8 	0.78550
+odsP14Z8    0.84850
+lead
+
+pin P14Z9
+fuelP14Z9 	0.78550
+odsP14Z9    0.84850
+lead
+
+pin P14Z10
+fuelP14Z10 	0.78550
+odsP14Z10    0.84850
+lead
+
+pin P14Z11
+fuelP14Z11 	0.78550
+odsP14Z11    0.84850
+lead
+
+pin P15Z1
+fuelP15Z1 	0.78550
+odsP15Z1    0.84850
+lead
+
+pin P15Z2
+fuelP15Z2 	0.78550
+odsP15Z2    0.84850
+lead
+
+pin P15Z3
+fuelP15Z3 	0.78550
+odsP15Z3    0.84850
+lead
+
+pin P15Z4
+fuelP15Z4 	0.78550
+odsP15Z4    0.84850
+lead
+
+pin P15Z5
+fuelP15Z5 	0.78550
+odsP15Z5    0.84850
+lead
+
+pin P15Z6
+fuelP15Z6 	0.78550
+odsP15Z6    0.84850
+lead
+
+pin P15Z7
+fuelP15Z7 	0.78550
+odsP15Z7    0.84850
+lead
+
+pin P15Z8
+fuelP15Z8 	0.78550
+odsP15Z8    0.84850
+lead
+
+pin P15Z9
+fuelP15Z9 	0.78550
+odsP15Z9    0.84850
+lead
+
+pin P15Z10
+fuelP15Z10 	0.78550
+odsP15Z10    0.84850
+lead
+
+pin P15Z11
+fuelP15Z11 	0.78550
+odsP15Z11    0.84850
+lead
+
+pin P16Z1
+fuelP16Z1 	0.78550
+odsP16Z1    0.84850
+lead
+
+pin P16Z2
+fuelP16Z2 	0.78550
+odsP16Z2    0.84850
+lead
+
+pin P16Z3
+fuelP16Z3 	0.78550
+odsP16Z3    0.84850
+lead
+
+pin P16Z4
+fuelP16Z4 	0.78550
+odsP16Z4    0.84850
+lead
+
+pin P16Z5
+fuelP16Z5 	0.78550
+odsP16Z5    0.84850
+lead
+
+pin P16Z6
+fuelP16Z6 	0.78550
+odsP16Z6    0.84850
+lead
+
+pin P16Z7
+fuelP16Z7 	0.78550
+odsP16Z7    0.84850
+lead
+
+pin P16Z8
+fuelP16Z8 	0.78550
+odsP16Z8    0.84850
+lead
+
+pin P16Z9
+fuelP16Z9 	0.78550
+odsP16Z9    0.84850
+lead
+
+pin P16Z10
+fuelP16Z10 	0.78550
+odsP16Z10    0.84850
+lead
+
+pin P16Z11
+fuelP16Z11 	0.78550
+odsP16Z11    0.84850
+lead
+
+pin P17Z1
+fuelP17Z1 	0.78550
+odsP17Z1    0.84850
+lead
+
+pin P17Z2
+fuelP17Z2 	0.78550
+odsP17Z2    0.84850
+lead
+
+pin P17Z3
+fuelP17Z3 	0.78550
+odsP17Z3    0.84850
+lead
+
+pin P17Z4
+fuelP17Z4 	0.78550
+odsP17Z4    0.84850
+lead
+
+pin P17Z5
+fuelP17Z5 	0.78550
+odsP17Z5    0.84850
+lead
+
+pin P17Z6
+fuelP17Z6 	0.78550
+odsP17Z6    0.84850
+lead
+
+pin P17Z7
+fuelP17Z7 	0.78550
+odsP17Z7    0.84850
+lead
+
+pin P17Z8
+fuelP17Z8 	0.78550
+odsP17Z8    0.84850
+lead
+
+pin P17Z9
+fuelP17Z9 	0.78550
+odsP17Z9    0.84850
+lead
+
+pin P17Z10
+fuelP17Z10 	0.78550
+odsP17Z10    0.84850
+lead
+
+pin P17Z11
+fuelP17Z11 	0.78550
+odsP17Z11    0.84850
+lead
+
+pin P18Z1
+fuelP18Z1 	0.78550
+odsP18Z1    0.84850
+lead
+
+pin P18Z2
+fuelP18Z2 	0.78550
+odsP18Z2    0.84850
+lead
+
+pin P18Z3
+fuelP18Z3 	0.78550
+odsP18Z3    0.84850
+lead
+
+pin P18Z4
+fuelP18Z4 	0.78550
+odsP18Z4    0.84850
+lead
+
+pin P18Z5
+fuelP18Z5 	0.78550
+odsP18Z5    0.84850
+lead
+
+pin P18Z6
+fuelP18Z6 	0.78550
+odsP18Z6    0.84850
+lead
+
+pin P18Z7
+fuelP18Z7 	0.78550
+odsP18Z7    0.84850
+lead
+
+pin P18Z8
+fuelP18Z8 	0.78550
+odsP18Z8    0.84850
+lead
+
+pin P18Z9
+fuelP18Z9 	0.78550
+odsP18Z9    0.84850
+lead
+
+pin P18Z10
+fuelP18Z10 	0.78550
+odsP18Z10    0.84850
+lead
+
+pin P18Z11
+fuelP18Z11 	0.78550
+odsP18Z11    0.84850
+lead
+
+pin P19Z1
+fuelP19Z1 	0.78550
+odsP19Z1    0.84850
+lead
+
+pin P19Z2
+fuelP19Z2 	0.78550
+odsP19Z2    0.84850
+lead
+
+pin P19Z3
+fuelP19Z3 	0.78550
+odsP19Z3    0.84850
+lead
+
+pin P19Z4
+fuelP19Z4 	0.78550
+odsP19Z4    0.84850
+lead
+
+pin P19Z5
+fuelP19Z5 	0.78550
+odsP19Z5    0.84850
+lead
+
+pin P19Z6
+fuelP19Z6 	0.78550
+odsP19Z6    0.84850
+lead
+
+pin P19Z7
+fuelP19Z7 	0.78550
+odsP19Z7    0.84850
+lead
+
+pin P19Z8
+fuelP19Z8 	0.78550
+odsP19Z8    0.84850
+lead
+
+pin P19Z9
+fuelP19Z9 	0.78550
+odsP19Z9    0.84850
+lead
+
+pin P19Z10
+fuelP19Z10 	0.78550
+odsP19Z10    0.84850
+lead
+
+pin P19Z11
+fuelP19Z11 	0.78550
+odsP19Z11    0.84850
+lead
+
+pin P20Z1
+fuelP20Z1 	0.78550
+odsP20Z1    0.84850
+lead
+
+pin P20Z2
+fuelP20Z2 	0.78550
+odsP20Z2    0.84850
+lead
+
+pin P20Z3
+fuelP20Z3 	0.78550
+odsP20Z3    0.84850
+lead
+
+pin P20Z4
+fuelP20Z4 	0.78550
+odsP20Z4    0.84850
+lead
+
+pin P20Z5
+fuelP20Z5 	0.78550
+odsP20Z5    0.84850
+lead
+
+pin P20Z6
+fuelP20Z6 	0.78550
+odsP20Z6    0.84850
+lead
+
+pin P20Z7
+fuelP20Z7 	0.78550
+odsP20Z7    0.84850
+lead
+
+pin P20Z8
+fuelP20Z8 	0.78550
+odsP20Z8    0.84850
+lead
+
+pin P20Z9
+fuelP20Z9 	0.78550
+odsP20Z9    0.84850
+lead
+
+pin P20Z10
+fuelP20Z10 	0.78550
+odsP20Z10    0.84850
+lead
+
+pin P20Z11
+fuelP20Z11 	0.78550
+odsP20Z11    0.84850
+lead
+
+pin P21Z1
+fuelP21Z1 	0.78550
+odsP21Z1    0.84850
+lead
+
+pin P21Z2
+fuelP21Z2 	0.78550
+odsP21Z2    0.84850
+lead
+
+pin P21Z3
+fuelP21Z3 	0.78550
+odsP21Z3    0.84850
+lead
+
+pin P21Z4
+fuelP21Z4 	0.78550
+odsP21Z4    0.84850
+lead
+
+pin P21Z5
+fuelP21Z5 	0.78550
+odsP21Z5    0.84850
+lead
+
+pin P21Z6
+fuelP21Z6 	0.78550
+odsP21Z6    0.84850
+lead
+
+pin P21Z7
+fuelP21Z7 	0.78550
+odsP21Z7    0.84850
+lead
+
+pin P21Z8
+fuelP21Z8 	0.78550
+odsP21Z8    0.84850
+lead
+
+pin P21Z9
+fuelP21Z9 	0.78550
+odsP21Z9    0.84850
+lead
+
+pin P21Z10
+fuelP21Z10 	0.78550
+odsP21Z10    0.84850
+lead
+
+pin P21Z11
+fuelP21Z11 	0.78550
+odsP21Z11    0.84850
+lead
+
+pin P22Z1
+fuelP22Z1 	0.78550
+odsP22Z1    0.84850
+lead
+
+pin P22Z2
+fuelP22Z2 	0.78550
+odsP22Z2    0.84850
+lead
+
+pin P22Z3
+fuelP22Z3 	0.78550
+odsP22Z3    0.84850
+lead
+
+pin P22Z4
+fuelP22Z4 	0.78550
+odsP22Z4    0.84850
+lead
+
+pin P22Z5
+fuelP22Z5 	0.78550
+odsP22Z5    0.84850
+lead
+
+pin P22Z6
+fuelP22Z6 	0.78550
+odsP22Z6    0.84850
+lead
+
+pin P22Z7
+fuelP22Z7 	0.78550
+odsP22Z7    0.84850
+lead
+
+pin P22Z8
+fuelP22Z8 	0.78550
+odsP22Z8    0.84850
+lead
+
+pin P22Z9
+fuelP22Z9 	0.78550
+odsP22Z9    0.84850
+lead
+
+pin P22Z10
+fuelP22Z10 	0.78550
+odsP22Z10    0.84850
+lead
+
+pin P22Z11
+fuelP22Z11 	0.78550
+odsP22Z11    0.84850
+lead
+
+pin P23Z1
+fuelP23Z1 	0.78550
+odsP23Z1    0.84850
+lead
+
+pin P23Z2
+fuelP23Z2 	0.78550
+odsP23Z2    0.84850
+lead
+
+pin P23Z3
+fuelP23Z3 	0.78550
+odsP23Z3    0.84850
+lead
+
+pin P23Z4
+fuelP23Z4 	0.78550
+odsP23Z4    0.84850
+lead
+
+pin P23Z5
+fuelP23Z5 	0.78550
+odsP23Z5    0.84850
+lead
+
+pin P23Z6
+fuelP23Z6 	0.78550
+odsP23Z6    0.84850
+lead
+
+pin P23Z7
+fuelP23Z7 	0.78550
+odsP23Z7    0.84850
+lead
+
+pin P23Z8
+fuelP23Z8 	0.78550
+odsP23Z8    0.84850
+lead
+
+pin P23Z9
+fuelP23Z9 	0.78550
+odsP23Z9    0.84850
+lead
+
+pin P23Z10
+fuelP23Z10 	0.78550
+odsP23Z10    0.84850
+lead
+
+pin P23Z11
+fuelP23Z11 	0.78550
+odsP23Z11    0.84850
+lead
+
+pin P24Z1
+fuelP24Z1 	0.78550
+odsP24Z1    0.84850
+lead
+
+pin P24Z2
+fuelP24Z2 	0.78550
+odsP24Z2    0.84850
+lead
+
+pin P24Z3
+fuelP24Z3 	0.78550
+odsP24Z3    0.84850
+lead
+
+pin P24Z4
+fuelP24Z4 	0.78550
+odsP24Z4    0.84850
+lead
+
+pin P24Z5
+fuelP24Z5 	0.78550
+odsP24Z5    0.84850
+lead
+
+pin P24Z6
+fuelP24Z6 	0.78550
+odsP24Z6    0.84850
+lead
+
+pin P24Z7
+fuelP24Z7 	0.78550
+odsP24Z7    0.84850
+lead
+
+pin P24Z8
+fuelP24Z8 	0.78550
+odsP24Z8    0.84850
+lead
+
+pin P24Z9
+fuelP24Z9 	0.78550
+odsP24Z9    0.84850
+lead
+
+pin P24Z10
+fuelP24Z10 	0.78550
+odsP24Z10    0.84850
+lead
+
+pin P24Z11
+fuelP24Z11 	0.78550
+odsP24Z11    0.84850
+lead
+
+pin P25Z1
+fuelP25Z1 	0.78550
+odsP25Z1    0.84850
+lead
+
+pin P25Z2
+fuelP25Z2 	0.78550
+odsP25Z2    0.84850
+lead
+
+pin P25Z3
+fuelP25Z3 	0.78550
+odsP25Z3    0.84850
+lead
+
+pin P25Z4
+fuelP25Z4 	0.78550
+odsP25Z4    0.84850
+lead
+
+pin P25Z5
+fuelP25Z5 	0.78550
+odsP25Z5    0.84850
+lead
+
+pin P25Z6
+fuelP25Z6 	0.78550
+odsP25Z6    0.84850
+lead
+
+pin P25Z7
+fuelP25Z7 	0.78550
+odsP25Z7    0.84850
+lead
+
+pin P25Z8
+fuelP25Z8 	0.78550
+odsP25Z8    0.84850
+lead
+
+pin P25Z9
+fuelP25Z9 	0.78550
+odsP25Z9    0.84850
+lead
+
+pin P25Z10
+fuelP25Z10 	0.78550
+odsP25Z10    0.84850
+lead
+
+pin P25Z11
+fuelP25Z11 	0.78550
+odsP25Z11    0.84850
+lead
+
+pin P26Z1
+fuelP26Z1 	0.78550
+odsP26Z1    0.84850
+lead
+
+pin P26Z2
+fuelP26Z2 	0.78550
+odsP26Z2    0.84850
+lead
+
+pin P26Z3
+fuelP26Z3 	0.78550
+odsP26Z3    0.84850
+lead
+
+pin P26Z4
+fuelP26Z4 	0.78550
+odsP26Z4    0.84850
+lead
+
+pin P26Z5
+fuelP26Z5 	0.78550
+odsP26Z5    0.84850
+lead
+
+pin P26Z6
+fuelP26Z6 	0.78550
+odsP26Z6    0.84850
+lead
+
+pin P26Z7
+fuelP26Z7 	0.78550
+odsP26Z7    0.84850
+lead
+
+pin P26Z8
+fuelP26Z8 	0.78550
+odsP26Z8    0.84850
+lead
+
+pin P26Z9
+fuelP26Z9 	0.78550
+odsP26Z9    0.84850
+lead
+
+pin P26Z10
+fuelP26Z10 	0.78550
+odsP26Z10    0.84850
+lead
+
+pin P26Z11
+fuelP26Z11 	0.78550
+odsP26Z11    0.84850
+lead
+
+pin P27Z1
+fuelP27Z1 	0.78550
+odsP27Z1    0.84850
+lead
+
+pin P27Z2
+fuelP27Z2 	0.78550
+odsP27Z2    0.84850
+lead
+
+pin P27Z3
+fuelP27Z3 	0.78550
+odsP27Z3    0.84850
+lead
+
+pin P27Z4
+fuelP27Z4 	0.78550
+odsP27Z4    0.84850
+lead
+
+pin P27Z5
+fuelP27Z5 	0.78550
+odsP27Z5    0.84850
+lead
+
+pin P27Z6
+fuelP27Z6 	0.78550
+odsP27Z6    0.84850
+lead
+
+pin P27Z7
+fuelP27Z7 	0.78550
+odsP27Z7    0.84850
+lead
+
+pin P27Z8
+fuelP27Z8 	0.78550
+odsP27Z8    0.84850
+lead
+
+pin P27Z9
+fuelP27Z9 	0.78550
+odsP27Z9    0.84850
+lead
+
+pin P27Z10
+fuelP27Z10 	0.78550
+odsP27Z10    0.84850
+lead
+
+pin P27Z11
+fuelP27Z11 	0.78550
+odsP27Z11    0.84850
+lead
+
+pin P28Z1
+fuelP28Z1 	0.78550
+odsP28Z1    0.84850
+lead
+
+pin P28Z2
+fuelP28Z2 	0.78550
+odsP28Z2    0.84850
+lead
+
+pin P28Z3
+fuelP28Z3 	0.78550
+odsP28Z3    0.84850
+lead
+
+pin P28Z4
+fuelP28Z4 	0.78550
+odsP28Z4    0.84850
+lead
+
+pin P28Z5
+fuelP28Z5 	0.78550
+odsP28Z5    0.84850
+lead
+
+pin P28Z6
+fuelP28Z6 	0.78550
+odsP28Z6    0.84850
+lead
+
+pin P28Z7
+fuelP28Z7 	0.78550
+odsP28Z7    0.84850
+lead
+
+pin P28Z8
+fuelP28Z8 	0.78550
+odsP28Z8    0.84850
+lead
+
+pin P28Z9
+fuelP28Z9 	0.78550
+odsP28Z9    0.84850
+lead
+
+pin P28Z10
+fuelP28Z10 	0.78550
+odsP28Z10    0.84850
+lead
+
+pin P28Z11
+fuelP28Z11 	0.78550
+odsP28Z11    0.84850
+lead
+
+pin P29Z1
+fuelP29Z1 	0.78550
+odsP29Z1    0.84850
+lead
+
+pin P29Z2
+fuelP29Z2 	0.78550
+odsP29Z2    0.84850
+lead
+
+pin P29Z3
+fuelP29Z3 	0.78550
+odsP29Z3    0.84850
+lead
+
+pin P29Z4
+fuelP29Z4 	0.78550
+odsP29Z4    0.84850
+lead
+
+pin P29Z5
+fuelP29Z5 	0.78550
+odsP29Z5    0.84850
+lead
+
+pin P29Z6
+fuelP29Z6 	0.78550
+odsP29Z6    0.84850
+lead
+
+pin P29Z7
+fuelP29Z7 	0.78550
+odsP29Z7    0.84850
+lead
+
+pin P29Z8
+fuelP29Z8 	0.78550
+odsP29Z8    0.84850
+lead
+
+pin P29Z9
+fuelP29Z9 	0.78550
+odsP29Z9    0.84850
+lead
+
+pin P29Z10
+fuelP29Z10 	0.78550
+odsP29Z10    0.84850
+lead
+
+pin P29Z11
+fuelP29Z11 	0.78550
+odsP29Z11    0.84850
+lead
+
+pin P30Z1
+fuelP30Z1 	0.78550
+odsP30Z1    0.84850
+lead
+
+pin P30Z2
+fuelP30Z2 	0.78550
+odsP30Z2    0.84850
+lead
+
+pin P30Z3
+fuelP30Z3 	0.78550
+odsP30Z3    0.84850
+lead
+
+pin P30Z4
+fuelP30Z4 	0.78550
+odsP30Z4    0.84850
+lead
+
+pin P30Z5
+fuelP30Z5 	0.78550
+odsP30Z5    0.84850
+lead
+
+pin P30Z6
+fuelP30Z6 	0.78550
+odsP30Z6    0.84850
+lead
+
+pin P30Z7
+fuelP30Z7 	0.78550
+odsP30Z7    0.84850
+lead
+
+pin P30Z8
+fuelP30Z8 	0.78550
+odsP30Z8    0.84850
+lead
+
+pin P30Z9
+fuelP30Z9 	0.78550
+odsP30Z9    0.84850
+lead
+
+pin P30Z10
+fuelP30Z10 	0.78550
+odsP30Z10    0.84850
+lead
+
+pin P30Z11
+fuelP30Z11 	0.78550
+odsP30Z11    0.84850
+lead
+
+pin P31Z1
+fuelP31Z1 	0.78550
+odsP31Z1    0.84850
+lead
+
+pin P31Z2
+fuelP31Z2 	0.78550
+odsP31Z2    0.84850
+lead
+
+pin P31Z3
+fuelP31Z3 	0.78550
+odsP31Z3    0.84850
+lead
+
+pin P31Z4
+fuelP31Z4 	0.78550
+odsP31Z4    0.84850
+lead
+
+pin P31Z5
+fuelP31Z5 	0.78550
+odsP31Z5    0.84850
+lead
+
+pin P31Z6
+fuelP31Z6 	0.78550
+odsP31Z6    0.84850
+lead
+
+pin P31Z7
+fuelP31Z7 	0.78550
+odsP31Z7    0.84850
+lead
+
+pin P31Z8
+fuelP31Z8 	0.78550
+odsP31Z8    0.84850
+lead
+
+pin P31Z9
+fuelP31Z9 	0.78550
+odsP31Z9    0.84850
+lead
+
+pin P31Z10
+fuelP31Z10 	0.78550
+odsP31Z10    0.84850
+lead
+
+pin P31Z11
+fuelP31Z11 	0.78550
+odsP31Z11    0.84850
+lead
+
+pin P32Z1
+fuelP32Z1 	0.78550
+odsP32Z1    0.84850
+lead
+
+pin P32Z2
+fuelP32Z2 	0.78550
+odsP32Z2    0.84850
+lead
+
+pin P32Z3
+fuelP32Z3 	0.78550
+odsP32Z3    0.84850
+lead
+
+pin P32Z4
+fuelP32Z4 	0.78550
+odsP32Z4    0.84850
+lead
+
+pin P32Z5
+fuelP32Z5 	0.78550
+odsP32Z5    0.84850
+lead
+
+pin P32Z6
+fuelP32Z6 	0.78550
+odsP32Z6    0.84850
+lead
+
+pin P32Z7
+fuelP32Z7 	0.78550
+odsP32Z7    0.84850
+lead
+
+pin P32Z8
+fuelP32Z8 	0.78550
+odsP32Z8    0.84850
+lead
+
+pin P32Z9
+fuelP32Z9 	0.78550
+odsP32Z9    0.84850
+lead
+
+pin P32Z10
+fuelP32Z10 	0.78550
+odsP32Z10    0.84850
+lead
+
+pin P32Z11
+fuelP32Z11 	0.78550
+odsP32Z11    0.84850
+lead
+
+pin P33Z1
+fuelP33Z1 	0.78550
+odsP33Z1    0.84850
+lead
+
+pin P33Z2
+fuelP33Z2 	0.78550
+odsP33Z2    0.84850
+lead
+
+pin P33Z3
+fuelP33Z3 	0.78550
+odsP33Z3    0.84850
+lead
+
+pin P33Z4
+fuelP33Z4 	0.78550
+odsP33Z4    0.84850
+lead
+
+pin P33Z5
+fuelP33Z5 	0.78550
+odsP33Z5    0.84850
+lead
+
+pin P33Z6
+fuelP33Z6 	0.78550
+odsP33Z6    0.84850
+lead
+
+pin P33Z7
+fuelP33Z7 	0.78550
+odsP33Z7    0.84850
+lead
+
+pin P33Z8
+fuelP33Z8 	0.78550
+odsP33Z8    0.84850
+lead
+
+pin P33Z9
+fuelP33Z9 	0.78550
+odsP33Z9    0.84850
+lead
+
+pin P33Z10
+fuelP33Z10 	0.78550
+odsP33Z10    0.84850
+lead
+
+pin P33Z11
+fuelP33Z11 	0.78550
+odsP33Z11    0.84850
+lead
+
+pin P34Z1
+fuelP34Z1 	0.78550
+odsP34Z1    0.84850
+lead
+
+pin P34Z2
+fuelP34Z2 	0.78550
+odsP34Z2    0.84850
+lead
+
+pin P34Z3
+fuelP34Z3 	0.78550
+odsP34Z3    0.84850
+lead
+
+pin P34Z4
+fuelP34Z4 	0.78550
+odsP34Z4    0.84850
+lead
+
+pin P34Z5
+fuelP34Z5 	0.78550
+odsP34Z5    0.84850
+lead
+
+pin P34Z6
+fuelP34Z6 	0.78550
+odsP34Z6    0.84850
+lead
+
+pin P34Z7
+fuelP34Z7 	0.78550
+odsP34Z7    0.84850
+lead
+
+pin P34Z8
+fuelP34Z8 	0.78550
+odsP34Z8    0.84850
+lead
+
+pin P34Z9
+fuelP34Z9 	0.78550
+odsP34Z9    0.84850
+lead
+
+pin P34Z10
+fuelP34Z10 	0.78550
+odsP34Z10    0.84850
+lead
+
+pin P34Z11
+fuelP34Z11 	0.78550
+odsP34Z11    0.84850
+lead
+
+pin P35Z1
+fuelP35Z1 	0.78550
+odsP35Z1    0.84850
+lead
+
+pin P35Z2
+fuelP35Z2 	0.78550
+odsP35Z2    0.84850
+lead
+
+pin P35Z3
+fuelP35Z3 	0.78550
+odsP35Z3    0.84850
+lead
+
+pin P35Z4
+fuelP35Z4 	0.78550
+odsP35Z4    0.84850
+lead
+
+pin P35Z5
+fuelP35Z5 	0.78550
+odsP35Z5    0.84850
+lead
+
+pin P35Z6
+fuelP35Z6 	0.78550
+odsP35Z6    0.84850
+lead
+
+pin P35Z7
+fuelP35Z7 	0.78550
+odsP35Z7    0.84850
+lead
+
+pin P35Z8
+fuelP35Z8 	0.78550
+odsP35Z8    0.84850
+lead
+
+pin P35Z9
+fuelP35Z9 	0.78550
+odsP35Z9    0.84850
+lead
+
+pin P35Z10
+fuelP35Z10 	0.78550
+odsP35Z10    0.84850
+lead
+
+pin P35Z11
+fuelP35Z11 	0.78550
+odsP35Z11    0.84850
+lead
+
+pin P36Z1
+fuelP36Z1 	0.78550
+odsP36Z1    0.84850
+lead
+
+pin P36Z2
+fuelP36Z2 	0.78550
+odsP36Z2    0.84850
+lead
+
+pin P36Z3
+fuelP36Z3 	0.78550
+odsP36Z3    0.84850
+lead
+
+pin P36Z4
+fuelP36Z4 	0.78550
+odsP36Z4    0.84850
+lead
+
+pin P36Z5
+fuelP36Z5 	0.78550
+odsP36Z5    0.84850
+lead
+
+pin P36Z6
+fuelP36Z6 	0.78550
+odsP36Z6    0.84850
+lead
+
+pin P36Z7
+fuelP36Z7 	0.78550
+odsP36Z7    0.84850
+lead
+
+pin P36Z8
+fuelP36Z8 	0.78550
+odsP36Z8    0.84850
+lead
+
+pin P36Z9
+fuelP36Z9 	0.78550
+odsP36Z9    0.84850
+lead
+
+pin P36Z10
+fuelP36Z10 	0.78550
+odsP36Z10    0.84850
+lead
+
+pin P36Z11
+fuelP36Z11 	0.78550
+odsP36Z11    0.84850
+lead
+
+pin P37Z1
+fuelP37Z1 	0.78550
+odsP37Z1    0.84850
+lead
+
+pin P37Z2
+fuelP37Z2 	0.78550
+odsP37Z2    0.84850
+lead
+
+pin P37Z3
+fuelP37Z3 	0.78550
+odsP37Z3    0.84850
+lead
+
+pin P37Z4
+fuelP37Z4 	0.78550
+odsP37Z4    0.84850
+lead
+
+pin P37Z5
+fuelP37Z5 	0.78550
+odsP37Z5    0.84850
+lead
+
+pin P37Z6
+fuelP37Z6 	0.78550
+odsP37Z6    0.84850
+lead
+
+pin P37Z7
+fuelP37Z7 	0.78550
+odsP37Z7    0.84850
+lead
+
+pin P37Z8
+fuelP37Z8 	0.78550
+odsP37Z8    0.84850
+lead
+
+pin P37Z9
+fuelP37Z9 	0.78550
+odsP37Z9    0.84850
+lead
+
+pin P37Z10
+fuelP37Z10 	0.78550
+odsP37Z10    0.84850
+lead
+
+pin P37Z11
+fuelP37Z11 	0.78550
+odsP37Z11    0.84850
+lead
+
+pin P38Z1
+fuelP38Z1 	0.78550
+odsP38Z1    0.84850
+lead
+
+pin P38Z2
+fuelP38Z2 	0.78550
+odsP38Z2    0.84850
+lead
+
+pin P38Z3
+fuelP38Z3 	0.78550
+odsP38Z3    0.84850
+lead
+
+pin P38Z4
+fuelP38Z4 	0.78550
+odsP38Z4    0.84850
+lead
+
+pin P38Z5
+fuelP38Z5 	0.78550
+odsP38Z5    0.84850
+lead
+
+pin P38Z6
+fuelP38Z6 	0.78550
+odsP38Z6    0.84850
+lead
+
+pin P38Z7
+fuelP38Z7 	0.78550
+odsP38Z7    0.84850
+lead
+
+pin P38Z8
+fuelP38Z8 	0.78550
+odsP38Z8    0.84850
+lead
+
+pin P38Z9
+fuelP38Z9 	0.78550
+odsP38Z9    0.84850
+lead
+
+pin P38Z10
+fuelP38Z10 	0.78550
+odsP38Z10    0.84850
+lead
+
+pin P38Z11
+fuelP38Z11 	0.78550
+odsP38Z11    0.84850
+lead
+
+pin P39Z1
+fuelP39Z1 	0.78550
+odsP39Z1    0.84850
+lead
+
+pin P39Z2
+fuelP39Z2 	0.78550
+odsP39Z2    0.84850
+lead
+
+pin P39Z3
+fuelP39Z3 	0.78550
+odsP39Z3    0.84850
+lead
+
+pin P39Z4
+fuelP39Z4 	0.78550
+odsP39Z4    0.84850
+lead
+
+pin P39Z5
+fuelP39Z5 	0.78550
+odsP39Z5    0.84850
+lead
+
+pin P39Z6
+fuelP39Z6 	0.78550
+odsP39Z6    0.84850
+lead
+
+pin P39Z7
+fuelP39Z7 	0.78550
+odsP39Z7    0.84850
+lead
+
+pin P39Z8
+fuelP39Z8 	0.78550
+odsP39Z8    0.84850
+lead
+
+pin P39Z9
+fuelP39Z9 	0.78550
+odsP39Z9    0.84850
+lead
+
+pin P39Z10
+fuelP39Z10 	0.78550
+odsP39Z10    0.84850
+lead
+
+pin P39Z11
+fuelP39Z11 	0.78550
+odsP39Z11    0.84850
+lead
+
+pin P40Z1
+fuelP40Z1 	0.78550
+odsP40Z1    0.84850
+lead
+
+pin P40Z2
+fuelP40Z2 	0.78550
+odsP40Z2    0.84850
+lead
+
+pin P40Z3
+fuelP40Z3 	0.78550
+odsP40Z3    0.84850
+lead
+
+pin P40Z4
+fuelP40Z4 	0.78550
+odsP40Z4    0.84850
+lead
+
+pin P40Z5
+fuelP40Z5 	0.78550
+odsP40Z5    0.84850
+lead
+
+pin P40Z6
+fuelP40Z6 	0.78550
+odsP40Z6    0.84850
+lead
+
+pin P40Z7
+fuelP40Z7 	0.78550
+odsP40Z7    0.84850
+lead
+
+pin P40Z8
+fuelP40Z8 	0.78550
+odsP40Z8    0.84850
+lead
+
+pin P40Z9
+fuelP40Z9 	0.78550
+odsP40Z9    0.84850
+lead
+
+pin P40Z10
+fuelP40Z10 	0.78550
+odsP40Z10    0.84850
+lead
+
+pin P40Z11
+fuelP40Z11 	0.78550
+odsP40Z11    0.84850
+lead
+
+pin P41Z1
+fuelP41Z1 	0.78550
+odsP41Z1    0.84850
+lead
+
+pin P41Z2
+fuelP41Z2 	0.78550
+odsP41Z2    0.84850
+lead
+
+pin P41Z3
+fuelP41Z3 	0.78550
+odsP41Z3    0.84850
+lead
+
+pin P41Z4
+fuelP41Z4 	0.78550
+odsP41Z4    0.84850
+lead
+
+pin P41Z5
+fuelP41Z5 	0.78550
+odsP41Z5    0.84850
+lead
+
+pin P41Z6
+fuelP41Z6 	0.78550
+odsP41Z6    0.84850
+lead
+
+pin P41Z7
+fuelP41Z7 	0.78550
+odsP41Z7    0.84850
+lead
+
+pin P41Z8
+fuelP41Z8 	0.78550
+odsP41Z8    0.84850
+lead
+
+pin P41Z9
+fuelP41Z9 	0.78550
+odsP41Z9    0.84850
+lead
+
+pin P41Z10
+fuelP41Z10 	0.78550
+odsP41Z10    0.84850
+lead
+
+pin P41Z11
+fuelP41Z11 	0.78550
+odsP41Z11    0.84850
+lead
+
+pin P42Z1
+fuelP42Z1 	0.78550
+odsP42Z1    0.84850
+lead
+
+pin P42Z2
+fuelP42Z2 	0.78550
+odsP42Z2    0.84850
+lead
+
+pin P42Z3
+fuelP42Z3 	0.78550
+odsP42Z3    0.84850
+lead
+
+pin P42Z4
+fuelP42Z4 	0.78550
+odsP42Z4    0.84850
+lead
+
+pin P42Z5
+fuelP42Z5 	0.78550
+odsP42Z5    0.84850
+lead
+
+pin P42Z6
+fuelP42Z6 	0.78550
+odsP42Z6    0.84850
+lead
+
+pin P42Z7
+fuelP42Z7 	0.78550
+odsP42Z7    0.84850
+lead
+
+pin P42Z8
+fuelP42Z8 	0.78550
+odsP42Z8    0.84850
+lead
+
+pin P42Z9
+fuelP42Z9 	0.78550
+odsP42Z9    0.84850
+lead
+
+pin P42Z10
+fuelP42Z10 	0.78550
+odsP42Z10    0.84850
+lead
+
+pin P42Z11
+fuelP42Z11 	0.78550
+odsP42Z11    0.84850
+lead
+
+pin P43Z1
+fuelP43Z1 	0.78550
+odsP43Z1    0.84850
+lead
+
+pin P43Z2
+fuelP43Z2 	0.78550
+odsP43Z2    0.84850
+lead
+
+pin P43Z3
+fuelP43Z3 	0.78550
+odsP43Z3    0.84850
+lead
+
+pin P43Z4
+fuelP43Z4 	0.78550
+odsP43Z4    0.84850
+lead
+
+pin P43Z5
+fuelP43Z5 	0.78550
+odsP43Z5    0.84850
+lead
+
+pin P43Z6
+fuelP43Z6 	0.78550
+odsP43Z6    0.84850
+lead
+
+pin P43Z7
+fuelP43Z7 	0.78550
+odsP43Z7    0.84850
+lead
+
+pin P43Z8
+fuelP43Z8 	0.78550
+odsP43Z8    0.84850
+lead
+
+pin P43Z9
+fuelP43Z9 	0.78550
+odsP43Z9    0.84850
+lead
+
+pin P43Z10
+fuelP43Z10 	0.78550
+odsP43Z10    0.84850
+lead
+
+pin P43Z11
+fuelP43Z11 	0.78550
+odsP43Z11    0.84850
+lead
+
+pin P44Z1
+fuelP44Z1 	0.78550
+odsP44Z1    0.84850
+lead
+
+pin P44Z2
+fuelP44Z2 	0.78550
+odsP44Z2    0.84850
+lead
+
+pin P44Z3
+fuelP44Z3 	0.78550
+odsP44Z3    0.84850
+lead
+
+pin P44Z4
+fuelP44Z4 	0.78550
+odsP44Z4    0.84850
+lead
+
+pin P44Z5
+fuelP44Z5 	0.78550
+odsP44Z5    0.84850
+lead
+
+pin P44Z6
+fuelP44Z6 	0.78550
+odsP44Z6    0.84850
+lead
+
+pin P44Z7
+fuelP44Z7 	0.78550
+odsP44Z7    0.84850
+lead
+
+pin P44Z8
+fuelP44Z8 	0.78550
+odsP44Z8    0.84850
+lead
+
+pin P44Z9
+fuelP44Z9 	0.78550
+odsP44Z9    0.84850
+lead
+
+pin P44Z10
+fuelP44Z10 	0.78550
+odsP44Z10    0.84850
+lead
+
+pin P44Z11
+fuelP44Z11 	0.78550
+odsP44Z11    0.84850
+lead
+
+pin P45Z1
+fuelP45Z1 	0.78550
+odsP45Z1    0.84850
+lead
+
+pin P45Z2
+fuelP45Z2 	0.78550
+odsP45Z2    0.84850
+lead
+
+pin P45Z3
+fuelP45Z3 	0.78550
+odsP45Z3    0.84850
+lead
+
+pin P45Z4
+fuelP45Z4 	0.78550
+odsP45Z4    0.84850
+lead
+
+pin P45Z5
+fuelP45Z5 	0.78550
+odsP45Z5    0.84850
+lead
+
+pin P45Z6
+fuelP45Z6 	0.78550
+odsP45Z6    0.84850
+lead
+
+pin P45Z7
+fuelP45Z7 	0.78550
+odsP45Z7    0.84850
+lead
+
+pin P45Z8
+fuelP45Z8 	0.78550
+odsP45Z8    0.84850
+lead
+
+pin P45Z9
+fuelP45Z9 	0.78550
+odsP45Z9    0.84850
+lead
+
+pin P45Z10
+fuelP45Z10 	0.78550
+odsP45Z10    0.84850
+lead
+
+pin P45Z11
+fuelP45Z11 	0.78550
+odsP45Z11    0.84850
+lead
+
+pin P46Z1
+fuelP46Z1 	0.78550
+odsP46Z1    0.84850
+lead
+
+pin P46Z2
+fuelP46Z2 	0.78550
+odsP46Z2    0.84850
+lead
+
+pin P46Z3
+fuelP46Z3 	0.78550
+odsP46Z3    0.84850
+lead
+
+pin P46Z4
+fuelP46Z4 	0.78550
+odsP46Z4    0.84850
+lead
+
+pin P46Z5
+fuelP46Z5 	0.78550
+odsP46Z5    0.84850
+lead
+
+pin P46Z6
+fuelP46Z6 	0.78550
+odsP46Z6    0.84850
+lead
+
+pin P46Z7
+fuelP46Z7 	0.78550
+odsP46Z7    0.84850
+lead
+
+pin P46Z8
+fuelP46Z8 	0.78550
+odsP46Z8    0.84850
+lead
+
+pin P46Z9
+fuelP46Z9 	0.78550
+odsP46Z9    0.84850
+lead
+
+pin P46Z10
+fuelP46Z10 	0.78550
+odsP46Z10    0.84850
+lead
+
+pin P46Z11
+fuelP46Z11 	0.78550
+odsP46Z11    0.84850
+lead
+
+pin P47Z1
+fuelP47Z1 	0.78550
+odsP47Z1    0.84850
+lead
+
+pin P47Z2
+fuelP47Z2 	0.78550
+odsP47Z2    0.84850
+lead
+
+pin P47Z3
+fuelP47Z3 	0.78550
+odsP47Z3    0.84850
+lead
+
+pin P47Z4
+fuelP47Z4 	0.78550
+odsP47Z4    0.84850
+lead
+
+pin P47Z5
+fuelP47Z5 	0.78550
+odsP47Z5    0.84850
+lead
+
+pin P47Z6
+fuelP47Z6 	0.78550
+odsP47Z6    0.84850
+lead
+
+pin P47Z7
+fuelP47Z7 	0.78550
+odsP47Z7    0.84850
+lead
+
+pin P47Z8
+fuelP47Z8 	0.78550
+odsP47Z8    0.84850
+lead
+
+pin P47Z9
+fuelP47Z9 	0.78550
+odsP47Z9    0.84850
+lead
+
+pin P47Z10
+fuelP47Z10 	0.78550
+odsP47Z10    0.84850
+lead
+
+pin P47Z11
+fuelP47Z11 	0.78550
+odsP47Z11    0.84850
+lead
+
+pin P48Z1
+fuelP48Z1 	0.78550
+odsP48Z1    0.84850
+lead
+
+pin P48Z2
+fuelP48Z2 	0.78550
+odsP48Z2    0.84850
+lead
+
+pin P48Z3
+fuelP48Z3 	0.78550
+odsP48Z3    0.84850
+lead
+
+pin P48Z4
+fuelP48Z4 	0.78550
+odsP48Z4    0.84850
+lead
+
+pin P48Z5
+fuelP48Z5 	0.78550
+odsP48Z5    0.84850
+lead
+
+pin P48Z6
+fuelP48Z6 	0.78550
+odsP48Z6    0.84850
+lead
+
+pin P48Z7
+fuelP48Z7 	0.78550
+odsP48Z7    0.84850
+lead
+
+pin P48Z8
+fuelP48Z8 	0.78550
+odsP48Z8    0.84850
+lead
+
+pin P48Z9
+fuelP48Z9 	0.78550
+odsP48Z9    0.84850
+lead
+
+pin P48Z10
+fuelP48Z10 	0.78550
+odsP48Z10    0.84850
+lead
+
+pin P48Z11
+fuelP48Z11 	0.78550
+odsP48Z11    0.84850
+lead
+
