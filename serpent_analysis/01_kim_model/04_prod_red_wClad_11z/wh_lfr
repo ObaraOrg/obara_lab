@@ -32,6 +32,7 @@ set acelib "sss_endfb7u.xsdata"
 set declib "sss_endfb7.dec"
 set nfylib "sss_endfb7.nfy"
 
+set seed 1682590875100
 
 % ---  Run options        
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -39,7 +40,7 @@ set nfylib "sss_endfb7.nfy"
 % --- Miscellaneous options  ----------------------------------------------------------------
 
 set printm  	1		% - Print material compositions to [input].bumat[bu] file
-%set his		1		% - Batch hist.record; Fiss.src.calc.(Shannon)entrp - DEFAULT OFF
+set his		1		% - Batch hist.record; Fiss.src.calc.(Shannon)entrp - DEFAULT OFF
 %set rfw		1  		% - Writes mat.comp.in BU calc. in binary res. file - DEFAULT OFF
 %set rfr		1		% - NOT MASTERED YET
 %set mcvol 		1E8		% - Calculate material vol. before sim. by  - DEFAULT OFF
@@ -57,7 +58,7 @@ set nbuf	5.0			% - Sets the size of n buffer (DEF off, use only when sym fails)
 % --- Criticality cycles  -------------------------------------------------------------------
 %     N.pop.per gen/ active.cycles/ inactive.cycles/ guess for k0/ 
  
-set pop			100000 100 50
+set pop			200000 200 100
 %set pop		1000 100 50
 
 %     On-the-fly n growing pop - max active.cycles/ max pop.generated/ 
@@ -91,7 +92,7 @@ set egrid	5.0E-05 1.0E-06 2.0E+01		% - Red.unionized E grid size,save mem. - DEF
 
 % --- Group constant generation -------------------------------------------------------------
 
-set gcu 0				% - Universe for grp.cons.gen. (-1 off for less time) - DEFAULT ON
+%set gcu 0				% - Universe for grp.cons.gen. (-1 off for less time) - DEFAULT ON
 %set nfg 2 0.625E-6		% - Few-group structure: (2g, boundary at 0.625 eV) - OFF
 
 
@@ -104,7 +105,7 @@ set power  950E+06		% - Sets normalization to total fiss. power [in W]
 set bumode  2			% - BU mode, 1 - TTA, 2 - CRAM (DEFAULT)
 set bunorm  1			% - BU norm.mode (1=mat.all,2=burn.mat,3=non-burn.mat) - DEFAULT 1
 
-dep daytot	200 400 
+dep daytot	10 200 400 
 
 set pcc LELI 5 5		% - Use predictor corrector method for the depletion solution
 						%   LELI: Linear extrapolation on predictor, 5 substeps
@@ -113,11 +114,11 @@ set pcc LELI 5 5		% - Use predictor corrector method for the depletion solution
 
 % --- Coefficient matrix --------------------------------------------------------------------
 
-coef 3 0 -200 -400  	% - 2x2x1 cases to be calculated
- 
-2 nom ARI
-2 nom HZP 
-1 HIS_TRACK
+%coef 4 0 -10 -200 -400  % - 2x2x1 cases to be calculated
+% 
+%2 nom ARI
+%2 nom HZP 
+%1 HIS_TRACK
 
 % --- Print options -------------------------------------------------------------------------
 

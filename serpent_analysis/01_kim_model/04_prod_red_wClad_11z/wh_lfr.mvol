@@ -1,13 +1,15 @@
 % --- Material volumes:
-% The volume is for the 222cm core w/t 11z
+
+% Produced Sun May  7 18:08:53 2023 by MC volume calculation routine by
+% sampling 1000000000 random points in the geometry.
 
 set mvol
 
-lead            0 4.03270E+07
-ods             0 1.23312E+07
-ssteel          0 3.33721E+06
-borsteel        0 4.10725E+06
-zirc            0 3.76378E+06
+lead            0 4.02576E+07
+ods             0 1.24016E+07
+ssteel          0 3.33798E+06
+borsteel        0 4.10570E+06
+zirc            0 3.76461E+06
 fuelP48Z1       1 1.41881848E+04
 fuelP48Z2       1 1.41881848E+04
 fuelP48Z3       1 1.41881848E+04

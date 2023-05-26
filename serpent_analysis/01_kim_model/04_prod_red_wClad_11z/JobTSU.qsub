@@ -40,7 +40,6 @@ while ( $step <= $stepx )
 # - Include the detector calculation in the last run
 	if [ $step == $stepx ]; then
 		echo 'include "input/detectors.inp"' >> ${sINP}
-        echo 'include "input/detectors.inp"' >> ${sINP}
     endif
 
 # - Run Serpent
