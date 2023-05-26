@@ -99,7 +99,7 @@ def plot_core(
     )
     cmap = plt.matplotlib.cm.get_cmap("autumn_r")
 
-    plt.subplots(1, 1, figsize=(18, 14), layout="constrained")
+    plt.subplots(1, 1, figsize=(12, 9), layout="constrained")
 
     for count, (y, x) in enumerate(coordinates):
         if quarter and (y < full_core_center or x >= full_core_center):
