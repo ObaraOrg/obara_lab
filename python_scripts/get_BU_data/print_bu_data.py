@@ -23,6 +23,7 @@ def main() -> None:
     dep = serpentTools.read(BASE_DIR / (f"{FILE_NAME}_dep.m"), reader="dep")
     df, corrected_burnup_mat, _, _ = get_bu_data(dep, atomic_wt, P, Z)
 
+    # Save data for later use
     df.to_csv(f"{BASE_DIR}/DischargedFuel_nuclides.csv")
     df.to_excel(f"{BASE_DIR}/DischargedFuel_nuclides.xlsx")
 
