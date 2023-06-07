@@ -19,7 +19,7 @@ ________________________________________
 - [Getting started with Serpent2](#getting-started-with-serpent2)
         - [Regarding the scripts functionality and capabilities:](#regarding-the-scripts-functionality-and-capabilities)
     - [Table of contents](#table-of-contents)
-- [Installing Serpent2](#installing-serpent2)
+    - [Installing Serpent2](#installing-serpent2)
         - [Required files](#required-files)
         - [Download data from the server](#download-data-from-the-server)
     - [Manual installation steps](#manual-installation-steps)
@@ -29,11 +29,11 @@ ________________________________________
         - [Setting environment variables for bash, if you use a different shell be aware](#setting-environment-variables-for-bash-if-you-use-a-different-shell-be-aware)
         - [Perform benchmark calculation](#perform-benchmark-calculation)
         - [Perform tutorial calculation](#perform-tutorial-calculation)
-- [On compilation flags](#on-compilation-flags)
+    - [On compilation flags](#on-compilation-flags)
         - [GNU Compiler:](#gnu-compiler)
         - [Intel Compiler:](#intel-compiler)
         - [Enable Parallel process calculation using MPI:](#enable-parallel-process-calculation-using-mpi)
-        - [Aditional:](#aditional)
+        - [Additional:](#additional)
 
 <!-- /TOC -->
 ________________________________________
@@ -54,19 +54,19 @@ There are two versions of serpent in this folder, use the one with the install s
 | ------ | ------ | ------ |
 | [192.168.11.3](ftp://192.168.11.3/obaralab/Serpent) | obaralab | ask for it :P|
 
-All the files for installing serpent available on the lab NAS:
+All the files for installing serpent available on the lab NAS in the `01_software/Serpent 2.1.32 ...` folder :
 - Source code
-- Xs-libraries
-- Conversion utility for the Xs libraries (perl script)
+- Xs-libraries (ENDFB-VII, JEF31..)
+- Conversion utility for the xs libraries (perl script)
 - Install scripts for the local cluster and the TSUBAME
 - Basic examples
-- Serpent tutorial from the wiki (already compiled)
-- TSUBAME qsub file example
+- Serpent tutorial from the wiki (already compiled and complete)
+- TSUBAME example qsub file example
 ________________________________________
 
 ### Download data from the server
 
-Transfer the contents of the folder DIRECTLY in your user home directory (serpent folder + install scripts), paths are references to the main directory `~/serpent/` as for the script to find the appropriate files.
+Transfer the contents of the `01_software/Serpent 2.1.32 ...` folder DIRECTLY in your user home directory (serpent folder + install script), paths are references to the main directory `~/serpent/` as for the script to find the appropriate files and work.
 
 ```sh
 #Create serpent directory in your home directory
@@ -76,6 +76,8 @@ mkdir serpent
 ________________________________________
 
 ## Manual installation steps
+
+If you feel brave and want to learn something, here are the steps one by one:
 
 ### Unzip the required files
 
@@ -150,6 +152,7 @@ ________________________________________
 
 ### Setting environment variables (for bash, if you use a different shell be aware)
 **NOTE:** 
+  - **These are very useful, it tells serpent where its xs files are so you don't have to specify the entire path in the input where they are**
   - Use whatever editor you please
   - Add the following (`usename` is your own account name)
   - Add these environment variables by executing the below lines to ~/.bashrc or ~/.bash_profiles (or use the vim to add them manually).

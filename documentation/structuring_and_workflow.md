@@ -25,7 +25,7 @@ or you just paste the script and the entire `nuclear_lib` folder inside the fold
 
 ## File Tree
 
-The base file tree looks like the this (bolded ones are the important ones)
+The base file tree looks like the this (may differ from the actual one)
 
 ```
 ┣ 📂**config**                  (Holds the constants of the project, no of FAs, axial zooning, etc)

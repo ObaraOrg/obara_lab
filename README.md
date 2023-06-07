@@ -65,7 +65,7 @@ Welcome, this is the lab repository, made to make life easier while working in t
 ### File transfer software
 
 - **FileZilla**
-- **WinSCP** (but I would recommend it with the Notepad++ as to make life easier)
+- **WinSCP** (I don't recommend it, use at one's own peril)
 - **Windows** [file explorer integration via network mapping of a location]
 
 **NOTE:** Windows can't use `sftp` connections you need first some prerequisites:
@@ -117,7 +117,7 @@ ssh-keygen -t ed25519 -C "your_email@example.com"
 [Official docs](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
 
 ### Easy connection
-I find a putty terminal to be the most useful at the start, here's some [scripts](productivity_scripts/02_putty_terminal_script) to make life a bit easier
+I find a putty terminal to be the most useful at the start, here's some [scripts](productivity_scripts/02_putty_terminal_script) to make life a bit easier.
 
 <br>
 
@@ -125,7 +125,7 @@ I find a putty terminal to be the most useful at the start, here's some [scripts
 
 ## Setup the remote environment
 
-**NOTE:** `python` version must be at least **3.7.13** (this is also the latest version the cluster can use, TSUBAME can do higher)
+**NOTE:** `python` version must be at least **3.7.13** (this is also the latest version the cluster can use, TSUBAME can do higher).
 
 **There are two choices:**
   1. Installing `python` on the TSUBAME (version 3.8.3)
