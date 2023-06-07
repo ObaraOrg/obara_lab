@@ -16,7 +16,7 @@ sp.settings.rc["verbosity"] = "error"
 
 os.environ["CLICK_PAGER"] = "1"
 
-BASE_PATH = Path(os.path.dirname(__file__))
+BASE_DIR = Path(os.path.dirname(__file__))
 
 FILE_NAME = "wh_lfr"
 
@@ -103,7 +103,7 @@ def plot_results(isotopes: Tuple[str]) -> None:
     # Iterate through all of the folders using the base path
     # Ignore the folders that start with __
     # Sort the folders by name (this is the order of the simulations)
-    folders = [x for x in Path(BASE_PATH).iterdir() if x.is_dir()]
+    folders = [x for x in Path(BASE_DIR).iterdir() if x.is_dir()]
     folders = [x for x in folders if "__" not in str(x)]
     folders.sort(key=lambda x: x.name)
 
@@ -139,8 +139,8 @@ def plot_results(isotopes: Tuple[str]) -> None:
         data_frames.append(df)
 
     merged_df = pd.concat(data_frames)
-    merged_df.to_csv("DischargedFuel_nuclides.csv")
-    merged_df.to_excel("DischargedFuel_nuclides.xlsx")
+    merged_df.to_csv(f"{BASE_DIR}/DischargedFuel_nuclides.csv")
+    merged_df.to_excel(f"{BASE_DIR}/DischargedFuel_nuclides.xlsx")
     sorted_df = merged_df.sort_values(by=["Isotopes"])
     print(sorted_df)
 
@@ -158,7 +158,7 @@ def plot_results(isotopes: Tuple[str]) -> None:
                 labels = [f"{(v.get_height()):.3f}{label}" for v in c]
                 ax.bar_label(c, labels=labels, label_type="edge")
             ax.margins(y=0.2)
-        plt.savefig(f"{BASE_PATH}/{plot_titles[i]}.png")
+        plt.savefig(f"{BASE_DIR}/{plot_titles[i]}.png")
 
     plt.show()
 
