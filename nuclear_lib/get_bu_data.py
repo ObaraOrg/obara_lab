@@ -4,14 +4,32 @@ import numpy as np
 from nuclear_lib.split_fuel_names import split_pz_name
 from typing import Tuple, Dict
 
+BASE_DIR = Path(os.path.dirname(__file__))
 
 def get_bu_data_old(
     dep: DepletionReader, atomic_wt: pd.DataFrame, P: int, Z: int
 ) -> Tuple[pd.DataFrame, np.ndarray, Dict[str, float], Dict[str, float]]:
+    """
+    Retrieves depletion data for different materials.
+    Retrieves nuclide desities from the dep.m file.
+
+    Args:
+        dep (DepletionReader): Object containing dep.m file.
+        atomic_wt (pd.DataFrame): DataFrame with atomic weights of elements.
+        P (int): Number of fuel assemblies.
+        Z (int): Number of axial slices.
+
+    Returns:
+        Tuple[pd.DataFrame, np.ndarray, Dict[str, float], Dict[str, float]]: A tuple
+        containing the sorted DataFrame, burnup matrix, average burnups by pin,
+        and sum of burnups for each assembly.
+
+    """
     ordered_names = dep.names
     element_names = set(atomic_wt.element)
 
-    # Dictionary comprehension and in set checker
+    # Dictionary comprehension and set checker
+    # Map element names to their indices in the ordered_names list
     element_index_mapper = {
         ordered_name: i
         for i, ordered_name in enumerate(ordered_names)
@@ -45,7 +63,6 @@ def get_bu_data_old(
     for fuel_vol in fuel_vol_dict.keys():
         p_index, z_index = split_pz_name(fuel_vol)
         burn_up = fuel_vol_dict[fuel_vol]["serpent_burnup"]
-        # print(burn_up)
         if p_index == 1:
             fuel_vol_dict[fuel_vol]["corrected_burnup"] = burn_up
             continue
@@ -80,20 +97,38 @@ def get_bu_data_old(
     # sum([value for key, value in average_burnups_axial.items()]) / Z
 
     # average_burnups
-
+   
     df = pd.DataFrame.from_dict(fuel_vol_dict).T
     sorted_df = df.sort_values(["z", "p"])
     corrected_burnup_mat = sorted_df["corrected_burnup"].to_numpy().reshape(Z, P)
+
     return (sorted_df, corrected_burnup_mat, average_burnups, average_burnups_axial)
 
 
 def get_bu_data(
     dep: DepletionReader, atomic_wt: pd.DataFrame, P: int, Z: int
 ) -> Tuple[pd.DataFrame, np.ndarray, pd.Series, pd.Series]:
+    """
+    Retrieves depletion data for different materials.
+    Retrieves nuclide desities from the dep.m file.
+
+    Args:
+        dep (DepletionReader): Object containing dep.m file.
+        atomic_wt (pd.DataFrame): DataFrame with atomic weights of elements.
+        P (int): Number of fuel assemblies.
+        Z (int): Number of axial slices.
+
+    Returns:
+        Tuple[pd.DataFrame, np.ndarray, pd.Series, pd.Series]:
+        A tuple containing the sorted DataFrame, burnup matrix,
+        average burnups by zone, and sum of burnups by FA.
+
+    """
     ordered_names = dep.names
     element_names = set(atomic_wt.element)
 
-    # Dictionary comprehension and in set checker
+    # Dictionary comprehension and set checker
+    # Map element names to their indices in the ordered_names list
     element_index_mapper = {
         ordered_name: i
         for i, ordered_name in enumerate(ordered_names)

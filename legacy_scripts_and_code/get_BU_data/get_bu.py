@@ -11,6 +11,11 @@ from serpentTools.parsers.results import ResultsReader
 
 serpentTools.settings.rc["serpentVersion"] = "2.1.32"
 
+FILE_NAME = "wh_lfr"
+
+P = 48  # max no of FA
+Z = 6  # max no of slices
+
 # def pathconstructor(index):
 #     return pathlib.Path.home() / f"wh_lfrsuffleNo{index}/wh_lfr_dep.m"
 
@@ -43,7 +48,7 @@ def discharge_bu() -> None:
 
     with serpentTools.settings.rc:
         serpentTools.settings.rc["verbosity"] = "error"
-    dep = serpentTools.read("wh_lfr_dep.m")
+    dep = serpentTools.read(f"{FILE_NAME}_dep.m")
 
     return dep
 
@@ -51,8 +56,7 @@ def discharge_bu() -> None:
 if __name__ == "__main__":
     dep = discharge_bu()
 
-P = 48  # max no of FA
-Z = 6  # max no of slices
+
 
 last_bu_step = len(dep.burnup) - 1
 max_list_HM = np.where(np.char.find(dep.names, "Cm250") == 0)[0][0] + 1
