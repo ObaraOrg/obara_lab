@@ -12,10 +12,10 @@ det_data = sp.read(file)
 data_array = []
 
 for p in range(1, 49):
-    data_array.append(det_data.detectors[f"flux_odsP{p}Z1"].tallies)
+    data_array.append(det_data.detectors[f"pwr_U0{p}"].tallies)
 
 df = pd.DataFrame(data_array)
 print(df)
 
-df.to_csv("Flux.csv", index=False)
-df.to_excel("Flux.xlsx", index=False)
+df.to_csv("Pwd.csv", index=False)
+df.to_excel("Pwd.xlsx", index=False)
