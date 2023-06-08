@@ -20,7 +20,8 @@ BASE_DIR = Path(os.path.dirname(__file__))
 
 FILE_NAME = "wh_lfr"
 
-# NOTE: THIS GETS EXECUTED FROM THE FOLDER ITSELF
+# NOTE: This gets executed in the folder with multiple simulations
+# NOTE: It will pick up any folder with simulations with .det files
 
 
 def read_file(file_loc: str) -> DepletionReader:
