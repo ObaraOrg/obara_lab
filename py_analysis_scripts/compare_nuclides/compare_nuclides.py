@@ -149,16 +149,21 @@ def plot_results(isotopes: Tuple[str]) -> None:
     data_cols = [("value", "kg"), ("Fraction", "%"), ("RelativeFrac", "%")]
     plot_titles = ["Isotopes_kg", "Isotopes_frac", "Isotopes_rel_frac"]
 
+    # Set font size
+    plt.rcParams.update({"font.size": 14})
+
     for i, (data_col, label) in enumerate(data_cols):
-        g = sns.catplot(
-            data=sorted_df, x="Isotopes", y=data_col, kind="bar", col="Sim"
-        )
+        g = sns.catplot(data=sorted_df, x="Isotopes", y=data_col, kind="bar", col="Sim")
         for ax in g.axes.ravel():
-            # add annotations
+            # Add annotations
             for c in ax.containers:
                 labels = [f"{(v.get_height()):.3f}{label}" for v in c]
                 ax.bar_label(c, labels=labels, label_type="edge")
             ax.margins(y=0.2)
+            for tick in ax.get_xticklabels():
+                tick.set_fontsize(14)
+            for tick in ax.get_yticklabels():
+                tick.set_fontsize(14)
         plt.savefig(f"{BASE_DIR}/{plot_titles[i]}.png")
 
     plt.show()
