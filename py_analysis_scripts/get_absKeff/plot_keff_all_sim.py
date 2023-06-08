@@ -1,6 +1,5 @@
 import re
 import click
-import typer
 from pathlib import Path
 from typing import List, Tuple
 
@@ -21,12 +20,12 @@ def check_consistency(files_read: List[Path]) -> None:
     initial_shape = shapes[0]
     for index, shape in enumerate(shapes):
         if shape != initial_shape:
-            raise Exception(f"File {files_read[index].filePath} is not consistent")
+            raise Exception(f"File {files_read[index].filePath} inconsistent")
 
 
 @click.command()
 @click.option(
-    "--num_of_keffs_to_cut",
+    "--cut",
     default=0,
     help="Specify how many last steps to plot",
     type=int,
@@ -37,21 +36,22 @@ def check_consistency(files_read: List[Path]) -> None:
     type=click.Path(exists=True),
 )
 def plot_keff(
-    num_of_keffs_to_cut: int,
+    cut: int,
     input_folders: Tuple[str, ...],
 ) -> None:
-    """Progress through the folders specified and plot data from every _res.m file
+    """Progress through the folders specified and plot data from every _res.m
        Example:
 
-    python get_keff_vs_step_all_sim.py --num_of_keffs_to_cut=3 -- sim1 sim2
+    python get_keff_vs_step_all_sim.py --cut=3 -- sim1 sim2
 
     Example: # By default plots all steps
 
     python get_keff_vs_step_all_sim.py -- sim1
 
     Args:
-        num_of_keffs_to_cut (int): Specify how many last steps to plot
-        input_folders (Tuple[str, ...]): Specify which folders by default every folder is parsed
+        cut (int): Specify how many last steps to plot
+        input_folders (Tuple[str, ...]): Specify which \
+        folders by default every folder is parsed
     """
 
     if len(input_folders) > 0:
@@ -106,8 +106,8 @@ def plot_keff(
         #         [time_arr + idx * one_period for idx in range(0, len(files_read))]
         #     )
 
-        # Instruction to cut the time_array if num_of_keffs_to_cut is given
-        short_time_scale = single_time_arr * num_of_keffs_to_cut
+        # Instruction to cut the time_array if cut is given
+        short_time_scale = single_time_arr * cut
         time_arr = time_arr[-short_time_scale:]
         keffs = keffs[-short_time_scale:]
 
@@ -118,8 +118,8 @@ def plot_keff(
     # plt.xlabel("EFPD", fontsize=12)
     plt.ylabel("Keff", fontsize=12)
     plt.grid()
-    save_fig = f"Keff_vs_STEPS_from_step_{num_of_keffs_to_cut}.png"
-    # save_fig = f"Keff_vs_EFPD_from_step_{num_of_keffs_to_cut}.png"
+    save_fig = f"Keff_vs_STEPS_from_step_{cut}.png"
+    # save_fig = f"Keff_vs_EFPD_from_step_{cut}.png"
     plt.savefig(save_fig, dpi=70)
     plt.show()
 
