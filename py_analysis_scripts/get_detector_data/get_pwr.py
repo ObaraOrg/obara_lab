@@ -1,4 +1,3 @@
-import numpy as np
 import serpentTools as sp
 import pandas as pd
 

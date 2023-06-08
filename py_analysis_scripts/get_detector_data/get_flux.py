@@ -1,4 +1,3 @@
-import numpy as np
 import serpentTools as sp
 import pandas as pd
 
@@ -6,13 +5,13 @@ import pandas as pd
 pd.set_option("display.max_rows", None)
 pd.set_option("display.max_columns", None)
 
-file = "wh_lfr_det1.m"
+file = "wh_lfr_det2.m"
 det_data = sp.read(file)
 
 data_array = []
 
 for p in range(1, 49):
-    data_array.append(det_data.detectors[f"flux_odsP{p}Z1"].tallies)
+    data_array.append(det_data.detectors[f"flux_odsP{p}"].tallies)
 
 df = pd.DataFrame(data_array)
 print(df)
