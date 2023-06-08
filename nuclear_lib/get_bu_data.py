@@ -4,7 +4,6 @@ import numpy as np
 from nuclear_lib.split_fuel_names import split_pz_name
 from typing import Tuple, Dict
 
-BASE_DIR = Path(os.path.dirname(__file__))
 
 def get_bu_data_old(
     dep: DepletionReader, atomic_wt: pd.DataFrame, P: int, Z: int
@@ -97,7 +96,7 @@ def get_bu_data_old(
     # sum([value for key, value in average_burnups_axial.items()]) / Z
 
     # average_burnups
-   
+
     df = pd.DataFrame.from_dict(fuel_vol_dict).T
     sorted_df = df.sort_values(["z", "p"])
     corrected_burnup_mat = sorted_df["corrected_burnup"].to_numpy().reshape(Z, P)
