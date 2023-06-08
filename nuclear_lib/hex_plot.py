@@ -161,7 +161,9 @@ def filter_string_material(material_name: str) -> bool:
     return int(material_name[1:4])
 
 
-def make_value_map(map: List[List[str]], data: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
+def make_value_map(
+    map: List[List[str]], data: np.ndarray
+) -> Tuple[np.ndarray, np.ndarray]:
     """
     Create a value map by merging the map and extracting corresp data values.
 
