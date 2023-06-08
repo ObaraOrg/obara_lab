@@ -10,11 +10,13 @@ from nuclear_lib.hex_plot import make_value_map, plot_core, read_core
 
 serpentTools.settings.rc["serpentVersion"] = "2.1.32"
 serpentTools.settings.rc["verbosity"] = "error"
+
 BASE_DIR = Path(os.path.dirname(__file__))
 
+plt.rcParams.update({"font.size": 14})  # Set font size (adjust as needed)
 
 P = 48  # max no of FA
-Z = 6  # max no of slices
+Z = 11  # max no of slices
 LOAD_PATH = BASE_DIR / "core_lp_SF3.txt"
 
 
@@ -40,8 +42,19 @@ def main() -> None:
     # add a function for correnction to add both text
     # additional_text_list = p_array + "\n" + u_array
     additional_text_list = u_array
-    plot_core(mask, core_values, additional_text_list)
-    plot_core(mask, core_values, additional_text_list, True)
+
+    # Full core
+    # plot_core(mask, core_values[0], additional_text_list)
+
+    # Quater core
+    c_bar, _, _, _ = plot_core(mask, core_values[0], additional_text_list, True)
+
+    plt.title(f"specific burnup of each FA")
+    c_bar.set_label("[MWd/kgHM]")
+
+    plot_save_path = BASE_DIR / f"BU_plot_map.png"
+    plt.savefig(plot_save_path, bbox_inches="tight", dpi=300)
+
     plt.show()
 
 
