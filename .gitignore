@@ -321,3 +321,4 @@ py_analysis_scripts/compare_nuclides/01_280d/input/lp/core_lp_SF1bis.inp
 py_analysis_scripts/compare_nuclides/01_280d/input/lp/core_lp_SF3.inp
 py_analysis_scripts/compare_nuclides/01_280d/input/lp/core_lp_SF4.inp
 py_analysis_scripts/get_absKeff/K-effs.csv
+py_analysis_scripts/get_BU_data/DischargedFuel_nuclides.csv
