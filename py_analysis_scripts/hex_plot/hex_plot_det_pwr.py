@@ -13,7 +13,6 @@ serpentTools.settings.rc["serpentVersion"] = "2.1.32"
 serpentTools.settings.rc["verbosity"] = "error"
 BASE_DIR = Path(os.path.dirname(__file__))
 
-# plt.gcf().set_size_inches(8, 6)  # Set figure size (adjust as needed)
 plt.rcParams.update({"font.size": 14})  # Set font size (adjust as needed)
 
 PLOT_VALUE = "pwr_U0"
@@ -41,14 +40,21 @@ def main() -> None:
     # Get some data, BU steps here
     dep = serpentTools.read(BASE_DIR / f"{NAME}_dep.m", reader="dep")
 
-    dep_steps = dep.days[1:].astype(int) # no last element (becausee reasons)
-    dep_steps[0] = 0  # don't ask, its just an artifice to show the legend
+
+    # NOTE: THIS IS SOMEHOW WRONG, BUT I DON'T KNOW WHY
+    # dep_steps = dep.days[1:].astype(int)  # no last element (becausee reasons)
+    # dep_steps[0] = 0  # don't ask, its just an artifice to show the legend
+
+    dep_steps = dep.days.astype(int)  # no last element (becausee reasons)
+
 
     total_bins = np.zeros((len(files_data), P))
+    
     for file_idx, file in enumerate(files_data):
         for p_idx in range(P):
             bin = file.detectors[f"{PLOT_VALUE}{p_idx+1}"].bins.T[-2].sum()
             total_bins[file_idx, p_idx] = bin
+
 
     map_, mask = read_core(LOAD_PATH, "U")
     mask = np.array(mask)
@@ -99,7 +105,6 @@ def main() -> None:
 
         merged_df = pd.merge(df1, df2, on="FA")
 
-
         sns.regplot(
             ax=ax,
             data=merged_df,
@@ -112,13 +117,16 @@ def main() -> None:
         )
 
         ax.axhline(y=0, color="gray", linestyle="--", linewidth=2, alpha=0.8)
-        
+
     ax.set_xlabel("FA range from core center [cm]")
     ax.set_ylabel("FA power [W/cm3]")
     ax.set_title("Average power distribution vs distance from center")
     ax.legend()
-    fig.savefig("value_vs_distance.png")
+    fig_save_path = BASE_DIR / "value_vs_distance.png"
+    fig.savefig(fig_save_path, bbox_inches="tight", dpi=300)
+    
     plt.show()
 
 
-main()
+if __name__ == "__main__":
+    main()
