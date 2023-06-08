@@ -11,6 +11,9 @@ from nuclear_lib.hex_plot import (make_value_map, plot_core, power_10_notation,
 
 serpentTools.settings.rc["serpentVersion"] = "2.1.32"
 serpentTools.settings.rc["verbosity"] = "error"
+
+# NOTE: Not used yet to plot anything
+
 BASE_DIR = Path(os.path.dirname(__file__))
 
 PLOT_VALUE = "pwr_U0"
@@ -76,4 +79,6 @@ def main() -> None:
         c_bar.set_label("$\Phi$")
         plt.show()
 
-main()
+
+if __name__ == "__main__":
+    main()
