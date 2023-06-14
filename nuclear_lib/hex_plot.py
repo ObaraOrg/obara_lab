@@ -55,11 +55,20 @@ def calc_distances(center_coordinates: np.ndarray) -> np.ndarray:
     Returns:
         np.ndarray: Distances from the top-right point for each set of coord.
     """
+
     highest_point = np.max(center_coordinates, axis=0)
+    # add 2 to x coord to get right in the center (artifice)
+    highest_point[0] = highest_point[0] + 2
     distances = np.sqrt(
         (center_coordinates[:, 0] - highest_point[0]) ** 2
         + (center_coordinates[:, 1] - highest_point[1]) ** 2
     )
+    # for actual purposes, multiply by 2 and by 16.3 (FA pitch)
+    # 2 is the value of the side of the hexagon for plotting purposes
+    distances = distances / 2 * 16.3  # 16.3 is FA pitch
+
+    # TODO: make the FA pitch a parameter
+
     return distances
 
 
