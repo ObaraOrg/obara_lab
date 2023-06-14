@@ -5,6 +5,7 @@ from typing import List
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import itertools
 import seaborn as sns
 import serpentTools
 from nuclear_lib.hex_plot import make_value_map, plot_core, power_10_notation, read_core
@@ -41,7 +42,7 @@ def main() -> None:
     dep = serpentTools.read(BASE_DIR / f"{NAME}_dep.m", reader="dep")
 
     # NOTE: THIS IS SOMEHOW WRONG, BUT I DON'T KNOW WHY
-    # dep_steps = dep.days[1:].astype(int)  # no last element (becausee reasons)
+    # dep_steps = dep.days[1:].astype(int) # no last element (becausee reasons)
     # dep_steps[0] = 0  # don't ask, its just an artifice to show the legend
 
     dep_steps = dep.days.astype(int)  # no last element (becausee reasons)
@@ -57,6 +58,11 @@ def main() -> None:
     mask = np.array(mask)
 
     fig, ax = plt.subplots(figsize=(10, 8), layout="constrained")
+
+    # List of markers and colors for the ploting
+    # Generaly 3 are enough (BOC, MOC, EOC)
+    markers = itertools.cycle(["o", "s", "^", "D"])  
+    colors = itertools.cycle(["red", "blue", "green", "purple"])
 
     for step, bu_steps in enumerate(total_bins):
         core_values, names_array = make_value_map(map_, bu_steps)
@@ -90,7 +96,7 @@ def main() -> None:
 
         plt.title(f"Power map at {dep_steps[step]} days")
         c_bar.set_label("[W/cm3]")
-        plot_save_path = BASE_DIR / f"flux_plot_{dep_steps[step]}_days.png"
+        plot_save_path = BASE_DIR / f"pwr_plot_{dep_steps[step]}_days.png"
         plt.savefig(plot_save_path, bbox_inches="tight", dpi=300)
 
         distances = {"FA": fa_names, "Distance": dist}
@@ -103,18 +109,31 @@ def main() -> None:
 
         merged_df = pd.merge(df1, df2, on="FA")
 
+        # Save data for later use
+        merged_df.to_csv(f"{BASE_DIR}/FA_pwr_vs_dist.csv")
+        merged_df.to_excel(f"{BASE_DIR}/FA_pwr_vs_dist.xlsx")
+
+        # Get the marker and color for the current step
+        marker = next(markers)
+        color = next(colors)
+
         sns.regplot(
             ax=ax,
             data=merged_df,
             x="Distance",
             y="Values",
             scatter=True,
-            order=4,
             label=f"{dep_steps[step]} days",
             ci=None,  # Disable error shadows
+            marker=marker,
+            color=color,
+            scatter_kws={"s": 100, "facecolors": "none", "edgecolors": "black"},
+            fit_reg=False,  # Disable the regression line
+            order=4,
         )
 
-        ax.axhline(y=0, color="gray", linestyle="--", linewidth=2, alpha=0.8)
+        # No need for base axis
+        # ax.axhline(y=0, color="gray", linestyle="--", linewidth=2, alpha=0.8)
 
     ax.set_xlabel("FA range from core center [cm]")
     ax.set_ylabel("FA power [W/cm3]")
