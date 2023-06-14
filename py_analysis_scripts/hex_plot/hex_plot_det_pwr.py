@@ -110,8 +110,8 @@ def main() -> None:
         merged_df = pd.merge(df1, df2, on="FA")
 
         # Save data for later use
-        merged_df.to_csv(f"{BASE_DIR}/FA_pwr_vs_dist.csv")
-        merged_df.to_excel(f"{BASE_DIR}/FA_pwr_vs_dist.xlsx")
+        merged_df.to_csv(f"{BASE_DIR}/FA_pwr_vs_dist_{dep_steps[step]}.csv")
+        merged_df.to_excel(f"{BASE_DIR}/FA_pwr_vs_dist_{dep_steps[step]}.xlsx")
 
         # Get the marker and color for the current step
         marker = next(markers)

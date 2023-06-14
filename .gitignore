@@ -323,3 +323,6 @@ py_analysis_scripts/compare_nuclides/01_280d/input/lp/core_lp_SF4.inp
 py_analysis_scripts/get_absKeff/K-effs.csv
 py_analysis_scripts/get_BU_data/DischargedFuel_nuclides.csv
 py_analysis_scripts/hex_plot/FA_pwr_vs_dist.csv
+py_analysis_scripts/hex_plot/FA_pwr_vs_dist_0.csv
+py_analysis_scripts/hex_plot/FA_pwr_vs_dist_200.csv
+py_analysis_scripts/hex_plot/FA_pwr_vs_dist_450.csv
