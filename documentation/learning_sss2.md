@@ -102,24 +102,24 @@ set pcc 5 PRED CORR [SSP SSC]
 
 Sets the time integration method in burnup calculation. Input values:
 
-| MODE |  : time integration method |
-| --- | --- |
-| PRED |  : predictor step integration scheme (0 = constant extrapolation, 1 = linear extrapolation) |
-| CORR |  : corrector step integration scheme (1 = linear interpolation, 2 = quadratic interpolation) |
-| SSP  |  : number of substeps for predictor steps |
-| SSC  |  : number of substeps for corrector steps |
+| MODE | : time integration method                                                                   |
+| ---- | ------------------------------------------------------------------------------------------- |
+| PRED | : predictor step integration scheme (0 = constant extrapolation, 1 = linear extrapolation)  |
+| CORR | : corrector step integration scheme (1 = linear interpolation, 2 = quadratic interpolation) |
+| SSP  | : number of substeps for predictor steps                                                    |
+| SSC  | : number of substeps for corrector steps                                                    |
 
 The possible settings for mode are:
 
-| Mode | Predictor method | Corrector method |
-| --- | --- | --- |
-| 0, CE   | Constant extrapolation | - |
-| 1, CELI (default)| Constant extrapolation | Linear interpolation | 
-| 2, LE   | Linear extrapolation | - |
-| 3, LELI | Linear extrapolation | Linear interpolation |
-| 4, LEQI | Linear extrapolation | Quadratic interpolation |
-| 5       | Constant or linear extrapolation | Linear or quadratic interpolation |
-| 6, CECE | Constant extrapolation | Constant backwards extrapolation |
+| Mode              | Predictor method                 | Corrector method                  |
+| ----------------- | -------------------------------- | --------------------------------- |
+| 0, CE             | Constant extrapolation           | -                                 |
+| 1, CELI (default) | Constant extrapolation           | Linear interpolation              |
+| 2, LE             | Linear extrapolation             | -                                 |
+| 3, LELI           | Linear extrapolation             | Linear interpolation              |
+| 4, LEQI           | Linear extrapolation             | Quadratic interpolation           |
+| 5                 | Constant or linear extrapolation | Linear or quadratic interpolation |
+| 6, CECE           | Constant extrapolation           | Constant backwards extrapolation  |
 
 Recommended:
 (still to be tested and to put some results)

@@ -40,16 +40,8 @@ The base file tree looks like the this (may differ from the actual one)
 ┃ ┣ 📜jupiter_notebook.sh           - launch a jupiter notebook server locally)
 ┃ ┗ 📜tmux_layout.sh                - helpful tmux layout for analysis)
 ┣ 📂**nuclear_lib**             (Most important one, it contains all of the functions used in the scripts for data analysis)
-┣ 📂**python_scripts**          (This folder contains all the scripts for data analysis)
-┃ ┣ 📂get_BU_data                   - plotting for multiple simulations (shuffling run)
-┃ ┣ 📂get_absKeff                   - plotting for multiple simulations (shuffling run)
-┃ ┣ 📂get_nuclides                  - plotting for multiple simulations (shuffling run)
-┃ ┣ 📂lp_hex_rot_script             - made to generate a lp map for the serpent input
-┃ ┣ 📂hex_plot                      - plotting a single simulation file parameters
-┃ ┣ 📂neutron_balance               - plotting a single simulation file parameters
-┃ ┣ 📂python_context_manager 
-┃ ┣ 📂shuffling_script              - idependent script for the shuffling bash script
-┃ ┣ 📂test_and_learning
+┣ 📂**py_analysis_scripts**          (This folder contains all the scripts for data analysis)
+┣ 📂**py_input_generation_scripts**  (This folder contains all the scripts for creating a input faster)
 ┣ **📂requirements**            (This folder holds the requirements for the direnv)
 ┃ ┣ 📜requirements.in
 ┃ ┗ 📜requirements.txt
