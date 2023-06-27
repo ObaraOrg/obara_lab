@@ -44,7 +44,7 @@ set nbuf	8.0			% - Sets the size of n buffer (DEF off, use only when sym fails)
 % --- Criticality cycles  -------------------------------------------------------------------
 %     N.pop.generated/ active.cycles/ inactive.cycles/ guess for k0/  
 
-set pop		210000 200 50
+set pop		200000 200 50
 
 %     On-the-fly n growing pop - max active.cycles/ max pop.generated/ 
 %     This option make calculation fast but the propagation of err in multicycle analisys make it dangerous 
