@@ -6,7 +6,7 @@ This page is to explain how the shuffling script works
 
 - [Shuffling script](#shuffling-script)
   - [shuffling.py Functionality:](#shufflingpy-functionality)
-  - [shuffling.py Functionality:](#shufflingpy-functionality-1)
+  - [shuffling\_old.py Functionality:](#shuffling_oldpy-functionality)
 
 <!-- /TOC -->
 
@@ -34,5 +34,5 @@ There are two versions available, the shuffling_old.py and shuffling.py, the lat
   - It adds at the end `fuelP1Z1` - this is fresh fuel card
 
 
-## shuffling.py Functionality:
+## shuffling_old.py Functionality:
 - Same but has some limitations
