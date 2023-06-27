@@ -89,23 +89,23 @@ Version present is 2011.11 - these here are the most popular commands avalabile,
 ## Resource usage tips
 
 * The **Local Cluster** does not have any limit on resource usage but check with others on how you plan to use them as not to run jobs in parallel and skew others results.
-* The **Tsubame** has limits, check them [here](https://www.t3.gsic.titech.ac.jp/en/resource-limit)
+* The **TSUBAME** has limits, check them [here](https://www.t3.gsic.titech.ac.jp/en/resource-limit)
 
 **NOTE:**
 The `mpirun` OpenMPI version on the **Cluster is 1.6.5**, check the acording [manual](https://www.open-mpi.org/doc/v1.6/man1/mpirun.1.php)
-The `mpirun` OpenMPI version on the **Tsubame is 3.1.4**, check the acording [manual](https://www.open-mpi.org/doc/v3.1/man1/mpirun.1.php)
+The `mpirun` OpenMPI version on the **TSUBAMME is 3.1.4**, check the acording [manual](https://www.open-mpi.org/doc/v3.1/man1/mpirun.1.php)
 
 When running several programs/languages via a script, try to time each part of the script individually, some components may be slower that others and may help you find how to same time. Using **one process per node** with mutiple **OMP threads** makes for the best results.
 
 ```sh
 # Cluster OpenMPI example:
 # -n 2 => 2 nodes | -pernode 1 => 1 proc.per.node | -omp 23 => 23 omp threads in use
- mpirun -pernode 1 -n 2 sss2 -omp 23 sss_input
- # -hostfile host_olds => general finel with the names of host (nodes) to use, see `qhost` for list
- # -pernode 1 => 1 proc.per.node | -omp 24 => 24 omp threads in use
- mpirun -pernode 1 -hostfile host_olds sss2 -omp 24 sss_input
+mpirun -pernode 1 -n 2 sss2 -omp 23 sss_input
+
+# -hostfile host_olds => general finel with the names of host (nodes) to use, see `qhost` for list
+# -pernode 1 => 1 proc.per.node | -omp 24 => 24 omp threads in use
+mpirun -pernode 1 -hostfile host_olds sss2 -omp 24 sss_input
 ```
-_Add benchmark table here_
 
 ---
 
