@@ -6,7 +6,7 @@
 pin c
 	lead
 
-% --- Fuel pins (smear 85%)
+% --- Fuel pins (smear 89.37%%)
 pin 1
 	fuel	 	0.78550
 	ods         0.84850  
