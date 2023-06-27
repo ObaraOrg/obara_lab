@@ -43,16 +43,29 @@ Welcome, this is the lab repository, made to make life easier while working in t
 ## Creating the work environment
 
 
-|                                                                                   | Address                                 | Notes                                                                                              | user           |
-| --------------------------------------------------------------------------------- | --------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------- |
-|                                                                                   | WIFI                                    |                                                                                                    | obaralab       |
-| File Server                                                                       | [192.168.11.3](ftp://192.168.11.3)      | (can be mapped with FTP)<br>Documentation and serpent files are to be found here                   | -              |
-| Local User                                                                        | 192.168.11.206:22                       | The local work cluster, **olds**                                                                   | _student user_ |
-| PC for modeling CFD                                                               | 192.168.11.4                            | Xenon 48CPU                                                                                       | obaralab       |
-| PC for modeling CFD                                                               | 192.168.11.5                            | Xenon 48CPU                                                                                       | obaralab       |
-| [TSUBAME Login](https://helpdesk.t3.gsic.titech.ac.jp/manuals/handbook.en/start/) | `student_ID`@login.t3.gsic.titech.ac.jp | Login node, home directory space is less than 17Gb so I recommend you use the **group disk** for storage | `student_ID`   |
-| TSUBAME group DISK                                                                | /gs/hs0/tga-oba2                        | Create a symbolic link (`ln -s` command)                                                          |                |
+|                     | Address                                 | Notes                                                                                                    | user           |
+| ------------------- | --------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------- |
+|                     | WIFI                                    |                                                                                                          | obaralab       |
+| File Server         | 192.168.11.3     | Documentation and serpent files are to be found here                                                     | -              |
+| Local User          | 192.168.11.206:22                       | Local cluster **olds01 - olds09**, 9 nodes, Xeon E5-2680 v3 @2.50GHz (x24 CPUs)                          | _student user_ |
+| Local User          | 192.168.11.200:22                       | Local cluster **olcs01 - olcs08**, 8 nodes, Xeon E5-2690 0 @2.90GHz (x16 CPUs)                           | _student user_ |
+| PC for modeling CFD | 192.168.11.4                            | Workstation, Xenon Gold 6252 @2.10GHz (x48 CPUs), 1TB RAM, Quadro GV100 x2                               | obaralab       |
+| PC for modeling CFD | 192.168.11.5                            | Workstation, Xenon E5-2697 v4 @2.30GHz (x36 CPUs), 512GB RAM, Quadro M4000                               | obaralab       |
+| TSUBAME Login       | `student_ID`@login.t3.gsic.titech.ac.jp | Login node, home directory space is less than 17Gb so I recommend you use the **group disk** for storage | `student_ID`   |
+| TSUBAME group DISK  | /gs/hs0/tga-oba2                        | Create a symbolic link (`ln -s` command)                                                                 |                |
 
+**Notes:**
+- **File Server** can be mapped with simple `ftp` and Windows can't use `sftp` connections, so you first need some prerequisites:
+  - [WinFsp](https://github.com/winfsp/sshfs-win), this can make `sftp` avalabile on Windows and can be easily installed via `windows powershell` as follows: 
+  ```sh
+  winget install WinFsp.WinFsp; winget install SSHFS-Win.SSHFS-Win
+  ```
+  After, in the *Add Network Location* the address must be writen like `\\sshfs\192.168.11.3`. You can also follow the [tutorial](https://sftptogo.com/blog/how-to-map-sftp-as-a-windows-10-drive/).
+- **TSUBAME Login** procedure can be found [here](https://helpdesk.t3.gsic.titech.ac.jp/manuals/handbook.en/start/)
+- **TSUBAME group disk** uses windows explorer to map the folder ([tutorial](https://helpdesk.t3.gsic.titech.ac.jp/manuals/handbook.en/storage/#highspeed)), to use it in the console you need to map it with a symbolic link towards you home directory on the TSUBAME.
+  ```sh
+    ln -s /gs/hs0/tga-oba2 your_folder_name
+  ```
 <br>
 
 ---
@@ -66,16 +79,10 @@ Welcome, this is the lab repository, made to make life easier while working in t
 
 - **FileZilla**
 - **WinSCP** (I don't recommend it, use at one's own peril)
-- **Windows** [file explorer integration via network mapping of a location]
+- **Windows** (file explorer integration via *Add Network Location*)
 
-**NOTE:** Windows can't use `sftp` connections you need first some prerequisites:
-  - [WinFsp](https://github.com/winfsp/sshfs-win)
-  This can solve this and can be easily installed via `windows powershell` as follows (follow the [tutorial](https://sftptogo.com/blog/how-to-map-sftp-as-a-windows-10-drive/)  on how to use it here ):
-  ```sh
-  winget install WinFsp.WinFsp; winget install SSHFS-Win.SSHFS-Win
-  ```
 
-**NOTE:** for the *TSUBAME group disk* use windows explorer to map the folder ([tutorial](https://helpdesk.t3.gsic.titech.ac.jp/manuals/handbook.en/storage/#highspeed)), else this should be mapped with a symbolic link towards you home directory on the TSUBAME.
+
 
 ### SSH command line interface
 
