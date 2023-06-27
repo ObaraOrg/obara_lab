@@ -5,13 +5,13 @@
 <!-- TOC -->
 
 - [MPI parallel calculation](#mpi-parallel-calculation)
-  - [Running Serpent in hybrid mode](#running-serpent-in-hybrid-mode)
-  - [Caution - MPI parallelization without MPI mode :](#caution---mpi-parallelization-without-mpi-mode-)
-  - [Important notes on parallel calculation :](#important-notes-on-parallel-calculation-)
-  - [Scheduler - Open Grid Scheduler/Grid Engine](#scheduler---open-grid-schedulergrid-engine)
-  - [Resource usage tips](#resource-usage-tips)
-  - [TSUBAME tips](#tsubame-tips)
-  - [Q\&A for previous issues encountered](#qa-for-previous-issues-encountered)
+    - [Running Serpent in hybrid mode](#running-serpent-in-hybrid-mode)
+    - [Caution - MPI parallelization without MPI mode :](#caution---mpi-parallelization-without-mpi-mode-)
+    - [Important notes on parallel calculation :](#important-notes-on-parallel-calculation-)
+    - [Scheduler - Open Grid Scheduler/Grid Engine](#scheduler---open-grid-schedulergrid-engine)
+    - [Resource usage tips](#resource-usage-tips)
+    - [TSUBAME tips](#tsubame-tips)
+    - [Q&A for previous issues encountered](#qa-for-previous-issues-encountered)
 
 <!-- /TOC -->
 
@@ -102,10 +102,13 @@ When running several programs/languages via a script, try to time each part of t
 # -n 2 => 2 nodes | -pernode 1 => 1 proc.per.node | -omp 23 => 23 omp threads in use
 mpirun -pernode 1 -n 2 sss2 -omp 23 sss_input
 
-# -hostfile host_olds => general finel with the names of host (nodes) to use, see `qhost` for list
+# -hostfile host_olds => general file with the names of hosts (nodes) to use, see `qhost` for list
 # -pernode 1 => 1 proc.per.node | -omp 24 => 24 omp threads in use
 mpirun -pernode 1 -hostfile host_olds sss2 -omp 24 sss_input
 ```
+**NOTE:**
+Check the **nodes avalabile** [here](https://github.com/ObaraOrg/obara_lab/blob/main/documentation/cluster_commands.md)
+
 
 ---
 
