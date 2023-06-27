@@ -1,0 +1,20 @@
+## This first part is the post bash command for the qsub engine #####################################
+#!/bin/sh
+#$-cwd    					## work in the current directory 
+#$ -V	  					## use the present envirorment variables (picks up serpent)
+#$ -N run_name  			## name of the run
+#$ -o job.out	            ## write output to a file
+#$ -e job.out	            ## write qsub errors to a file (wirte to the same file ,easier to read)
+
+## This is the actual bash part you run #############################################################
+
+## Example running with the OPENMPI module (openmpi)
+## Example of 2 process per reserved node (-npernode), the total of MPI process (-n) is 8 (2x nodes)
+## 		the Cluster has 24 cores per node, so the number of threads (-omp) should be the
+## 		number of cores per node divided by the number of MPI processes requested per node, 24/2=12
+
+## Example 1 - two nodes, 4 process pe node, 12 threads each
+## mpirun -npernode 2 -n 8 -x LD_LIBRARY_PATH sss2 -omp 12 SERPENT_file
+
+## Example 2 - one node, one process pe node, 24 threads each
+mpirun -npernode 1 -n 1 -x LD_LIBRARY_PATH sss2 -omp 24 SERPENT_file

@@ -2,7 +2,19 @@
 
 **[Back to main page](https://github.com/ObaraOrg/obara_lab)**
 
-*Still working on this one...*
+The olds cluster has the folowing nodes avalabile:
+
+```sh
+# A total of 9 nodes
+olds01, olds02, ..., olds09
+```
+
+The olcs cluster has the folowing nodes avalabile:
+
+```sh
+# A total of 8 nodes
+olds01, olds02, ..., olds08
+```
 
 ---
 
