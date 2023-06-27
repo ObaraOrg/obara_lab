@@ -2,13 +2,13 @@
 ## To run it you need to first specify the lab group to run it on
 ## example: qsub -g tga-oba2 TSUBAME_run_example.qsub
 
-## This first part is the post bash command for the qsub engine
+## This first part is the post bash command for the qsub engine ################################################
 #!/bin/sh
 #$-cwd    					## work in the current directory 
 #$ -V	  					## use the present envirorment variables (picks up serpent)
-#$ -N serpent_ex			## name of the run
-#$ -o output&err_file.out	## write output to a file
-#$ -e output&err_file.out	## write qsub errors to a file (here it's the same,easier to read)
+#$ -N run_name  			## name of the run
+#$ -o job.out	            ## write output to a file
+#$ -e job.out	            ## write qsub errors to a file (wirte to the same file ,easier to read)
 ## Resource type F: qty 4 (this is specific to the TSUBAME, more on this check the website)
 ## https://helpdesk.t3.gsic.titech.ac.jp/manuals/handbook.en/jobs/#job_flow
 #$ -l f_node=4				## resource type to use
@@ -22,15 +22,19 @@ module load intel
 module load cuda
 module load openmpi 
 
-## This is the actual bash part you run
+
+## This is the actual bash part you run ########################################################################
 
 ## Example running with the OPENMPI module (openmpi)
 ## Example of 2 process per reserved node (-npernode), the total of MPI process (-n) is 8 (2x f_node=4)
-## 		the TSUBAME CPU has 28 cores per node, so the number of threads (-omp) should be the
+## 		the TSUBAME has 28 cores per node, so the number of threads (-omp) should be the
 ## 		number of cores per node divided by the number of MPI processes requested per node, 28/2=14
 
-mpirun -npernode 2 -n 8 -x LD_LIBRARY_PATH sss2 -omp 14 SERPENT_file
+## Example 1 - two nodes, 4 process pe node, 14 threads each
+##mpirun -npernode 2 -n 8 -x LD_LIBRARY_PATH sss2 -omp 14 SERPENT_file
 
+## Example 2 - one node, one process pe node, 28 threads each
+mpirun -npernode 1 -n 1 -x LD_LIBRARY_PATH sss2 -omp 28 SERPENT_file
 
 ## Example running with the INTEL MPI module (intel-mpi)
 

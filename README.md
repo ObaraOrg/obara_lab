@@ -160,7 +160,7 @@ I find a putty terminal to be the most useful at the start, here's some [scripts
           pip install -r requirements/requirements.txt 
       ```
 
-  2. The developers way of doing it by using `direnv` and `pyenv`, for this please follow this guide [here](documentation/setup_py_environment)
+  2. The developers way of doing it by using `direnv` and `pyenv`, for this please follow this guide [here](documentation/setup_py_environment.md)
 
      - For `python` version control, there is `pyenv` that can be pulled from  `git`, see the [tutorial](https://github.com/pyenv/pyenv#installation)), you can use it for version management of `python` (up to **3.7.13**, **CentOS 6.x** is deprecated and it misses a lot of package support)
      - Same goes for the TSUBAME, you can install `pyenv` to manage your `python` and install packages more easily :P
