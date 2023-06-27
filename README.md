@@ -34,7 +34,8 @@ Welcome, this is the lab repository, made to make life easier while working in t
   * [Vim tutorial](documentation/vim_commands.md)
 * **Project related**
   * [Project Structure](documentation/structuring_and_workflow.md)
-  * [Python Scripts](python_scripts_no_lib)
+  * [Python analysis scripts](py_analysis_scripts)
+  * [Python input generation scripts](py_input_generation_scripts)
 
 <br>
 

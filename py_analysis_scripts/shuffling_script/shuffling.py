@@ -13,26 +13,22 @@ INPUT = Path("fuel.inp")
 
 # no axial slices Z_start to z_end
 Z_start = 1
-z_end = 6
+z_end = 11
 # No fuel assemblies FA_start to FA_end
 FA_start = 1
 FA_end = 48
 
-# Reload mat data, natU+99rN-15 
+# Reload mat data, natU+99rN-15
 FRESH_MAT_HEADER = "-12.79808 tmp 1200 burn 1"
-FRESH_MAT_DATA = """7014.12c	-5.534410475E-04
-7015.12c	-5.869182198E-02
-92234.12c 	-5.272476960E-05
-92235.12c	-6.688884284E-03
-92238.12c	-9.340158581E-01    
+FRESH_MAT_DATA = """92235.09c  2.1125067E-04
+92238.09c  2.8757928E-02
+92234.09c  1.6794750E-06
+ 7014.09c  2.8970823E-04
+ 7015.09c  2.8681115E-02
 """
 
 # Mat header for the burned fuel
 MAT_HEADER = "tmp 1200 burn 1"
-
-# remember to input this via manual calculation
-# FUEL_VOL = "1.0542136E+04"
-
 MATCH_FUEL_NO = r"P\d\d?"
 
 
