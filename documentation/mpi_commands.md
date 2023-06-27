@@ -62,11 +62,13 @@ Taken from the 2015 Serpent manual
 
 Version present is 2011.11 - these here are the most popular commands avalabile, for more check the manual on the web
 
+[Check these qsub scripts here](https://github.com/ObaraOrg/obara_lab/blob/main/installation_scripts/running_scripts)
+
 `qhost` - see the hosts avalabile for use (cluster, useful for writing the `hostfile` for `mpirun`)
 
 `qsub` - use it for submitting scheduled jobs to the local cluster or the TSUBAME
 
-**NOTE** - the qsub on the Tsubame needs to have the `-g tga-oba2` argument for specifing the work group, see more here -> [TSUBARE Job Scheduler](https://helpdesk.t3.gsic.titech.ac.jp/manuals/handbook.en/jobs/) and this [General qsub tutorial](https://bioinformatics.mdc-berlin.de/intro2UnixandSGE/sun_grid_engine_for_beginners/how_to_submit_a_job_using_qsub.html)
+**NOTE** - the qsub on the Tsubame needs to have the `-g tga-oba2` argument for specifing the work group, see more here -> [TSUBAME Job Scheduler](https://helpdesk.t3.gsic.titech.ac.jp/manuals/handbook.en/jobs/) and this [General qsub tutorial](https://bioinformatics.mdc-berlin.de/intro2UnixandSGE/sun_grid_engine_for_beginners/how_to_submit_a_job_using_qsub.html)
 
 `qstat` - see the status of the job, as well as the job ID<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`–u "*" `- see job status for all users<br>
@@ -81,10 +83,6 @@ Version present is 2011.11 - these here are the most popular commands avalabile,
 **SEE ALSO :**
 1. [Grind Engine at Sourceforge](https://gridscheduler.sourceforge.net/)
 2. [Oracle Sun Grid documentation](https://docs.oracle.com/cd/E19923-01/820-6793-10/ExecutingBatchPrograms.html)
-3. [Link to my qsub local cluster script](https://github.com/ObaraOrg/obara_lab/blob/main/00_prod/Job.qsub)
-4. [Link to my qsub tsubame script](https://github.com/ObaraOrg/obara_lab/blob/main/00_prod/JobTSU.qsub)
-
-_Put examples maybe_
 
 ---
 
