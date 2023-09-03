@@ -114,10 +114,18 @@ def plot_keff(
         plt.plot(time_arr, keffs, label=sim_folder)
 
     plt.legend(loc="best")
-    plt.xlabel("Shuffling step", fontsize=12)
+    plt.xlabel("Shuffling step", fontsize=16)
     # plt.xlabel("EFPD", fontsize=12)
-    plt.ylabel("Keff", fontsize=12)
+    plt.ylabel("K-eff", fontsize=16)
     plt.grid()
+    
+    # Increase the tick numbers' font size on both x and y axes
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
+
+    # Increase the legend font size
+    plt.legend(loc="best", fontsize=14)
+
     save_fig = f"Keff_vs_STEPS_from_step_{cut}.png"
     # save_fig = f"Keff_vs_EFPD_from_step_{cut}.png"
     plt.savefig(save_fig, dpi=70)
