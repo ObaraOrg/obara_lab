@@ -120,11 +120,11 @@ def plot_keff(
     plt.grid()
     
     # Increase the tick numbers' font size on both x and y axes
-    plt.xticks(fontsize=14)
-    plt.yticks(fontsize=14)
+    plt.xticks(fontsize=16)
+    plt.yticks(fontsize=16)
 
     # Increase the legend font size
-    plt.legend(loc="best", fontsize=14)
+    plt.legend(loc="best", fontsize=16)
 
     save_fig = f"Keff_vs_STEPS_from_step_{cut}.png"
     # save_fig = f"Keff_vs_EFPD_from_step_{cut}.png"
