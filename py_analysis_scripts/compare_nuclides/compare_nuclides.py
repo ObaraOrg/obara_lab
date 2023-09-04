@@ -20,6 +20,9 @@ BASE_DIR = Path(os.path.dirname(__file__))
 
 FILE_NAME = "wh_lfr"
 
+P = 48  # max no of FA
+Z = 11  # max no of slices
+
 # NOTE: This gets executed in the folder with multiple simulations
 # NOTE: It will pick up any folder with simulations with .det filesls
 
@@ -63,7 +66,7 @@ def sum_and_sort_by_p_and_z(
     max_valued_pz_pair = max(p_z_pairs, key=get_number_pz)
     p_index = get_number_pz(max_valued_pz_pair)
     material_list = []
-    for z in range(1, 7):
+    for z in range(1, Z):
         fuel_vol = f"fuelP{p_index}Z{z}"
         # row is isotope, column is time
         x = materials[fuel_vol].toDataFrame("mdens", names=nuclides)
@@ -150,20 +153,20 @@ def plot_results(isotopes: Tuple[str]) -> None:
     plot_titles = ["Isotopes_kg", "Isotopes_frac", "Isotopes_rel_frac"]
 
     # Set font size
-    plt.rcParams.update({"font.size": 14})
+    plt.rcParams.update({"font.size": 16})
 
     for i, (data_col, label) in enumerate(data_cols):
         g = sns.catplot(data=sorted_df, x="Isotopes", y=data_col, kind="bar", col="Sim")
         for ax in g.axes.ravel():
             # Add annotations
             for c in ax.containers:
-                labels = [f"{(v.get_height()):.3f}{label}" for v in c]
+                labels = [f"{(v.get_height()):.1f}{label}" for v in c]
                 ax.bar_label(c, labels=labels, label_type="edge")
             ax.margins(y=0.2)
             for tick in ax.get_xticklabels():
-                tick.set_fontsize(14)
+                tick.set_fontsize(16)
             for tick in ax.get_yticklabels():
-                tick.set_fontsize(14)
+                tick.set_fontsize(16)
         plt.savefig(f"{BASE_DIR}/{plot_titles[i]}.png")
 
     plt.show()
