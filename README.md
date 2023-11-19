@@ -56,7 +56,7 @@ Welcome, this is the lab repository, made to make life easier while working in t
 | TSUBAME group DISK  | /gs/hs0/tga-oba2                        | Create a symbolic link (`ln -s` command)                                                                 |                |
 
 **Notes:**
-- **File Server** can be mapped with simple `ftp` and Windows can't use `sftp` connections, so you first need some prerequisites:
+- **File Server** can be mapped with simple `ftp` but Windows can't use `sftp` connections, so you first need some prerequisites:
   - [WinFsp](https://github.com/winfsp/sshfs-win), this can make `sftp` avalabile on Windows and can be easily installed via `windows powershell` as follows: 
   ```sh
   winget install WinFsp.WinFsp; winget install SSHFS-Win.SSHFS-Win
