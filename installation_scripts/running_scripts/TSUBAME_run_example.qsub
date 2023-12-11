@@ -9,33 +9,34 @@
 #$ -N run_name  			## name of the run
 #$ -o job.out	            ## write output to a file
 #$ -e job.out	            ## write qsub errors to a file (wirte to the same file ,easier to read)
+## Tsubame options
 ## Resource type F: qty 4 (this is specific to the TSUBAME, more on this check the website)
 ## https://helpdesk.t3.gsic.titech.ac.jp/manuals/handbook.en/jobs/#job_flow
 #$ -l f_node=4				## resource type to use
 #$ -l h_rt=02:00:00			## how much time to use the resource (here its 2h)	
-#$ -p -3 			## Priority: -5(standard), -4(mid) and -3 (top)
+#$ -p -3 			        ## Priority: -5(standard), -4(mid) and -3 (top)
 
 ## Before running serpent or any program you need to load some modules, prerequisite as to make it run properly
 ## Load modules
 
 module load intel
 module load cuda
-module load openmpi 
+module load openmpi
 
 
-## This is the actual bash part you run ########################################################################
+# This is the actual bash part you run ########################################################################
 
-## Example running with the OPENMPI module (openmpi)
-## Example of 2 process per reserved node (-npernode), the total of MPI process (-n) is 8 (2x f_node=4)
-## 		the TSUBAME has 28 cores per node, so the number of threads (-omp) should be the
-## 		number of cores per node divided by the number of MPI processes requested per node, 28/2=14
+# Example running with the OPENMPI module (openmpi)
+# Example of 2 process per reserved node (-npernode), the total of MPI process (-n) is 8 (2x f_node=4)
+# 		the TSUBAME has 28 cores per node, so the number of threads (-omp) should be the
+# 		number of cores per node divided by the number of MPI processes requested per node, 28/2=14
 
-## Example 1 - two nodes, 4 process pe node, 14 threads each
-##mpirun -npernode 2 -n 8 -x LD_LIBRARY_PATH sss2 -omp 14 SERPENT_file
+# Example 1 - two nodes, 4 process pe node, 14 threads each
+#mpirun -npernode 2 -n 8 -x LD_LIBRARY_PATH sss2 -omp 14 SERPENT_file
 
-## Example 2 - one node, one process pe node, 28 threads each
+# Example 2 - one node, one process pe node, 28 threads each
 mpirun -npernode 1 -n 1 -x LD_LIBRARY_PATH sss2 -omp 28 SERPENT_file
 
-## Example running with the INTEL MPI module (intel-mpi)
+# Example running with the INTEL MPI module (intel-mpi)
 
 # mpiexec.hydra -ppn 1 -n 4 sss2 -omp 26 reactor0
