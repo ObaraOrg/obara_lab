@@ -9,7 +9,7 @@ pin c
 % --- Fuel pins (smear 89.37%%)
 pin 1
 	fuel	 	0.74259
-	bond_he		0.78550
+	bond_so		0.78550
 	ods         0.84850 
 	lead
 	
