@@ -88,7 +88,8 @@ set egrid	5.0E-05 1.0E-09 2.0E+01		%   Grid thinning with 5e-5 reconstruction
 
 % --- Burnup calculation --------------------------------------------------------------------
 
-set power	32.985E+05	% - Sets normalization to total fiss. power [in W], 950MW/288FA
+%set power	32.985E+05	% - Sets normalization to total fiss. power [in W], 950MW/288FA
+set power	13.8537E+05	% - Sets normalization to total fiss. power [in W], 950MW/288FA*0.42
 %set powdens 24.2E-03	% - Sets normalization to power dens.[kW/g]  - DEFAULT OFF
 						%   double for me bcs.smaller core from 220cm->120cm	
 

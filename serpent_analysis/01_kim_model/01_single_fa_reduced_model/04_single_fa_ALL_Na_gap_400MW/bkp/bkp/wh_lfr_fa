@@ -95,13 +95,19 @@ set power	32.985E+05	% - Sets normalization to total fiss. power [in W], 950MW/2
 set bumode  2			% - BU mode, 1 - TTA, 2 - CRAM (DEFAULT)
 set bunorm  2			% - BU norm.mode (1=mat.all,2=burn.mat,3=non-burn.mat) - DEFAULT 1
 
-dep butot	 	1 5 10 15 20 
-				50 60 70 80 90 100
-				120 130 140 150 160 170 180 190 200 
-				220 240 260 280 300 320 340 360 380 400
-				420 440 460 480 500 550	600 650 700
+%dep butot	 	1 2 3 4 5 6 7 8 9 10 12 14 16 18 20 
+%				25 30 35 40 45 50 55 60 65 70 75 80 85 90 95 100
+%				110 120 130 140 150 160 170 180 190 200 
+%				220 240 260 280 300 320 340 360 380 400
+%				420 440 460 480 500 550	600 650 700
+				
+dep butot	 	1 5 10 20 
+				40 60 80 100
+				120 140 160 180 200 
+				230 260 290 320 350 400
+				450 500	600 700
 
-set pcc LELI 5 5		% - Use predictor corrector method for the depletion solution
+set pcc LELI 10 10		% - Use predictor corrector method for the depletion solution
 						%   LELI: Linear extrapolation on predictor, 5 substeps
 						%         Linear interpolation on corrector, 5 substeps
 						%   Prev. -> CELI 1 1 (DEFAULT)

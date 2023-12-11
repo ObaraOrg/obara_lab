@@ -44,7 +44,7 @@ set nbuf	8.0			% - Sets the size of n buffer (DEF off, use only when sym fails)
 % --- Criticality cycles  -------------------------------------------------------------------
 %     N.pop.generated/ active.cycles/ inactive.cycles/ guess for k0/  
 
-set pop		200000 200 50
+set pop		100000 200 50
 
 %     On-the-fly n growing pop - max active.cycles/ max pop.generated/ 
 %     This option make calculation fast but the propagation of err in multicycle analisys make it dangerous 
@@ -95,9 +95,9 @@ set power	32.985E+05	% - Sets normalization to total fiss. power [in W], 950MW/2
 set bumode  2			% - BU mode, 1 - TTA, 2 - CRAM (DEFAULT)
 set bunorm  2			% - BU norm.mode (1=mat.all,2=burn.mat,3=non-burn.mat) - DEFAULT 1
 
-dep butot	 	1 2 3 4 5 6 7 8 9 10 12 14 16 18 20 
-				25 30 35 40 45 50 55 60 65 70 75 80 85 90 95 100
-				110 120 130 140 150 160 170 180 190 200 
+dep butot	 	1 5 10 15 20 
+				50 60 70 80 90 100
+				120 130 140 150 160 170 180 190 200 
 				220 240 260 280 300 320 340 360 380 400
 				420 440 460 480 500 550	600 650 700
 

@@ -1,7 +1,7 @@
 #!/bin/csh
 #$ -cwd
 #$ -V
-#$ -N NA_950MW
+#$ -N NA_400MW
 #$ -o job.out 
 #$ -e job.out
 ## Resource type F: qty 1
