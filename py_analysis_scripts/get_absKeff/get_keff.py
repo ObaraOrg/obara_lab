@@ -22,11 +22,12 @@ PARAM = "absKeff"
 
 
 def get_keff_simple(to_print: str) -> None:
-    # Get the file paths and sort them
+    # Get the file paths
     # NOTE: Probable ISSUE, may pick up any left over dep.m in the sim dir
+    # NOTE: The sorting is not working as expected, so we will have to sort the df
     list_of_files = sorted(Path(BASE_PATH).rglob(f"{FILE_NAME}_res.m"))
-    files_str = [str(file) for file in list_of_files]
-    files_str.sort(key=lambda f: int(re.sub(r"\D", "", f)))
+    #files_str = [str(file) for file in list_of_files]
+    #files_str.sort(key=lambda f: int(re.sub(r"\D", "", f)))
 
     # Simple appending of any key inside the resdata
 
@@ -68,6 +69,7 @@ def get_keff_simple(to_print: str) -> None:
 
     # Reorder the columns
     df = df.reindex(columns=["Folder Name", "Step", "K-eff", "error"])
+    df.sort_values(by=["Step"], inplace=True)
 
     return df
 
