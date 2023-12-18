@@ -1,23 +1,34 @@
 #!/bin/csh
 #$ -cwd				## Work in current directory
 #$ -V 				## Use environment variables
-#$ -N k_SF5_350d    ## Name of the run
+#$ -N Na400MgO		## Name of the run
 #$ -o job.out		## Print job output to job.out
 #$ -e job.out 		## Print job errors to job.out
-#$ -q all.q
+## Tsubame options
+#$ -l f_node=4		## Resource type F: qty 4 
+#$ -l h_rt=24:00:00	## Reserve the run for x hours
+#$ -p -3 			## Priority: -5(standard), -4(mid) and -3 (top)
 
-# Dev note: The no of host in NODEs must be reflected in the host_list file
+## 28 threads per node (export for sh, setenv for csh)
+## seems not to be needed because serpent can handle it
+setenv OMP_NUM_THREADS 27
 
-set NNODEs=1			# Number of Nodes for MPI
-set NCPUs=24			# Number of CPUs for Serpent OMP
+## Module loading 
+. /etc/profile.d/modules.sh
+module load cuda
+module load intel
+module load openmpi
+
+set NNODEs=4			# Number of Nodes for OMPI
+set NCPUs=27			# Number of CPUs for Serpent OMP
 echo Serpent 2 has started: >> calc_time.out
 set RunStart=`date` && set RS=`date -d "$RunStart" +%s`
 #===============================================================================================
 set WKDR = $PWD			# set working dir
 set sINP = wh_lfr		# main serpent input file	
-set noBUsteps = 2		# last burnup step output file (starts from 0)
+set noBUsteps = 4		# last burnup step output file (starts from 0)
 set step = 0			# first suffle step
-set stepx = 96 			# last suffle step
+set stepx = 96			# last suffle step
 #===============================================================================================
 
 # - Start run and shuffle fuel.inp
@@ -26,16 +37,13 @@ while ( $step <= $stepx )
     set CyStart=`date` && set CS=`date -d "$CyStart" +%s`
 
 # - Include the detector calculation in the last run
-	if ( $step == $stepx ) then
+	if ($step == $stepx) then
 		echo 'include "input/detectors.inp"' >> ${sINP}
-#		echo 'include "input/study_cases.inp"' >> ${sINP}
-        echo 'include "input/appendix.inp"' >> ${sINP}
-	endif	
+    endif
 
 # - Run Serpent
-    (cd ${WKDR}; mpirun -hostfile hosts_olds -loadbalance -npernode 1 -n ${NNODEs} \
-	sss2 -omp ${NCPUs} ${sINP} >> sss2.out ) & wait
-
+    (cd ${WKDR}; mpirun -npernode 1 -n ${NNODEs} -x LD_LIBRARY_PATH sss2 -omp ${NCPUs} ${sINP} >> sss2.out ) & wait
+	
 # - Note the time for the burnup
 	set S2End=`date` && set S2E=`date -d "$S2End" +%s` && set DCy=`expr \( $S2E - $CS \)`
 	printf "S2 run in: %sh:%02dmin:%02ds\n" `expr $DCy / 3600` `expr $DCy / 60 % 60` \
@@ -71,8 +79,9 @@ while ( $step <= $stepx )
 end
 #===============================================================================================
 # - Note the end time of the run
-set set RunEND=`date` && set RE=`date -d "$RunEND" +%s` && set DRun=`expr \( $RE - $RS \)`
+set RunEND=`date` && set RE=`date -d "$RunEND" +%s` && set DRun=`expr \( $RE - $RS \)`
 printf "Run done in %sh:%02dmin:%02ds\n" `expr $DRun / 3600 ` `expr $DRun / 60 % 60` \
 `expr $DRun % 60` >> calc_time.out 
 #===============================================================================================
 # NOTE: The script has been made for csh shell, be aware ^-^
+
