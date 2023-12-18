@@ -1,0 +1,13 @@
+Note on Runtimes:
+
+Tsubame:
+1)
+    set pop 100000 200 50 
+    39 dep steps
+    one node/28 cores 
+    6.5 h
+2)
+    set pop 200000 200 100
+    45 dep steps
+    one node/28 cores
+
