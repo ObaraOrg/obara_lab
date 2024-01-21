@@ -18,11 +18,7 @@
 
 ## Before running serpent or any program you need to load some modules, prerequisite as to make it run properly
 ## Load modules
-
-module load intel
-module load cuda
-module load openmpi
-
+module load intel cuda openmpi
 
 # This is the actual bash part you run ########################################################################
 

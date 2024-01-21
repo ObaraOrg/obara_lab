@@ -48,9 +48,8 @@ When MPI parallelization is executed correctly, the run-time output shows the nu
 <br>
 
 ## Important notes on parallel calculation :
-Taken from the 2015 Serpent manual
-1. When multiple tasks are sharing the same memory space, the size of allocated memory is also multiplied. This should be considered when setting the memory size in the compilation.
-
+Taken from the 2015 Serpent manual and wiki
+1. MPI parallelization works on independent copies of the memory space. So if you are running 48 MPI tasks on the machine / cluster node, your memory demand will increase by a factor of 48. That's why OpenMP should be used for parallelization between CPUs / CPU cores and MPI only for parallelization between nodes. This should be considered when setting the memory size in the compilation.
 **SEE ALSO :**
 
 1. [The MPI standard](http://www-unix.mcs.anl.gov/mpi/) 
