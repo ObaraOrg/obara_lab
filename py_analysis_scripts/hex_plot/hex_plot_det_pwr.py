@@ -54,6 +54,10 @@ def main() -> None:
             bin = file.detectors[f"{PLOT_VALUE}{p_idx+1}"].bins.T[-2].sum()
             total_bins[file_idx, p_idx] = bin
 
+    # Normalized value per each axis 
+    # NOTE : WORK ON THIS maybe ?
+    total_bins = total_bins / total_bins.max(axis=1, keepdims=True)
+
     map_, mask = read_core(LOAD_PATH, "U")
     mask = np.array(mask)
 
