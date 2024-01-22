@@ -125,11 +125,21 @@ def plot_core(
 
         # Plot hexagon
         plt.text(
-            center[0],
-            center[1],
-            f"{additional_text_list[count]}\n{formated_text}",
+            center[0] - 0.1,
+            center[1] + 0.3,
+            additional_text_list[count],
             ha="center",
             va="center",
+            fontweight='bold',
+            rotation=30  # 360 - 30 degrees for rotating right
+        )
+        plt.text(
+            center[0] + 0.1,
+            center[1] - 0.3,
+            formated_text,
+            ha="center",
+            va="center",
+            rotation=30  # 360 - 30 degrees for rotating right
         )
         plt.fill(x_r[:-1], y_r[:-1], facecolor=cmap(norm(numeric_data[count])))
         plt.plot(np.append(x_r[:-1], x_r[0]), np.append(y_r[:-1], y_r[0]), c="black")
