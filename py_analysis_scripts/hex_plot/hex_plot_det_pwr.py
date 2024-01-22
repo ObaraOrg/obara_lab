@@ -27,6 +27,8 @@ LOAD_PATH = BASE_DIR / "core_lp_SF3.txt"
 def total_bins(file) -> List[float]:
     breakpoint()
 
+def custom_decimal_notation(value: float) -> str:
+    return f"{value:.3f}"  # Adjust the number 3 to change the decimal places
 
 def main() -> None:
     all_det_files = BASE_DIR.rglob("*det*.m")
@@ -95,7 +97,7 @@ def main() -> None:
             core_values,
             additional_text_list,
             True,
-            format_style=power_10_notation,
+            format_style=custom_decimal_notation,
         )
 
         plt.title(f"Power map at {dep_steps[step]} days")
