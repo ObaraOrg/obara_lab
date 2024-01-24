@@ -326,5 +326,7 @@ py_analysis_scripts/hex_plot/FA_pwr_vs_dist.csv
 py_analysis_scripts/hex_plot/FA_pwr_vs_dist_0.csv
 py_analysis_scripts/hex_plot/FA_pwr_vs_dist_200.csv
 py_analysis_scripts/hex_plot/FA_pwr_vs_dist_450.csv
-py_analysis_scripts/hex_plot/FA_pwr_vs_dist_525.csv
+py_analysis_scripts/hex_plot/FA_pwr_vs_dist_50.csv
+py_analysis_scripts/hex_plot/FA_pwr_vs_dist_400.csv
+py_analysis_scripts/hex_plot/FA_pwr_vs_dist_700.csv
 py_analysis_scripts/hex_plot/FA_pwr_vs_dist_1050.csv
