@@ -51,14 +51,15 @@ def main() -> None:
 
     total_bins = np.zeros((len(files_data), P))
 
+    # Get power density for each FA slice and do a mean value
     for file_idx, file in enumerate(files_data):
         for p_idx in range(P):
-            bin = file.detectors[f"{PLOT_VALUE}{p_idx+1}"].bins.T[-2].sum()
+            bin = file.detectors[f"{PLOT_VALUE}{p_idx+1}"].bins.T[-2].mean()
             total_bins[file_idx, p_idx] = bin
 
     # Normalized value per each axis 
     # NOTE : WORK ON THIS maybe ?
-    total_bins = total_bins / total_bins.max(axis=1, keepdims=True)
+    # total_bins = total_bins / total_bins.max(axis=1, keepdims=True)
 
     map_, mask = read_core(LOAD_PATH, "U")
     mask = np.array(mask)
@@ -80,6 +81,8 @@ def main() -> None:
         u_array = np.char.array(map_).flatten()[mask.flatten()]
         additional_text_list = np.char.array([el[:4] for el in u_array])
 
+        #breakpoint()
+        
         # add a function for correnction to add both text
         # additional_text_list = p_array + "\n" + u_array
         # c_bar = plot_core(
