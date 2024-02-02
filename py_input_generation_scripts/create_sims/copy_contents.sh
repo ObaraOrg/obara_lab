@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define your directories
-SOURCE_FOLDER="06_single_fa_ALL_Na_gap_420MW"
+SOURCE_FOLDER="input_template"
 OUTPUT_BASE_FOLDER="output_files"
 
 # Function to copy contents from source to destination
