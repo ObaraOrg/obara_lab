@@ -1,12 +1,10 @@
-import pandas as pd
+import os
 from pathlib import Path
 import re
 
 # Constants and File Path
 INPUT = Path("fuel.inp")
 OUTPUT_DIR = Path("./output_files")  # Directory to save output files
-
-template_header = "mat fuel -14.32 tmp 1200 burn 1"
 
 # Ensure output directory exists
 OUTPUT_DIR.mkdir(exist_ok=True)
@@ -17,14 +15,16 @@ def parse_input(file_path):
         lines = file.readlines()
 
     data = {}
+    headers = {}  # To store the original headers
     current_header = None
     for line in lines:
         line = line.strip()
         if line.startswith("mat"):
-            # Extract header
+            # Extract header and store the entire line
             header = re.search(r"fuelP\d+Z\d+", line).group()
             current_header = header
             data[current_header] = []
+            headers[current_header] = line  # Store the entire line as the header
         else:
             # Add data to the current header
             if current_header:
@@ -32,58 +32,37 @@ def parse_input(file_path):
                 if len(parts) == 2:
                     data[current_header].append(parts)
 
-    return data
+    return data, headers
 
-def create_dataframes(data):
-    # Convert the parsed data into pandas DataFrames
-    dfs = {}
+def create_files(data, headers):
     for header, values in data.items():
-        p_number = re.search(r"P\d+", header).group()
-        if p_number not in dfs:
-            dfs[p_number] = pd.DataFrame(values, columns=['isotope_code', header])
-            dfs[p_number].set_index('isotope_code', inplace=True)
-        else:
-            temp_df = pd.DataFrame(values, columns=['isotope_code', header])
-            temp_df.set_index('isotope_code', inplace=True)
-            dfs[p_number] = dfs[p_number].join(temp_df, how='outer')
+        # Extract P and Z values from the header
+        p, z = re.search(r"P(\d+)Z(\d+)", header).groups()
 
-    return dfs
+        # Format P value to ensure it has leading zeros (e.g., U01, U02, ..., Uxx)
+        formatted_p = f"U{int(p):02d}"
 
-def calculate_averages_and_create_files(dfs):
-    
-    for p, df in dfs.items():
-        # Ensure data is numeric and handle negative values correctly
-        df = df.apply(pd.to_numeric, errors='coerce')
-
-        # Calculate the mean ignoring NaN values
-        df['average_nuclide_dens'] = df.mean(axis=1, skipna=True)
-
-        # Extract and format the Pxx number to Uxx format (U01, U02, etc.)
-        p_number = int(p[1:])  # Extract the number part from 'Pxx'
-        formatted_p_number = f"U{p_number:02d}"  # Format number to 'Uxx' format (U01, U02, etc.)
-
-        # Create a directory for each fuelUxx
-        u_dir = OUTPUT_DIR / formatted_p_number  # Folder name is 'Uxx'
+        # Create a directory for each Uxx
+        u_dir = OUTPUT_DIR / formatted_p  # Folder name is 'Uxx'
         u_dir.mkdir(exist_ok=True)
-        
-        # Create an 'input' subdirectory inside the fuelUxx directory
+
+        # Create an 'input' subdirectory inside the Uxx directory
         input_dir = u_dir / 'input'
         input_dir.mkdir(exist_ok=True)
 
-        # Generate a single file named fuel.inp inside the input folder
+        # Open a single file for each Uxx inside the 'input' subdirectory and append each Z data to it
         file_name = input_dir / "fuel.inp"
-        with open(file_name, 'w') as f:
-            # Write the header
-            f.write(template_header + '\n')  # Updated header to just 'fuel'
+        with open(file_name, 'a') as f:  # 'a' mode to append data
+            # Write the original header but replace the fuelPxxZy part
+            original_header = headers[header]
+            modified_header = re.sub(r"fuelP\d+Z\d+", f"fuelZ{z}", original_header)
+            f.write(f"{modified_header}\n")
             
-            # Write the isotopes and their average densities
-            for isotope, row in df.iterrows():
-                f.write(f"{isotope}\t{row['average_nuclide_dens']:.10E}\n")  # Format for scientific notation
+            # Write the isotope codes and their values using f-strings
+            f_content = "\n".join([f"{isotope}\t{value}" for isotope, value in values])
+            f.write(f"{f_content}\n\n")  # Add an empty line for separation between Z data
 
 # Main execution
 if __name__ == "__main__":
-    raw_data = parse_input(INPUT)
-    dataframes = create_dataframes(raw_data)
-    calculate_averages_and_create_files(dataframes)
-
-    #breakpoint()  
+    raw_data, headers = parse_input(INPUT)
+    create_files(raw_data, headers)
