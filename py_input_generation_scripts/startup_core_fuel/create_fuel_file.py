@@ -3,7 +3,7 @@ from pathlib import Path
 
 # Constants
 INPUT_EXCEL = Path("comp.xlsx")
-OUTPUT_FILE = Path("fuel_start.inp")
+OUTPUT_FILE = Path("fuel.inp")
 
 # Read the Excel file
 df = pd.read_excel(INPUT_EXCEL, header=None, dtype={0: str})
