@@ -24,27 +24,29 @@ def check_consistency(files_read: List[Path]) -> None:
 
 @click.command()
 @click.option("--cut", default=0, help="Specify how many last steps to plot", type=int)
-@click.option("--error-bars", is_flag=True, default=True, help="Turn error bars on or off")
+@click.option("--no-err-bars", is_flag=True, default=True, help="Turn error bars off ")
+@click.option("--bw", is_flag=True, default=False, help="Enable black and white plotting")
 @click.argument("input_folders", nargs=-1, type=click.Path(exists=True))
-def plot_keff(cut: int, error_bars: bool, input_folders: Tuple[str, ...]) -> None:
+def plot_keff(cut: int, no_err_bars: bool, bw: bool, input_folders: Tuple[str, ...]) -> None:
     """
     Progress through the folders specified and plot keff data from every _res.m file found. This script
     supports plotting with or without error bars to visualize the statistical uncertainty in keff values.
 
     By specifying the `--cut` option, users can limit the plot to the last N steps of the simulation data,
-    allowing for focused analysis on the end behavior of the reactor simulation. The `--error-bars` flag
-    toggles the inclusion of error bars on the plot, providing insight into the variability of the data.
+    allowing for focused analysis on the end behavior of the reactor simulation. The `--no-err-bars` flag
+    toggles the inclusion of error bars on the plot, statistical deviation from the serpent output.
 
     Examples:
 
-        Plot all steps with error bars for two simulations:
-            python get_keff_vs_step_all_sim.py --cut=3 --error-bars -- sim1 sim2
+        By default, plots include all steps and error bars for every sim folder:
+            python plot_keff_all_sim_err_bar.py
 
-        Plot all steps without error bars for a single simulation:
-            python get_keff_vs_step_all_sim.py --no-error-bars -- sim1
+        Plot 3 steps with no error bars for two simulations:
+            python plot_keff_all_sim_err_bar.py --cut 3 --no-err-bars -- sim1 sim2
 
-        By default, plots include all steps and error bars for every folder:
-            python get_keff_vs_step_all_sim.py
+
+
+        And any combinations works of these 4 options.
 
     Args:
         cut (int): Specify how many last steps to plot. A value of 0 plots all steps.
@@ -59,7 +61,11 @@ def plot_keff(cut: int, error_bars: bool, input_folders: Tuple[str, ...]) -> Non
 
     print("Plotting :")
     plt.figure(figsize=(12, 9), facecolor='white')
-    plt.style.use('grayscale')
+    
+    if bw:
+        plt.style.use('grayscale')
+    else:
+        plt.style.use('default')
 
     line_styles = itertools.cycle(['-', '--', ':', '-.'])
     marker_shapes = itertools.cycle(['o', 's', '^', 'D', 'v', '<', '>', 'p', '*', 'h'])
@@ -91,21 +97,21 @@ def plot_keff(cut: int, error_bars: bool, input_folders: Tuple[str, ...]) -> Non
         line_style = next(line_styles)
         marker_shape = next(marker_shapes)
 
-        if error_bars:
+        if no_err_bars:
             plt.errorbar(time_arr, keffs, yerr=keffs_err, label=str(sim_folder),
                          fmt=line_style + marker_shape, ecolor='black', capsize=5, elinewidth=1, markeredgewidth=1)
         else:
-            plt.plot(time_arr, keffs, label=str(sim_folder), fmt=line_style + marker_shape)
+            plt.plot(time_arr, keffs, label=str(sim_folder))
 
     plt.legend(loc="best", fontsize=16, edgecolor='black')
-    plt.xlabel("Shuffling step", fontsize=16, color='black')
+    plt.xlabel("Refueling step", fontsize=16, color='black')
     plt.ylabel("K-eff", fontsize=16, color='black')
     plt.xticks(fontsize=16, color='black')
     plt.yticks(fontsize=16, color='black')
     plt.grid(True, which='both', linestyle='--', linewidth=0.5, color='black')
 
-    save_fig = f"Keff_vs_STEPS_from_step_{cut}_bw.png"
-    plt.savefig(save_fig, dpi=300, facecolor='white')
+    save_fig = f"Keff_vs_STEPS_from_step_{cut}.png"
+    plt.savefig(save_fig, dpi=300, facecolor='white', bbox_inches='tight')
     plt.show()
 
 if __name__ == "__main__":
