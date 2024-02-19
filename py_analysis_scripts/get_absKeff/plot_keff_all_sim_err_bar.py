@@ -86,7 +86,6 @@ def plot_keff(cut: int, no_err_bars: bool, bw: bool, input_folders: Tuple[str, .
         files_str.sort(key=lambda f: int(re.sub(r"\D", "", f)))
         files_read = [sp.read(file_loc) for file_loc in files_str]
 
-        breakpoint()
         check_consistency(files_read)
 
         keffs = np.concatenate([reader.resdata["absKeff"][:, 0] for reader in files_read])
