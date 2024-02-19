@@ -65,18 +65,28 @@ def plot_keff(cut: int, no_err_bars: bool, bw: bool, input_folders: Tuple[str, .
     if bw:
         plt.style.use('grayscale')
     else:
-        plt.style.use('default')
+        plt.style.use('tableau-colorblind10')
 
     line_styles = itertools.cycle(['-', '--', ':', '-.'])
     marker_shapes = itertools.cycle(['o', 's', '^', 'D', 'v', '<', '>', 'p', '*', 'h'])
 
     for sim_folder in folders:
         print("Processing : ", sim_folder)
-        list_of_files = sorted(Path(sim_folder).rglob(f"{FILE_NAME}_res.m"))
-        files_str = [str(file) for file in list_of_files]
+        # Initialize an empty list to store the files you want to process
+        files_to_process = []
+
+        # Iterate over all subdirectories of the current simulation folder
+        for sub_dir in [x for x in Path(sim_folder).iterdir() if x.is_dir()]:
+            # Now, look for '_res.m' files within each subdirectory
+            list_of_files = sorted(sub_dir.rglob(f"{FILE_NAME}_res.m"))
+            files_to_process.extend(list_of_files)
+
+        # files_to_process now contains only _res.m files within subdirectories of sim_folder
+        files_str = [str(file) for file in files_to_process]
         files_str.sort(key=lambda f: int(re.sub(r"\D", "", f)))
         files_read = [sp.read(file_loc) for file_loc in files_str]
 
+        breakpoint()
         check_consistency(files_read)
 
         keffs = np.concatenate([reader.resdata["absKeff"][:, 0] for reader in files_read])
