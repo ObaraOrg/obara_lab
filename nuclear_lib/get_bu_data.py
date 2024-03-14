@@ -140,13 +140,15 @@ def get_bu_data(
     # create my own dict with fuel vol's
     fuel_vol_dict = {}
 
-    # Go through each material index
+    # Go through each fuel material volume
     for fuel_vol in materials:
         if fuel_vol == "total":
             continue
         fuel_data = dep.materials[fuel_vol].data
         p_index, z_index = split_pz_name(str(fuel_vol))
+        # sum the mdens of each isotope in the fuel volume
         mdens_sum = fuel_data["mdens"][:, -1][indxs].sum()
+        breakpoint()
         serpent_burnup = fuel_data["burnup"][-1]
 
         fuel_vol_dict[fuel_vol] = {}
