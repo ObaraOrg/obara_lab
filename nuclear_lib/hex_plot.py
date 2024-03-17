@@ -141,7 +141,7 @@ def plot_core(
             va="center",
             rotation=30  # 360 - 30 degrees for rotating right
         )
-        breakpoint()
+
         plt.fill(x_r[:-1], y_r[:-1], facecolor=cmap(norm(numeric_data[count])))
         plt.plot(np.append(x_r[:-1], x_r[0]), np.append(y_r[:-1], y_r[0]), c="black")
 
