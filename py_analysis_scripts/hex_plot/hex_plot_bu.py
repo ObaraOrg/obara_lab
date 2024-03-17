@@ -25,13 +25,14 @@ def main() -> None:
     dep = serpentTools.read(BASE_DIR / "wh_lfr_dep.m", reader="dep")
     _, _, average_burnup_dict, _ = get_bu_data(dep, atomic_wt, P, Z)
 
+    # returns a list for the mask 27x27
     map_, mask = read_core(LOAD_PATH, "U")
-
+    
     mask = np.array(mask)
     burnup_list = [el for el in average_burnup_dict.items()]
+    breakpoint()
     burnup_list = sorted(burnup_list, key=lambda p_value_pair: p_value_pair[0])
     burnup_list_values = [el[1] for el in burnup_list]
-
     core_values = make_value_map(map_, burnup_list_values)
 
     p_array = [f"p{i}" for i in range(1, P + 1)]
@@ -43,10 +44,11 @@ def main() -> None:
     # additional_text_list = p_array + "\n" + u_array
     additional_text_list = u_array
 
-    # Full core
-    # plot_core(mask, core_values[0], additional_text_list)
+    # Full core plot
+    breakpoint()
+    plot_core(mask, core_values[0], additional_text_list)
 
-    # Quater core
+    # Quater core plot
     c_bar, _, _, _ = plot_core(mask, core_values[0], additional_text_list, True)
 
     plt.title(f"specific burnup of each FA")
