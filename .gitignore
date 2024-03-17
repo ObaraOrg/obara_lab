@@ -17,6 +17,7 @@ matrix_dump.txt
 
 # Image Files
 *.png
+*.gif
 
 # Memory files
 .nfs*
