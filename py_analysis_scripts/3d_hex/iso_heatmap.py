@@ -16,16 +16,30 @@ serpentTools.settings.rc["verbosity"] = "error"
 BASE_DIR = Path(os.path.dirname(__file__))
 FILE_NAME = "wh_lfr"
 
+COLOR_MAP = "Greys"
+
+# Font scale variable: Increase all font sizes by this factor
+font_scale = 2
+
+# Update matplotlib's rcParams for font sizes
+plt.rcParams.update({
+    'font.size': 10 * font_scale, # Default font size
+    'axes.labelsize': 10 * font_scale, # Axis labels
+    'axes.titlesize': 12 * font_scale, # Title size
+    'xtick.labelsize': 8 * font_scale, # X-axis tick labels
+    'ytick.labelsize': 8 * font_scale, # Y-axis tick labels
+    'legend.fontsize': 10 * font_scale, # Legend
+})
 
 @click.command()
 @click.option("--isotope", help="Isotope to search for.")
 def main(isotope):
 
-    for depletion_step in range(5):  # Loop through depletion steps 0 to 4
+    for depletion_step in range(1):  # Loop through depletion steps 0 to 4
         P = 48  # max no of FA
         Z = 11  # max no of slices
         AV = 0.6221408e24
-
+        
         # # Convert the tuple from `element` option to a list
         # search_isotope = list(isotope)
         atomic_wt = pd.read_csv("nuclear_lib/isotope_awt_list.csv")
@@ -65,7 +79,7 @@ def main(isotope):
         # df.to_excel(f"{BASE_DIR}/nuc_{'_'.join(name)}.xlsx")
 
         plt.figure(figsize=(20, 6))
-        ax = sns.heatmap(data_to_plot, cbar_kws={"label": f"kg {name}"}, cmap="viridis")
+        ax = sns.heatmap(data_to_plot, cbar_kws={"label": f" g/cm3 {name}"}, cmap=COLOR_MAP)
         plt.xlabel("Assembly number")
         plt.ylabel("Axial slice")
 
@@ -78,21 +92,23 @@ def main(isotope):
 
         # Set the colorbar to have a max of 6 ticks
         cbar = ax.collections[0].colorbar
-        cbar.locator = ticker.MaxNLocator(nbins=6)
+        #cbar.locator = ticker.MaxNLocator(nbins=6)
+        ticks = cbar.get_ticks() # Get current tick locations
+        cbar.ax.set_yticklabels(["{:.3f}".format(tick) for tick in ticks]) # Correctly set formatted tick labels
         cbar.update_ticks()
 
         plt.tight_layout()
 
-        dep_day= dep.days[depletion_step]
-        plt.text(
-            0,
-            1.05,
-            f"{dep_day} days",
-            transform=ax.transAxes,
-            fontsize=30,
-            verticalalignment="center",
-            horizontalalignment="left",
-        )
+        # dep_day= dep.days[depletion_step]
+        # plt.text(
+        #     0,
+        #     1.05,
+        #     f"{dep_day} days",
+        #     transform=ax.transAxes,
+        #     fontsize=30,
+        #     verticalalignment="center",
+        #     horizontalalignment="left",
+        # )
 
         # Save and show the plot with a dynamic filename based on the isotopes searched
         plt.savefig(

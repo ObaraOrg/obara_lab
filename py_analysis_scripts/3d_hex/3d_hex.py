@@ -99,8 +99,8 @@ Y_BASE_COORDS = np.array(
 def main():
 
     # NOTE: Make this interactive for the isotope and the depletion steps, maybe auto for the latter
-    isotope = "Pu241"
-    for depletion_step in range(5):  # Loop through depletion steps 0 to 4
+    isotope = "Pu239"
+    for depletion_step in range(1):  # Loop through depletion steps 0 to 4
 
         fig = plt.figure(figsize=(12, 10), facecolor="white")
         ax = fig.add_subplot(111, projection="3d")
@@ -128,7 +128,9 @@ def main():
 
         LEVELS = len(list(iso_data_levels.keys()))
         levels = np.linspace(0, MAX_HEIGHT, LEVELS)
-        COLOR_MAP = "coolwarm"
+        # usually use viridis, looks good
+        # for black and white use "Greys"
+        COLOR_MAP = "Greys"
 
         # Need these to calculate the global max and min, glup way :P
         global_max = float("-inf")
@@ -247,21 +249,21 @@ def main():
         cbar = plt.colorbar(sc_mapper)
 
         # Generate five rounded ticks between global_min and global_max
-        ticks = np.linspace(global_min, global_max, 4)  # Including the end values
+        ticks = np.linspace(global_min, global_max, 5)  # Including the end values
         rounded_ticks = np.round(ticks, decimals=0)
         rounded_ticks = ticks
         cbar.set_ticks(rounded_ticks)
-        cbar.ax.set_yticklabels(["{:.6f}".format(tick) for tick in rounded_ticks])
+        cbar.ax.set_yticklabels(["{:.3f}".format(tick) for tick in rounded_ticks])
 
-        cbar.set_label(f"Kg {isotope}", rotation=90, labelpad=10)
+        cbar.set_label(f"g/cm3 {isotope}", rotation=90, labelpad=10, fontsize=16)
 
         dep_day= int(dep.days[depletion_step])
         
-        fig.text(0.73, 0.8, f'{dep_day} days', fontsize=22, verticalalignment='top', horizontalalignment='right')
+        #fig.text(0.73, 0.8, f'{dep_day} days', fontsize=22, verticalalignment='top', horizontalalignment='right')
 
         # Save the figure depletion step
         fig.savefig(
-            BASE_DIR / f"3d_plot_depletion_step_{depletion_step}.png",
+            BASE_DIR / f"3d_{isotope}_{depletion_step}.png",
             format="png",
             dpi=300,
             bbox_inches="tight",

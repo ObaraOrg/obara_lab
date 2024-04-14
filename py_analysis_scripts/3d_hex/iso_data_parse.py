@@ -22,6 +22,7 @@ P = 48  # max no of FA
 Z = 11  # max no of slices
 LOAD_PATH = BASE_DIR / "core_lp_SF3.txt"
 
+
 def get_iso_data(
     dep: DepletionReader,
     atomic_wt: pd.DataFrame,
@@ -60,12 +61,7 @@ def get_iso_data(
         # REMEMBER: the mdens is in g/cm3, so multiply by volume to get mass
         # REMEMBER: each fuel volumes is stands for 1/6 of the core, so divide by 6 to get the mass of one fuel volume
         fuel_vol_dict[fuel_vol] = {
-            "mdens": fuel_data.toDataFrame("mdens", names=[isotope]).iloc[time_step][
-                isotope
-            ]
-            * volume
-            / 1000
-            / 6,
+            "mdens": fuel_data.toDataFrame("mdens", names=[isotope]).iloc[time_step][isotope] / 6,
             "p": p_index,
             "z": z_index,
         }
