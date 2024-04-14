@@ -11,7 +11,7 @@ STATIC_HEADER = """%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ---     Loading pattern only     --- %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% --- Suffling pattern : SF3_wt_CR
+% --- Suffling pattern : SF3_wt_CR_reduced
 
 % --- Fuel Assembly lattices
 
