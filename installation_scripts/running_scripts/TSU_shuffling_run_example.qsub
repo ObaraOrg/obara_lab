@@ -1,0 +1,60 @@
+#!/bin/csh
+#$ -cwd                              ## Work in current directory
+#$ -V                                ## Use environment variables
+#$ -N startup_core                   ## Name of the run
+#$ -o job.out                        ## Print job output to job.out
+#$ -e job.out                        ## Print job errors to job.out
+## Tsubame options
+#$ -l f_node=6                       ## Resource type F: qty 4 
+#$ -l h_rt=24:00:00                  ## Reserve the run for x hours
+#$ -p -4                             ## Priority: -5(standard), -4(mid) and -3 (top)
+
+## Module loading 
+. /etc/profile.d/modules.sh
+module load gcc python/3.8.3 cuda intel openmpi
+
+set NNODEs=6                        # Number of Nodes for OMPI
+set NCPUs=28                        # Number of CPUs for Serpent OMP
+#===============================================================================================
+set WKDR=$PWD                       # set working dir
+set sINP=wh_lfr                     # main serpent input file    
+set noBUsteps=4                     # last burnup step output file (starts from 0)
+set step=7                        	# first suffle step
+set stepx=96                        # last suffle step
+#===============================================================================================
+
+# - Start run and shuffle fuel.inp
+echo Serpent 2 has started: >> calc_time.out
+while ( $step <= $stepx ) 
+    @ var = $step
+
+    # - Include the detector calculation in the last run
+    if ( $step == $stepx ) then
+        echo 'include "input/detectors.inp"' >> ${sINP}
+    endif
+
+    # - Run Serpent and time it
+    (time cd ${WKDR}; mpirun -pernode -n ${NNODEs} -x LD_LIBRARY_PATH sss2 -omp 28 ${sINP} >> sss2.out) >>& calc_time.out
+    
+    # - Make burnup cycle folder  
+    if (! -e ${sINP}suffleNo${var}) then
+        mkdir ${sINP}suffleNo${var}
+    endif
+
+    # - Copy new fuel data and to fuel.inp and shuffle
+    (time cd ${WKDR}; cp fuel.inp ${sINP}suffleNo${var}) >>& calc_time.out
+    (time cd ${WKDR}; cp ${sINP}.bumat${noBUsteps} fuel.inp) >>& calc_time.out
+    (time cd ${WKDR}; python Shuffling.py) >>& calc_time.out
+
+    # - Move the rest    
+    (time cd ${WKDR}; mv ${sINP}.* ${sINP}suffleNo${var}) >>& calc_time.out
+    (time cd ${WKDR}; mv ${sINP}_* ${sINP}suffleNo${var}) >>& calc_time.out
+    (time cd ${WKDR}; mv sss2.out ${sINP}suffleNo${var}) >>& calc_time.out
+    
+    @ step++
+end
+#===============================================================================================
+# - Note the end time of the run
+echo "Run completed" >> calc_time.out
+#===============================================================================================
+# NOTE: The script has been made for csh shell, be aware ^-^

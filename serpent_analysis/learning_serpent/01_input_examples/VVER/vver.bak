@@ -116,8 +116,8 @@ set pop 2000 500 20
 
 % --- Geometry and mesh plots:
 
-plot 3 2000 2000
-mesh 3 2000 2000
+plot 3 500 500
+mesh 3 500 500
 
 % --- Detector energy grid (uniform lethargy):
 

@@ -20,7 +20,7 @@ c4 c4 c4 c4 c4 c4 c4 c4 c4 c4 c4
 surf S1PG1  hexxc    0.0  0.0  7.600                  % Shroud tube inner surface
 surf S2PG1  hexxc    0.0  0.0  7.845                  % Shroud tube outer surface
 
-% --- Universe uPLG --- PLUG assembly
+% --- Universe uPLG --- PLUG assembly 
 
 cell C1PG1  uPLG     fill      PLUG  -S1PG1           % Pin lattice                 
 cell C2PG1  uPLG     ods              S1PG1   -S2PG1  % Shroud tube                
