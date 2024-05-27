@@ -61,7 +61,7 @@ Welcome, this is the lab repository, made to make life easier while working in t
   ```sh
   winget install WinFsp.WinFsp; winget install SSHFS-Win.SSHFS-Win
   ```
-  After, in the *Add Network Location* the address must be writen like `\\sshfs\192.168.11.3`. You can also follow the [tutorial](https://sftptogo.com/blog/how-to-map-sftp-as-a-windows-10-drive/).
+  After, in the *Add Network Location* the address must be writen like `\\sshfs\user@192.168.11.206`. You can also follow the [tutorial](https://sftptogo.com/blog/how-to-map-sftp-as-a-windows-10-drive/).
 - **TSUBAME Login** procedure can be found [here](https://helpdesk.t3.gsic.titech.ac.jp/manuals/handbook.en/start/)
 - **TSUBAME group disk** uses windows explorer to map the folder ([tutorial](https://helpdesk.t3.gsic.titech.ac.jp/manuals/handbook.en/storage/#highspeed)), to use it in the console you need to map it with a symbolic link towards you home directory on the TSUBAME.
   ```sh
