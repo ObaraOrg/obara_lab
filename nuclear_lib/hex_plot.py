@@ -71,6 +71,60 @@ def calc_distances(center_coordinates: np.ndarray) -> np.ndarray:
 
     return distances
 
+def get_core_data(
+    core: np.ndarray,
+    numeric_data: np.ndarray,
+    additional_text_list: np.char.array,
+    quarter: bool = False,
+) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """
+    Plot the core structure and associated numeric data.
+
+    Args:
+        core (np.ndarray): The core structure represented as a numpy array.
+        numeric_data (np.ndarray): Numeric data assoc with the core structure.
+        additional_text_list (np.char.array): Additional text associated with \
+            each position in the core.
+        quarter (bool, optional): Flag indicating whether to plot only a \
+            quarter of the core. Defaults to False.
+        format_style (Callable[[str], str], optional): The formatting style \
+            function. Defaults to two_decimal_notation.
+
+    Returns:
+        Tuple[Colorbar, np.ndarray, np.ndarray, np.ndarray]: A tuple \
+            containing the color bar, center coordinates, distances, and names.
+    """
+    y, x = np.where(core)
+    full_core_center = core.shape[0] // 2
+    coordinates = np.column_stack((y, x))
+    center_coord = []
+    dist_from_center = []
+    names = []
+
+
+    for count, (y, x) in enumerate(coordinates):
+        if quarter and (y < full_core_center or x >= full_core_center):
+            continue
+
+        # Calculate hexagon coordinates
+        x_origin = (x - y / 2) * H
+        y_origin = H * y * np.sqrt(3) / 2
+        x_r = x_origin + X_BASE_COORDS
+        y_r = Y_BASE_COORDS - y_origin
+        center = (x_r[-1], y_r[-1])
+        center_coord.append(center)
+
+        # Plot hexagon text
+
+        # Store the name
+        names.append(additional_text_list[count])
+
+    center_coord = np.array(center_coord)
+    dist_from_center = calc_distances(center_coord)
+    names = np.array(names)
+
+    return center_coord, dist_from_center, names
+
 
 def plot_core(
     core: np.ndarray,

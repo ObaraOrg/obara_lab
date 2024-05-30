@@ -27,7 +27,6 @@ for i in range(3, 10):
         p += 1
 
 # collect power density
-a = 0
 referb = {}
 refere = {}
 boec = []
@@ -37,7 +36,7 @@ breakpoint()
 
 
 # BOEC power density
-while a < 2:  # number of steps
+for i in range(2):  # number of steps
     with open(f"{NAME}_core" + str(1) + ".m") as fb:
         for kb in range(length):
             datab = fb.readline()
@@ -101,4 +100,3 @@ while a < 2:  # number of steps
 
     eoec.clear()
     boec.clear()
-    a += 1
