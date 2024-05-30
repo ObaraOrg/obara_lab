@@ -7,8 +7,8 @@ help:
 
 .PHONY: setup_pip_tools
 setup_pip_tools: ## Upgrade pip, add pip-tools (1st step, setup)
-	pip install --upgrade pip -v
-	pip install --upgrade pip-tools -v
+	pip install pip==20.3
+	pip install pip-tools==5.2.0
 
 .PHONY: compile_deps
 compile_deps:  ## Compile requirements.in (2th, maybe do this every time)
