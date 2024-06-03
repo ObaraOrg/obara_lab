@@ -1,0 +1,105 @@
+% The experimental configuration consists of a plutonium alloy sphere (radius 4.5332 cm) reflected 
+% by a natural uranium blanket (outer radius 24.1420 cm). 
+% The multiplication factor of the system is close to unity (being a critical experiment). 
+% This input calculates the sensitivity of the multiplication factor to perturbations applied to the 
+% cross sections of 235U, 238U, 239Pu and 240Pu. 
+% A processing script for MATLAB/OCTAVE is provided for printing and plotting out the sensitivities.
+
+% --- Core outer surface and blanket outer surface
+
+surf s1 sph 0.0 0.0 0.0  4.5332
+surf s2 sph 0.0 0.0 0.0 24.1420
+
+% --- Divide space to core, blanket and outside
+
+cell c1 0 core       -s1
+cell c3 0 blanket s1 -s2
+cell c4 0 outside s2
+
+% --- Core is made from plutonium alloy
+
+mat core sum
+94239.03c  3.6697e-2
+94240.03c  1.8700e-3
+94241.03c  1.1639e-4
+31000.03c  1.4755e-3
+
+% --- Blanket is made from natural uranium
+
+mat blanket sum
+92234.03c  2.6438e-6
+92235.03c  3.4610e-4
+92238.03c  4.7721e-2
+
+% --- Cross section libraries
+
+%set acelib "<path-to-acelib>"
+
+% --- Neutron population
+
+set pop 10000 10000 50 1 100 100
+
+% --- Use a central point source as the initial source
+
+src point sp 0.0 0.0 0.0
+
+% --- Write output each 100 cycles
+
+set outp 100
+
+% --- Modify event buffer size to 3 events per neutron
+
+set nbuf 3 3
+
+% --- Use unresolved resonance sampling for the fast system
+
+set ures 1
+
+% --- Define Vitamin-J energy grid (one of the defaults)
+
+ene myvit-j 4 nj23
+
+% %%%
+% %%% --- Sensitivity options
+% %%%
+
+% --- Run sensitivity calculation using Vitamin-J energy grid
+
+sens opt egrid myvit-j
+
+% --- Use 15 latent generations for the sensitivity calculations
+
+sens opt latgen 15
+
+% --- Use 10 generations for Iterated Fission Probability
+
+set ifp 10
+
+% %%%
+% %%% --- Sensitivity responses
+% %%%
+
+% --- Calculate sensitivity of k-effective to perturbations
+
+sens resp keff
+
+% %%%
+% %%% --- Sensitivity perturbations
+% %%%
+
+% --- Separate perturbations for the different nuclides and total
+
+sens pert zailist 922350 922380 942390 942400 total
+
+% --- Do not calculate material-wise perturbations (only total)
+
+sens pert matlist total
+
+% --- Perturb cross sections separately for each sum reaction mode (fission, capture etc.)
+
+sens pert xs all
+
+% --- Score sensitivity results directly to a matrix for each particle
+%     Assume 0.2 matrices needed per generation per particle
+
+sens opt direct 0.2

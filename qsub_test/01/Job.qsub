@@ -1,0 +1,10 @@
+#!/bin/bash
+#$ -cwd
+#$ -V
+#$ -o job.out
+#$ -e job.out
+#$ -l hostname=olds04
+#$ -pe smp 24
+
+# The command to run:
+sss2 -omp 24 wh_lfr_fa > sss2.out

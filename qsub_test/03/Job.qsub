@@ -1,0 +1,13 @@
+#!/bin/bash
+#$ -cwd
+#$ -V
+#$ -o job.out
+#$ -e job.out
+#$ -pe openmpi 2   # Request 24 slots per each node in the MPI parallel environment
+##$ -l hostname="olds04|olds05" #the job run on either node1 or node2.
+##$ -l hostname="olds04&olds05"  #the job requires both olds04 and olds05
+
+export OMP_NUM_THREADS=2
+
+# The command to run:
+mpirun -npernode 1 -np 2 sss2 -omp 1 wh_lfr_fa > sss2.out
