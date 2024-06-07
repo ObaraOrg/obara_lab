@@ -48,12 +48,12 @@ Welcome, this is the lab repository, made to make life easier while working in t
 | ------------------- | --------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------- |
 |                     | WIFI                                    |                                                                                                          | obaralab       |
 | File Server         | 192.168.11.3     | Documentation and serpent files are to be found here                                                     | -              |
-| Local User          | 192.168.11.206:22                       | Local cluster **olds01 - olds09**, 9 nodes, Xeon E5-2680 v3 @2.50GHz (x24 CPUs)                          | _student user_ |
-| Local User          | 192.168.11.200:22                       | Local cluster **olcs01 - olcs08**, 8 nodes, Xeon E5-2690 0 @2.90GHz (x16 CPUs)                           | _student user_ |
-| PC for modeling CFD | 192.168.11.4                            | Workstation, Xenon Gold 6252 @2.10GHz (x48 CPUs), 1TB RAM, Quadro GV100 x2                               | obaralab       |
-| PC for modeling CFD | 192.168.11.5                            | Workstation, Xenon E5-2697 v4 @2.30GHz (x36 CPUs), 512GB RAM, Quadro M4000                               | obaralab       |
-| TSUBAME Login       | `student_ID`@login.t3.gsic.titech.ac.jp | Login node, home directory space is less than 17Gb so I recommend you use the **group disk** for storage | `student_ID`   |
-| TSUBAME group DISK  | /gs/hs0/tga-oba2                        | Create a symbolic link (`ln -s` command)                                                                 |                |
+| Local User          | 192.168.11.206:22                       | Local cluster **olds01 - olds09**, 9 nodes, Xeon E5-2680 v3 @2.50GHz (x24 cores), CentOS 6.5             | _student user_ |
+| Local User          | 192.168.11.200:22                       | Local cluster **olcs01 - olcs08**, 8 nodes, Xeon E5-2690 0 @2.90GHz (x16 cores), CentOS 6.2              | _student user_ |
+| PC for modeling CFD | 192.168.11.4                            | Workstation, Xenon Gold 6252 @2.10GHz (x48 cores), 1TB RAM, Quadro GV100 x2                              | obaralab       |
+| PC for modeling CFD | 192.168.11.5                            | Workstation, Xenon E5-2697 v4 @2.30GHz (x36 cores), 512GB RAM, Quadro M4000                              | obaralab       |
+| TSUBAME4 Login      | `ID`@login.t4.gsic.titech.ac.jp         | Login node, home directory space is less than 17Gb so I recommend you use the **group disk** for storage | `student_ID`   |
+| TSUBAME4 group DISK | /gs/hs0/tga-oba2                        | Create a symbolic link (`ln -s` command)                                                                 |                |
 
 **Notes:**
 - **File Server** can be mapped with simple `ftp` but Windows can't use `sftp` connections, so you first need some prerequisites:
@@ -62,9 +62,10 @@ Welcome, this is the lab repository, made to make life easier while working in t
   winget install WinFsp.WinFsp; winget install SSHFS-Win.SSHFS-Win
   ```
   After, in the *Add Network Location* the address must be writen like `\\sshfs\user@192.168.11.206`. You can also follow the [tutorial](https://sftptogo.com/blog/how-to-map-sftp-as-a-windows-10-drive/).
-- **TSUBAME Login** procedure can be found [here](https://helpdesk.t3.gsic.titech.ac.jp/manuals/handbook.en/start/)
-- **TSUBAME group disk** uses windows explorer to map the folder ([tutorial](https://helpdesk.t3.gsic.titech.ac.jp/manuals/handbook.en/storage/#highspeed)), to use it in the console you need to map it with a symbolic link towards you home directory on the TSUBAME.
+- **TSUBAME Login** procedure can be found [here](https://www.t4.gsic.titech.ac.jp/docs/all/handbook.en/start/)
+- **TSUBAME group disk** uses windows explorer to map the folder ([tutorial](https://www.t4.gsic.titech.ac.jp/docs/all/handbook.en/storage/)), to use it in the console you need to map it with a symbolic link towards you home directory on the TSUBAME.
   ```sh
+    # This is a old example for T3, the new path are noted in the T4 documentation
     ln -s /gs/hs0/tga-oba2 your_folder_name
   ```
 <br>
