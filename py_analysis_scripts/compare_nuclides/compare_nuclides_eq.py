@@ -23,8 +23,9 @@ FILE_NAME = "wh_lfr"
 P = 48  # max no of FA
 Z = 11  # max no of slices
 
-# NOTE: This gets executed in the folder with multiple simulations
-# NOTE: It will pick up any folder with simulations with .det filesls
+# NOTE: This gets executed in the folder with multiple simulations (cases)
+# NOTE: It will pick up any folder with simulations with .det files
+# NOTE: It will pick up the last cycle of each simulation and compare the isotopes
 
 
 def read_file(file_loc: str) -> DepletionReader:
@@ -104,31 +105,34 @@ def plot_results(isotopes: Tuple[str]) -> None:
         >>> python ../../compare_nuclides.py plot-results -- Pu240 Pu241
     """
 
-    # Iterate through all of the folders using the base path
+    # Iterate through all of the simulation(case) folders using the base path
     # Ignore the folders that start with __
     # Sort the folders by name (this is the order of the simulations)
-    folders = [x for x in Path(BASE_DIR).iterdir() if x.is_dir()]
-    folders = [x for x in folders if "__" not in str(x)]
-    folders.sort(key=lambda x: x.name)
+    simulation = [x for x in Path(BASE_DIR).iterdir() if x.is_dir()]
+    simulation = [x for x in simulation if "__" not in str(x)]
+    simulation.sort(key=lambda x: x.name)
 
-    files = []
-    for folder in folders:
-        files_in_folder = [
-            str(file) for file in sorted(folder.rglob(f"{FILE_NAME}_dep.m"))
+    all_files = []
+    # iterate through all of the folders and get last cycle simulated
+    for cy_folder in simulation:
+        files_in_cy_folder = [
+            str(file) for file in sorted(cy_folder.rglob(f"{FILE_NAME}_dep.m"))
         ]
-        max_valued_path = max(files_in_folder, key=get_number_from_folder)
+        # Get the file with the highest number in the name (last cycle simulated)
+        max_valued_path = max(files_in_cy_folder, key=get_number_from_folder)
         file_read = read_file(max_valued_path)
-        files.append(file_read)
+        all_files.append(file_read)
 
-    assert len(files) > 0, "No Folders found"
+    assert len(all_files) > 0, "No Folders found"
     assert validate_isotope_sets(
-        isotopes, files[0].names
+        isotopes, all_files[0].names
     ), "Some isotopes are not in the simulations"
 
-    last_folder_names = [folder.name for folder in folders]
+    last_folder_names = [folder.name for folder in simulation]
+
 
     data_frames = []
-    for index, file in enumerate(files):
+    for index, file in enumerate(all_files):
         summed_df = sum_and_sort_by_p_and_z(isotopes, file.materials)
         df = summed_df.iloc[[-1]].melt()
         df["Sim_no"] = index
