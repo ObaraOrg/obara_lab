@@ -24,6 +24,7 @@ FILE_NAME = "wh_lfr"
 
 P = 48  # max no of FA
 Z = 11  # max no of slices
+GRAMS_IN_KG = 1000
 
 # NOTE: This gets executed in the folder with multiple simulations (cases)
 # NOTE: It will pick up any folder with simulations with .det files
@@ -74,7 +75,7 @@ def sum_and_sort_by_p_and_z(
         # row is isotope, column is time
         x = materials[fuel_vol].toDataFrame("mdens", names=nuclides)
         y = materials[fuel_vol].volume[0]
-        z = x * y / 1000
+        z = x * y / GRAMS_IN_KG
         material_list.append(z)
     return sum(material_list)
 
@@ -150,8 +151,9 @@ def plot_results(isotopes: Tuple[str]) -> None:
         total_wt_df = sum_and_sort_by_p_and_z("total", file.materials)
         df2 = total_wt_df.iloc[[-1]].melt()
         total_wt = df2.iloc[0, 1]
-        # df["Fraction"] = df["value"] / total_wt * 100
-        # df["RelativeFrac"] = df["value"] / df["value"].sum() * 100
+
+        df["Fraction"] = df["value"] / total_wt * 100
+        df["RelativeFrac"] = df["value"] / df["value"].sum() * 100
 
         data_frames.append(df)
 
@@ -161,7 +163,39 @@ def plot_results(isotopes: Tuple[str]) -> None:
     sorted_df.to_excel(f"{BASE_DIR}/DischargedFuel_nuclides.xlsx")
     print(sorted_df)
 
-    # Print the folowing
+    # Define the regions
+    region_bounds = [(0, 5), (5, 10), (10, 100)]  # Define your own boundaries here
+
+    # Define a function to check which region a value falls into
+    # def get_region(value):
+    #     for i, bound in enumerate(region_bounds):
+    #         if value <= bound:
+    #             return i
+    #     return len(region_bounds) - 1
+
+    group_names = sorted_df.groupby("Simulation_name")
+    isotope_counts = {}
+    for name, group in group_names:
+        isotope_counts[name] = {}
+        isotope_grouped = group.groupby('Isotopes')
+
+        for isotope, isotope_data in isotope_grouped:
+            isotope_counts[name][isotope] = [0, 0, 0]  # Counts for each region
+        
+            for idx, (lower_region, upper_region) in enumerate(region_bounds):
+                bound = (lower_region <= isotope_data['RelativeFrac']) & (isotope_data['RelativeFrac'] < upper_region)
+                number_in_bound = bound.sum()
+                isotope_counts[name][isotope][idx] = number_in_bound
+
+    writer = pd.ExcelWriter(BASE_DIR / "data.xlsx")
+    # Loop through each key (simulation ID) in the dictionary
+    for sim_id, isotope_data in isotope_counts.items():
+        df = pd.DataFrame(isotope_data)
+        df.to_excel(writer, sheet_name=sim_id)
+    # Save the Excel file
+    writer.save()
+
+     # Print the folowing
     data_cols = [("value", "kg"), ("Fraction", "%"), ("RelativeFrac", "%")]
     plot_titles = ["Isotopes_kg", "Isotopes_frac", "Isotopes_rel_frac"]
 
