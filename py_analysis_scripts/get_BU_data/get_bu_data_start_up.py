@@ -85,6 +85,43 @@ def main() -> None:
 
         writer.save()
 
+
+
+        # writer = pd.ExcelWriter(BASE_DIR / f"{cy_folder.name}_data.xlsx", engine='openpyxl')
+
+        # current_row = 0
+        # space_between = 2
+
+        # first_df = dfs[0]
+        # first_df = first_df[first_df['p'] == P]
+        # first_df = first_df[["p", "z", "mdens_sum", "serpent_burnup"]]
+        # first_df.to_excel(writer, sheet_name='Sheet1', startrow=current_row, index=False)
+
+        # current_row += len(first_df) + space_between
+
+        # original_index = dfs[0].sort_values(['p', 'z']).index
+        # for i in range(1, len(dfs)):
+        #     prev_df = dfs[i-1]
+        #     current_df = dfs[i]
+
+        #     prev_df = prev_df.sort_values(["p", "z"]).reset_index(drop=True)
+        #     current_df = current_df.sort_values(["p", "z"]).reset_index(drop=True)
+        #     shifted_df = pd.concat([current_df.iloc[Z:], current_df.iloc[:Z]]).reset_index(drop=True)
+
+        #     shifted_df['serpent_burnup'] = shifted_df['serpent_burnup'] * (shifted_df['mdens_sum'] / prev_df['mdens_sum'])
+        #     reshifted_df = pd.concat([shifted_df.iloc[-Z:], shifted_df.iloc[:-Z]]).reset_index(drop=True)
+        #     reshifted_df = reshifted_df.set_index(original_index)
+        #     last_p = reshifted_df[ reshifted_df['p'] == P]
+        #     last_p = last_p[["p", "z", "mdens_sum", "serpent_burnup"]]
+
+        #     # Write the DataFrame to the same sheet, appending it to the existing data
+        #     last_p.to_excel(writer, sheet_name='Sheet1', startrow=current_row, index=False)
+
+        #     # Update the current_row for the next DataFrame
+        #     current_row += len(last_p) + space_between
+
+        # writer.save()
+
 if __name__ == "__main__":
     main()
  
