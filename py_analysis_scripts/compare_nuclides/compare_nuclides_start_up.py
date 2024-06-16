@@ -6,9 +6,7 @@ from tqdm import tqdm
 
 import click
 import os
-import matplotlib.pyplot as plt
 import pandas as pd
-import seaborn as sns
 import serpentTools as sp
 from serpentTools.objects.materials import DepletedMaterial
 from serpentTools.parsers.depletion import DepletionReader
@@ -26,6 +24,7 @@ P = 48  # max no of FA
 Z = 11  # max no of slices
 GRAMS_IN_KG = 1000
 
+# NOTE: Doesn't use the nuclear_lib
 # NOTE: This gets executed in the folder with multiple simulations (cases)
 # NOTE: It will pick up any folder with simulations with .det files
 # NOTE: It will pick up the last cycle of each simulation and compare the isotopes
@@ -66,14 +65,36 @@ def get_number_pz(string: str):
 def sum_and_sort_by_p_and_z(
     nuclides: Tuple[str], materials: Dict[str, DepletedMaterial]
 ):
+    """
+    Calculate the sum of material values for each axial slice "Z" and sort them by fuel volume "P".
+    NOTE: I verified that it works right, it gives out the correct values for each isotope in each axial slice "Z".
+    NOTE: Shoud add a volume check to make sure the volume is constant for all the burnup steps.
+
+    Args:
+        nuclides (Tuple[str]): A tuple of nuclide names.
+        materials (Dict[str, DepletedMaterial]): A dictionary of DepletedMaterial objects.
+
+    Returns:
+        float: The sum of material values for each axial slice "Z".
+
+    """
+    # get name of each fuel volume "fuelPxZy"
     p_z_pairs = materials.keys()
+    # get the max valued "fuelPxZy", ex fuelP48Z1
     max_valued_pz_pair = max(p_z_pairs, key=get_number_pz)
+    # get the number of fuel assembly, ex 48
     p_index = get_number_pz(max_valued_pz_pair)
+
     material_list = []
+    # iterate through all the axial slices "Z"
+    # NOTE: it takes all the burnup steps
     for z in range(1, Z):
         fuel_vol = f"fuelP{p_index}Z{z}"
-        # row is isotope, column is time
+        # row is isotope, column is time 
         x = materials[fuel_vol].toDataFrame("mdens", names=nuclides)
+        # NOTE: volume should constant for all the burnup steps
+        # NOTE: volume is 6x one slice of each FA (6 FA slice volume)
+
         y = materials[fuel_vol].volume[0]
         z = x * y / GRAMS_IN_KG
         material_list.append(z)
@@ -91,9 +112,10 @@ def cli():
     nargs=-1,
     callback=validate_isos_length,
 )
-def plot_results(isotopes: Tuple[str]) -> None:
+def print_results(isotopes: Tuple[str]) -> None:
     """
-    Plots the selected isotopes for each step in each simulation/simulations.
+    Prints the selected isotopes for each step in each simulation (case).
+    Can be runned localy, in the folder with multiple simulations (cases).
 
     Args:
         isotopes (Tuple[str]): Tuple of all of the isotopes passed.
@@ -105,7 +127,7 @@ def plot_results(isotopes: Tuple[str]) -> None:
         None
 
     Example:
-        >>> python ../../compare_nuclides.py plot-results -- Pu240 Pu241
+        >>> python compare_nuclides_start_up.py print-results -- Pu240 Pu241
     """
 
     # Iterate through all of the simulation(case) folders using the base path
@@ -164,14 +186,7 @@ def plot_results(isotopes: Tuple[str]) -> None:
     print(sorted_df)
 
     # Define the regions
-    region_bounds = [(0, 5), (5, 10), (10, 100)]  # Define your own boundaries here
-
-    # Define a function to check which region a value falls into
-    # def get_region(value):
-    #     for i, bound in enumerate(region_bounds):
-    #         if value <= bound:
-    #             return i
-    #     return len(region_bounds) - 1
+    region_bounds = [(0, 10), (5, 20), (20, 100)]  # Define your own boundaries here
 
     group_names = sorted_df.groupby("Simulation_name")
     isotope_counts = {}
@@ -195,28 +210,7 @@ def plot_results(isotopes: Tuple[str]) -> None:
     # Save the Excel file
     writer.save()
 
-     # Print the folowing
-    data_cols = [("value", "kg"), ("Fraction", "%"), ("RelativeFrac", "%")]
-    plot_titles = ["Isotopes_kg", "Isotopes_frac", "Isotopes_rel_frac"]
 
-    # # Set font size
-    # plt.rcParams.update({"font.size": 16})
-
-    # for i, (data_col, label) in enumerate(data_cols):
-    #     g = sns.catplot(data=sorted_df, x="Isotopes", y=data_col, kind="bar", col="Sim")
-    #     for ax in g.axes.ravel():
-    #         # Add annotations
-    #         for c in ax.containers:
-    #             labels = [f"{(v.get_height()):.1f}{label}" for v in c]
-    #             ax.bar_label(c, labels=labels, label_type="edge")
-    #         ax.margins(y=0.2)
-    #         for tick in ax.get_xticklabels():
-    #             tick.set_fontsize(16)
-    #         for tick in ax.get_yticklabels():
-    #             tick.set_fontsize(16)
-    #     plt.savefig(f"{BASE_DIR}/{plot_titles[i]}.png")
-
-    # plt.show()
 
 
 if __name__ == "__main__":
