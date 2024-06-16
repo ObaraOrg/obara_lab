@@ -17,11 +17,17 @@ Z = 11  # max no of slices
 
 AV = 0.6221408e24
 
+#NOTE: This script uses the nuclear lib
+#NOTE: It needs to be run remote form the base directory
 
 def main() -> None:
     atomic_wt = pd.read_csv("nuclear_lib/isotope_awt_list.csv")
     dep = serpentTools.read(BASE_DIR / (f"{FILE_NAME}_dep.m"), reader="dep")
-    df, corrected_burnup_mat, _, _ = get_bu_data(dep, atomic_wt, P, Z)
+    df, corrected_burnup_mat, average_burnup, sum_burnup_by_z = get_bu_data(dep, atomic_wt, P, Z)
+
+    print("Corected Bu", df["corrected_burnup"])
+    print("Average BU", average_burnup)
+    print("BU by Z", sum_burnup_by_z)
 
     # Save data for later use
     df.to_csv(f"{BASE_DIR}/DischargedFuel_nuclides.csv")

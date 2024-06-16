@@ -17,7 +17,6 @@ sp.settings.rc["verbosity"] = "error"
 os.environ["CLICK_PAGER"] = "1"
 
 BASE_DIR = Path(os.path.dirname(__file__))
-
 FILE_NAME = "wh_lfr"
 
 P = 48  # max no of FA
