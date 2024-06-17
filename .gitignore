@@ -791,3 +791,5 @@ py_analysis_scripts/get_BU_data_alternativ/original/TRYRef8/takenRef.mes
 py_analysis_scripts/get_BU_data_alternativ/original/TRYRef8/TRYRef.mes
 py_analysis_scripts/get_BU_data_alternativ/original/TRYRef9/takenRef.mes
 py_analysis_scripts/get_BU_data_alternativ/original/TRYRef9/TRYRef.mes
+py_analysis_scripts/get_BU_data_alternativ/03_enr_1.2x/fuel.inp
+py_analysis_scripts/get_BU_data_alternativ/03_enr_1.2x/Shuffling.py
