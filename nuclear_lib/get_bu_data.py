@@ -233,6 +233,8 @@ def get_bu_data2(
         p_index, z_index = split_pz_name(str(fuel_vol))
         # sum the mdens in the fuel volume, at last BU step, for each isotope, and sum them
         mdens_sum = fuel_data["mdens"][:, -1][indxs].sum()
+        # mdens_sum = fuel_data["mdens"][:, -1][-1]
+        #breakpoint()
         # pick the last BU step in MWd/kgU (see sss2 documantation)
         serpent_burnup = fuel_data["burnup"][-1]
 
@@ -252,10 +254,5 @@ def get_bu_data2(
     # breakpoint()
 
     df = pd.DataFrame.from_dict(fuel_vol_dict, orient="index")
-    # df["mdens_ratio"] = df["mdens_sum"] / df["mdens_to_divide"]
-    # df = df.sort_values(["z", "p"])
-    # df["corrected_burnup"] = (
-    #     df["mdens_ratio"].shift(1, fill_value=df["mdens_ratio"].iloc[0])
-    #     * df["serpent_burnup"]
 
     return (df)
