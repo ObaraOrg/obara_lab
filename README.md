@@ -6,7 +6,7 @@ Welcome, this is the lab repository, made to make life easier while working in t
 
 - [Obara lab repository](#obara-lab-repository)
   - [Documentation and available materials](#documentation-and-available-materials)
-  - [Creating the work environment](#creating-the-work-environment)
+  - [The work environment](#the-work-environment)
   - [Remote tools](#remote-tools)
     - [File transfer software](#file-transfer-software)
     - [SSH command line interface](#ssh-command-line-interface)
@@ -14,11 +14,10 @@ Welcome, this is the lab repository, made to make life easier while working in t
   - [Connecting to the GitHub repo - SSH Key](#connecting-to-the-github-repo---ssh-key)
     - [Cloning the repository](#cloning-the-repository)
     - [Easy connection](#easy-connection)
-  - [Setup the remote environment](#setup-the-remote-environment)
+  - [Setup the remote python environment](#setup-the-remote-python-environment)
   - [Project structure for analysis](#project-structure-for-analysis)
 
 <!-- /TOC -->
-
 ## Documentation and available materials
 
 * **Setup**
@@ -32,36 +31,45 @@ Welcome, this is the lab repository, made to make life easier while working in t
   * [Helpful cluster commands](documentation/cluster_commands.md)
   * [Productivity scripts](productivity_scripts)
   * [Vim tutorial](documentation/vim_commands.md)
-* **Project related**
+<!-- * **Project related**
   * [Project Structure](documentation/structuring_and_workflow.md)
   * [Python analysis scripts](py_analysis_scripts)
-  * [Python input generation scripts](py_input_generation_scripts)
+  * [Python input generation scripts](py_input_generation_scripts) -->
 
 <br>
 
 ---
 
-## Creating the work environment
+## The work environment
+
+**- We also have a VPN for remote work, ask about it !**
 
 
-|                     | Address                                 | Notes                                                                                                    | user           |
-| ------------------- | --------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------- |
-|                     | WIFI                                    |                                                                                                          | obaralab       |
-| File Server         | 192.168.11.3                            | Documentation and serpent files are to be found here                                                     | -              |
-| Local cluster olds  | 192.168.11.206:22                       | 9 nodes **olds01 - olds09**, Xeon E5-2680 v3 @2.50GHz (x24 cores), CentOS 6.5                            | _student user_ |
-| Local cluster olcs  | 192.168.11.200:22                       | 8 nodes **olcs01 - olcs08**, Xeon E5-2690 0 @2.90GHz (x16 cores), CentOS 6.2 (runs a global version of Serpent 2.1.30)    | _student user_ |
-| PC for modeling CFD | 192.168.11.4                            | Workstation, Xenon Gold 6252 @2.10GHz (x48 cores), 1TB RAM, Quadro GV100 x2                              | obaralab       |
-| PC for modeling CFD | 192.168.11.5                            | Workstation, Xenon E5-2697 v4 @2.30GHz (x36 cores), 512GB RAM, Quadro M4000                              | obaralab       |
-| TSUBAME4 Login      | `ID`@login.t4.gsic.titech.ac.jp         | Login node, home directory space is less than 17Gb so I recommend you use the **group disk** for storage | `student_ID`   |
-| TSUBAME4 group DISK | /gs/hs0/tga-oba2                        | Create a symbolic link (`ln -s` command)                                                                 |                |
+|                     | Address                         | Notes                                                                                                    | user           |
+| ------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------- |
+|                     | WIFI                            |                                                                                                          | obaralab       |
+| File Server         | 192.168.11.3                    | Documentation and serpent files, and other software are to be found here.                                | *Ask for it*   |
+| Local cluster olds  | 192.168.11.206:22               | 9 nodes **olds01 - olds09**, Xeon E5-2680 v3 @2.50GHz (x24 cores), CentOS 6.5                            | _student user_ |
+| Local cluster olcs  | 192.168.11.200:22               | 8 nodes **olcs01 - olcs08**, Xeon E5-2690 0 @2.90GHz (x16 cores), CentOS 6.2                             | _student user_ |
+| PC for modeling CFD | 192.168.11.4                    | Workstation, Xenon Gold 6252 @2.10GHz (x48 cores), 1TB RAM, Quadro GV100 x2 GPU                          | *Ask for it*   |
+| PC for modeling CFD | 192.168.11.5                    | Workstation, Xenon E5-2697 v4 @2.30GHz (x36 cores), 512GB RAM, Quadro M4000 GPU                          | *Ask for it*   |
+| TSUBAME4 Login      | `ID`@login.t4.gsic.titech.ac.jp | Login node, home directory space is less than 17Gb so I recommend you use the **group disk** for storage | `student_ID`   |
+| TSUBAME4 group DISK | /gs/hs0/tga-oba2                | Create a symbolic link (`ln -s` command)                                                                 |                |
 
 **Notes:**
-- **File Server** can be mapped with simple `ftp` but Windows can't use `sftp` connections for the **Local cluster**, so you first need some prerequisites:
-  - [WinFsp](https://github.com/winfsp/sshfs-win), this can make `sftp` avalabile on Windows and can be easily installed via `windows powershell` as follows: 
-  ```sh
-  winget install WinFsp.WinFsp; winget install SSHFS-Win.SSHFS-Win
-  ```
-  After, in the *Add Network Location* the address must be writen like `\\sshfs\user@192.168.11.206`. You can also follow the [tutorial](https://sftptogo.com/blog/how-to-map-sftp-as-a-windows-10-drive/).
+- **File Server** can be mapped with simple `ftp` from the 
+  <br>
+- Local Cluster **olds** runs a global version of Serpent 2.1.33 (OMP and MPI enabled), it runs with the command `sss2`. The default nuclear data path set to: `/usr/local/serpent/xsdata`.
+  - Available nuclear data libraries: **endfb7**, **jeff31**, **endfb7.1**. Cross section, decay and induced-fission yields data libraries are included for each library.
+  - Local Cluster **olds** can be mapped with `sftp` but Windows can't use `sftp` connections for the **Local cluster**, so you first need some prerequisites:
+    - [WinFsp](https://github.com/winfsp/sshfs-win), this can make `sftp` avalabile on Windows and can be easily installed via `windows powershell` as follows: 
+    ```sh
+    winget install WinFsp.WinFsp; winget install SSHFS-Win.SSHFS-Win
+    ```
+    - After, in the *Add Network Location* the address must be writen like `\\sshfs\user@192.168.11.206`. You can also follow the [tutorial](https://sftptogo.com/blog/how-to-map-sftp-as-a-windows-10-drive/).
+-  Local Cluster **olcs** runs a global version of Serpent 2.1.31 (OMP enabled, MPI not enables because reasons?), it runs with the command `sss2`. The default nuclear data path was not configured yet, so you'll have to do it yourself for the momment.
+  <br>
+- **TSUBAME** may be available or not dependint on the years contract.
 - **TSUBAME Login** procedure can be found [here](https://www.t4.gsic.titech.ac.jp/docs/all/handbook.en/start/)
 - **TSUBAME group disk** uses windows explorer to map the folder ([tutorial](https://www.t4.gsic.titech.ac.jp/docs/all/handbook.en/storage/)), to use it in the console you need to map it with a symbolic link towards you home directory on the TSUBAME.
   ```sh
@@ -98,6 +106,7 @@ Welcome, this is the lab repository, made to make life easier while working in t
 ## Helpful editing tools
 
 - **Vim** editor inside the command line view (vim command)
+- **Tmux** window multiplexer, its very useful for not opening multiple terminal windows (version 1.6 is available on the cluster via `tmux` command)
 - **EMACS** with Vim key-bindings ([doomemacs](https://github.com/doomemacs/doomemacs) plugin) inside the command line view
 - **Notepad++** (with the FTP add-on, no need for FileZilla when working on files, at least for the cluster)
 - **Visual Studio Code** (crowd favorite, but still you cant connect remotely to the cluster :P)
@@ -132,9 +141,9 @@ I find a putty terminal to be the most useful at the start, here's some [scripts
 
 ---
 
-## Setup the remote environment
+## Setup the remote python environment
 
-**NOTE:** `python` version must be at least **3.7.13** (this is also the latest version the cluster can use, TSUBAME can do higher).
+**NOTE:** `python` version must be at least **3.7.13** (this is also the latest version the cluster can use by compiling it, i presume it 3.8 can be copied after compilation of a different machine but I haven't tried it, TSUBAME can do higher).
 
 **There are two choices:**
   1. Installing `python` on the TSUBAME (version 3.8.3)
