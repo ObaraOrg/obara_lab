@@ -1,9 +1,9 @@
 # Getting started with Serpent2 
-Made for Serpent 2.1.32
+Made for Serpent 2.1.33
 
 **[Back to main page](https://github.com/ObaraOrg/obara_lab)**
 
-### Regarding the scripts functionality and capabilities:
+## Regarding the scripts functionality and capabilities:
 - This script build is made to enable **OMPI** and **OMP** for SERPENT on an **INTEL CPU**
 (modifies the `Makefile` automatically to compile with the **ICC** and **MPICC**, not the **GCC**)
 - To change flags in the `Makefile`, please uncomment/comment them inside in the `install_script_` file
@@ -17,28 +17,46 @@ ________________________________________
 <!-- TOC -->
 
 - [Getting started with Serpent2](#getting-started-with-serpent2)
-        - [Regarding the scripts functionality and capabilities:](#regarding-the-scripts-functionality-and-capabilities)
-    - [Table of contents](#table-of-contents)
-    - [Installing Serpent2](#installing-serpent2)
-        - [Required files](#required-files)
-        - [Download data from the server](#download-data-from-the-server)
-    - [Manual installation steps](#manual-installation-steps)
-        - [Unzip the required files](#unzip-the-required-files)
-        - [Compile Serpent](#compile-serpent)
-        - [Preparation of cross-sectional area file](#preparation-of-cross-sectional-area-file)
-        - [Setting environment variables for bash, if you use a different shell be aware](#setting-environment-variables-for-bash-if-you-use-a-different-shell-be-aware)
-        - [Perform benchmark calculation](#perform-benchmark-calculation)
-        - [Perform tutorial calculation](#perform-tutorial-calculation)
-    - [On compilation flags](#on-compilation-flags)
-        - [GNU Compiler:](#gnu-compiler)
-        - [Intel Compiler:](#intel-compiler)
-        - [Enable Parallel process calculation using MPI:](#enable-parallel-process-calculation-using-mpi)
-        - [Additional:](#additional)
+  - [Regarding the scripts functionality and capabilities:](#regarding-the-scripts-functionality-and-capabilities)
+  - [Table of contents](#table-of-contents)
+  - [Using the pre-installed Serpent2 on the olds and olcs](#using-the-pre-installed-serpent2-on-the-olds-and-olcs)
+  - [Installing Serpent2 on your local user](#installing-serpent2-on-your-local-user)
+    - [Required files](#required-files)
+    - [Download data from the server](#download-data-from-the-server)
+  - [Manual installation steps](#manual-installation-steps)
+    - [Unzip the required files](#unzip-the-required-files)
+    - [Compile Serpent](#compile-serpent)
+    - [Preparation of cross-sectional area file](#preparation-of-cross-sectional-area-file)
+    - [Setting environment variables (for bash, if you use a different shell be aware)](#setting-environment-variables-for-bash-if-you-use-a-different-shell-be-aware)
+    - [Perform benchmark calculation](#perform-benchmark-calculation)
+    - [Perform tutorial calculation](#perform-tutorial-calculation)
+  - [On compilation flags](#on-compilation-flags)
+    - [GNU Compiler:](#gnu-compiler)
+    - [Intel Compiler:](#intel-compiler)
+    - [Enable Parallel process calculation using MPI:](#enable-parallel-process-calculation-using-mpi)
+    - [Additional](#additional)
 
 <!-- /TOC -->
 ________________________________________
 
-## Installing Serpent2
+## Using the pre-installed Serpent2 on the olds and olcs
+
+- Local Cluster **olds** runs a global version of **Serpent 2.1.33** (OMP and MPI enabled), it runs with the command `sss2`. 
+  - The default nuclear data path set to: `/usr/local/serpent/xsdata`.
+  - Available nuclear data libraries: **endfb7**, **jeff31**, **endfb7.1**. Cross section, decay and induced-fission yields data libraries are included for each library.
+  - 
+
+|          | Cross-section lib   | Decay lib        | Induced-fission yields lib | Source                                                              |
+| -------- | ------------------- | ---------------- | -------------------------- | ------------------------------------------------------------------- |
+| endfb7   | sss_endfb7u.xsdata  | sss_endfb7.dec   | sss_endfb7.nfy             | [VTT](https://vtt.sharefile.eu/d-s7d9ab4b6a9d64cdabf4c9a491390899a) |
+| endfb7.1 | s2v0_endfb71.xsdata | s2v0_endfb71.dec | s2v0_endfb71.nfy           | [VTT](https://vtt.sharefile.eu/d-s7d9ab4b6a9d64cdabf4c9a491390899a) |
+| jeff31   | sss_jeff31u.xsdata  | sss_jeff31.dec   | sss_jeff31.nfy             | [VTT](https://vtt.sharefile.eu/d-s7d9ab4b6a9d64cdabf4c9a491390899a) |
+
+<br>
+
+- Local Cluster **olcs** runs a global version of **Serpent 2.1.31** (OMP enabled, MPI not enables because reasons?), it runs with the command `sss2`. The default nuclear data path was not configured yet, so you'll have to do it yourself for the moment, see [here](https://serpent.vtt.fi/mediawiki/index.php/Installing_and_running_Serpent#Setting_up_the_data_libraries), or the guide bellow.
+
+## Installing Serpent2 on your local user
 
 **[Serpent wiki, installation and tutorial guides.](https://serpent.vtt.fi/mediawiki/index.php/Main_Page)**
 * There are two ways of installing Serpent2, follow the manual installation steps bellow.	
@@ -50,9 +68,9 @@ ________________________________________
 ### Required files
 There are two versions of serpent in this folder, use the one with the install script
 
-| NAS Address |  user  |  pass  |
-| ------ | ------ | ------ |
-| [192.168.11.3](ftp://192.168.11.3/obaralab/Serpent) | obaralab | ask for it :P|
+| NAS Address                                         | user     | pass          |
+| --------------------------------------------------- | -------- | ------------- |
+| [192.168.11.3](ftp://192.168.11.3/obaralab/Serpent) | obaralab | ask for it :P |
 
 All the files for installing serpent available on the lab NAS in the `01_software/Serpent 2.1.32 ...` folder :
 - Source code
@@ -201,7 +219,7 @@ ________________________________________
 `CFLAGS` and `CXXFLAGS` are either the name of environment variables or of `Makefile` variables that can be set to specify additional switches to be passed to a compiler in the process of building computer software.
 
 EXAMPLES:
-- `CC = GCC (or ICC)` - specifies the compiler to be used
+- `CC = gcc (or icc, or mpicc)` - specifies the compiler to be used
 - `CFLAGS` - enables the addition of switches for the C compiler
 - `CXXFLAGS` - are meant to be used when invoking a C++ compiler
 - `LDFLAGS` - flags added when invoking the linker (C, C++, or Fortran)
@@ -260,7 +278,7 @@ ___
 
 ___
 
-### Additional:
+### Additional
 Chose **just one** compiler to compile the code, *gcc*, *icc*, *mpicc* (if compiling with MPI support, the only choice is the *mpicc*).
 Uncomment the `CFLAGS` under the `CC` compile flag,
 Leave the `LDFLAGS  = -lm` uncommented, under the compiler you use, for the code to link de correct libraries while compiling.
