@@ -69,6 +69,7 @@ Welcome, this is the lab repository, made to make life easier while working in t
     - After, in the *Add Network Location* the address must be writen like `\\sshfs\user@192.168.11.206`. You can also follow the [tutorial](https://sftptogo.com/blog/how-to-map-sftp-as-a-windows-10-drive/).
 -  Local Cluster **olcs** runs a global version of Serpent 2.1.31 (OMP enabled, MPI not enables because reasons?), it runs with the command `sss2`. The default nuclear data path was not configured yet, so you'll have to do it yourself for the momment.
   <br>
+  
 - **TSUBAME** may be available or not dependint on the years contract.
 - **TSUBAME Login** procedure can be found [here](https://www.t4.gsic.titech.ac.jp/docs/all/handbook.en/start/)
 - **TSUBAME group disk** uses windows explorer to map the folder ([tutorial](https://www.t4.gsic.titech.ac.jp/docs/all/handbook.en/storage/)), to use it in the console you need to map it with a symbolic link towards you home directory on the TSUBAME.
@@ -143,7 +144,7 @@ I find a putty terminal to be the most useful at the start, here's some [scripts
 
 ## Setup the remote python environment
 
-**NOTE:** `python` version must be at least **3.7.13** (this is also the latest version the cluster can use by compiling it, i presume it 3.8 can be copied after compilation of a different machine but I haven't tried it, TSUBAME can do higher).
+**NOTE:** `python` version must be at least **3.7.13** (this is also the latest version the cluster can use by compiling it, I presume it can handle py3.8 if it can be copied after compilation from a different machine but I haven't tried it, TSUBAME can do higher).
 
 **There are two choices:**
   1. Installing `python` on the TSUBAME (version 3.8.3)
