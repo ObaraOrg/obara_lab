@@ -6,6 +6,7 @@
 <!-- TOC -->
 
 - [Learning Serpent2](#learning-serpent2)
+  - [Some rules before starting](#some-rules-before-starting)
   - [Running Serpent](#running-serpent)
     - [Tips :](#tips-)
     - [Less obvious things in Serpent :](#less-obvious-things-in-serpent-)
@@ -18,7 +19,15 @@
     - [Predictor-corrector method](#predictor-corrector-method)
   - [More things to try](#more-things-to-try)
 
-<!-- /TOC -->
+
+---
+
+## Some rules before starting
+
+- **When running serpent, especially with `sss2 -omp` set to the max number of CPUs, it will ocupy the entire nodes resources.**
+- **Don't run very long calculation or ocupy all the CPU on the login node `olds01`, it will frezee and keep others from using the entire cluster.**
+- **If you need to run heavy things, connect with `rsh` to another node instead or set the `qsub` job to any node by the login one.**
+- **Keep a look on the cluster usage, see if someone is ussing the node before you use it. Check with top -e -i to see if there is a job running on it. You can check also by checking the [Ganglia Cluster Web Report](http://192.168.11.206/ganglia/?c=olds), accesible only on the campus, or via VPN.**
 
 ---
 
