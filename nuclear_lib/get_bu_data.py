@@ -232,7 +232,9 @@ def get_bu_data2(
         fuel_data = dep.materials[fuel_vol].data
         p_index, z_index = split_pz_name(str(fuel_vol))
         # sum the mdens in the fuel volume, at last BU step, for each isotope, and sum them
-        mdens_sum = fuel_data["mdens"][:, -1][indxs].sum()
+
+        # I USED ADENS INSTEAD OF MDENS
+        mdens_sum = fuel_data["adens"][:, -1][indxs].sum()
         # mdens_sum = fuel_data["mdens"][:, -1][-1]
         #breakpoint()
         # pick the last BU step in MWd/kgU (see sss2 documantation)

@@ -43,9 +43,10 @@ def main() -> None:
     simulation = [x for x in Path(BASE_DIR).iterdir() if x.is_dir()]
     simulation = [x for x in simulation if "__" not in str(x)]
     simulation.sort(key=lambda x: x.name)
+    
 
     # iterate through all of the simulations and get all paths for one folder at a time
-    for cy_folder in natsorted(simulation[1:]):
+    for cy_folder in natsorted(simulation[0:]):
         # reinitialize the parths list
 
         files_in_cy_folder = [
@@ -56,7 +57,7 @@ def main() -> None:
 
         dfs = []
 
-        for file in tqdm(files_in_cy_folder[:50]):
+        for file in tqdm(files_in_cy_folder):
             dep = serpentTools.read((file), reader="dep")
             df, _, _, _ = get_bu_data(dep, atomic_wt, P, Z)
             df = df[["p", "z", "mdens_sum", "serpent_burnup"]]
@@ -80,7 +81,7 @@ def main() -> None:
 
             current_shifted_df["serpent_burnup"] = prev_df["serpent_burnup"] + (
                 current_shifted_df["serpent_burnup"]
-                * (current_shifted_df["mdens_sum"] / prev_df["mdens_sum"])
+                * (current_shifted_df["mdens_sum"] / dfs[0]["mdens_sum"])
             )
             current_shifted_df.iloc[-Z:] = current_df.iloc[:Z]
             reshifted_df = pd.concat(
@@ -90,7 +91,6 @@ def main() -> None:
             prev_df = reshifted_df.copy()
             corrected_dfs.append(reshifted_df)
         writer = pd.ExcelWriter(BASE_DIR / f"{cy_folder.name}_data.xlsx")
-        breakpoint()
 
         means = []
         for i, df in enumerate(corrected_dfs):
@@ -100,10 +100,8 @@ def main() -> None:
             df.to_excel(writer, sheet_name=Path(files_in_cy_folder[i]).parent.name)
         writer.save()
         import numpy as np
-
         plt.scatter(np.arange(1, len(means) + 1), means)
         plt.show()
-        breakpoint()
 
         # current_row = 0
         # space_between = 2
