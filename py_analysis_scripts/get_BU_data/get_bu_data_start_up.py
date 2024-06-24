@@ -46,7 +46,7 @@ def main() -> None:
     
 
     # iterate through all of the simulations and get all paths for one folder at a time
-    for cy_folder in natsorted(simulation[0:]):
+    for cy_folder in natsorted(simulation):
         # reinitialize the parths list
 
         files_in_cy_folder = [
@@ -63,18 +63,15 @@ def main() -> None:
             df = df[["p", "z", "mdens_sum", "serpent_burnup"]]
             df = get_bu_data2(dep, atomic_wt, P, Z)
             df = df.sort_values(["p", "z"]).reset_index(drop=True)
-            # breakpoint()
             dfs.append(df)
 
-        # breakpoint()
         prev_df = dfs[0]
         corrected_dfs = [prev_df.reset_index(drop=True)]
         for i in range(1, len(dfs)):
             current_df = dfs[i]
 
             prev_df = prev_df.sort_values(["p", "z"]).reset_index(drop=True)
-            current_df = current_df.sort_values(["p", "z"]).reset_index(drop=True)
-            current_shifted_df = current_df
+            current_shifted_df = current_df.sort_values(["p", "z"]).reset_index(drop=True)
             current_shifted_df = pd.concat(
                 [current_df.iloc[Z:], current_df.iloc[:Z]]
             ).reset_index(drop=True)
@@ -90,7 +87,13 @@ def main() -> None:
 
             prev_df = reshifted_df.copy()
             corrected_dfs.append(reshifted_df)
-        writer = pd.ExcelWriter(BASE_DIR / f"{cy_folder.name}_data.xlsx")
+
+        # Combine all corrected DataFrames into a single DataFrame
+        combined_df = pd.concat(corrected_dfs, ignore_index=True)
+
+        # Save the combined DataFrame to a single Excel sheet
+        with pd.ExcelWriter(BASE_DIR / f"{cy_folder.name}_data.xlsx") as writer:
+            combined_df.to_excel(writer, index=False, sheet_name='Sheet1')
 
         means = []
         for i, df in enumerate(corrected_dfs):
@@ -99,42 +102,15 @@ def main() -> None:
             means.append(mean)
             df.to_excel(writer, sheet_name=Path(files_in_cy_folder[i]).parent.name)
         writer.save()
+
+        dfm = pd.DataFrame(means, columns=["means"])
+        dfm.to_csv(BASE_DIR / f"{cy_folder.name}_means.csv", index=False)
+
         import numpy as np
         plt.scatter(np.arange(1, len(means) + 1), means)
-        plt.show()
-
-        # current_row = 0
-        # space_between = 2
-
-        # first_df = dfs[0]
-        # first_df = first_df[first_df['p'] == P]
-        # first_df = first_df[["p", "z", "mdens_sum", "serpent_burnup"]]
-        # first_df.to_excel(writer, sheet_name='Sheet1', startrow=current_row, index=False)
-
-        # current_row += len(first_df) + space_between
-
-        # original_index = dfs[0].sort_values(['p', 'z']).index
-        # for i in range(1, len(dfs)):
-        #     prev_df = dfs[i-1]
-        #     current_df = dfs[i]
-
-        #     prev_df = prev_df.sort_values(["p", "z"]).reset_index(drop=True)
-        #     current_df = current_df.sort_values(["p", "z"]).reset_index(drop=True)
-        #     shifted_df = pd.concat([current_df.iloc[Z:], current_df.iloc[:Z]]).reset_index(drop=True)
-
-        #     shifted_df['serpent_burnup'] = shifted_df['serpent_burnup'] * (shifted_df['mdens_sum'] / prev_df['mdens_sum'])
-        #     reshifted_df = pd.concat([shifted_df.iloc[-Z:], shifted_df.iloc[:-Z]]).reset_index(drop=True)
-        #     reshifted_df = reshifted_df.set_index(original_index)
-        #     last_p = reshifted_df[ reshifted_df['p'] == P]
-        #     last_p = last_p[["p", "z", "mdens_sum", "serpent_burnup"]]
-
-        #     # Write the DataFrame to the same sheet, appending it to the existing data
-        #     last_p.to_excel(writer, sheet_name='Sheet1', startrow=current_row, index=False)
-
-        #     # Update the current_row for the next DataFrame
-        #     current_row += len(last_p) + space_between
-
-        # writer.save()
+        plt.savefig(BASE_DIR / f"{cy_folder.name}_means.png")
+        #plt.show()
+        
 
 
 if __name__ == "__main__":
