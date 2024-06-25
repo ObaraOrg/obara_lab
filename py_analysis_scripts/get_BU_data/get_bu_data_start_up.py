@@ -2,6 +2,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import serpentTools
 import pandas as pd
+import numpy as np
 from pathlib import Path
 from nuclear_lib.get_bu_data import get_bu_data, get_bu_data2
 import os
@@ -95,6 +96,7 @@ def main() -> None:
         with pd.ExcelWriter(BASE_DIR / f"{cy_folder.name}_data.xlsx") as writer:
             combined_df.to_excel(writer, index=False, sheet_name='Sheet1')
 
+        # Collect the mean BU for each discharged fuel assembly (max P)
         means = []
         for i, df in enumerate(corrected_dfs):
             df = df[df["p"] == P]
@@ -106,7 +108,19 @@ def main() -> None:
         dfm = pd.DataFrame(means, columns=["means"])
         dfm.to_csv(BASE_DIR / f"{cy_folder.name}_means.csv", index=False)
 
-        import numpy as np
+        # Collect each Z BU for each discharged fuel assembly (max P)
+        last_fa_bu = []
+        for i, df in enumerate(corrected_dfs):
+            dfs = df[df["p"] == P]
+            last_fa = dfs["serpent_burnup"].reset_index(drop=True).copy()
+            last_fa.name = str(i)  # Rename the column to the value of i+1
+            last_fa_bu.append(last_fa)
+        
+        # Combine all Series into a single DataFrame
+        combined_df = pd.concat(last_fa_bu, axis=1)
+        combined_df.to_csv(BASE_DIR / f"{cy_folder.name}_last_fa_bu.csv", index=False)
+
+
         plt.scatter(np.arange(1, len(means) + 1), means)
         plt.savefig(BASE_DIR / f"{cy_folder.name}_means.png")
         #plt.show()
