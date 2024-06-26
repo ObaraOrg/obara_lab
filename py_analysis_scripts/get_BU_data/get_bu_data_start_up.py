@@ -44,7 +44,6 @@ def main() -> None:
     simulation = [x for x in Path(BASE_DIR).iterdir() if x.is_dir()]
     simulation = [x for x in simulation if "__" not in str(x)]
     simulation.sort(key=lambda x: x.name)
-    
 
     # iterate through all of the simulations and get all paths for one folder at a time
     for cy_folder in natsorted(simulation):
@@ -72,7 +71,9 @@ def main() -> None:
             current_df = dfs[i]
 
             prev_df = prev_df.sort_values(["p", "z"]).reset_index(drop=True)
-            current_shifted_df = current_df.sort_values(["p", "z"]).reset_index(drop=True)
+            current_shifted_df = current_df.sort_values(["p", "z"]).reset_index(
+                drop=True
+            )
             current_shifted_df = pd.concat(
                 [current_df.iloc[Z:], current_df.iloc[:Z]]
             ).reset_index(drop=True)
@@ -94,7 +95,7 @@ def main() -> None:
 
         # Save the combined DataFrame to a single Excel sheet
         with pd.ExcelWriter(BASE_DIR / f"{cy_folder.name}_data.xlsx") as writer:
-            combined_df.to_excel(writer, index=False, sheet_name='Sheet1')
+            combined_df.to_excel(writer, index=False, sheet_name="Sheet1")
 
         # Collect the mean BU for each discharged fuel assembly (max P)
         means = []
@@ -115,16 +116,14 @@ def main() -> None:
             last_fa = dfs["serpent_burnup"].reset_index(drop=True).copy()
             last_fa.name = str(i)  # Rename the column to the value of i+1
             last_fa_bu.append(last_fa)
-        
+
         # Combine all Series into a single DataFrame
         combined_df = pd.concat(last_fa_bu, axis=1)
         combined_df.to_csv(BASE_DIR / f"{cy_folder.name}_last_fa_bu.csv", index=False)
 
-
         plt.scatter(np.arange(1, len(means) + 1), means)
         plt.savefig(BASE_DIR / f"{cy_folder.name}_means.png")
-        #plt.show()
-        
+        # plt.show()
 
 
 if __name__ == "__main__":
