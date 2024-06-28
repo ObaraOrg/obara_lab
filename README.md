@@ -59,7 +59,8 @@ Welcome, this is the lab repository, made to make life easier while working in t
 **Notes:**
 - **File Server** can be mapped with simple `ftp` from the 
   <br>
-- Local Cluster **olds** runs a global version of Serpent 2.1.33 (OMP and MPI enabled), it runs with the command `sss2`. The default nuclear data path set to: `/usr/local/serpent/xsdata`.
+- Local Cluster **olds** runs a global version of Serpent 2.1.33 (OMP and MPI enabled), it runs with the command `sss2`. The default nuclear data path set to: `/usr/local/serpent/xsdata` or `/misc/home/hpc/serpent/xsdata`
+  - **NOTE:** You have to set the correct path in your bashrc, see the guide on instalation [here](installation_scripts/README.md)
   - Available nuclear data libraries: **endfb7**, **jeff31**, **endfb7.1**. Cross section, decay and induced-fission yields data libraries are included for each library.
   - Local Cluster **olds** can be mapped with `sftp` but Windows can't use `sftp` connections for the **Local cluster**, so you first need some prerequisites:
     - [WinFsp](https://github.com/winfsp/sshfs-win), this can make `sftp` avalabile on Windows and can be easily installed via `windows powershell` as follows: 
