@@ -1,11 +1,11 @@
 
-# Learning Serpent2
+# Learning Serpent 2
 
 **[Back to main page](https://github.com/ObaraOrg/obara_lab)**
 
 <!-- TOC -->
 
-- [Learning Serpent2](#learning-serpent2)
+- [Learning Serpent 2](#learning-serpent-2)
   - [Some rules before starting](#some-rules-before-starting)
   - [Running Serpent](#running-serpent)
     - [Tips :](#tips-)
@@ -40,7 +40,7 @@ sss2 input
 ```
 I recommend going through these preferably in this order
 
-* Do the [Tutorial] (http://serpent.vtt.fi/mediawiki/index.php/Tutorial)from the wiki (also the input file for this are already inside the installation folder found on the **File Server:** {link lab_setup.md}
+* Do the [Tutorial](http://serpent.vtt.fi/mediawiki/index.php/Tutorial) from the wiki. Files also available [here](serpent_analysis/learning_serpent/00_tutorial)
 * Use the [input syntax page](http://serpent.vtt.fi/mediawiki/index.php/Input_syntax_manual) from wiki.
 * Use the [manual](http://montecarlo.vtt.fi/download/Serpent_manual.pdf)(less detailed than the wiki and it's **made for the 1.1.8 version,** but is more organized and there are trace refences to it that don't appear on the wiki sometimes)
 * Check the [example input files](https://serpent.vtt.fi/mediawiki/index.php/Category:Example_input_files)
@@ -102,7 +102,7 @@ set gcu -1      % - Universe for group constant generation - DEFAULT ON
 ## Improving accuracy 
 
 ### Predictor-corrector method
-For BU calc is useful to get familiar with the[ predictor-corrector method in serpent](http://serpent.vtt.fi/mediawiki/index.php/Input_syntax_manual#set_pcc):
+For BU calculation is useful to get familiar with the[ predictor-corrector method in serpent](http://serpent.vtt.fi/mediawiki/index.php/Input_syntax_manual#set_pcc):
 ```sh
 set pcc MODE [SSP SSC]
 
@@ -148,4 +148,4 @@ Explicit materials on the different methods used for approximation:
 
 ## More things to try
 
-Look up the [performance ](https://serpent.vtt.fi/mediawiki/index.php/Pitfalls_and_troubleshooting#Performance)section of the Serpent wiki
+Look up the [performance ](https://serpent.vtt.fi/mediawiki/index.php/Pitfalls_and_troubleshooting#Performance)section of the Serpent wiki.

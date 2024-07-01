@@ -5,7 +5,7 @@
 This setup should work for any platform you may use (cluster, windows, mac...), **it's not required to for research** but it will save you time, manage work and generally make you more productive in the lab environment.
 - `pyenv` - Lets you change the global python version on a per-user basis.
 - `direnv` - Extension for your shell. It augments existing shells with a new feature that can load and unload environment variables depending on the current directory.
-- `jupiter-notebook` - once setting up the `pyenv` and `direnv`, a [jupiter server](productivity_scripts) can be started on your own platform or on the cluster **via the browser**, with the python environment made inside the `direnv` directory, withouth installing a separate instance on you PC.
+- `jupiter-notebook` - once setting up the `pyenv` and `direnv`, a [jupiter server](productivity_scripts) can be started on your own platform or on the cluster **via the browser**, with the python environment made inside the `direnv` directory, without installing a separate instance on you PC.
 - `tmux` - A terminal multiplexer. It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal. (**ver.1.6** is present on the cluster, latest **ver.3.2** can be found on the TSUBAME by entering `module load tmux`)
 
 Table of contents:

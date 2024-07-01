@@ -15,6 +15,9 @@
   - [Q\&A for previous issues encountered](#qa-for-previous-issues-encountered)
 
 <!-- /TOC -->
+
+---
+
 ## Some rules before starting
 
 - **When running serpent, especially with `sss2 -omp` set to the max number of CPUs, it will occupy the entire nodes resources.**
@@ -30,14 +33,12 @@ If you compiled Serpent with **OpenMP libraries** for parallel computing, you co
 ```sh
 sss2 -omp N input
 ```
-Where  **N**  is the number of **OpenMP threads** you want to use and can be set to, e.g. the number of available processor cores **(this just make threads on the cores of one processor, aka. only thread-based parallelism,**  **but without doing more than one MPI process per node**
-
-`An example of the expected output is given below, although you should note that the statistical nature of the Monte Carlo methods means that you will not get exactly same values for the k-effective - UNCOMPLETE `
+Where  **N**  is the number of **OpenMP threads** you want to use and can be set to, e.g. the number of available processor cores **(this is just make threads on the cores of one processor, aka. only thread-based parallelism,**  **but without doing more than one MPI process per node)**
 
 ```sh
-runmpi -np M sss2 input
+runmpi -np X sss2 input
 ```
-This command executes the calculation in **M** hosts as defined in the parallel environment. Serpent uses the Message Passing Interface (MPI) [3] for parallel calculation. **(This one distributes threads to multiple hosts with multiple processors)**
+This command executes the calculation in **X** hosts as defined in the parallel environment. Serpent uses the Message Passing Interface (MPI) [3] for parallel calculation. **(This one distributes threads to multiple hosts with multiple processors)**
 
 To activate this capability the code must be compiled with the **PARALLEL_MPI** option (see the Makefile and additional docs with the Serpent scrips for details) and the MPI libraries must be installed on the system. There are two options for running the code in the parallel calculation mode. The first option is to use the standard MPI tools, such as mpirun.
 

@@ -5,6 +5,7 @@
 <!-- TOC -->
 
 - [Project Structure](#project-structure)
+  - [Note](#note)
   - [File Tree](#file-tree)
   - [Local Usage](#local-usage)
   - [Usage](#usage)
@@ -13,10 +14,14 @@
 
 <!-- /TOC -->
 
+---
+
+## Note
+
 - This project is structured in a way that separates scripts, `installations_scripts`, `productivity_scripts`, `py_analysis_scripts`, `py_input_generation_scripts` (with the `nuclear_lib` ) and documentation.
 - The installations scripts, productivity scripts are straight forward scripts related to our lab research, as to streamline analysis and general waste of time.
 
-- The important part are the python scripts, most of them are dependent on the `nuclear_lib`  folder for function references to work properlly. 
+- The important part are the python scripts, most of them are dependent on the `nuclear_lib`  folder for function references to work properly. 
 
 - The alternative that is to use the [python_scripts_nolib](python_scripts_no_lib), 
 or you just paste the script and the entire `nuclear_lib` folder inside the folders you need.

@@ -1,10 +1,10 @@
 ## This first part is the post bash command for the qsub engine #####################################
 #!/bin/sh
 #$-cwd    					## work in the current directory 
-#$ -V	  					## use the present envirorment variables (picks up serpent)
+#$ -V	  					## use the present environment variables (picks up serpent)
 #$ -N run_name  			## name of the run
 #$ -o job.out	            ## write output to a file
-#$ -e job.out	            ## write qsub errors to a file (wirte to the same file ,easier to read)
+#$ -e job.out	            ## write qsub errors to a file (write to the same file ,easier to read)
 
 ## This is the actual bash part you run #############################################################
 

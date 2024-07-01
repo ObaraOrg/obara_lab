@@ -2,18 +2,18 @@
 
 **[Back to main page](https://github.com/ObaraOrg/obara_lab)**
 
-The olds cluster has the folowing nodes avalabile:
+The olds cluster has the following nodes available:
 
 ```sh
 # A total of 9 nodes
 olds01, olds02, ..., olds09
 ```
 
-The olcs cluster has the folowing nodes avalabile:
+The olcs cluster has the following nodes available:
 
 ```sh
 # A total of 8 nodes
-olds01, olds02, ..., olds08
+olcs01, olcs02, ..., olcs08
 ```
 
 ---
@@ -36,6 +36,6 @@ olds01, olds02, ..., olds08
 Use this one to login and work interactively on a certain node (olds01 - olds09)
 ```sh
 # Example
-rsh olds01
+rsh olds03
 ```
  

@@ -18,6 +18,7 @@ Welcome, this is the lab repository, made to make life easier while working in t
   - [Project structure for analysis](#project-structure-for-analysis)
 
 <!-- /TOC -->
+
 ## Documentation and available materials
 
 * **Setup**
