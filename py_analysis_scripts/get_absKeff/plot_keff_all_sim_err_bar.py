@@ -23,7 +23,7 @@ def check_consistency(files_read: List[Path]) -> None:
             raise Exception(f"File {files_read[index].filePath} inconsistent")
 
 @click.command()
-@click.option("--cut", default=0, help="Specify how many last steps to plot", type=int)
+@click.option("--cut", default=0, help="Specify how many last steps to plot (positive val), specify how many steps to cut (negative val)", type=int)
 @click.option("--no-err-bars", is_flag=True, default=True, help="Turn error bars off ")
 @click.option("--bw", is_flag=True, default=False, help="Enable black and white plotting")
 @click.argument("input_folders", nargs=-1, type=click.Path(exists=True))
@@ -33,8 +33,9 @@ def plot_keff(cut: int, no_err_bars: bool, bw: bool, input_folders: Tuple[str, .
     supports plotting with or without error bars to visualize the statistical uncertainty in keff values.
 
     By specifying the `--cut` option, users can limit the plot to the last N steps of the simulation data,
-    allowing for focused analysis on the end behavior of the reactor simulation. The `--no-err-bars` flag
-    toggles the inclusion of error bars on the plot, statistical deviation from the serpent output.
+    or the first N steps if a negative value is provided. A value of 0 plots all steps.
+    The `--no-err-bars` flag toggles the inclusion of error bars on the plot, 
+    statistical deviation data from the serpent output.
 
     Examples:
 
@@ -44,15 +45,18 @@ def plot_keff(cut: int, no_err_bars: bool, bw: bool, input_folders: Tuple[str, .
         Plot 3 steps with no error bars for two simulations:
             python plot_keff_all_sim_err_bar.py --cut 3 --no-err-bars -- sim1 sim2
 
-
+        Plot the without the last 5 steps with error bars for a single simulation:
+            python plot_keff_all_sim_err_bar.py --cut -5 sim1
 
         And any combinations works of these 4 options.
 
     Args:
-        cut (int): Specify how many last steps to plot. A value of 0 plots all steps.
-        error_bars (bool): Flag to turn error bars on (True) or off (False). Defaults to True.
-        input_folders (Tuple[str, ...]): Folders to parse for _res.m files. If no folders are specified,
-                                         the script processes every folder in the current directory.
+        cut (int): How many last steps to plot. Defaults to 0 (all)
+        no-err-bars (bool): Disable error bars. Defaults to True.
+        bw (bool): Enable b&w plotting. Defaults to False.
+        input_folders (Tuple[str, ...]): Folders to parse for _res.m files. 
+        If no folders are specified, the script processes every folder 
+        in the current directory.
     """
     if len(input_folders) > 0:
         folders = [Path(folder) for folder in input_folders]
@@ -67,7 +71,7 @@ def plot_keff(cut: int, no_err_bars: bool, bw: bool, input_folders: Tuple[str, .
     else:
         plt.style.use('tableau-colorblind10')
 
-    line_styles = itertools.cycle(['-', '--', ':', '-.'])
+    line_styles = itertools.cycle(['-', '--', ':', '-.']) 
     marker_shapes = itertools.cycle(['o', 's', '^', 'D', 'v', '<', '>', 'p', '*', 'h'])
 
     for sim_folder in folders:
@@ -98,10 +102,17 @@ def plot_keff(cut: int, no_err_bars: bool, bw: bool, input_folders: Tuple[str, .
             time_arr[index] = index / (len(time_arr) - 1)
         time_arr = np.concatenate([time_arr + idx for idx in range(0, len(files_read))])
 
-        short_time_scale = single_time_arr * cut
-        time_arr = time_arr[-short_time_scale:]
-        keffs = keffs[-short_time_scale:]
-        keffs_err = keffs_err[-short_time_scale:]
+
+        if cut >= 0:
+            short_time_scale = single_time_arr * cut
+            time_arr = time_arr[-short_time_scale:]
+            keffs = keffs[-short_time_scale:]
+            keffs_err = keffs_err[-short_time_scale:]
+        else:
+            short_time_scale = single_time_arr * abs(cut)
+            time_arr = time_arr[:cut * single_time_arr]
+            keffs = keffs[:cut * single_time_arr]
+            keffs_err = keffs_err[:cut * single_time_arr]
 
         line_style = next(line_styles)
         marker_shape = next(marker_shapes)
