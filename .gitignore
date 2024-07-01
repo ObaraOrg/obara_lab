@@ -11,6 +11,7 @@ matrix_dump.txt
 
 # Exceptions from the rules above
 !serpent_analysis/learning_serpent/**
+!py_input_generation_scripts/create_sims/input_template/** */
 
 # Work files
 *.xlsx
