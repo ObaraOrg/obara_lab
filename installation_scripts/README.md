@@ -42,9 +42,15 @@ ________________________________________
 ## Using the pre-installed Serpent2 on the olds and olcs
 
 - Local Cluster **olds** runs a global version of **Serpent 2.1.33** (OMP and MPI enabled), it runs with the command `sss2`. 
-  - The default nuclear data path set to: `/usr/local/serpent/xsdata`.
+  - To use Serpent2 you need to add the following paths to your .bashrc (its in your user folder)
+    ```sh
+    export PATH=/misc/home/hpc/serpent/bin:$PATH
+    export SERPENT_DIR=/misc/home/hpc/serpent
+    export SERPENT_DATA=$SERPENT_DIR/xsdata
+    export SERPENT_ACELIB=sss_endfb7u.xsdata
+    ```
+  - The default nuclear data path set to: `/usr/local/serpent/xsdata` or `/misc/home/hpc/serpent/xsdata`.
   - Available nuclear data libraries: **endfb7**, **jeff31**, **endfb7.1**. Cross section, decay and induced-fission yields data libraries are included for each library.
-  - 
 
 |          | Cross-section lib   | Decay lib        | Induced-fission yields lib | Source                                                              |
 | -------- | ------------------- | ---------------- | -------------------------- | ------------------------------------------------------------------- |
@@ -55,6 +61,8 @@ ________________________________________
 <br>
 
 - Local Cluster **olcs** runs a global version of **Serpent 2.1.31** (OMP enabled, MPI not enables because reasons?), it runs with the command `sss2`. The default nuclear data path was not configured yet, so you'll have to do it yourself for the moment, see [here](https://serpent.vtt.fi/mediawiki/index.php/Installing_and_running_Serpent#Setting_up_the_data_libraries), or the guide bellow.
+  - NOTE: It needs the same cofiguration as on the olds
+
 
 ## Installing Serpent2 on your local user
 
