@@ -4,9 +4,9 @@ set title "Tutorial 1 - Infinite homogeneous system"
 
 % --- Cross section library file path:
 
-set acelib "sss_endfb7u.xsdata"
-set declib "sss_endfb7.dec"
-set nfylib "sss_endfb7.nfy"
+set acelib "s2v0_endfb71.xsdata"
+set declib "/home/stalex/serpent/xsdata/s2v0_endfb71.dec"
+set nfylib "/home/stalex/serpent/xsdata/s2v0_endfb71.nfy"
 
 % --- Define thermal scattering libraries associated with hydrogen-2
 

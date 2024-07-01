@@ -1065,3 +1065,4 @@ py_analysis_scripts/get_BU_data/23_enr_1.5x_acc_last_fa_bu.csv
 py_analysis_scripts/get_BU_data/950d_last_fa_bu.csv
 py_analysis_scripts/get_BU_data/1050d_last_fa_bu.csv
 py_analysis_scripts/get_BU_data/1150d_last_fa_bu.csv
+serpent_analysis/Z_for_the_script
