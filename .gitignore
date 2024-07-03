@@ -1100,4 +1100,20 @@ py_analysis_scripts/get_detector_data/15_sim/input/220cm/mvol.inp
 py_analysis_scripts/get_detector_data/15_sim/input/lp/core_lp_SF3_wt_CR.inp
 py_analysis_scripts/get_detector_data/15_sim/input/lp/core_lp_SF3.inp
 py_analysis_scripts/compare_nuclides/03_sim
+py_analysis_scripts/get_detector_data/03_enr_1.2x_acc
 
+py_analysis_scripts/get_detector_data/03_enr_1.2x_aux_cpd/fuel.inp
+py_analysis_scripts/get_detector_data/03_enr_1.2x_aux_cpd/get_flux.py
+py_analysis_scripts/get_detector_data/03_enr_1.2x_aux_cpd/get_keff_old.py
+py_analysis_scripts/get_detector_data/03_enr_1.2x_aux_cpd/get_keff.py
+py_analysis_scripts/get_detector_data/03_enr_1.2x_aux_cpd/get_pwr.py
+py_analysis_scripts/get_detector_data/03_enr_1.2x_aux_cpd/go_interactive.sh
+py_analysis_scripts/get_detector_data/03_enr_1.2x_aux_cpd/hosts_olds
+py_analysis_scripts/get_detector_data/03_enr_1.2x_aux_cpd/hosts_olds.bak
+py_analysis_scripts/get_detector_data/03_enr_1.2x_aux_cpd/Job.qsub
+py_analysis_scripts/get_detector_data/03_enr_1.2x_aux_cpd/Job.qsub.bak
+py_analysis_scripts/get_detector_data/03_enr_1.2x_aux_cpd/JobSimpleTSU.qsub
+py_analysis_scripts/get_detector_data/03_enr_1.2x_aux_cpd/JobTSU.qsub
+py_analysis_scripts/get_detector_data/03_enr_1.2x_aux_cpd/JobTSU.qsub.bak
+py_analysis_scripts/get_detector_data/03_enr_1.2x_aux_cpd_last_fa_flux.csv
+py_analysis_scripts/get_detector_data/Flux.csv
