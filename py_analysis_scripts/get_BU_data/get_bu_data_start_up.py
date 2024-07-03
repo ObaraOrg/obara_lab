@@ -47,7 +47,7 @@ def main() -> None:
 
     # iterate through all of the simulations and get all paths for one folder at a time
     for cy_folder in natsorted(simulation):
-        # reinitialize the parths list
+        # reinitialize the paths list
 
         files_in_cy_folder = [
             str(file) for file in sorted(cy_folder.rglob(f"{FILE_NAME}_dep.m"))
@@ -57,13 +57,16 @@ def main() -> None:
 
         dfs = []
 
+        # Read the det file and get the flux values
         for file in tqdm(files_in_cy_folder):
             dep = serpentTools.read((file), reader="dep")
             df, _, _, _ = get_bu_data(dep, atomic_wt, P, Z)
             df = df[["p", "z", "mdens_sum", "serpent_burnup"]]
             df = get_bu_data2(dep, atomic_wt, P, Z)
             df = df.sort_values(["p", "z"]).reset_index(drop=True)
-            dfs.append(df)
+            dfs.append(df)    
+
+        # Same  script almost as the get flux/dpa script
 
         prev_df = dfs[0]
         corrected_dfs = [prev_df.reset_index(drop=True)]
