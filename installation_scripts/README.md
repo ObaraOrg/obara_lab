@@ -10,7 +10,7 @@ ________________________________________
 - [Getting started with Serpent 2](#getting-started-with-serpent-2)
   - [Table of contents](#table-of-contents)
   - [Using the pre-installed Serpent 2 on the olds and olcs clusters](#using-the-pre-installed-serpent-2-on-the-olds-and-olcs-clusters)
-  - [Installing Serpent 2 on your local user](#installing-serpent-2-on-your-local-user)
+  - [Installing Serpent 2 on your local user (if you really want)](#installing-serpent-2-on-your-local-user-if-you-really-want)
     - [Required files](#required-files)
     - [Download data from the server](#download-data-from-the-server)
   - [Manual installation steps](#manual-installation-steps)
@@ -33,19 +33,18 @@ ________________________________________
 ## Using the pre-installed Serpent 2 on the olds and olcs clusters
 
 - **Local Cluster olds** and **Local Cluster olcs** run a global version of Serpent 2.1.33 (OMP and MPI enabled), it runs with the command `sss2`.
-    - To use Serpent 2 you need to add the following paths to your .bashrc (its in your user folder)
-
-      ```sh
-      export PATH=/misc/home/hpc/serpent/bin:$PATH
-      export SERPENT_DIR=/misc/home/hpc/serpent
-      export SERPENT_DATA=$SERPENT_DIR/xsdata
-      export SERPENT_ACELIB=sss_endfb7u.xsdata
-      ```
     - The default nuclear data path set to: `/usr/local/serpent/xsdata` or `/misc/home/hpc/serpent/xsdata`.
     - Available nuclear data libraries: **endfb7**, **jeff31**, **endfb7.1**. Cross section, decay and induced-fission yields data libraries are included for each library.
-<br>
+    - To use **Serpent 2** you need to add the following paths to your .bashrc (it's in your own home user folder). The default ACELIB is the ENDFB VII.B in the last line.
 
-<div style="padding-left: 65px;">
+```sh
+export PATH=/misc/home/hpc/serpent/bin:$PATH
+export SERPENT_DIR=/misc/home/hpc/serpent
+export SERPENT_DATA=$SERPENT_DIR/xsdata
+export SERPENT_ACELIB=sss_endfb7u.xsdata
+```
+
+<br>
 
 |          | Cross-section lib   | Decay lib        | Induced-fission yields lib | Source                                                              |
 | -------- | ------------------- | ---------------- | -------------------------- | ------------------------------------------------------------------- |
@@ -53,11 +52,9 @@ ________________________________________
 | endfb7.1 | s2v0_endfb71.xsdata | s2v0_endfb71.dec | s2v0_endfb71.nfy           | [VTT](https://vtt.sharefile.eu/d-s7d9ab4b6a9d64cdabf4c9a491390899a) |
 | jeff31   | sss_jeff31u.xsdata  | sss_jeff31.dec   | sss_jeff31.nfy             | [VTT](https://vtt.sharefile.eu/d-s7d9ab4b6a9d64cdabf4c9a491390899a) |
 
-</div>
-
 <br>
 
-## Installing Serpent 2 on your local user
+## Installing Serpent 2 on your local user (if you really want)
 
 [Serpent wiki, installation and tutorial guides.](https://serpent.vtt.fi/mediawiki/index.php/Main_Page)
 
@@ -90,7 +87,7 @@ ________________________________________
 
 ### Download data from the server
 
-Transfer the contents of the `01_software/Serpent 2.1.32 ...` folder DIRECTLY in your user home directory (serpent folder + install script), paths are references to the main directory `~/serpent/` as for the script to find the appropriate files and work.
+Transfer the contents of the `01_software/Serpent 2.1.33 ...` folder DIRECTLY in your user home directory (serpent folder + install script), paths are references to the main directory `~/serpent/` as for the script to find the appropriate files and work.
 
 ```sh
 #Create serpent directory in your home directory
