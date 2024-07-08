@@ -2,31 +2,9 @@
 
 Made for Serpent 2.1.33
 
-[Back to main page](https://github.com/ObaraOrg/obara_lab)
-
-## Regarding the scripts functionality and capabilities:
-
-- This script build is made to enable **OMPI** and **OMP** for SERPENT on an **INTEL CPU**
-
-(modifies the `Makefile` automatically to compile with the **ICC** and **MPICC**, not the **GCC**)
-
-- To change flags in the `Makefile`, please uncomment/comment them inside in the `install_script_` file
-
-(still working to make it interactive)
-
-- this version unzips the ENFB7 and JEFF31 libraries to the `/xsdata` folder
-- default datapath is set to `~"user_home"/serpent/xsdata` via the `~/.bashrc`
-
-For more info on installation and compilation FLAGS check the latter section of the document
-
-________________________________________
-
-## Table of contents
-
 <!-- TOC -->
 
 - [Getting started with Serpent 2](#getting-started-with-serpent-2)
-    - [Regarding the scripts functionality and capabilities:](#regarding-the-scripts-functionality-and-capabilities)
     - [Table of contents](#table-of-contents)
     - [Using the pre-installed Serpent 2 on the olds and olcs](#using-the-pre-installed-serpent-2-on-the-olds-and-olcs)
     - [Installing Serpent 2 on your local user](#installing-serpent-2-on-your-local-user)
@@ -36,7 +14,7 @@ ________________________________________
         - [Unzip the required files](#unzip-the-required-files)
         - [Compile Serpent](#compile-serpent)
         - [Preparation of cross-sectional area file](#preparation-of-cross-sectional-area-file)
-        - [Setting environment variables (for bash, if you use a different shell be aware)](#setting-environment-variables-for-bash-if-you-use-a-different-shell-be-aware)
+        - [Setting environment variables for bash, if you use a different shell be aware](#setting-environment-variables-for-bash-if-you-use-a-different-shell-be-aware)
         - [Perform benchmark calculation](#perform-benchmark-calculation)
         - [Perform tutorial calculation](#perform-tutorial-calculation)
     - [On compilation flags](#on-compilation-flags)
@@ -46,12 +24,45 @@ ________________________________________
         - [Additional](#additional)
 
 <!-- /TOC -->
+    - [GNU Compiler:](#gnu-compiler)
+    - [Intel Compiler:](#intel-compiler)
+    - [Enable Parallel process calculation using MPI:](#enable-parallel-process-calculation-using-mpi)
+    - [Additional](#additional)
+
+<!-- /TOC -->
+________________________________________
+
+## Table of contents
+
+<!-- TOC -->
+
+- [Getting started with Serpent 2](#getting-started-with-serpent-2)
+  - [Table of contents](#table-of-contents)
+  - [Using the pre-installed Serpent 2 on the olds and olcs](#using-the-pre-installed-serpent-2-on-the-olds-and-olcs)
+  - [Installing Serpent 2 on your local user](#installing-serpent-2-on-your-local-user)
+    - [Required files](#required-files)
+    - [Download data from the server](#download-data-from-the-server)
+  - [Manual installation steps](#manual-installation-steps)
+    - [Unzip the required files](#unzip-the-required-files)
+    - [Compile Serpent](#compile-serpent)
+    - [Preparation of cross-sectional area file](#preparation-of-cross-sectional-area-file)
+    - [Setting environment variables (for bash, if you use a different shell be aware)](#setting-environment-variables-for-bash-if-you-use-a-different-shell-be-aware)
+    - [Perform benchmark calculation](#perform-benchmark-calculation)
+    - [Perform tutorial calculation](#perform-tutorial-calculation)
+  - [On compilation flags](#on-compilation-flags)
+    - [GNU Compiler:](#gnu-compiler)
+    - [Intel Compiler:](#intel-compiler)
+    - [Enable Parallel process calculation using MPI:](#enable-parallel-process-calculation-using-mpi)
+    - [Additional](#additional)
+
+<!-- /TOC -->
 
 ________________________________________
 
 ## Using the pre-installed Serpent 2 on the olds and olcs
 
-- Local Cluster **olds** runs a global version of **Serpent 2.1.33** (OMP and MPI enabled), it runs with the command `sss2`. 
+- **Local Cluster olds** and **Local Cluster olcs** run a global version of Serpent 2.1.33 (OMP and MPI enabled), it runs with the command `sss2`.
+<br>
     - To use Serpent 2 you need to add the following paths to your .bashrc (its in your user folder)
 
       ```sh
@@ -63,16 +74,13 @@ ________________________________________
     - The default nuclear data path set to: `/usr/local/serpent/xsdata` or `/misc/home/hpc/serpent/xsdata`.
     - Available nuclear data libraries: **endfb7**, **jeff31**, **endfb7.1**. Cross section, decay and induced-fission yields data libraries are included for each library.
 
-|          | Cross-section lib   | Decay lib        | Induced-fission yields lib | Source                                                              |
-| -------- | ------------------- | ---------------- | -------------------------- | ------------------------------------------------------------------- |
-| endfb7   | sss_endfb7u.xsdata  | sss_endfb7.dec   | sss_endfb7.nfy             | [VTT](https://vtt.sharefile.eu/d-s7d9ab4b6a9d64cdabf4c9a491390899a) |
-| endfb7.1 | s2v0_endfb71.xsdata | s2v0_endfb71.dec | s2v0_endfb71.nfy           | [VTT](https://vtt.sharefile.eu/d-s7d9ab4b6a9d64cdabf4c9a491390899a) |
-| jeff31   | sss_jeff31u.xsdata  | sss_jeff31.dec   | sss_jeff31.nfy             | [VTT](https://vtt.sharefile.eu/d-s7d9ab4b6a9d64cdabf4c9a491390899a) |
+        |          | Cross-section lib   | Decay lib        | Induced-fission yields lib | Source                                                              |
+        | -------- | ------------------- | ---------------- | -------------------------- | ------------------------------------------------------------------- |
+        | endfb7   | sss_endfb7u.xsdata  | sss_endfb7.dec   | sss_endfb7.nfy             | [VTT](https://vtt.sharefile.eu/d-s7d9ab4b6a9d64cdabf4c9a491390899a) |
+        | endfb7.1 | s2v0_endfb71.xsdata | s2v0_endfb71.dec | s2v0_endfb71.nfy           | [VTT](https://vtt.sharefile.eu/d-s7d9ab4b6a9d64cdabf4c9a491390899a) |
+        | jeff31   | sss_jeff31u.xsdata  | sss_jeff31.dec   | sss_jeff31.nfy             | [VTT](https://vtt.sharefile.eu/d-s7d9ab4b6a9d64cdabf4c9a491390899a) |
 
 <br>
-
-- Local Cluster **olcs** runs a global version of **Serpent 2.1.31** (OMP enabled, MPI not enables because reasons?), it runs with the command `sss2`. The default nuclear data path was not configured yet, so you'll have to do it yourself for the moment, see [here](https://serpent.vtt.fi/mediawiki/index.php/Installing_and_running_Serpent#Setting_up_the_data_libraries), or the guide bellow.
-    - NOTE: It needs the same cofiguration as on the olds
 
 ## Installing Serpent 2 on your local user
 

@@ -5,7 +5,6 @@ Welcome, this is the lab repository, made to make life easier while working in t
 <!-- TOC -->
 
 - [Obara lab repository](#obara-lab-repository)
-  - [Documentation and available materials](#documentation-and-available-materials)
   - [The work environment](#the-work-environment)
   - [Remote tools](#remote-tools)
     - [File transfer software](#file-transfer-software)
@@ -17,13 +16,7 @@ Welcome, this is the lab repository, made to make life easier while working in t
   - [Setup the remote python environment](#setup-the-remote-python-environment)
   - [Project structure for analysis](#project-structure-for-analysis)
 
-<!-- /TOC -->
-
-## Documentation and available materials
-
-* **Setup**
-  * [Linux commands](documentation/linux_commands.md)
-  * [Setup python dev environment](documentation/setup_py_environment.md)
+<!-- /TOC -->thon dev environment](documentation/setup_py_environment.md)
 * **Serpent related**
   * [Installing Serpent2](installation_scripts)
   * [Learning Serpent2](documentation/learning_sss2.md)
@@ -50,8 +43,8 @@ Welcome, this is the lab repository, made to make life easier while working in t
 | ------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------- |
 |                     | WIFI                            |                                                                                                          | obaralab       |
 | File Server         | 192.168.11.3                    | Documentation and serpent files, and other software are to be found here.                                | *Ask for it*   |
-| Local cluster olds  | 192.168.11.206:22               | 9 nodes **olds01 - olds09**, Xeon E5-2680 v3 @2.50GHz (x24 cores), CentOS 6.5                            | _student user_ |
-| Local cluster olcs  | 192.168.11.200:22               | 8 nodes **olcs01 - olcs08**, Xeon E5-2690 0 @2.90GHz (x16 cores), CentOS 6.2                             | _student user_ |
+| Local cluster olds  | 192.168.11.206:22               | 9 nodes **olds01 - olds09**, Xeon E5-2680 v3 @2.50GHz (x24 cores), 126GB RAM, CentOS 6.5                            | _student user_ |
+| Local cluster olcs  | 192.168.11.200:22               | 8 nodes **olcs01 - olcs08**, Xeon E5-2690 0 @2.90GHz (x16 cores), 126GB RAM, CentOS 6.2                             | _student user_ |
 | PC for modeling CFD | 192.168.11.4                    | Workstation, Xenon Gold 6252 @2.10GHz (x48 cores), 1TB RAM, Quadro GV100 x2 GPU                          | *Ask for it*   |
 | PC for modeling CFD | 192.168.11.5                    | Workstation, Xenon E5-2697 v4 @2.30GHz (x36 cores), 512GB RAM, Quadro M4000 GPU                          | *Ask for it*   |
 | TSUBAME4 Login      | `ID`@login.t4.gsic.titech.ac.jp | Login node, home directory space is less than 17Gb so I recommend you use the **group disk** for storage | `student_ID`   |
@@ -59,18 +52,21 @@ Welcome, this is the lab repository, made to make life easier while working in t
 
 **Notes:**
 - **File Server** can be mapped with simple `ftp` from the 
-  <br>
-- Local Cluster **olds** runs a global version of Serpent 2.1.33 (OMP and MPI enabled), it runs with the command `sss2`. The default nuclear data path set to: `/usr/local/serpent/xsdata` or `/misc/home/hpc/serpent/xsdata`
-  - **NOTE:** You have to set the correct path in your bashrc, see the guide on instalation [here](installation_scripts/README.md)
-  - Available nuclear data libraries: **endfb7**, **jeff31**, **endfb7.1**. Cross section, decay and induced-fission yields data libraries are included for each library.
-  - Local Cluster **olds** can be mapped with `sftp` but Windows can't use `sftp` connections for the **Local cluster**, so you first need some prerequisites:
+<br>
+
+- **Local Cluster olds** and **Local Cluster olcs** run a global version of Serpent 2.1.33 (OMP and MPI enabled), it runs with the command `sss2`. The default nuclear data path set to: `/usr/local/serpent/xsdata` or `/misc/home/hpc/serpent/xsdata`
+  - **To use** `sss2` you have to set the correct paths in your bashrc, see the guide on instalation [here](installation_scripts/README.md)
+  - Both **Local Clusters olds and olcs** can be mapped with `sftp` (basically to see them in explorer) but Windows can't use by default `sftp` connections for the clusters, so you first need some prerequisites:
     - [WinFsp](https://github.com/winfsp/sshfs-win), this can make `sftp` avalabile on Windows and can be easily installed via `windows powershell` as follows: 
     ```sh
     winget install WinFsp.WinFsp; winget install SSHFS-Win.SSHFS-Win
     ```
-    - After, in the *Add Network Location* the address must be writen like `\\sshfs\user@192.168.11.206`. You can also follow the [tutorial](https://sftptogo.com/blog/how-to-map-sftp-as-a-windows-10-drive/).
--  Local Cluster **olcs** runs a global version of Serpent 2.1.31 (OMP enabled, MPI not enables because reasons?), it runs with the command `sss2`. The default nuclear data path was not configured yet, so you'll have to do it yourself for the momment.
-  <br>
+    - After, in the *Add Network Location* the address must be writen like `\\sshfs\user@192.168.11.206` and `\\sshfs\user@192.168.11.200`. You can also follow the [tutorial](https://sftptogo.com/blog/how-to-map-sftp-as-a-windows-10-drive/).
+    - It should be available like this after configuration:
+  
+    ![Explorer](documentation/explorer.png "Explorer")
+<br>
+
   
 - **TSUBAME** may be available or not dependint on the years contract.
 - **TSUBAME Login** procedure can be found [here](https://www.t4.gsic.titech.ac.jp/docs/all/handbook.en/start/)
