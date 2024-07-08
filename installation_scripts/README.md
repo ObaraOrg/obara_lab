@@ -1,35 +1,6 @@
 # Getting started with Serpent 2 
 
 Made for Serpent 2.1.33
-
-<!-- TOC -->
-
-- [Getting started with Serpent 2](#getting-started-with-serpent-2)
-    - [Table of contents](#table-of-contents)
-    - [Using the pre-installed Serpent 2 on the olds and olcs](#using-the-pre-installed-serpent-2-on-the-olds-and-olcs)
-    - [Installing Serpent 2 on your local user](#installing-serpent-2-on-your-local-user)
-        - [Required files](#required-files)
-        - [Download data from the server](#download-data-from-the-server)
-    - [Manual installation steps](#manual-installation-steps)
-        - [Unzip the required files](#unzip-the-required-files)
-        - [Compile Serpent](#compile-serpent)
-        - [Preparation of cross-sectional area file](#preparation-of-cross-sectional-area-file)
-        - [Setting environment variables for bash, if you use a different shell be aware](#setting-environment-variables-for-bash-if-you-use-a-different-shell-be-aware)
-        - [Perform benchmark calculation](#perform-benchmark-calculation)
-        - [Perform tutorial calculation](#perform-tutorial-calculation)
-    - [On compilation flags](#on-compilation-flags)
-        - [GNU Compiler:](#gnu-compiler)
-        - [Intel Compiler:](#intel-compiler)
-        - [Enable Parallel process calculation using MPI:](#enable-parallel-process-calculation-using-mpi)
-        - [Additional](#additional)
-
-<!-- /TOC -->
-    - [GNU Compiler:](#gnu-compiler)
-    - [Intel Compiler:](#intel-compiler)
-    - [Enable Parallel process calculation using MPI:](#enable-parallel-process-calculation-using-mpi)
-    - [Additional](#additional)
-
-<!-- /TOC -->
 ________________________________________
 
 ## Table of contents
@@ -38,7 +9,7 @@ ________________________________________
 
 - [Getting started with Serpent 2](#getting-started-with-serpent-2)
   - [Table of contents](#table-of-contents)
-  - [Using the pre-installed Serpent 2 on the olds and olcs](#using-the-pre-installed-serpent-2-on-the-olds-and-olcs)
+  - [Using the pre-installed Serpent 2 on the olds and olcs clusters](#using-the-pre-installed-serpent-2-on-the-olds-and-olcs-clusters)
   - [Installing Serpent 2 on your local user](#installing-serpent-2-on-your-local-user)
     - [Required files](#required-files)
     - [Download data from the server](#download-data-from-the-server)
@@ -59,10 +30,9 @@ ________________________________________
 
 ________________________________________
 
-## Using the pre-installed Serpent 2 on the olds and olcs
+## Using the pre-installed Serpent 2 on the olds and olcs clusters
 
 - **Local Cluster olds** and **Local Cluster olcs** run a global version of Serpent 2.1.33 (OMP and MPI enabled), it runs with the command `sss2`.
-<br>
     - To use Serpent 2 you need to add the following paths to your .bashrc (its in your user folder)
 
       ```sh
@@ -73,12 +43,17 @@ ________________________________________
       ```
     - The default nuclear data path set to: `/usr/local/serpent/xsdata` or `/misc/home/hpc/serpent/xsdata`.
     - Available nuclear data libraries: **endfb7**, **jeff31**, **endfb7.1**. Cross section, decay and induced-fission yields data libraries are included for each library.
+<br>
 
-        |          | Cross-section lib   | Decay lib        | Induced-fission yields lib | Source                                                              |
-        | -------- | ------------------- | ---------------- | -------------------------- | ------------------------------------------------------------------- |
-        | endfb7   | sss_endfb7u.xsdata  | sss_endfb7.dec   | sss_endfb7.nfy             | [VTT](https://vtt.sharefile.eu/d-s7d9ab4b6a9d64cdabf4c9a491390899a) |
-        | endfb7.1 | s2v0_endfb71.xsdata | s2v0_endfb71.dec | s2v0_endfb71.nfy           | [VTT](https://vtt.sharefile.eu/d-s7d9ab4b6a9d64cdabf4c9a491390899a) |
-        | jeff31   | sss_jeff31u.xsdata  | sss_jeff31.dec   | sss_jeff31.nfy             | [VTT](https://vtt.sharefile.eu/d-s7d9ab4b6a9d64cdabf4c9a491390899a) |
+<div style="padding-left: 65px;">
+
+|          | Cross-section lib   | Decay lib        | Induced-fission yields lib | Source                                                              |
+| -------- | ------------------- | ---------------- | -------------------------- | ------------------------------------------------------------------- |
+| endfb7   | sss_endfb7u.xsdata  | sss_endfb7.dec   | sss_endfb7.nfy             | [VTT](https://vtt.sharefile.eu/d-s7d9ab4b6a9d64cdabf4c9a491390899a) |
+| endfb7.1 | s2v0_endfb71.xsdata | s2v0_endfb71.dec | s2v0_endfb71.nfy           | [VTT](https://vtt.sharefile.eu/d-s7d9ab4b6a9d64cdabf4c9a491390899a) |
+| jeff31   | sss_jeff31u.xsdata  | sss_jeff31.dec   | sss_jeff31.nfy             | [VTT](https://vtt.sharefile.eu/d-s7d9ab4b6a9d64cdabf4c9a491390899a) |
+
+</div>
 
 <br>
 
