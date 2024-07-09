@@ -16,7 +16,7 @@ Welcome, this is the lab repository, made to make life easier while working in t
   - [Setup the remote python environment](#setup-the-remote-python-environment)
   - [Project structure for analysis](#project-structure-for-analysis)
 
-<!-- /TOC -->thon dev environment](documentation/setup_py_environment.md)
+<!-- /TOC -->
 * **Serpent related**
   * [Installing Serpent2](installation_scripts)
   * [Learning Serpent2](documentation/learning_sss2.md)
@@ -41,21 +41,20 @@ Welcome, this is the lab repository, made to make life easier while working in t
 
 |                     | Address                         | Notes                                                                                                    | user           |
 | ------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------- |
-|                     | WIFI                            |                                                                                                          | obaralab       |
 | File Server         | 192.168.11.3                    | Documentation and serpent files, and other software are to be found here.                                | *Ask for it*   |
-| Local cluster olds  | 192.168.11.206:22               | 9 nodes **olds01 - olds09**, Xeon E5-2680 v3 @2.50GHz (x24 cores), 126GB RAM, CentOS 6.5                            | _student user_ |
-| Local cluster olcs  | 192.168.11.200:22               | 8 nodes **olcs01 - olcs08**, Xeon E5-2690 0 @2.90GHz (x16 cores), 126GB RAM, CentOS 6.2                             | _student user_ |
+| Local cluster olds  | 192.168.11.206:22               | 9 nodes **olds01 - olds09**, Xeon E5-2680 v3 @2.50GHz (x24 cores), 126GB RAM, CentOS 6.5                 | _student user_ |
+| Local cluster olcs  | 192.168.11.200:22               | 8 nodes **olcs01 - olcs08**, Xeon E5-2690 0 @2.90GHz (x16 cores), 126GB RAM, CentOS 6.2                  | _student user_ |
 | PC for modeling CFD | 192.168.11.4                    | Workstation, Xenon Gold 6252 @2.10GHz (x48 cores), 1TB RAM, Quadro GV100 x2 GPU                          | *Ask for it*   |
 | PC for modeling CFD | 192.168.11.5                    | Workstation, Xenon E5-2697 v4 @2.30GHz (x36 cores), 512GB RAM, Quadro M4000 GPU                          | *Ask for it*   |
 | TSUBAME4 Login      | `ID`@login.t4.gsic.titech.ac.jp | Login node, home directory space is less than 17Gb so I recommend you use the **group disk** for storage | `student_ID`   |
-| TSUBAME4 group DISK | /gs/hs0/tga-oba2                | Create a symbolic link (`ln -s` command)                                                                 |                |
+| TSUBAME4 group DISK | /gs/hs0/tga-oba2                | Create a symbolic link (`ln -s` command)                                                                 |        -       |
 
 **Notes:**
 - **File Server** can be mapped with simple `ftp` from the 
 <br>
 
-- **Local Cluster olds** and **Local Cluster olcs** run a global version of Serpent 2.1.33 (OMP and MPI enabled), it runs with the command `sss2`. The default nuclear data path set to: `/usr/local/serpent/xsdata` or `/misc/home/hpc/serpent/xsdata`
-  - **To use** `sss2` you have to set the correct paths in your bashrc, see the guide on instalation [here](installation_scripts/README.md)
+- **Local Cluster olds** and **Local Cluster olcs** run a global version of Serpent 2.1.33 (OMP and MPI enabled), it runs with the command `sss2`. The default nuclear data path set to: `/usr/local/serpent/xsdata` or `/misc/home/hpc/serpent/xsdata`.
+  - To use `sss2` you have to set the correct paths in your bashrc, see the guide on instalation [here](installation_scripts/README.md).
   - Both **Local Clusters olds and olcs** can be mapped with `sftp` (basically to see them in explorer) but Windows can't use by default `sftp` connections for the clusters, so you first need some prerequisites:
     - [WinFsp](https://github.com/winfsp/sshfs-win), this can make `sftp` avalabile on Windows and can be easily installed via `windows powershell` as follows: 
     ```sh
@@ -69,7 +68,7 @@ Welcome, this is the lab repository, made to make life easier while working in t
 
   
 - **TSUBAME** may be available or not dependint on the years contract.
-- **TSUBAME Login** procedure can be found [here](https://www.t4.gsic.titech.ac.jp/docs/all/handbook.en/start/)
+- **TSUBAME Login** procedure can be found [here](https://www.t4.gsic.titech.ac.jp/docs/all/handbook.en/start/).
 - **TSUBAME group disk** uses windows explorer to map the folder ([tutorial](https://www.t4.gsic.titech.ac.jp/docs/all/handbook.en/storage/)), to use it in the console you need to map it with a symbolic link towards you home directory on the TSUBAME.
   ```sh
     # This is a old example for T3, the new path are noted in the T4 documentation
@@ -96,7 +95,7 @@ Welcome, this is the lab repository, made to make life easier while working in t
 ### SSH command line interface
 
 - Putty
-- Putty script for a quick terminal, make a .bat file for windows (check these files [here](productivity_scripts/02_putty_terminal_script/README.md))
+- Putty script for a quick terminal, make a .bat file for windows (check these files [here](sh_productivity_scripts/02_putty_terminal_script/README.md))
 
 <br>
 
@@ -104,14 +103,14 @@ Welcome, this is the lab repository, made to make life easier while working in t
 
 ## Helpful editing tools
 
-- **Vim** editor inside the command line view (vim command)
-- **Tmux** window multiplexer, its very useful for not opening multiple terminal windows (version 1.6 is available on the cluster via `tmux` command)
-- **EMACS** with Vim key-bindings ([doomemacs](https://github.com/doomemacs/doomemacs) plugin) inside the command line view
-- **Notepad++** (with the FTP add-on, no need for FileZilla when working on files, at least for the cluster)
-- **Visual Studio Code** (crowd favorite, but still you cant connect remotely to the cluster :P)
-  - **Note 1:** Working on a `wsl` on a `jupiter` notebook via the VSCode may not load the correct python libraries if the correct python compiler is not chosen in VSCode
-  - **Note 2:** If you're using the `direnv` environment, you should run the VSCode from the main directory to have access to the right python compiler
-- **PyCharm Professional** ([free for students](https://www.jetbrains.com/community/education/#students), full development environment, no need for the tools above)
+- **Vim** editor inside the command line view (vim command).
+- **Tmux** window multiplexer, its very useful for not opening multiple terminal windows (version 1.6 is available on the cluster via `tmux` command).
+- **EMACS** with Vim key-bindings ([doomemacs](https://github.com/doomemacs/doomemacs) plugin) inside the command line view.
+- **Notepad++** (with the FTP add-on, no need for FileZilla when working on files, at least for the cluster).
+- **Visual Studio Code** (crowd favorite, but still you cant connect remotely to the cluster :P).
+  - **Note 1:** Working on a `wsl` on a `jupiter` notebook via the VSCode may not load the correct python libraries if the correct python compiler is not chosen in VSCode.
+  - **Note 2:** If you're using the `direnv` environment, you should run the VSCode from the main directory to have access to the right python compiler.
+- **PyCharm Professional** ([free for students](https://www.jetbrains.com/community/education/#students), full development environment, no need for the tools above).
 
 <br>
 
