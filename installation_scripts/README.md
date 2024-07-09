@@ -18,7 +18,6 @@ Made for Serpent 2.1.33
 - default datapath is set to `~"user_home"/serpent/xsdata` via the `~/.bashrc`
 
 For more info on installation and compilation FLAGS check the latter section of the document
-
 ________________________________________
 
 ## Table of contents
@@ -26,42 +25,43 @@ ________________________________________
 <!-- TOC -->
 
 - [Getting started with Serpent 2](#getting-started-with-serpent-2)
-    - [Regarding the scripts functionality and capabilities:](#regarding-the-scripts-functionality-and-capabilities)
-    - [Table of contents](#table-of-contents)
-    - [Using the pre-installed Serpent 2 on the olds and olcs](#using-the-pre-installed-serpent-2-on-the-olds-and-olcs)
-    - [Installing Serpent 2 on your local user](#installing-serpent-2-on-your-local-user)
-        - [Required files](#required-files)
-        - [Download data from the server](#download-data-from-the-server)
-    - [Manual installation steps](#manual-installation-steps)
-        - [Unzip the required files](#unzip-the-required-files)
-        - [Compile Serpent](#compile-serpent)
-        - [Preparation of cross-sectional area file](#preparation-of-cross-sectional-area-file)
-        - [Setting environment variables (for bash, if you use a different shell be aware)](#setting-environment-variables-for-bash-if-you-use-a-different-shell-be-aware)
-        - [Perform benchmark calculation](#perform-benchmark-calculation)
-        - [Perform tutorial calculation](#perform-tutorial-calculation)
-    - [On compilation flags](#on-compilation-flags)
-        - [GNU Compiler:](#gnu-compiler)
-        - [Intel Compiler:](#intel-compiler)
-        - [Enable Parallel process calculation using MPI:](#enable-parallel-process-calculation-using-mpi)
-        - [Additional](#additional)
+  - [Table of contents](#table-of-contents)
+  - [Using the pre-installed Serpent 2 on the olds and olcs clusters](#using-the-pre-installed-serpent-2-on-the-olds-and-olcs-clusters)
+  - [Installing Serpent 2 on your local user (if you really want)](#installing-serpent-2-on-your-local-user-if-you-really-want)
+    - [Required files](#required-files)
+    - [Download data from the server](#download-data-from-the-server)
+  - [Manual installation steps](#manual-installation-steps)
+    - [Unzip the required files](#unzip-the-required-files)
+    - [Compile Serpent](#compile-serpent)
+    - [Preparation of cross-sectional area file](#preparation-of-cross-sectional-area-file)
+    - [Setting environment variables (for bash, if you use a different shell be aware)](#setting-environment-variables-for-bash-if-you-use-a-different-shell-be-aware)
+    - [Perform benchmark calculation](#perform-benchmark-calculation)
+    - [Perform tutorial calculation](#perform-tutorial-calculation)
+  - [On compilation flags](#on-compilation-flags)
+    - [GNU Compiler:](#gnu-compiler)
+    - [Intel Compiler:](#intel-compiler)
+    - [Enable Parallel process calculation using MPI:](#enable-parallel-process-calculation-using-mpi)
+    - [Additional](#additional)
 
 <!-- /TOC -->
 
 ________________________________________
 
-## Using the pre-installed Serpent 2 on the olds and olcs
+## Using the pre-installed Serpent 2 on the olds and olcs clusters
 
-- Local Cluster **olds** runs a global version of **Serpent 2.1.33** (OMP and MPI enabled), it runs with the command `sss2`. 
-    - To use Serpent 2 you need to add the following paths to your .bashrc (its in your user folder)
-
-      ```sh
-      export PATH=/misc/home/hpc/serpent/bin:$PATH
-      export SERPENT_DIR=/misc/home/hpc/serpent
-      export SERPENT_DATA=$SERPENT_DIR/xsdata
-      export SERPENT_ACELIB=sss_endfb7u.xsdata
-      ```
+- **Local Cluster olds** and **Local Cluster olcs** run a global version of Serpent 2.1.33 (OMP and MPI enabled), it runs with the command `sss2`.
     - The default nuclear data path set to: `/usr/local/serpent/xsdata` or `/misc/home/hpc/serpent/xsdata`.
     - Available nuclear data libraries: **endfb7**, **jeff31**, **endfb7.1**. Cross section, decay and induced-fission yields data libraries are included for each library.
+    - To use **Serpent 2** you need to add the following paths to your .bashrc (it's in your own home user folder). The default ACELIB is the ENDFB VII.B in the last line.
+
+```sh
+export PATH=/misc/home/hpc/serpent/bin:$PATH
+export SERPENT_DIR=/misc/home/hpc/serpent
+export SERPENT_DATA=$SERPENT_DIR/xsdata
+export SERPENT_ACELIB=sss_endfb7u.xsdata
+```
+
+<br>
 
 |          | Cross-section lib   | Decay lib        | Induced-fission yields lib | Source                                                              |
 | -------- | ------------------- | ---------------- | -------------------------- | ------------------------------------------------------------------- |
@@ -71,10 +71,7 @@ ________________________________________
 
 <br>
 
-- Local Cluster **olcs** runs a global version of **Serpent 2.1.31** (OMP enabled, MPI not enables because reasons?), it runs with the command `sss2`. The default nuclear data path was not configured yet, so you'll have to do it yourself for the moment, see [here](https://serpent.vtt.fi/mediawiki/index.php/Installing_and_running_Serpent#Setting_up_the_data_libraries), or the guide bellow.
-    - NOTE: It needs the same cofiguration as on the olds
-
-## Installing Serpent 2 on your local user
+## Installing Serpent 2 on your local user (if you really want)
 
 [Serpent wiki, installation and tutorial guides.](https://serpent.vtt.fi/mediawiki/index.php/Main_Page)
 
@@ -107,7 +104,7 @@ ________________________________________
 
 ### Download data from the server
 
-Transfer the contents of the `01_software/Serpent 2.1.32 ...` folder DIRECTLY in your user home directory (serpent folder + install script), paths are references to the main directory `~/serpent/` as for the script to find the appropriate files and work.
+Transfer the contents of the `01_software/Serpent 2.1.33 ...` folder DIRECTLY in your user home directory (serpent folder + install script), paths are references to the main directory `~/serpent/` as for the script to find the appropriate files and work.
 
 ```sh
 #Create serpent directory in your home directory
