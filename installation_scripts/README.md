@@ -1,47 +1,32 @@
 # Getting started with Serpent 2 
 
 Made for Serpent 2.1.33
-
 [Back to main page](https://github.com/ObaraOrg/obara_lab)
-
-## Regarding the scripts functionality and capabilities:
-
-- This script build is made to enable **OMPI** and **OMP** for SERPENT on an **INTEL CPU**
-
-(modifies the `Makefile` automatically to compile with the **ICC** and **MPICC**, not the **GCC**)
-
-- To change flags in the `Makefile`, please uncomment/comment them inside in the `install_script_` file
-
-(still working to make it interactive)
-
-- this version unzips the ENFB7 and JEFF31 libraries to the `/xsdata` folder
-- default datapath is set to `~"user_home"/serpent/xsdata` via the `~/.bashrc`
-
-For more info on installation and compilation FLAGS check the latter section of the document
-________________________________________
+_______________________________________
 
 ## Table of contents
 
 <!-- TOC -->
 
 - [Getting started with Serpent 2](#getting-started-with-serpent-2)
-  - [Table of contents](#table-of-contents)
-  - [Using the pre-installed Serpent 2 on the olds and olcs clusters](#using-the-pre-installed-serpent-2-on-the-olds-and-olcs-clusters)
-  - [Installing Serpent 2 on your local user (if you really want)](#installing-serpent-2-on-your-local-user-if-you-really-want)
-    - [Required files](#required-files)
-    - [Download data from the server](#download-data-from-the-server)
-  - [Manual installation steps](#manual-installation-steps)
-    - [Unzip the required files](#unzip-the-required-files)
-    - [Compile Serpent](#compile-serpent)
-    - [Preparation of cross-sectional area file](#preparation-of-cross-sectional-area-file)
-    - [Setting environment variables (for bash, if you use a different shell be aware)](#setting-environment-variables-for-bash-if-you-use-a-different-shell-be-aware)
-    - [Perform benchmark calculation](#perform-benchmark-calculation)
-    - [Perform tutorial calculation](#perform-tutorial-calculation)
-  - [On compilation flags](#on-compilation-flags)
-    - [GNU Compiler:](#gnu-compiler)
-    - [Intel Compiler:](#intel-compiler)
-    - [Enable Parallel process calculation using MPI:](#enable-parallel-process-calculation-using-mpi)
-    - [Additional](#additional)
+    - [Table of contents](#table-of-contents)
+    - [Using the pre-installed Serpent 2 on the olds and olcs clusters](#using-the-pre-installed-serpent-2-on-the-olds-and-olcs-clusters)
+    - [Installing Serpent 2 on your local user if you really want](#installing-serpent-2-on-your-local-user-if-you-really-want)
+        - [Regarding the scripts functionality and capabilities:](#regarding-the-scripts-functionality-and-capabilities)
+        - [Required files](#required-files)
+        - [Download data from the server](#download-data-from-the-server)
+    - [Manual installation steps](#manual-installation-steps)
+        - [Unzip the required files](#unzip-the-required-files)
+        - [Compile Serpent](#compile-serpent)
+        - [Preparation of cross-sectional area file](#preparation-of-cross-sectional-area-file)
+        - [Setting environment variables for bash, if you use a different shell be aware](#setting-environment-variables-for-bash-if-you-use-a-different-shell-be-aware)
+        - [Perform benchmark calculation](#perform-benchmark-calculation)
+        - [Perform tutorial calculation](#perform-tutorial-calculation)
+    - [On compilation flags](#on-compilation-flags)
+        - [GNU Compiler:](#gnu-compiler)
+        - [Intel Compiler:](#intel-compiler)
+        - [Enable Parallel process calculation using MPI:](#enable-parallel-process-calculation-using-mpi)
+        - [Additional](#additional)
 
 <!-- /TOC -->
 
@@ -80,6 +65,22 @@ export SERPENT_ACELIB=sss_endfb7u.xsdata
 
 **NOTE:** In case you're not familiar with the linux environment or are a bit rusty, use the TSUBAME Intro to [linux tutorial](https://www.t3.gsic.titech.ac.jp/sites/upload/T3_seminar_Linux_2019_fall_en.pdf), Japanese version [here](https://www.t3.gsic.titech.ac.jp/sites/upload/T3_seminar_Linux.pdf).
 
+________________________________________
+
+### Regarding the scripts functionality and capabilities:
+
+- This script build is made to enable **OMPI** and **OMP** for **SERPENT 2** on an **INTEL CPU**
+
+(modifies the `Makefile` automatically to compile with the **ICC** and **MPICC**, not the **GCC**)
+
+- To change flags in the `Makefile`, please uncomment/comment them inside in the `install_script_` file
+
+(still working to make it interactive)
+
+- this version unzips the ENFB7 and JEFF31 libraries to the `/xsdata` folder
+- default datapath is set to `~"user_home"/serpent/xsdata` via the `~/.bashrc`
+
+For more info on installation and compilation FLAGS check the latter section of the document
 ________________________________________
 
 ### Required files
