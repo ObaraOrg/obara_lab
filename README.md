@@ -25,6 +25,7 @@ Welcome, this is the lab repository, made to make life easier while working in t
   * [Helpful cluster commands](documentation/cluster_commands.md)
   * [Productivity scripts](productivity_scripts)
   * [Vim tutorial](documentation/vim_commands.md)
+  
 <!-- * **Project related**
   * [Project Structure](documentation/structuring_and_workflow.md)
   * [Python analysis scripts](py_analysis_scripts)
@@ -164,16 +165,16 @@ I find a putty terminal to be the most useful at the start, here's some [scripts
           iqrsh -g [TSUBAME group]-l h_rt=<time>
       ```
 
-      - After that we can run the `pip install` command with the help of the requirements file inside the project
+      - After that we can run the `pip install` command with the help of the requirements file inside the project.
       ```sh
           pip install -r requirements/requirements.txt 
       ```
 
   2. The developers way of doing it by using `direnv` and `pyenv`, for this please follow this guide [here](documentation/setup_py_environment.md)
 
-     - For `python` version control, there is `pyenv` that can be pulled from  `git`, see the [tutorial](https://github.com/pyenv/pyenv#installation)), you can use it for version management of `python` (up to **3.7.13**, **CentOS 6.x** is deprecated and it misses a lot of package support)
-     - Same goes for the TSUBAME, you can install `pyenv` to manage your `python` and install packages more easily :P
-     - Also `direnv` can be also used for even more facile version control of the Linux environment, not only for `python` version control (much more recommended)
+     - For `python` version control, there is `pyenv` that can be pulled from  `git`, see the [tutorial](https://github.com/pyenv/pyenv#installation)), you can use it for version management of `python` (up to **3.7.13**, **CentOS 6.x** is deprecated and it misses a lot of package support).
+     - Same goes for the TSUBAME, you can install `pyenv` to manage your `python` and install packages more easily :P.
+     - Also `direnv` can be also used for even more facile version control of the Linux environment, not only for `python` version control (much more recommended).
 
 <br>
 
@@ -185,5 +186,3 @@ I find a putty terminal to be the most useful at the start, here's some [scripts
 
 This project is structured in a way that separates scripts, installations scripts, productivity scripts, documentation and the nuclear_library.
 The entire explanation can be found [here](documentation/structuring_and_workflow.md), this is made to be more intuitive to work while using python as the main tool for manipulation and analysis of data for the current scope of the lab, but it's not a must in your project. 
-
-
