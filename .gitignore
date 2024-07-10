@@ -1775,3 +1775,4 @@ py_analysis_scripts/get_detector_data/15_enr_1.15x_no_cpd/input/220cm/core_3d.in
 py_analysis_scripts/get_detector_data/15_enr_1.15x_no_cpd/input/220cm/mvol.inp
 py_analysis_scripts/get_detector_data/15_enr_1.15x_no_cpd/input/lp/core_lp_SF3_wt_CR.inp
 py_analysis_scripts/get_detector_data/15_enr_1.15x_no_cpd/input/lp/core_lp_SF3.inp
+py_analysis_scripts/hex_plot/FA_pwr_vs_dist_550.csv
