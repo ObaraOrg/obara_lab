@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 import itertools
 import seaborn as sns
-from nuclear_lib.hex_plot import make_value_map, read_core
+from nuclear_lib.hex_plot import make_value_map, read_core, plot_core
 import serpentTools
 
 # Configuration and settings
@@ -18,6 +18,9 @@ NAME = "wh_lfr"
 P = 48  # max no of FA
 Z = 11  # max no of slices
 LOAD_PATH = BASE_DIR / "core_lp_SF3.txt"
+
+def custom_decimal_notation(value: float) -> str:
+    return f"{value:.3f}"  # Adjust the number 3 to change the decimal places
 
 # Data collection and processing
 all_det_files = BASE_DIR.rglob("*det*.m")
