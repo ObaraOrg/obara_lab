@@ -1,0 +1,139 @@
+#!/bin/csh
+#$ -cwd
+#$ -e err
+#$ -o err
+set NCPUs=24
+set NNODES=1
+set Start_time = `date`
+#===============================================================================================
+set WKDR = $PWD
+set INPT = TRY
+set bunum = 4
+#===============================================================================================
+(cd ${WKDR}; python ${INPT}.chday.1_0.5.py) & wait
+#===============================================================================================
+set wi = 0
+set we = 0
+while ($wi <= $we)
+  @ varwi1 = $wi
+  @ varwi2 = $wi - 1
+###
+  if (${varwi1} > 0) then
+	(cd ${WKDR}; cp ${INPT}Ref${varwi2}/${INPT}Ref.bumat${bunum} ${INPT}.bumati) & wait
+	(cd ${WKDR}; python ${INPT}.shuffling.py) & wait
+  endif
+###
+  (cd ${WKDR}; mpirun -npernode 1 -n ${NNODES} -hostfile hosts sss2 -omp ${NCPUs} ${INPT}Ref >> ${INPT}Ref.mes) & wait
+###
+  if (! -e ${INPT}Ref${varwi1}) then
+	mkdir ${INPT}Ref${varwi1}
+  endif
+###
+  (cd ${WKDR}; mv ${INPT}.bumat* ${INPT}Ref.* ${INPT}Ref_* ${INPT}Ref${varwi1}) & wait
+###
+  @ wi++
+end # End of wi
+#===============================================================================================
+(cd ${WKDR}; python ${INPT}.chday.0.5_0.75.py) & wait
+#===============================================================================================
+set wi = 1
+set we = 1
+while ($wi <= $we)
+  @ varwi1 = $wi
+  @ varwi2 = $wi - 1
+###
+  if (${varwi1} > 0) then
+	(cd ${WKDR}; cp ${INPT}Ref${varwi2}/${INPT}Ref.bumat${bunum} ${INPT}.bumati) & wait
+	(cd ${WKDR}; python ${INPT}.shuffling.py) & wait
+  endif
+###
+  (cd ${WKDR}; mpirun -npernode 1 -n ${NNODES} -hostfile hosts sss2 -omp ${NCPUs} ${INPT}Ref >> ${INPT}Ref.mes) & wait
+###
+  if (! -e ${INPT}Ref${varwi1}) then
+	mkdir ${INPT}Ref${varwi1}
+  endif
+###
+  (cd ${WKDR}; mv ${INPT}.bumat* ${INPT}Ref.* ${INPT}Ref_* ${INPT}Ref${varwi1}) & wait
+###
+  @ wi++
+end # End of wi
+#===============================================================================================
+(cd ${WKDR}; python ${INPT}.chday.0.75_1.py) & wait
+#===============================================================================================
+set wi = 2
+set we = 3
+while ($wi <= $we)
+  @ varwi1 = $wi
+  @ varwi2 = $wi - 1
+###
+  if (${varwi1} > 0) then
+	(cd ${WKDR}; cp ${INPT}Ref${varwi2}/${INPT}Ref.bumat${bunum} ${INPT}.bumati) & wait
+	(cd ${WKDR}; python ${INPT}.shuffling.py) & wait
+  endif
+###
+  (cd ${WKDR}; mpirun -npernode 1 -n ${NNODES} -hostfile hosts sss2 -omp ${NCPUs} ${INPT}Ref >> ${INPT}Ref.mes) & wait
+###
+  if (! -e ${INPT}Ref${varwi1}) then
+	mkdir ${INPT}Ref${varwi1}
+  endif
+###
+  (cd ${WKDR}; mv ${INPT}.bumat* ${INPT}Ref.* ${INPT}Ref_* ${INPT}Ref${varwi1}) & wait
+###
+  @ wi++
+end # End of wi
+#===============================================================================================
+(cd ${WKDR}; python ${INPT}.chday.1_1.25.py) & wait
+#===============================================================================================
+set wi = 4
+set we = 6
+while ($wi <= $we)
+  @ varwi1 = $wi
+  @ varwi2 = $wi - 1
+###
+  if (${varwi1} > 0) then
+	(cd ${WKDR}; cp ${INPT}Ref${varwi2}/${INPT}Ref.bumat${bunum} ${INPT}.bumati) & wait
+	(cd ${WKDR}; python ${INPT}.shuffling.py) & wait
+  endif
+###
+  (cd ${WKDR}; mpirun -npernode 1 -n ${NNODES} -hostfile hosts sss2 -omp ${NCPUs} ${INPT}Ref >> ${INPT}Ref.mes) & wait
+###
+  if (! -e ${INPT}Ref${varwi1}) then
+	mkdir ${INPT}Ref${varwi1}
+  endif
+###
+  (cd ${WKDR}; mv ${INPT}.bumat* ${INPT}Ref.* ${INPT}Ref_* ${INPT}Ref${varwi1}) & wait
+###
+  @ wi++
+end # End of wi
+#===============================================================================================
+(cd ${WKDR}; python ${INPT}.chday.1.25_1.py) & wait
+#===============================================================================================
+set wi = 7
+set we = 71
+while ($wi <= $we)
+  @ varwi1 = $wi
+  @ varwi2 = $wi - 1
+###
+  if (${varwi1} > 0) then
+	(cd ${WKDR}; cp ${INPT}Ref${varwi2}/${INPT}Ref.bumat${bunum} ${INPT}.bumati) & wait
+	(cd ${WKDR}; python ${INPT}.shuffling.py) & wait
+  endif
+###
+  (cd ${WKDR}; mpirun -npernode 1 -n ${NNODES} -hostfile hosts sss2 -omp ${NCPUs} ${INPT}Ref >> ${INPT}Ref.mes) & wait
+###
+  if (! -e ${INPT}Ref${varwi1}) then
+	mkdir ${INPT}Ref${varwi1}
+  endif
+###
+  (cd ${WKDR}; mv ${INPT}.bumat* ${INPT}Ref.* ${INPT}Ref_* ${INPT}Ref${varwi1}) & wait
+###
+  @ wi++
+end # End of wi
+#===============================================================================================
+set Stop_time  = `date`
+echo Calculation was started at: ${Start_time}.
+echo Calculation was stopped at: ${Stop_time}.
+#===============================================================================================
+# EOF.
+
+

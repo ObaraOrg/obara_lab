@@ -1,0 +1,27 @@
+#!/bin/csh
+#$ -cwd
+#$ -e err
+#$ -o err
+set NCPUs=24                               # Number of CPUs
+set NNODES=1
+set Start_time = `date`
+#===============================================================================================
+set WKDR = $PWD
+set INPT = TRY
+#===============================================================================================
+set wi = 1
+set we = 71
+while ($wi <= $we)
+  @ varwi1 = $wi
+###
+  if (${varwi1} > 0) then
+	(cd ${WKDR}; cp ${INPT}Ref${varwi1}/${INPT}.bumati ${INPT}.bumati) & wait
+  endif
+###
+  (cd ${WKDR}; mpirun -npernode 1 -n ${NNODES} -hostfile hosts sss2 -omp ${NCPUs} takenRef >> takenRef.mes) & wait
+###
+###
+  (cd ${WKDR}; mv ${INPT}.bumat* takenRef.* takenRef_* ${INPT}Ref${varwi1}) & wait
+###
+  @ wi++
+end # End of wi
