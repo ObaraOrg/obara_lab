@@ -10,6 +10,8 @@ import seaborn as sns
 import serpentTools
 from nuclear_lib.hex_plot import make_value_map, plot_core, power_10_notation, read_core
 
+#NOTE: Extra files in folders in the working dir screw up the script
+
 serpentTools.settings.rc["serpentVersion"] = "2.1.32"
 serpentTools.settings.rc["verbosity"] = "error"
 BASE_DIR = Path(os.path.dirname(__file__))
@@ -28,7 +30,7 @@ def total_bins(file) -> List[float]:
     breakpoint()
 
 def custom_decimal_notation(value: float) -> str:
-    return f"{value:.3f}"  # Adjust the number 3 to change the decimal places
+    return f"{value:.3f}"
 
 def main() -> None:
     all_det_files = BASE_DIR.rglob("*det*.m")
@@ -47,7 +49,7 @@ def main() -> None:
     # dep_steps = dep.days[1:].astype(int) # no last element (becausee reasons)
     # dep_steps[0] = 0  # don't ask, its just an artifice to show the legend
 
-    dep_steps = dep.days.astype(int)  # no last element (becausee reasons)
+    dep_steps = dep.days.astype(int)  # no last element (because reasons)
 
     total_bins = np.zeros((len(files_data), P))
 
@@ -80,8 +82,6 @@ def main() -> None:
         p_array = np.char.array(make_value_map(map_, p_array))
         u_array = np.char.array(map_).flatten()[mask.flatten()]
         additional_text_list = np.char.array([el[:4] for el in u_array])
-
-        #breakpoint()
         
         # add a function for correnction to add both text
         # additional_text_list = p_array + "\n" + u_array
