@@ -5,14 +5,14 @@
 <!-- TOC -->
 
 - [MPI parallel calculation](#mpi-parallel-calculation)
-  - [Some rules before starting](#some-rules-before-starting)
-  - [Running Serpent in hybrid mode](#running-serpent-in-hybrid-mode)
-  - [Caution - MPI parallelization without MPI mode :](#caution---mpi-parallelization-without-mpi-mode-)
-  - [Important notes on parallel calculation :](#important-notes-on-parallel-calculation-)
-  - [Scheduler - Open Grid Scheduler/Grid Engine](#scheduler---open-grid-schedulergrid-engine)
-  - [Resource usage tips](#resource-usage-tips)
-  - [TSUBAME tips](#tsubame-tips)
-  - [Q\&A for previous issues encountered](#qa-for-previous-issues-encountered)
+    - [Some rules before starting](#some-rules-before-starting)
+    - [Running Serpent in hybrid mode](#running-serpent-in-hybrid-mode)
+    - [Caution - MPI parallelization without MPI mode :](#caution---mpi-parallelization-without-mpi-mode-)
+    - [Important notes on parallel calculation :](#important-notes-on-parallel-calculation-)
+    - [Scheduler - Open Grid Scheduler/Grid Engine](#scheduler---open-grid-schedulergrid-engine)
+    - [Resource usage tips](#resource-usage-tips)
+    - [TSUBAME tips](#tsubame-tips)
+    - [Q&A for previous issues encountered](#qa-for-previous-issues-encountered)
 
 <!-- /TOC -->
 
@@ -99,9 +99,9 @@ Version present is 2011.11 - these here are the most popular commands avalabile,
 * The **TSUBAME** has limits, check them [here](https://www.t3.gsic.titech.ac.jp/en/resource-limit)
 
 **NOTE:**
-The `mpirun` OpenMPI version on the **Olds Cluster is 1.6.5**, check the acording [manual](https://www.open-mpi.org/doc/v1.6/man1/mpirun.1.php)
-The `mpirun` OpenMPI version on the **Olcs Cluster is 1.4**, check the acording [manual](https://www.open-mpi.org/doc/v1.4/man1/mpirun.1.php) (not working at the moment)
-The `mpirun` OpenMPI version on the **TSUBAMME4 is 5.0.1**, check the acording [manual](https://docs.open-mpi.org/en/v5.0.x/)
+- The `mpirun` OpenMPI version on the **olds Cluster is 1.6.5**, check the acording [manual](https://www.open-mpi.org/doc/v1.6/man1/mpirun.1.php)
+- The `mpirun` OpenMPI version on the **olcs Cluster is 1.4**, check the acording [manual](https://www.open-mpi.org/doc/v1.4/man1/mpirun.1.php) (not working at the moment)
+- The `mpirun` OpenMPI version on the **TSUBAMME4 is 5.0.1**, check the acording [manual](https://docs.open-mpi.org/en/v5.0.x/)
 
 When running several programs/languages via a script, try to time each part of the script individually, some components may be slower that others and may help you find how to same time. Using **one process per node** with mutiple **OMP threads** makes for the best results.
 

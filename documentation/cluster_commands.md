@@ -5,16 +5,11 @@
 <!-- TOC -->
 
 - [Useful cluster commands](#useful-cluster-commands)
-  - [The cluster](#the-cluster)
   - [Resource usage](#resource-usage)
   - [Changing login](#changing-login)
   - [Temperature monitoring (only for root :P)](#temperature-monitoring-only-for-root-p)
 
 <!-- /TOC -->
-
-
-## The cluster
-
 The **olds** cluster has the following nodes available:
 
 ```sh
@@ -24,9 +19,14 @@ olds01, olds02, ..., olds09
 
 The **olcs** cluster has the following nodes available:
 
+*NOTE: Use the full path for the nodes, else it will not work here.*
+
 ```sh
 # A total of 8 nodes
-olcs01, olcs02, ..., olcs08
+olcs01.candle.nr.titech.ac.jp
+olcs02.candle.nr.titech.ac.jp
+...
+olcs08.candle.nr.titech.ac.jp
 ```
 
 ---
