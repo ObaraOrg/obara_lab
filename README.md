@@ -17,6 +17,7 @@ Welcome, this is the lab repository, made to make life easier while working in t
   - [Project structure for analysis](#project-structure-for-analysis)
 
 <!-- /TOC -->
+
 * **Serpent related**
   * [Installing Serpent2](installation_scripts)
   * [Learning Serpent2](documentation/learning_sss2.md)
@@ -54,7 +55,8 @@ Welcome, this is the lab repository, made to make life easier while working in t
 - **File Server** can be mapped with simple `ftp` from the 
 <br>
 
-- **Local Cluster olds** and **Local Cluster olcs** run a global version of Serpent 2.1.33 (OMP and MPI enabled), it runs with the command `sss2`. The default nuclear data path set to: `/usr/local/serpent/xsdata` or `/misc/home/hpc/serpent/xsdata`.
+- **Local Cluster olds** and **Local Cluster olcs** run a global version of Serpent 2.1.33 (OMP and MPI enabled), it runs with the command `sss2` and also a global version of Serpent 2.2.1 (OMP and MPI enabled), it runs with the command `sss2.2` 
+  - The default nuclear data path set to: `/usr/local/serpent/xsdata` or `/misc/home/hpc/serpent/xsdata`.
   - To use `sss2` you have to set the correct paths in your bashrc, see the guide on instalation [here](installation_scripts/README.md).
   - Both **Local Clusters olds and olcs** can be mapped with `sftp` (basically to see them in explorer) but Windows can't use by default `sftp` connections for the clusters, so you first need some prerequisites:
     - [WinFsp](https://github.com/winfsp/sshfs-win), this can make `sftp` avalabile on Windows and can be easily installed via `windows powershell` as follows: 
