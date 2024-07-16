@@ -2,11 +2,9 @@
 # Learning Serpent 2
 
 **[Back to main page](https://github.com/ObaraOrg/obara_lab)**
-
 <!-- TOC -->
 
 - [Learning Serpent 2](#learning-serpent-2)
-  - [Some rules before starting](#some-rules-before-starting)
   - [Running Serpent](#running-serpent)
     - [Tips :](#tips-)
     - [Less obvious things in Serpent :](#less-obvious-things-in-serpent-)
@@ -19,16 +17,7 @@
     - [Predictor-corrector method](#predictor-corrector-method)
   - [More things to try](#more-things-to-try)
 
-
----
-
-## Some rules before starting
-
-- **When running serpent, especially with `sss2 -omp` set to the max number of CPUs, it will occupy the entire nodes resources.**
-- **Don't run very long calculation or occupy all the CPU on the login node `olds01`, it will freeze and keep others from using the entire cluster.**
-- **If you need to run heavy things, connect with `rsh` to another node instead or set the `qsub` job to any node by the login one.**
-- **Keep a look on the cluster usage, see if someone is using the node before you use it. Check with top -e -i to see if there is a job running on it. You can check also by checking the [Ganglia Cluster Web Report](http://192.168.11.206/ganglia/?c=olds), accessible only on the campus, or via VPN.**
-
+<!-- /TOC -->
 ---
 
 ## Running Serpent
@@ -36,7 +25,12 @@
 Simply _run the input from terminal,_ by being in the same directory as the input file and executing
 
 ```sh
+# For Serpent 2.1.33
 sss2 input
+```
+```sh
+# For Serpent 2.2.1
+sss2.2 input
 ```
 I recommend going through these preferably in this order
 

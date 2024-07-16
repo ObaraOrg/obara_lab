@@ -5,14 +5,19 @@
 <!-- TOC -->
 
 - [MPI parallel calculation](#mpi-parallel-calculation)
-    - [Some rules before starting](#some-rules-before-starting)
-    - [Running Serpent in hybrid mode](#running-serpent-in-hybrid-mode)
-    - [Caution - MPI parallelization without MPI mode :](#caution---mpi-parallelization-without-mpi-mode-)
-    - [Important notes on parallel calculation :](#important-notes-on-parallel-calculation-)
-    - [Scheduler - Open Grid Scheduler/Grid Engine](#scheduler---open-grid-schedulergrid-engine)
-    - [Resource usage tips](#resource-usage-tips)
-    - [TSUBAME tips](#tsubame-tips)
-    - [Q&A for previous issues encountered](#qa-for-previous-issues-encountered)
+  - [Some rules before starting](#some-rules-before-starting)
+  - [Running Serpent in hybrid mode](#running-serpent-in-hybrid-mode)
+  - [Caution - MPI parallelization without MPI mode :](#caution---mpi-parallelization-without-mpi-mode-)
+  - [Important notes on parallel calculation :](#important-notes-on-parallel-calculation-)
+  - [Scheduler - Open Grid Scheduler/Grid Engine](#scheduler---open-grid-schedulergrid-engine)
+  - [Resource usage tips](#resource-usage-tips)
+  - [TSUBAME tips](#tsubame-tips)
+  - [Q\&A for previous issues encountered](#qa-for-previous-issues-encountered)
+
+<!-- /TOC -->
+  - [Resource usage tips](#resource-usage-tips)
+  - [TSUBAME tips](#tsubame-tips)
+  - [Q\&A for previous issues encountered](#qa-for-previous-issues-encountered)
 
 <!-- /TOC -->
 
@@ -21,7 +26,7 @@
 ## Some rules before starting
 
 - **When running serpent, especially with `sss2 -omp` set to the max number of CPUs, it will occupy the entire nodes resources.**
-- **Don't run very long calculation or occupy all the CPU on the login node `olds01`, it will freeze and keep others from using the entire cluster.**
+- **Don't run very long calculation or occupy all the CPU on the login node `olds01` or `olcs01`, it will freeze and keep others from using the entire cluster.**
 - **If you need to run heavy things, connect with `rsh` to another node instead or set the `qsub` job to any node by the login one.**
 - **Keep a look on the cluster usage, see if someone is using the node before you use it. Check with top -e -i to see if there is a job running on it. You can check also by checking the [Ganglia Cluster Web Report](http://192.168.11.206/ganglia/?c=olds), accessible only on the campus, or via VPN.**
 
@@ -32,6 +37,9 @@
 If you compiled Serpent with **OpenMP libraries** for parallel computing, you could run the input with multiple **OpenMP threads** to use more than one processor:
 ```sh
 sss2 -omp N input
+```
+```sh
+sss2.2 -omp N input
 ```
 Where  **N**  is the number of **OpenMP threads** you want to use and can be set to, e.g. the number of available processor cores **(this is just make threads on the cores of one processor, aka. only thread-based parallelism,**  **but without doing more than one MPI process per node)**
 

@@ -2,31 +2,26 @@
 
 Made for Serpent 2.1.33
 [Back to main page](https://github.com/ObaraOrg/obara_lab)
-_______________________________________
-
-## Table of contents
-
 <!-- TOC -->
 
 - [Getting started with Serpent 2](#getting-started-with-serpent-2)
-    - [Table of contents](#table-of-contents)
-    - [Using the pre-installed Serpent 2 on the olds and olcs clusters](#using-the-pre-installed-serpent-2-on-the-olds-and-olcs-clusters)
-    - [Installing Serpent 2 on your local user if you really want](#installing-serpent-2-on-your-local-user-if-you-really-want)
-        - [Regarding the scripts functionality and capabilities:](#regarding-the-scripts-functionality-and-capabilities)
-        - [Required files](#required-files)
-        - [Download data from the server](#download-data-from-the-server)
-    - [Manual installation steps](#manual-installation-steps)
-        - [Unzip the required files](#unzip-the-required-files)
-        - [Compile Serpent](#compile-serpent)
-        - [Preparation of cross-sectional area file](#preparation-of-cross-sectional-area-file)
-        - [Setting environment variables for bash, if you use a different shell be aware](#setting-environment-variables-for-bash-if-you-use-a-different-shell-be-aware)
-        - [Perform benchmark calculation](#perform-benchmark-calculation)
-        - [Perform tutorial calculation](#perform-tutorial-calculation)
-    - [On compilation flags](#on-compilation-flags)
-        - [GNU Compiler:](#gnu-compiler)
-        - [Intel Compiler:](#intel-compiler)
-        - [Enable Parallel process calculation using MPI:](#enable-parallel-process-calculation-using-mpi)
-        - [Additional](#additional)
+  - [Using the pre-installed Serpent 2 on the olds and olcs clusters](#using-the-pre-installed-serpent-2-on-the-olds-and-olcs-clusters)
+  - [Installing Serpent 2 on your local user (if you really want)](#installing-serpent-2-on-your-local-user-if-you-really-want)
+    - [Regarding the scripts functionality and capabilities:](#regarding-the-scripts-functionality-and-capabilities)
+    - [Required files](#required-files)
+    - [Download data from the server](#download-data-from-the-server)
+  - [Manual installation steps](#manual-installation-steps)
+    - [Unzip the required files](#unzip-the-required-files)
+    - [Compile Serpent](#compile-serpent)
+    - [Preparation of cross-sectional area file](#preparation-of-cross-sectional-area-file)
+    - [Setting environment variables (for bash, if you use a different shell be aware)](#setting-environment-variables-for-bash-if-you-use-a-different-shell-be-aware)
+    - [Perform benchmark calculation](#perform-benchmark-calculation)
+    - [Perform tutorial calculation](#perform-tutorial-calculation)
+  - [On compilation flags](#on-compilation-flags)
+    - [GNU Compiler:](#gnu-compiler)
+    - [Intel Compiler:](#intel-compiler)
+    - [Enable Parallel process calculation using MPI:](#enable-parallel-process-calculation-using-mpi)
+    - [Additional](#additional)
 
 <!-- /TOC -->
 
@@ -34,7 +29,7 @@ ________________________________________
 
 ## Using the pre-installed Serpent 2 on the olds and olcs clusters
 
-- **Local Cluster olds** and **Local Cluster olcs** run a global version of Serpent 2.1.33 (OMP and MPI enabled), it runs with the command `sss2`.
+- **Local Cluster olds** and **Local Cluster olcs** run a global version of Serpent 2.1.33 (OMP and MPI enabled), it runs with the command `sss2` and also a global version of Serpent 2.2.1 (OMP and MPI enabled), it runs with the command `sss2.2`
     - The default nuclear data path set to: `/usr/local/serpent/xsdata` or `/misc/home/hpc/serpent/xsdata`.
     - Available nuclear data libraries: **endfb7**, **jeff31**, **endfb7.1**. Cross section, decay and induced-fission yields data libraries are included for each library.
     - To use **Serpent 2** you need to add the following paths to your .bashrc (it's in your own home user folder). The default ACELIB is the ENDFB VII.B in the last line.
@@ -71,7 +66,7 @@ ________________________________________
 
 - This script build is made to enable **OMPI** and **OMP** for **SERPENT 2** on an **INTEL CPU**
 
-(modifies the `Makefile` automatically to compile with the **ICC** and **MPICC**, not the **GCC**)
+(modifies the `Makefile` automatically to compile with the **MPICC**, not the **GCC** or **ICC**)
 
 - To change flags in the `Makefile`, please uncomment/comment them inside in the `install_script_` file
 

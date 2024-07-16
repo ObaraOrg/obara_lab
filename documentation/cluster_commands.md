@@ -10,7 +10,6 @@
   - [Temperature monitoring (only for root :P)](#temperature-monitoring-only-for-root-p)
 
 <!-- /TOC -->
-The **olds** cluster has the following nodes available:
 
 ```sh
 # A total of 9 nodes
