@@ -8,7 +8,9 @@
   - [Resource usage](#resource-usage)
   - [Changing login](#changing-login)
   - [Temperature monitoring (only for root :P)](#temperature-monitoring-only-for-root-p)
+  - [Make new users (only for root :P)](#make-new-users-only-for-root-p)
 
+<!-- /TOC -->
 <!-- /TOC -->
 
 ```sh
@@ -55,7 +57,7 @@ rsh olds03
 
 ## Temperature monitoring (only for root :P)
 
-For olcs and olds:
+For olcs and olds :
 
 ```sh
 sudo sensors-detect # to identify available sensors
@@ -67,4 +69,15 @@ Only for olds:
 ```sh
 ipmitool sensor | grep -i temp  # Check CPU temperature
 ipmitool -v sensor              # Verbose
+```
+
+## Make new users (only for root :P)
+
+[Check this script here](sh_productivity_scripts/04_make_new_user)
+
+For olcs and olds, the basic commands are these, but if you want fresh user ready to use Serpent 2, make use of the script above.
+
+```sh
+useradd -m -g users -s /bin/bash "$USERNAME"
+cd /var/yp ; make
 ```
