@@ -5,7 +5,6 @@
 # The /var/yp/make command is executed to update the NIS database.
 # Check BasicOperationManual, page 33, for more information.
 
-
 # Check if a username was provided as an argument
 if [ $# -ne 1 ]; then
   echo "Usage: $0 <name_of_user>"
