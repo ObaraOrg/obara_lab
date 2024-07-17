@@ -1,7 +1,7 @@
 # Getting started with Serpent 2 
 
-Made for Serpent 2.1.33
-[Back to main page](https://github.com/ObaraOrg/obara_lab)
+[**Back to main page**](https://github.com/ObaraOrg/obara_lab)
+
 <!-- TOC -->
 
 - [Getting started with Serpent 2](#getting-started-with-serpent-2)

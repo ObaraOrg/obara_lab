@@ -5,13 +5,22 @@
 <!-- TOC -->
 
 - [Useful cluster commands](#useful-cluster-commands)
+  - [Documentation](#documentation)
+  - [Available resources](#available-resources)
   - [Resource usage](#resource-usage)
   - [Changing login](#changing-login)
   - [Temperature monitoring (only for root :P)](#temperature-monitoring-only-for-root-p)
   - [Make new users (only for root :P)](#make-new-users-only-for-root-p)
 
 <!-- /TOC -->
-<!-- /TOC -->
+
+## Documentation
+
+Please find the Japanese and English manuals on the **FileServer** at ` 192.168.11.3`.
+
+## Available resources
+
+The **olds** cluster has the following nodes available:
 
 ```sh
 # A total of 9 nodes
@@ -20,7 +29,7 @@ olds01, olds02, ..., olds09
 
 The **olcs** cluster has the following nodes available:
 
-*NOTE: Use the full path for the nodes, else it will not work here.*
+***NOTE:** Use the full path for the nodes, else it will not work here.*
 
 ```sh
 # A total of 8 nodes
