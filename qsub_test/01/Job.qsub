@@ -7,4 +7,4 @@
 #$ -pe smp 24
 
 # The command to run:
-sss2 -omp 24 wh_lfr_fa > sss2.out
+sss2 -omp 24 -norun wh_lfr_fa > sss2.out
