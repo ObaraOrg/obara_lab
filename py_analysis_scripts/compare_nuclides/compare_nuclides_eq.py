@@ -27,6 +27,7 @@ GRAMS_IN_KG = 1000
 # NOTE: This gets executed in the folder with multiple simulations (cases)
 # NOTE: It will pick up any folder with simulations with .det files
 # NOTE: It will pick up the last cycle of each simulation and compare the isotopes
+# NOTE: It returns the values for an entire batch of FAs (6) not one.
 
 
 def read_file(file_loc: str) -> DepletionReader:
@@ -67,8 +68,9 @@ def sum_and_sort_by_p_and_z(
     """
     Calculate the sum of material values for each axial slice "Z" and sort them by fuel volume "P".
     NOTE: I verified that it works right, it gives out the correct values for each isotope in each axial slice "Z".
-    NOTE: Shoud add a volume check to make sure the volume is constant for all the burnup steps.
-
+    NOTE: It returns the values for an entire batch of FAs (6) not one.
+    NOTE: Should add a volume check to make sure the volume is constant for all the burnup steps.
+    
     Args:
         nuclides (Tuple[str]): A tuple of nuclide names.
         materials (Dict[str, DepletedMaterial]): A dictionary of DepletedMaterial objects.
@@ -113,6 +115,7 @@ def plot_results(isotopes: Tuple[str]) -> None:
     """
     Plots the selected isotopes for each last step in each simulation (case).
     Can be runned localy, in the folder with multiple simulations (cases).
+    It returns the values for an entire batch of FAs (6) not one.
 
     Args:
         isotopes (Tuple[str]): Tuple of all of the isotopes passed.
