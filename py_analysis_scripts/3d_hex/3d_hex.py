@@ -100,7 +100,7 @@ def main():
 
     # NOTE: Make this interactive for the isotope and the depletion steps, maybe auto for the latter
     isotope = "Pu239"
-    for depletion_step in range(1):  # Loop through depletion steps 0 to 4
+    for depletion_step in range(5):  # Loop through depletion steps 0 to 4
 
         fig = plt.figure(figsize=(12, 10), facecolor="white")
         ax = fig.add_subplot(111, projection="3d")
@@ -128,9 +128,10 @@ def main():
 
         LEVELS = len(list(iso_data_levels.keys()))
         levels = np.linspace(0, MAX_HEIGHT, LEVELS)
-        # usually use viridis, looks good
+        # usually use viridis, looks good, YlOrBr
+        COLOR_MAP = "coolwarm"
         # for black and white use "Greys"
-        COLOR_MAP = "Greys"
+        #COLOR_MAP = "Greys"
 
         # Need these to calculate the global max and min, glup way :P
         global_max = float("-inf")
@@ -249,7 +250,7 @@ def main():
         cbar = plt.colorbar(sc_mapper)
 
         # Generate five rounded ticks between global_min and global_max
-        ticks = np.linspace(global_min, global_max, 5)  # Including the end values
+        ticks = np.linspace(global_min, global_max, 8)  # Including the end values
         rounded_ticks = np.round(ticks, decimals=0)
         rounded_ticks = ticks
         cbar.set_ticks(rounded_ticks)
