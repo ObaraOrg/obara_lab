@@ -16,7 +16,9 @@ serpentTools.settings.rc["verbosity"] = "error"
 BASE_DIR = Path(os.path.dirname(__file__))
 FILE_NAME = "wh_lfr"
 
-COLOR_MAP = "Greys"
+COLOR_MAP = "coolwarm"
+
+STEPS = 5
 
 # Font scale variable: Increase all font sizes by this factor
 font_scale = 2
@@ -35,7 +37,7 @@ plt.rcParams.update({
 @click.option("--isotope", help="Isotope to search for.")
 def main(isotope):
 
-    for depletion_step in range(1):  # Loop through depletion steps 0 to 4
+    for depletion_step in range(STEPS):  # Loop through depletion steps 0 to 4
         P = 48  # max no of FA
         Z = 11  # max no of slices
         AV = 0.6221408e24
@@ -90,12 +92,28 @@ def main(isotope):
         plt.xticks(ticks=np.arange(len(xticklabels)) + 0.5, labels=xticklabels)
         plt.yticks(ticks=np.arange(len(yticklabels)) + 0.5, labels=yticklabels)
 
-        # Set the colorbar to have a max of 6 ticks
+        # Calculate global min and max based on the data
+        global_min = np.min(data_to_plot)
+        global_max = np.max(data_to_plot)
+
+        # Normalize the color map based on global min and max
+        norm = plt.matplotlib.colors.Normalize(vmin=global_min, vmax=global_max)
         cbar = ax.collections[0].colorbar
-        #cbar.locator = ticker.MaxNLocator(nbins=6)
-        ticks = cbar.get_ticks() # Get current tick locations
-        cbar.ax.set_yticklabels(["{:.3f}".format(tick) for tick in ticks]) # Correctly set formatted tick labels
+
+        # Generate five rounded ticks between global_min and global_max
+        ticks = np.linspace(global_min, global_max, 8)
+        rounded_ticks = np.round(ticks, decimals=3)  # Adjust decimal places if needed
+        cbar.set_ticks(rounded_ticks)
+        cbar.ax.set_yticklabels(["{:.3f}".format(tick) for tick in rounded_ticks])  # Apply tick formatting
         cbar.update_ticks()
+
+
+        # # Set the colorbar to have a max of 6 ticks
+        # cbar = ax.collections[0].colorbar
+        # #cbar.locator = ticker.MaxNLocator(nbins=6)
+        # ticks = cbar.get_ticks() # Get current tick locations
+        # cbar.ax.set_yticklabels(["{:.3f}".format(tick) for tick in ticks]) # Correctly set formatted tick labels
+        # cbar.update_ticks()
 
         plt.tight_layout()
 
