@@ -1,0 +1,18 @@
+#!/bin/csh
+#$ -cwd
+#$ -V
+#$ -o job.out 
+#$ -e job.out
+## Resource type F: qty 1
+#$ -l f_node=1
+#$ -l h_rt=00:30:00
+#$ -p -3
+
+## Load modules
+module load intel
+module load cuda
+module load openmpi
+
+#mpirun -npernode 1 -n 1 -x LD_LIBRARY_PATH sss2 -omp 28 wh_lfr_fa >> sss.out
+#mpirun -pernode -x LD_LIBRARY_PATH -x PSM2_MULTIRAIL=2 sss2 -omp 28 wh_lfr_fa >> sss.out
+sss2 -omp 28 wh_lfr_fa >> sss.out

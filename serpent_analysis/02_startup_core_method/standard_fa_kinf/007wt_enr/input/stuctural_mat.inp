@@ -1,0 +1,38 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ---   AUX Lattices definition    --- %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% --- PLUG assembly --- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+lat PLUG 3 0.0 0.0 11 11 1.9397
+c4 c4 c4 c4 c4 c4 c4 c4 c4 c4 c4 
+ c4 c4 c4 c4 c4 pg pg pg pg pg c4 
+  c4 c4 c4 c4 pg pg pg pg pg pg c4 
+   c4 c4 c4 pg pg pg pg pg pg pg c4 
+    c4 c4 pg pg pg pg pg pg pg pg c4 
+     c4 pg pg pg pg pg pg pg pg pg c4 
+      c4 pg pg pg pg pg pg pg pg c4 c4 
+       c4 pg pg pg pg pg pg pg c4 c4 c4 
+        c4 pg pg pg pg pg pg c4 c4 c4 c4 
+         c4 pg pg pg pg pg c4 c4 c4 c4 c4 
+          c4 c4 c4 c4 c4 c4 c4 c4 c4 c4 c4
+
+surf S1PG1  hexxc    0.0  0.0  7.600                  % Shroud tube inner surface
+surf S2PG1  hexxc    0.0  0.0  7.845                  % Shroud tube outer surface
+surf S3PG1  hexxc    0.0  0.0  8.150
+
+% --- Universe uPLG --- PLUG assembly
+
+cell C1PG1  uPLG     fill      PLUG  -S1PG1           % Pin lattice                 
+cell C2PG1  uPLG     ods              S1PG1   -S2PG1  % Shroud tube                
+cell C3PG1  uPLG     lead             S2PG1           % Coolant in channel
+cell CxPG1  uPLG  	 lead                     S3PG1                
+
+
+% - Plug ODS pin
+pin     pg
+	ods 	0.84850            
+	lead		
+pin c4
+	lead
+	

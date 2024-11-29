@@ -1,0 +1,53 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ---    FA Geometry definition    --- %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Hex prism slices for the core 
+%surf SdwPLUG  hexxprism 0.00000E+00  0.00000E+00  8.15    15	140 % --- 125 cm Down plug 
+%------------------------------------------------------------------------------------
+surf HFAZ01 hexxprism 0.00000E+00  0.00000E+00  8.15   140 	160	% --- 20  cm
+surf HFAZ02 hexxprism 0.00000E+00  0.00000E+00  8.15   160	180 % --- 20  cm
+surf HFAZ03 hexxprism 0.00000E+00  0.00000E+00  8.15   180	200 % --- 20  cm
+surf HFAZ04 hexxprism 0.00000E+00  0.00000E+00  8.15   200	220 % --- 20  cm
+surf HFAZ05 hexxprism 0.00000E+00  0.00000E+00  8.15   220	240 % --- 20  cm
+surf HFAZ06 hexxprism 0.00000E+00  0.00000E+00  8.15   240	260 % --- 20  cm Mid slice
+surf HFAZ07 hexxprism 0.00000E+00  0.00000E+00  8.15   260	280 % --- 20  cm 
+surf HFAZ08 hexxprism 0.00000E+00  0.00000E+00  8.15   280	300 % --- 20  cm
+surf HFAZ09 hexxprism 0.00000E+00  0.00000E+00  8.15   300	320 % --- 20  cm
+surf HFAZ10 hexxprism 0.00000E+00  0.00000E+00  8.15   320	340 % --- 20  cm 
+surf HFAZ11 hexxprism 0.00000E+00  0.00000E+00  8.15   340	360 % --- 20  cm 
+%------------------------------------------------------------------------------------
+%surf SupPLUG  hexxprism 0.00000E+00  0.00000E+00  8.15   360	472 % --- 112 cm Up plug 
+% (NOTE: when modifying the volumes here, the fuel volumes need to be changed)
+
+% Alocated cells for the core inside the prism slices
+%cell c1z0  0 fill uPLG  -SdwPLUG
+%----------------------------------
+cell c1z1  0 fill Uz01 -HFAZ01  
+cell c1z2  0 fill Uz02 -HFAZ02 
+cell c1z3  0 fill Uz03 -HFAZ03 
+cell c1z4  0 fill Uz04 -HFAZ04  
+cell c1z5  0 fill Uz05 -HFAZ05 
+cell c1z6  0 fill Uz06 -HFAZ06 
+cell c1z7  0 fill Uz07 -HFAZ07  
+cell c1z8  0 fill Uz08 -HFAZ08 
+cell c1z9  0 fill Uz09 -HFAZ09 
+cell c1z10 0 fill Uz10 -HFAZ10 
+cell c1z11 0 fill Uz11 -HFAZ11
+%-----------------------------------
+%cell c1zx 0 fill uPLG -SupPLUG
+
+
+% Alocated cells reactor RPV
+cell cCORE  0 outside        		
+										HFAZ01 
+										HFAZ02 
+										HFAZ03 
+                                        HFAZ04 
+										HFAZ05 
+                                        HFAZ06 
+                                        HFAZ07 
+										HFAZ08 
+										HFAZ09 
+										HFAZ10
+										HFAZ11
