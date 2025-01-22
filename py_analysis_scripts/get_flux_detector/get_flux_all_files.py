@@ -102,7 +102,7 @@ def create_gif(detector_names, output_gif_folder="."):
             continue
 
         gif_filename = Path(output_gif_folder) / f"{detector_name}.gif"
-        with imageio.get_writer(gif_filename, mode='I', duration=1) as writer:
+        with imageio.get_writer(gif_filename, mode="I", duration=400, loop=0) as writer:
             for png_file in png_files:
                 image = imageio.imread(png_file)
                 writer.append_data(image)
