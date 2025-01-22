@@ -39,7 +39,7 @@ def plot_detector_data(det_files, burn_days, detector_names, plot_labels, plot_t
         # Load the detector file
         detector_data = sp.read(det_file)
 
-        print(f"Processing file: {det_file} (Burnup Day: {day})")
+        print(f"Processing file: {det_file} (Burnup: {int(day)}) EFPD")
 
         row_axes = axes[i]
 
@@ -47,17 +47,17 @@ def plot_detector_data(det_files, burn_days, detector_names, plot_labels, plot_t
             detector = detector_data.detectors.get(det_name)
 
             if plot_type == "all" or plot_type == "flux":
-                detector.plot(ax=row_axes[0], label=f"{plot_labels[det_name]} (Day {day})")
+                detector.plot(ax=row_axes[0], label=f"{plot_labels[det_name]} ({int(day)} EFPD)")
             if plot_type == "all" or plot_type == "nonorm":
                 col_idx = 1 if plot_type == "all" else 0
-                detector.spectrumPlot(ax=row_axes[col_idx], normalize=False, label=f"{plot_labels[det_name]} (Day {day})")
+                detector.spectrumPlot(ax=row_axes[col_idx], normalize=False, label=f"{plot_labels[det_name]} ({int(day)} EFPD)")
             if plot_type == "all" or plot_type == "norm":
                 col_idx = 2 if plot_type == "all" else 0
-                detector.spectrumPlot(ax=row_axes[col_idx], normalize=True, label=f"{plot_labels[det_name]} (Day {day})")
+                detector.spectrumPlot(ax=row_axes[col_idx], normalize=True, label=f"{plot_labels[det_name]} ({int(day)} EFPD)")
 
         # Add titles and labels
         if plot_type == "all" or plot_type == "flux":
-            row_axes[0].set_ylabel(f"Day {day}\n$Φ$ (neutrons/cm$^2$/second)")
+            row_axes[0].set_ylabel(f"{int(day)} EFPD \n$Φ$ (neutrons/cm$^2$/second)")
         if plot_type == "nonorm":
             row_axes[0].set_ylabel("Tally data ±3σ")
         if plot_type == "norm":
@@ -88,7 +88,7 @@ def plot_detector_data(det_files, burn_days, detector_names, plot_labels, plot_t
 def plot_combined_graphs(det_files, burn_days, detector_names, plot_labels, plot_type):
     """
     Plot combined graphs for:
-    - Each region across all timestamps.
+    - Each region across all time steps.
     - Each timestamp across all regions.
 
     Parameters:
@@ -98,7 +98,7 @@ def plot_combined_graphs(det_files, burn_days, detector_names, plot_labels, plot
         plot_labels (dict): Mapping of detector names to plot labels.
         plot_type (str): Type of plot to generate ('all', 'flux', 'nonorm', 'norm').
     """
-    # Combined plot: Each region across all timestamps
+    # Combined plot: Each region across all time steps
     for det_name in detector_names:
         fig = plt.figure(figsize=(10, 6))
         for det_file, day in zip(det_files, burn_days):
@@ -106,13 +106,13 @@ def plot_combined_graphs(det_files, burn_days, detector_names, plot_labels, plot
             detector = detector_data.detectors.get(det_name)
 
             if plot_type == "all" or plot_type == "flux":
-                detector.plot(label=f"Day {day}")
+                detector.plot(label=f"Day {int(day)}")
             if plot_type == "all" or plot_type == "nonorm":
-                detector.spectrumPlot(normalize=False, label=f"Day {day}")
+                detector.spectrumPlot(normalize=False, label=f"{int(day)} EFPD")
             if plot_type == "all" or plot_type == "norm":
-                detector.spectrumPlot(normalize=True, label=f"Day {day}")
+                detector.spectrumPlot(normalize=True, label=f"{int(day)}  EFPD")
 
-        plt.title(f"Combined Plot for {plot_labels[det_name]} Across Timestamps")
+        plt.title(f"Combined Plot for {plot_labels[det_name]} for each time step")
         plt.xlabel("Energy (MeV)")
         if plot_type == "nonorm":
             plt.ylabel("Tally data ±3σ")
@@ -127,7 +127,7 @@ def plot_combined_graphs(det_files, burn_days, detector_names, plot_labels, plot
         save_figure(fig, f"combined_region_{det_name}.png")
         plt.show()
 
-    # Combined plot: Each timestamp across all regions
+    # Combined plot: Each time steps across all regions
     for det_file, day in zip(det_files, burn_days):
         fig = plt.figure(figsize=(10, 6))
         detector_data = sp.read(det_file)
@@ -141,7 +141,7 @@ def plot_combined_graphs(det_files, burn_days, detector_names, plot_labels, plot
             if plot_type == "all" or plot_type == "norm":
                 detector.spectrumPlot(normalize=True, label=f"{plot_labels[det_name]}")
 
-        plt.title(f"Combined Plot for Day {day} Across Regions")
+        plt.title(f"Combined Plot for {int(day)} EFPD Across Regions")
         plt.xlabel("Energy (MeV)")
         if plot_type == "nonorm":
             plt.ylabel("Tally data ±3σ")
