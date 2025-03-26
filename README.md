@@ -46,8 +46,8 @@ Welcome, this is the lab repository, made to make life easier while working in t
 | File Server         | 192.168.11.3                    | Documentation and serpent files, and other software are to be found here.                                | *Ask for it*   |
 | Local cluster olds  | 192.168.11.206:22               | 9 nodes **olds01 - olds09**, Xeon E5-2680 v3 @2.50GHz (x24 cores), 126GB RAM, CentOS 6.5                 | _student user_ |
 | Local cluster olcs  | 192.168.11.200:22               | 8 nodes **olcs01 - olcs08**, Xeon E5-2690 0 @2.90GHz (x16 cores), 126GB RAM, CentOS 6.2                  | _student user_ |
-| PC for modeling CFD | 192.168.11.4                    | Workstation, Xenon Gold 6252 @2.10GHz (x48 cores), 1TB RAM, Quadro GV100 x2 GPU                          | *Ask for it*   |
-| PC for modeling CFD | 192.168.11.5                    | Workstation, Xenon E5-2697 v4 @2.30GHz (x36 cores), 512GB RAM, Quadro M4000 GPU                          | *Ask for it*   |
+| PC for modeling CFD | 192.168.11.40                   | Workstation, Xenon Gold 6252 @2.10GHz (x48 cores), 1TB RAM, Quadro GV100 x2 GPU                          | *Ask for it*   |
+| ~~PC for modeling CFD~~ | ~~192.168.11.5~~                    | ~~Workstation, Xenon E5-2697 v4 @2.30GHz (x36 cores), 512GB RAM, Quadro M4000 GPU~~ Not available anymore due to licence                          | ~~*Ask for it*~~   |
 | TSUBAME4 Login      | `ID`@login.t4.gsic.titech.ac.jp | Login node, home directory space is less than 17Gb so I recommend you use the **group disk** for storage | `student_ID`   |
 | TSUBAME4 group DISK | /gs/hs0/tga-oba2                | Create a symbolic link (`ln -s` command)                                                                 |        -       |
 
