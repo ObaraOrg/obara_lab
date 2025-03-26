@@ -1,0 +1,256 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% --     FA Lattices definition     -- %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	
+% --- FA Lattices definition 
+%     Pin lattice definition, name of the lattice "LatFA"
+%     Lattice type 3 (hex lattice)
+%     Lattice centered at 0.0 0.0
+%     11 x 11 lattice elements
+%     Lattice pitch 1.9397
+%     1/6 symmetry so that we'll only have to type
+%     in 1/6h of the assembly (lazy to do it here)
+
+lat LatFA_z1 3 0.0 0.0 11 11 1.9397
+
+cc cc cc cc cc cc cc cc cc cc cc
+cc cc cc cc cc Z1 Z1 Z1 Z1 Z1 cc
+cc cc cc cc Z1 Z1 Z1 Z1 Z1 Z1 cc
+cc cc cc Z1 Z1 Z1 Z1 Z1 Z1 Z1 cc
+cc cc Z1 Z1 Z1 Z1 Z1 Z1 Z1 Z1 cc
+cc Z1 Z1 Z1 Z1 Z1 Z1 Z1 Z1 Z1 cc
+cc Z1 Z1 Z1 Z1 Z1 Z1 Z1 Z1 cc cc
+cc Z1 Z1 Z1 Z1 Z1 Z1 Z1 cc cc cc
+cc Z1 Z1 Z1 Z1 Z1 Z1 cc cc cc cc
+cc Z1 Z1 Z1 Z1 Z1 cc cc cc cc cc
+cc cc cc cc cc cc cc cc cc cc cc
+
+% --- Apply a symmetry to the lattice "LatFA_z1"
+%     Symmetry axis is the z-axis (3)
+%     Symmetry boundary condition is reflective (2)
+%     Symmetry axis is located at coordinates (0.0 0.0)
+%     Symmetry covers an angle starting from 270 degrees and extending for 60 degrees
+
+%set usym LatFA_z1 3 2 0.0 0.0 270 60 (NOT USED HERE)
+
+% --- FA definitions
+surf S1FA_z1  hexxc    0.0  0.0  7.600	           	% Shroud tube inner surface
+surf S2FA_z1  hexxc    0.0  0.0  7.845	           	% Shroud tube outer surface
+surf S3FA_z1  hexxc    0.0  0.0  8.150	           	% Outer boundary	
+													
+cell C1FA_z1  Uz01   fill  LatFA_z1 -S1FA_z1	       	% Pin lattice              
+cell C2FA_z1  Uz01   ods             S1FA_z1  -S2FA_z1	% Shroud tube              	 
+cell C3FA_z1  Uz01   lead       	  S2FA_z1 	       	% Coolant in channel       
+cell CxFA_z1  Uz01   lead                      S3FA_z1	% Outside world	
+
+
+lat LatFA_z2 3 0.0 0.0 11 11 1.9397
+cc cc cc cc cc cc cc cc cc cc cc
+cc cc cc cc cc Z2 Z2 Z2 Z2 Z2 cc
+cc cc cc cc Z2 Z2 Z2 Z2 Z2 Z2 cc
+cc cc cc Z2 Z2 Z2 Z2 Z2 Z2 Z2 cc
+cc cc Z2 Z2 Z2 Z2 Z2 Z2 Z2 Z2 cc
+cc Z2 Z2 Z2 Z2 Z2 Z2 Z2 Z2 Z2 cc
+cc Z2 Z2 Z2 Z2 Z2 Z2 Z2 Z2 cc cc
+cc Z2 Z2 Z2 Z2 Z2 Z2 Z2 cc cc cc
+cc Z2 Z2 Z2 Z2 Z2 Z2 cc cc cc cc
+cc Z2 Z2 Z2 Z2 Z2 cc cc cc cc cc
+cc cc cc cc cc cc cc cc cc cc cc
+
+surf S1FA_z2  hexxc    0.0  0.0  7.600
+surf S2FA_z2  hexxc    0.0  0.0  7.845
+surf S3FA_z2  hexxc    0.0  0.0  8.150
+cell C1FA_z2  Uz02   fill  LatFA_z2 -S1FA_z2
+cell C2FA_z2  Uz02   ods             S1FA_z2  -S2FA_z2 
+cell C3FA_z2  Uz02   lead       	  S2FA_z2 
+cell CxFA_z2  Uz02   lead                      S3FA_z2
+
+lat LatFA_z3 3 0.0 0.0 11 11 1.9397
+cc cc cc cc cc cc cc cc cc cc cc
+cc cc cc cc cc Z3 Z3 Z3 Z3 Z3 cc
+cc cc cc cc Z3 Z3 Z3 Z3 Z3 Z3 cc
+cc cc cc Z3 Z3 Z3 Z3 Z3 Z3 Z3 cc
+cc cc Z3 Z3 Z3 Z3 Z3 Z3 Z3 Z3 cc
+cc Z3 Z3 Z3 Z3 Z3 Z3 Z3 Z3 Z3 cc
+cc Z3 Z3 Z3 Z3 Z3 Z3 Z3 Z3 cc cc
+cc Z3 Z3 Z3 Z3 Z3 Z3 Z3 cc cc cc
+cc Z3 Z3 Z3 Z3 Z3 Z3 cc cc cc cc
+cc Z3 Z3 Z3 Z3 Z3 cc cc cc cc cc
+cc cc cc cc cc cc cc cc cc cc cc
+
+surf S1FA_z3  hexxc    0.0  0.0  7.600
+surf S2FA_z3  hexxc    0.0  0.0  7.845
+surf S3FA_z3  hexxc    0.0  0.0  8.150
+cell C1FA_z3  Uz03   fill	LatFA_z3 -S1FA_z3
+cell C2FA_z3  Uz03   ods			  S1FA_z3  -S2FA_z3 
+cell C3FA_z3  Uz03   lead       	  S2FA_z3 
+cell CxFA_z3  Uz03   lead                      S3FA_z3
+
+lat LatFA_z4 3 0.0 0.0 11 11 1.9397
+cc cc cc cc cc cc cc cc cc cc cc
+cc cc cc cc cc Z4 Z4 Z4 Z4 Z4 cc
+cc cc cc cc Z4 Z4 Z4 Z4 Z4 Z4 cc
+cc cc cc Z4 Z4 Z4 Z4 Z4 Z4 Z4 cc
+cc cc Z4 Z4 Z4 Z4 Z4 Z4 Z4 Z4 cc
+cc Z4 Z4 Z4 Z4 Z4 Z4 Z4 Z4 Z4 cc
+cc Z4 Z4 Z4 Z4 Z4 Z4 Z4 Z4 cc cc
+cc Z4 Z4 Z4 Z4 Z4 Z4 Z4 cc cc cc
+cc Z4 Z4 Z4 Z4 Z4 Z4 cc cc cc cc
+cc Z4 Z4 Z4 Z4 Z4 cc cc cc cc cc
+cc cc cc cc cc cc cc cc cc cc cc
+
+surf S1FA_z4  hexxc    0.0  0.0  7.600
+surf S2FA_z4  hexxc    0.0  0.0  7.845
+surf S3FA_z4  hexxc    0.0  0.0  8.150
+cell C1FA_z4  Uz04   fill  LatFA_z4 -S1FA_z4
+cell C2FA_z4  Uz04   ods             S1FA_z4  -S2FA_z4 
+cell C3FA_z4  Uz04   lead       	  S2FA_z4 
+cell CxFA_z4  Uz04   lead                      S3FA_z4
+
+lat LatFA_z5 3 0.0 0.0 11 11 1.9397
+cc cc cc cc cc cc cc cc cc cc cc
+cc cc cc cc cc Z5 Z5 Z5 Z5 Z5 cc
+cc cc cc cc Z5 Z5 Z5 Z5 Z5 Z5 cc
+cc cc cc Z5 Z5 Z5 Z5 Z5 Z5 Z5 cc
+cc cc Z5 Z5 Z5 Z5 Z5 Z5 Z5 Z5 cc
+cc Z5 Z5 Z5 Z5 Z5 Z5 Z5 Z5 Z5 cc
+cc Z5 Z5 Z5 Z5 Z5 Z5 Z5 Z5 cc cc
+cc Z5 Z5 Z5 Z5 Z5 Z5 Z5 cc cc cc
+cc Z5 Z5 Z5 Z5 Z5 Z5 cc cc cc cc
+cc Z5 Z5 Z5 Z5 Z5 cc cc cc cc cc
+cc cc cc cc cc cc cc cc cc cc cc
+
+surf S1FA_z5  hexxc    0.0  0.0  7.600
+surf S2FA_z5  hexxc    0.0  0.0  7.845
+surf S3FA_z5  hexxc    0.0  0.0  8.150
+cell C1FA_z5  Uz05   fill  LatFA_z5 -S1FA_z5
+cell C2FA_z5  Uz05   ods             S1FA_z5  -S2FA_z5 
+cell C3FA_z5  Uz05   lead       	  S2FA_z5 
+cell CxFA_z5  Uz05   lead                      S3FA_z5
+
+lat LatFA_z6 3 0.0 0.0 11 11 1.9397
+cc cc cc cc cc cc cc cc cc cc cc
+cc cc cc cc cc Z6 Z6 Z6 Z6 Z6 cc
+cc cc cc cc Z6 Z6 Z6 Z6 Z6 Z6 cc
+cc cc cc Z6 Z6 Z6 Z6 Z6 Z6 Z6 cc
+cc cc Z6 Z6 Z6 Z6 Z6 Z6 Z6 Z6 cc
+cc Z6 Z6 Z6 Z6 Z6 Z6 Z6 Z6 Z6 cc
+cc Z6 Z6 Z6 Z6 Z6 Z6 Z6 Z6 cc cc
+cc Z6 Z6 Z6 Z6 Z6 Z6 Z6 cc cc cc
+cc Z6 Z6 Z6 Z6 Z6 Z6 cc cc cc cc
+cc Z6 Z6 Z6 Z6 Z6 cc cc cc cc cc
+cc cc cc cc cc cc cc cc cc cc cc
+
+surf S1FA_z6  hexxc    0.0  0.0  7.600
+surf S2FA_z6  hexxc    0.0  0.0  7.845
+surf S3FA_z6  hexxc    0.0  0.0  8.150
+cell C1FA_z6  Uz06   fill  LatFA_z6 -S1FA_z6
+cell C2FA_z6  Uz06   ods             S1FA_z6  -S2FA_z6 
+cell C3FA_z6  Uz06   lead       	  S2FA_z6 
+cell CxFA_z6  Uz06   lead                      S3FA_z6
+
+lat LatFA_z7 3 0.0 0.0 11 11 1.9397
+cc cc cc cc cc cc cc cc cc cc cc
+cc cc cc cc cc Z7 Z7 Z7 Z7 Z7 cc
+cc cc cc cc Z7 Z7 Z7 Z7 Z7 Z7 cc
+cc cc cc Z7 Z7 Z7 Z7 Z7 Z7 Z7 cc
+cc cc Z7 Z7 Z7 Z7 Z7 Z7 Z7 Z7 cc
+cc Z7 Z7 Z7 Z7 Z7 Z7 Z7 Z7 Z7 cc
+cc Z7 Z7 Z7 Z7 Z7 Z7 Z7 Z7 cc cc
+cc Z7 Z7 Z7 Z7 Z7 Z7 Z7 cc cc cc
+cc Z7 Z7 Z7 Z7 Z7 Z7 cc cc cc cc
+cc Z7 Z7 Z7 Z7 Z7 cc cc cc cc cc
+cc cc cc cc cc cc cc cc cc cc cc
+
+surf S1FA_z7  hexxc    0.0  0.0  7.600
+surf S2FA_z7  hexxc    0.0  0.0  7.845
+surf S3FA_z7  hexxc    0.0  0.0  8.150
+cell C1FA_z7  Uz07   fill  LatFA_z7 -S1FA_z7
+cell C2FA_z7  Uz07   ods             S1FA_z7  -S2FA_z7 
+cell C3FA_z7  Uz07   lead       	  S2FA_z7 
+cell CxFA_z7  Uz07   lead                      S3FA_z7
+
+lat LatFA_z8 3 0.0 0.0 11 11 1.9397
+cc cc cc cc cc cc cc cc cc cc cc
+cc cc cc cc cc Z8 Z8 Z8 Z8 Z8 cc
+cc cc cc cc Z8 Z8 Z8 Z8 Z8 Z8 cc
+cc cc cc Z8 Z8 Z8 Z8 Z8 Z8 Z8 cc
+cc cc Z8 Z8 Z8 Z8 Z8 Z8 Z8 Z8 cc
+cc Z8 Z8 Z8 Z8 Z8 Z8 Z8 Z8 Z8 cc
+cc Z8 Z8 Z8 Z8 Z8 Z8 Z8 Z8 cc cc
+cc Z8 Z8 Z8 Z8 Z8 Z8 Z8 cc cc cc
+cc Z8 Z8 Z8 Z8 Z8 Z8 cc cc cc cc
+cc Z8 Z8 Z8 Z8 Z8 cc cc cc cc cc
+cc cc cc cc cc cc cc cc cc cc cc
+
+surf S1FA_z8  hexxc    0.0  0.0  7.600
+surf S2FA_z8  hexxc    0.0  0.0  7.845
+surf S3FA_z8  hexxc    0.0  0.0  8.150
+cell C1FA_z8  Uz08   fill  LatFA_z8 -S1FA_z8
+cell C2FA_z8  Uz08   ods             S1FA_z8  -S2FA_z8 
+cell C3FA_z8  Uz08   lead       	  S2FA_z8 
+cell CxFA_z8  Uz08   lead                      S3FA_z8
+
+lat LatFA_z9 3 0.0 0.0 11 11 1.9397
+cc cc cc cc cc cc cc cc cc cc cc
+cc cc cc cc cc Z9 Z9 Z9 Z9 Z9 cc
+cc cc cc cc Z9 Z9 Z9 Z9 Z9 Z9 cc
+cc cc cc Z9 Z9 Z9 Z9 Z9 Z9 Z9 cc
+cc cc Z9 Z9 Z9 Z9 Z9 Z9 Z9 Z9 cc
+cc Z9 Z9 Z9 Z9 Z9 Z9 Z9 Z9 Z9 cc
+cc Z9 Z9 Z9 Z9 Z9 Z9 Z9 Z9 cc cc
+cc Z9 Z9 Z9 Z9 Z9 Z9 Z9 cc cc cc
+cc Z9 Z9 Z9 Z9 Z9 Z9 cc cc cc cc
+cc Z9 Z9 Z9 Z9 Z9 cc cc cc cc cc
+cc cc cc cc cc cc cc cc cc cc cc
+
+surf S1FA_z9  hexxc    0.0  0.0  7.600
+surf S2FA_z9  hexxc    0.0  0.0  7.845
+surf S3FA_z9  hexxc    0.0  0.0  8.150
+cell C1FA_z9  Uz09   fill  LatFA_z9 -S1FA_z9
+cell C2FA_z9  Uz09   ods             S1FA_z9  -S2FA_z9 
+cell C3FA_z9  Uz09   lead       	  S2FA_z9 
+cell CxFA_z9  Uz09   lead                      S3FA_z9
+
+lat LatFA_z10 3 0.0 0.0 11 11 1.9397
+cc cc cc cc cc cc cc cc cc cc cc
+cc cc cc cc cc Z10 Z10 Z10 Z10 Z10 cc
+cc cc cc cc Z10 Z10 Z10 Z10 Z10 Z10 cc
+cc cc cc Z10 Z10 Z10 Z10 Z10 Z10 Z10 cc
+cc cc Z10 Z10 Z10 Z10 Z10 Z10 Z10 Z10 cc
+cc Z10 Z10 Z10 Z10 Z10 Z10 Z10 Z10 Z10 cc
+cc Z10 Z10 Z10 Z10 Z10 Z10 Z10 Z10 cc cc
+cc Z10 Z10 Z10 Z10 Z10 Z10 Z10 cc cc cc
+cc Z10 Z10 Z10 Z10 Z10 Z10 cc cc cc cc
+cc Z10 Z10 Z10 Z10 Z10 cc cc cc cc cc
+cc cc cc cc cc cc cc cc cc cc cc
+
+surf S1FA_z10  hexxc    0.0  0.0  7.600
+surf S2FA_z10  hexxc    0.0  0.0  7.845
+surf S3FA_z10  hexxc    0.0  0.0  8.150
+cell C1FA_z10  Uz10   fill  LatFA_z10 -S1FA_z10
+cell C2FA_z10  Uz10   ods              S1FA_z10  -S2FA_z10 
+cell C3FA_z10  Uz10   lead       	    S2FA_z10 
+cell CxFA_z10  Uz10   lead                        S3FA_z10
+
+lat LatFA_z11 3 0.0 0.0 11 11 1.9397
+cc cc cc cc cc cc cc cc cc cc cc
+cc cc cc cc cc Z11 Z11 Z11 Z11 Z11 cc
+cc cc cc cc Z11 Z11 Z11 Z11 Z11 Z11 cc
+cc cc cc Z11 Z11 Z11 Z11 Z11 Z11 Z11 cc
+cc cc Z11 Z11 Z11 Z11 Z11 Z11 Z11 Z11 cc
+cc Z11 Z11 Z11 Z11 Z11 Z11 Z11 Z11 Z11 cc
+cc Z11 Z11 Z11 Z11 Z11 Z11 Z11 Z11 cc cc
+cc Z11 Z11 Z11 Z11 Z11 Z11 Z11 cc cc cc
+cc Z11 Z11 Z11 Z11 Z11 Z11 cc cc cc cc
+cc Z11 Z11 Z11 Z11 Z11 cc cc cc cc cc
+cc cc cc cc cc cc cc cc cc cc cc
+
+surf S1FA_z11  hexxc    0.0  0.0  7.600
+surf S2FA_z11  hexxc    0.0  0.0  7.845
+surf S3FA_z11  hexxc    0.0  0.0  8.150
+cell C1FA_z11  Uz11   fill  LatFA_z11 -S1FA_z11
+cell C2FA_z11  Uz11   ods              S1FA_z11  -S2FA_z11 
+cell C3FA_z11  Uz11   lead       	    S2FA_z11 
+cell CxFA_z11  Uz11   lead                        S3FA_z11

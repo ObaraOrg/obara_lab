@@ -1,0 +1,141 @@
+
+ ***** Warning: Cell C1CR1 is not used in geometry
+
+
+ ***** Warning: Cell C2CR1 is not used in geometry
+
+
+ ***** Warning: Cell C3CR1 is not used in geometry
+
+
+ ***** Warning: Cell C1CR2 is not used in geometry
+
+
+ ***** Warning: Cell C2CR2 is not used in geometry
+
+
+ ***** Warning: Cell C3CR2 is not used in geometry
+
+
+ ***** Warning: Cell C1SDR is not used in geometry
+
+
+ ***** Warning: Cell C2SDR is not used in geometry
+
+
+ ***** Warning: Cell C3SDR is not used in geometry
+
+
+ ***** Warning: Nest co is not used in geometry, depletion zone
+                indexing used in the "set mvol" card may be off
+
+
+ ***** Warning: Nest cp1 is not used in geometry, depletion zone
+                indexing used in the "set mvol" card may be off
+
+
+ ***** Warning: Nest cp2 is not used in geometry, depletion zone
+                indexing used in the "set mvol" card may be off
+
+
+ ***** Warning: Nest sd is not used in geometry, depletion zone
+                indexing used in the "set mvol" card may be off
+
+
+ ***** Warning: Lattice LatCR1 is not used in geometry
+
+
+ ***** Warning: Lattice LatCR2 is not used in geometry
+
+
+ ***** Warning: Lattice LatSDR is not used in geometry
+
+
+***** Wed Jul 10 16:51:46 2024 (seed = 1720597872490)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 20046.12c has 1 decay modes
+
+
+***** Wed Jul 10 16:51:46 2024 (seed = 1720597872490)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 40096.12c has 1 decay modes
+
+
+***** Wed Jul 10 16:51:46 2024 (seed = 1720597872490)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 48114.12c has 1 decay modes
+
+
+***** Wed Jul 10 16:51:46 2024 (seed = 1720597872490)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 52123.12c has 1 decay modes
+
+
+***** Wed Jul 10 16:51:46 2024 (seed = 1720597872490)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 52130.12c has 1 decay modes
+
+
+***** Wed Jul 10 16:51:46 2024 (seed = 1720597872490)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 54134.12c has 1 decay modes
+
+
+***** Wed Jul 10 16:51:46 2024 (seed = 1720597872490)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 54136.12c has 1 decay modes
+
+
+***** Wed Jul 10 16:51:46 2024 (seed = 1720597872490)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 58142.12c has 1 decay modes
+
+
+***** Wed Jul 10 16:51:46 2024 (seed = 1720597872490)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 64160.12c has 1 decay modes
+
+
+***** Wed Jul 10 16:51:46 2024 (seed = 1720597872490)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 74182.09c has 1 decay modes
+
+
+***** Wed Jul 10 16:51:46 2024 (seed = 1720597872490)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 74183.09c has 1 decay modes
+
+
+***** Wed Jul 10 16:51:46 2024 (seed = 1720597872490)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 74186.09c has 1 decay modes
+
+
+***** Wed Jul 10 16:51:46 2024 (seed = 1720597872490)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 40096.06c has 1 decay modes
+
+
+***** Wed Jul 10 16:51:46 2024 (seed = 1720597872490)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 300700 has 1 decay modes
+
+
+Simulation completed.
+------------------------------------------------------------
+Wed Jul 10 17:19:53 2024  (errors: 0, warnings: 14, notes: 16)
+

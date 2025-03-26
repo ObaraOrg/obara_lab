@@ -1,0 +1,78 @@
+#!/bin/csh
+#$ -cwd				## Work in current directory
+#$ -V 				## Use environment variables
+#$ -N Na1050d   	## Name of the run
+#$ -o job.out		## Print job output to job.out
+#$ -e job.out 		## Print job errors to job.out
+#$ -q all.q
+
+# Dev note: The no of host in NNODEs must be reflected in the host_list file
+
+set NNODEs=2			# Number of Nodes for MPI
+set NCPUs=24			# Number of CPUs for Serpent OMP
+echo Serpent 2 has started: >> calc_time.out
+set RunStart=`date` && set RS=`date -d "$RunStart" +%s`
+#===============================================================================================
+set WKDR = $PWD			# set working dir
+set sINP = wh_lfr		# main serpent input file	
+set noBUsteps = 4		# last burnup step output file (starts from 0)
+set step = 0			# first suffle step
+set stepx = 96 			# last suffle step
+#===============================================================================================
+
+# - Start run and shuffle fuel.inp
+while ( $step <= $stepx ) 
+	@ var = $step
+    set CyStart=`date` && set CS=`date -d "$CyStart" +%s`
+
+# - Include the detector calculation in the last run
+	if ( $step == $stepx ) then
+		echo 'include "input/detectors.inp"' >> ${sINP}
+#		echo 'include "input/study_cases.inp"' >> ${sINP}
+        echo 'include "input/appendix.inp"' >> ${sINP}
+	endif	
+
+# - Run Serpent
+    (cd ${WKDR}; mpirun -hostfile hosts_olds -loadbalance -npernode 1 -n ${NNODEs} \
+	sss2 -omp ${NCPUs} ${sINP} >> sss2.out ) & wait
+
+# - Note the time for the burnup
+	set S2End=`date` && set S2E=`date -d "$S2End" +%s` && set DCy=`expr \( $S2E - $CS \)`
+	printf "S2 run in: %sh:%02dmin:%02ds\n" `expr $DCy / 3600` `expr $DCy / 60 % 60` \
+	`expr $DCy % 60` >> calc_time.out 	
+
+# - Make burnup cycle folder  
+    if (! -e ${sINP}suffleNo${var}) then
+		mkdir ${sINP}suffleNo${var}
+	endif
+
+# - Copy new fuel data and to fuel.inp and shuffle
+	set PyStart=`date` && set PyS=`date -d "$PyStart" +%s`
+	(cd ${WKDR}; cp fuel.inp ${sINP}suffleNo${var} ) & wait
+	(cd ${WKDR}; cp ${sINP}.bumat${noBUsteps} fuel.inp ) & wait
+	(cd ${WKDR}; python Shuffling.py ) & wait
+	
+# - Note the time for the py script
+	set PyEnd=`date` && set PyE=`date -d "$PyEnd" +%s` && set DCy=`expr \( $PyE - $PyS \)`
+	printf "py run in: %sh:%02dmin:%02ds\n" `expr $DCy / 3600` `expr $DCy / 60 % 60` \
+	`expr $DCy % 60` >> calc_time.out 	
+	
+# - Move the rest	
+	(cd ${WKDR}; mv ${sINP}.* ${sINP}suffleNo${var} ) & wait
+	(cd ${WKDR}; mv ${sINP}_* ${sINP}suffleNo${var} ) & wait
+    (cd ${WKDR}; mv sss2.out ${sINP}suffleNo${var} ) & wait
+    
+# - Note the time for each cycle to file
+	set CyEnd=`date` && set CE=`date -d "$CyEnd" +%s` && set DCy=`expr \( $CE - $CS \)`
+	printf "Cycle ${var} (+.py script) in: %sh:%02dmin:%02ds\n" `expr $DCy / 3600` \
+	`expr $DCy / 60 % 60` `expr $DCy % 60` >> calc_time.out 
+	
+	@ step++
+end
+#===============================================================================================
+# - Note the end time of the run
+set set RunEND=`date` && set RE=`date -d "$RunEND" +%s` && set DRun=`expr \( $RE - $RS \)`
+printf "Run done in %sh:%02dmin:%02ds\n" `expr $DRun / 3600 ` `expr $DRun / 60 % 60` \
+`expr $DRun % 60` >> calc_time.out 
+#===============================================================================================
+# NOTE: The script has been made for csh shell, be aware ^-^

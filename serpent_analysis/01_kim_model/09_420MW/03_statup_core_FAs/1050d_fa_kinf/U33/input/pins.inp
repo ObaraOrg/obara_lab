@@ -1,0 +1,74 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% --         Pin definition         -- %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% --- Coolant pin
+pin cc
+	lead
+
+% --- Fuel pins
+pin Z1
+	fuelZ1	 	0.74259
+	bond_so		0.78550
+	ods         0.84850 
+	lead
+	
+pin Z2
+	fuelZ2	 	0.74259
+	bond_so		0.78550
+	ods         0.84850 
+	lead
+
+pin Z3
+	fuelZ3	 	0.74259
+	bond_so		0.78550
+	ods         0.84850 
+	lead
+
+pin Z4
+	fuelZ4	 	0.74259
+	bond_so		0.78550
+	ods         0.84850 
+	lead
+	
+pin Z5
+	fuelZ5	 	0.74259
+	bond_so		0.78550
+	ods         0.84850 
+	lead
+
+pin Z6
+	fuelZ6	 	0.74259
+	bond_so		0.78550
+	ods         0.84850 
+	lead
+	
+pin Z7
+	fuelZ7	 	0.74259
+	bond_so		0.78550
+	ods         0.84850 
+	lead
+	
+pin Z8
+	fuelZ8	 	0.74259
+	bond_so		0.78550
+	ods         0.84850 
+	lead
+
+pin Z9
+	fuelZ9	 	0.74259
+	bond_so		0.78550
+	ods         0.84850 
+	lead
+
+pin Z10
+	fuelZ10	 	0.74259
+	bond_so		0.78550
+	ods         0.84850 
+	lead
+	
+pin Z11
+	fuelZ11	 	0.74259
+	bond_so		0.78550
+	ods         0.84850 
+	lead

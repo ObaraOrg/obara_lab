@@ -1,0 +1,628 @@
+
+ ***** Warning: Group constant generation is not switched on
+
+
+ ***** Warning: Cell C1CR1 is not used in geometry
+
+
+ ***** Warning: Cell C2CR1 is not used in geometry
+
+
+ ***** Warning: Cell C3CR1 is not used in geometry
+
+
+ ***** Warning: Cell C1CR2 is not used in geometry
+
+
+ ***** Warning: Cell C2CR2 is not used in geometry
+
+
+ ***** Warning: Cell C3CR2 is not used in geometry
+
+
+ ***** Warning: Cell C1SDR is not used in geometry
+
+
+ ***** Warning: Cell C2SDR is not used in geometry
+
+
+ ***** Warning: Cell C3SDR is not used in geometry
+
+
+ ***** Warning: Nest co is not used in geometry, depletion zone
+                indexing used in the "set mvol" card may be off
+
+
+ ***** Warning: Nest cp1 is not used in geometry, depletion zone
+                indexing used in the "set mvol" card may be off
+
+
+ ***** Warning: Nest cp2 is not used in geometry, depletion zone
+                indexing used in the "set mvol" card may be off
+
+
+ ***** Warning: Nest sd is not used in geometry, depletion zone
+                indexing used in the "set mvol" card may be off
+
+
+ ***** Warning: Lattice LatCR1 is not used in geometry
+
+
+ ***** Warning: Lattice LatCR2 is not used in geometry
+
+
+ ***** Warning: Lattice LatSDR is not used in geometry
+
+
+***** Fri Sep 13 08:07:48 2024 (seed = 1726182434102, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 20046.12c has 1 decay modes
+
+
+***** Fri Sep 13 08:07:48 2024 (seed = 1726182434102, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 40096.12c has 1 decay modes
+
+
+***** Fri Sep 13 08:07:48 2024 (seed = 1726182434102, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 48114.12c has 1 decay modes
+
+
+***** Fri Sep 13 08:07:48 2024 (seed = 1726182434102, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 52123.12c has 1 decay modes
+
+
+***** Fri Sep 13 08:07:48 2024 (seed = 1726182434102, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 52130.12c has 1 decay modes
+
+
+***** Fri Sep 13 08:07:48 2024 (seed = 1726182434102, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 54134.12c has 1 decay modes
+
+
+***** Fri Sep 13 08:07:48 2024 (seed = 1726182434102, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 54136.12c has 1 decay modes
+
+
+***** Fri Sep 13 08:07:48 2024 (seed = 1726182434102, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 58142.12c has 1 decay modes
+
+
+***** Fri Sep 13 08:07:48 2024 (seed = 1726182434102, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 64160.12c has 1 decay modes
+
+
+***** Fri Sep 13 08:07:48 2024 (seed = 1726182434102, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 74182.09c has 1 decay modes
+
+
+***** Fri Sep 13 08:07:48 2024 (seed = 1726182434102, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 74183.09c has 1 decay modes
+
+
+***** Fri Sep 13 08:07:48 2024 (seed = 1726182434102, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 74186.09c has 1 decay modes
+
+
+***** Fri Sep 13 08:07:48 2024 (seed = 1726182434102, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 40096.06c has 1 decay modes
+
+
+***** Fri Sep 13 08:07:48 2024 (seed = 1726182434102, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 300700 has 1 decay modes
+
+
+***** Fri Sep 13 08:58:17 2024 (seed = 1726182434102, MPI task = 1)
+Warning message from function SamplePrecursorGroup:
+
+Precursor group sampling failed (92238.12c, mt 18, E = 1.118179E+00)
+
+
+ ***** Warning: Cell C1CR1 is not used in geometry
+
+
+ ***** Warning: Cell C2CR1 is not used in geometry
+
+
+ ***** Warning: Cell C3CR1 is not used in geometry
+
+
+ ***** Warning: Cell C1CR2 is not used in geometry
+
+
+ ***** Warning: Cell C2CR2 is not used in geometry
+
+
+ ***** Warning: Cell C3CR2 is not used in geometry
+
+
+ ***** Warning: Cell C1SDR is not used in geometry
+
+
+ ***** Warning: Cell C2SDR is not used in geometry
+
+
+ ***** Warning: Cell C3SDR is not used in geometry
+
+
+ ***** Warning: Nest co is not used in geometry, depletion zone
+                indexing used in the "set mvol" card may be off
+
+
+ ***** Warning: Nest cp1 is not used in geometry, depletion zone
+                indexing used in the "set mvol" card may be off
+
+
+ ***** Warning: Nest cp2 is not used in geometry, depletion zone
+                indexing used in the "set mvol" card may be off
+
+
+ ***** Warning: Nest sd is not used in geometry, depletion zone
+                indexing used in the "set mvol" card may be off
+
+
+ ***** Warning: Lattice LatCR1 is not used in geometry
+
+
+ ***** Warning: Lattice LatCR2 is not used in geometry
+
+
+ ***** Warning: Lattice LatSDR is not used in geometry
+
+
+***** Fri Sep 13 09:44:21 2024 (seed = 1726188227206, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 20046.12c has 1 decay modes
+
+
+***** Fri Sep 13 09:44:21 2024 (seed = 1726188227206, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 40096.12c has 1 decay modes
+
+
+***** Fri Sep 13 09:44:21 2024 (seed = 1726188227206, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 48114.12c has 1 decay modes
+
+
+***** Fri Sep 13 09:44:21 2024 (seed = 1726188227206, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 52123.12c has 1 decay modes
+
+
+***** Fri Sep 13 09:44:21 2024 (seed = 1726188227206, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 52130.12c has 1 decay modes
+
+
+***** Fri Sep 13 09:44:21 2024 (seed = 1726188227206, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 54134.12c has 1 decay modes
+
+
+***** Fri Sep 13 09:44:21 2024 (seed = 1726188227206, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 54136.12c has 1 decay modes
+
+
+***** Fri Sep 13 09:44:21 2024 (seed = 1726188227206, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 58142.12c has 1 decay modes
+
+
+***** Fri Sep 13 09:44:21 2024 (seed = 1726188227206, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 64160.12c has 1 decay modes
+
+
+***** Fri Sep 13 09:44:21 2024 (seed = 1726188227206, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 74182.09c has 1 decay modes
+
+
+***** Fri Sep 13 09:44:21 2024 (seed = 1726188227206, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 74183.09c has 1 decay modes
+
+
+***** Fri Sep 13 09:44:21 2024 (seed = 1726188227206, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 74186.09c has 1 decay modes
+
+
+***** Fri Sep 13 09:44:21 2024 (seed = 1726188227206, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 40096.06c has 1 decay modes
+
+
+***** Fri Sep 13 09:44:21 2024 (seed = 1726188227206, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 300700 has 1 decay modes
+
+
+***** Fri Sep 13 10:44:29 2024 (seed = 1726191835858, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 20046.12c has 1 decay modes
+
+
+***** Fri Sep 13 10:44:29 2024 (seed = 1726191835858, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 40096.12c has 1 decay modes
+
+
+***** Fri Sep 13 10:44:29 2024 (seed = 1726191835858, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 48114.12c has 1 decay modes
+
+
+***** Fri Sep 13 10:44:29 2024 (seed = 1726191835858, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 52123.12c has 1 decay modes
+
+
+***** Fri Sep 13 10:44:29 2024 (seed = 1726191835858, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 52130.12c has 1 decay modes
+
+
+***** Fri Sep 13 10:44:29 2024 (seed = 1726191835858, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 54134.12c has 1 decay modes
+
+
+***** Fri Sep 13 10:44:29 2024 (seed = 1726191835858, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 54136.12c has 1 decay modes
+
+
+***** Fri Sep 13 10:44:29 2024 (seed = 1726191835858, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 58142.12c has 1 decay modes
+
+
+***** Fri Sep 13 10:44:29 2024 (seed = 1726191835858, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 64160.12c has 1 decay modes
+
+
+***** Fri Sep 13 10:44:29 2024 (seed = 1726191835858, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 74182.09c has 1 decay modes
+
+
+***** Fri Sep 13 10:44:29 2024 (seed = 1726191835858, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 74183.09c has 1 decay modes
+
+
+***** Fri Sep 13 10:44:29 2024 (seed = 1726191835858, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 74186.09c has 1 decay modes
+
+
+***** Fri Sep 13 10:44:29 2024 (seed = 1726191835858, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 40096.06c has 1 decay modes
+
+
+***** Fri Sep 13 10:44:29 2024 (seed = 1726191835858, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 300700 has 1 decay modes
+
+
+ ***** Warning: Cell C1CR1 is not used in geometry
+
+
+ ***** Warning: Cell C2CR1 is not used in geometry
+
+
+ ***** Warning: Cell C3CR1 is not used in geometry
+
+
+ ***** Warning: Cell C1CR2 is not used in geometry
+
+
+ ***** Warning: Cell C2CR2 is not used in geometry
+
+
+ ***** Warning: Cell C3CR2 is not used in geometry
+
+
+ ***** Warning: Cell C1SDR is not used in geometry
+
+
+ ***** Warning: Cell C2SDR is not used in geometry
+
+
+ ***** Warning: Cell C3SDR is not used in geometry
+
+
+ ***** Warning: Nest co is not used in geometry, depletion zone
+                indexing used in the "set mvol" card may be off
+
+
+ ***** Warning: Nest cp1 is not used in geometry, depletion zone
+                indexing used in the "set mvol" card may be off
+
+
+ ***** Warning: Nest cp2 is not used in geometry, depletion zone
+                indexing used in the "set mvol" card may be off
+
+
+ ***** Warning: Nest sd is not used in geometry, depletion zone
+                indexing used in the "set mvol" card may be off
+
+
+ ***** Warning: Lattice LatCR1 is not used in geometry
+
+
+ ***** Warning: Lattice LatCR2 is not used in geometry
+
+
+ ***** Warning: Lattice LatSDR is not used in geometry
+
+
+***** Fri Sep 13 11:43:29 2024 (seed = 1726195358925, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 20046.06c has 1 decay modes
+
+
+***** Fri Sep 13 11:43:29 2024 (seed = 1726195358925, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 40096.06c has 1 decay modes
+
+
+***** Fri Sep 13 11:43:29 2024 (seed = 1726195358925, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 48114.06c has 1 decay modes
+
+
+***** Fri Sep 13 11:43:29 2024 (seed = 1726195358925, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 52123.06c has 1 decay modes
+
+
+***** Fri Sep 13 11:43:29 2024 (seed = 1726195358925, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 52130.06c has 1 decay modes
+
+
+***** Fri Sep 13 11:43:29 2024 (seed = 1726195358925, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 54134.06c has 1 decay modes
+
+
+***** Fri Sep 13 11:43:29 2024 (seed = 1726195358925, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 54136.06c has 1 decay modes
+
+
+***** Fri Sep 13 11:43:29 2024 (seed = 1726195358925, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 58142.06c has 1 decay modes
+
+
+***** Fri Sep 13 11:43:29 2024 (seed = 1726195358925, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 64160.06c has 1 decay modes
+
+
+***** Fri Sep 13 11:43:29 2024 (seed = 1726195358925, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 74182.06c has 1 decay modes
+
+
+***** Fri Sep 13 11:43:29 2024 (seed = 1726195358925, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 74183.06c has 1 decay modes
+
+
+***** Fri Sep 13 11:43:29 2024 (seed = 1726195358925, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 74186.06c has 1 decay modes
+
+
+***** Fri Sep 13 11:43:29 2024 (seed = 1726195358925, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 40096.06c has 1 decay modes
+
+
+***** Fri Sep 13 11:43:29 2024 (seed = 1726195358925, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 74182.09c has 1 decay modes
+
+
+***** Fri Sep 13 11:43:29 2024 (seed = 1726195358925, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 74183.09c has 1 decay modes
+
+
+***** Fri Sep 13 11:43:29 2024 (seed = 1726195358925, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 74186.09c has 1 decay modes
+
+
+***** Fri Sep 13 11:43:29 2024 (seed = 1726195358925, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 300700 has 1 decay modes
+
+
+***** Fri Sep 13 12:45:29 2024 (seed = 1726199079633, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 20046.06c has 1 decay modes
+
+
+***** Fri Sep 13 12:45:29 2024 (seed = 1726199079633, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 40096.06c has 1 decay modes
+
+
+***** Fri Sep 13 12:45:29 2024 (seed = 1726199079633, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 48114.06c has 1 decay modes
+
+
+***** Fri Sep 13 12:45:29 2024 (seed = 1726199079633, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 52123.06c has 1 decay modes
+
+
+***** Fri Sep 13 12:45:29 2024 (seed = 1726199079633, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 52130.06c has 1 decay modes
+
+
+***** Fri Sep 13 12:45:29 2024 (seed = 1726199079633, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 54134.06c has 1 decay modes
+
+
+***** Fri Sep 13 12:45:29 2024 (seed = 1726199079633, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 54136.06c has 1 decay modes
+
+
+***** Fri Sep 13 12:45:29 2024 (seed = 1726199079633, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 58142.06c has 1 decay modes
+
+
+***** Fri Sep 13 12:45:29 2024 (seed = 1726199079633, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 64160.06c has 1 decay modes
+
+
+***** Fri Sep 13 12:45:29 2024 (seed = 1726199079633, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 74182.06c has 1 decay modes
+
+
+***** Fri Sep 13 12:45:29 2024 (seed = 1726199079633, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 74183.06c has 1 decay modes
+
+
+***** Fri Sep 13 12:45:29 2024 (seed = 1726199079633, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 74186.06c has 1 decay modes
+
+
+***** Fri Sep 13 12:45:29 2024 (seed = 1726199079633, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 40096.06c has 1 decay modes
+
+
+***** Fri Sep 13 12:45:29 2024 (seed = 1726199079633, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 74182.09c has 1 decay modes
+
+
+***** Fri Sep 13 12:45:29 2024 (seed = 1726199079633, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 74183.09c has 1 decay modes
+
+
+***** Fri Sep 13 12:45:29 2024 (seed = 1726199079633, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 74186.09c has 1 decay modes
+
+
+***** Fri Sep 13 12:45:29 2024 (seed = 1726199079633, MPI task = 0)
+Warning message from function CheckNuclideData:
+
+Stable nuclide 300700 has 1 decay modes
+
+
+Simulation completed.
+------------------------------------------------- MPI task 4
+Fri Sep 13 13:45:09 2024  (errors: 0, warnings: 0, notes: 0)
+
+
+

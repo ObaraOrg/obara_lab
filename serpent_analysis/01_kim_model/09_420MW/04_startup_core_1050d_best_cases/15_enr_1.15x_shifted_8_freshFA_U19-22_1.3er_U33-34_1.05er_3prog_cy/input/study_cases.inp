@@ -1,0 +1,46 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ---     Branches     --- %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ----- Branches -------------------------------------------------------------
+
+% NOTE: Variables are used to pass additional information to output:
+%       LIB - Cross section library used in the calculation
+%       VHI - coolant temperature during burnup calculation
+%       TMO - coolant temperature at branch
+%       TFU - fuel temperature at branch
+%       CR  - insertion of control rods (0 = out, 1 = in)
+
+% --- History variables:
+
+branch HIS_TRACK
+var LIB ENDFB7
+
+% --- Nominal branch - Hot Full Power
+
+branch nom
+
+% --- Nominal branch - Hot Zero Power
+
+branch HZP 
+norm 0
+var PWR 0
+
+% --- Insertion of control rods
+
+branch ARI
+repu uGT1 uCR1
+repu uGT2 uCR2
+repu uGTs uSDR
+var CR 1
+
+
+% --- Parameters included in coefficient output:
+
+set coefpara 0
+ANA_KEFF			%
+IMP_KEFF			%
+BETA_EFF			% Effective delayed neutron fraction
+ADJ_MEULEKAMP_BETA_EFF
+LAMBDA				% Delayed neutron decay constants
+ADJ_MEULEKAMP_LAMBDA
